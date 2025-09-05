@@ -1,5 +1,5 @@
 [project]
-name = "tools"
+name = "cas_data_science"
 version = "1"
 authors = [{name = "Nora-Olivia-Ammann <103038637+Nora-Olivia-Ammann@users.noreply.github.com>"}]
 
@@ -16,7 +16,8 @@ dependencies = [
     "Pillow",
     "scrapy",
     "openpyxl",
-    "xlrd"
+    "xlrd",
+    "pycollada",
 ]
 
 [tool.ruff]
