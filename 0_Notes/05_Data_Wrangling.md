@@ -15,6 +15,13 @@
 - Parquet (16)
   - Column Based
   - Schneller zu durchsuchen
+- Geo Vis (38)
+  - Choropleth
+    - Diskrete Daten oft
+    - Unterteilung nach etwas, oftmals Gemeindegrenzen z.b. Politische graphen
+  - Dasymetric
+    - Kontinuierlicher
+    - Keine unterteilung nach so etwas sondern die daten werden nur zu ihren coordinaten dargestellt
 - 
 
 
