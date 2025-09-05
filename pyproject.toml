@@ -1,0 +1,66 @@
+[project]
+name = "tools"
+version = "1"
+authors = [{name = "Nora-Olivia-Ammann <103038637+Nora-Olivia-Ammann@users.noreply.github.com>"}]
+
+requires-python = ">=3.13"
+dependencies = [
+    "ruff",
+    "mypy",
+    "pandas",
+    "numpy",
+    "matplotlib",
+    "scipy",
+    "icecream",
+]
+
+[tool.ruff]
+line-length = 120
+
+
+[tool.ruff.lint]
+select = [
+    "RUF",      # ruff-specific rules
+    "PL",       # pylint
+    "I",        # isort
+    "E",        # pycodestyle errors
+    "F",        # pyflakes
+    "A",        # flake8-builtins
+    "BLE",      # flake8-blind-except
+    "ARG",      # flake8-unused-arguments
+    "S",        # flake8-bandit plugin which checks for security issues
+    "YTT",      # flake8-2020 plugin, which checks for misuse of `sys.version` or `sys.version_info`
+    "ASYNC",    # flake8-async plugin, which checks for bad async / asyncio practices
+    "ISC",      # flake8-implicit-str-concat plugin, which checks for problematic string concatenation
+    "INP",      # flake8-no-pep420 plugin, which checks for missing __init__.py files
+    "PIE",      # flake8-pie plugin, which does miscellaneous checks
+    "PT",       # flake8-pytest-style plugin
+    "TID",      # flake8-tidy-imports plugin
+    "ICN",      # flake8-import-conventions plugin, which checks for import conventions
+    "ARG",      # flake8-unused-arguments
+    "PGH",      # pygrep-hooks: A collection of fast, cheap, regex based pre-commit hooks
+    "UP031",    # pyupgrade: printf-string-formatting
+    "B023",     # flake8-bugbear: function-uses-loop-variable
+    "FIX",      # flake8-fixme: checks for FIXME, TODO, XXX, etc.
+]
+ignore = [
+    "ISC001",   # flake8-implicit-str-concat: single-line-implicit-string-concatenation  # incompatible with the formatter
+    "S105",     # flake8-bandit: hardcoded password
+    "S106",     # flake8-bandit: hardcoded password
+    "S603",     # flake8-bandit: subprocess-without-shell-equals-true
+]
+
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = [
+    "D103",     # pydocstyle: undocumented-public-function
+    "D102",     # pydocstyle: undocumented-public-method
+    "D101",     # pydocstyle: undocumented-public-class
+    "S101",     # flake8-bandit: use of assert
+    "PLR2004",  # Magic value used in comparison, consider replacing `200` with a constant variable
+    "PT006", "INP001", "PT011", "ARG001"
+]
+
+
+[tool.ruff.lint.isort]
+force-single-line = true
