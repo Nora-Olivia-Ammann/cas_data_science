@@ -12,6 +12,11 @@ dependencies = [
     "matplotlib",
     "scipy",
     "icecream",
+    "pyproj",
+    "Pillow",
+    "scrapy",
+    "openpyxl",
+    "xlrd"
 ]
 
 [tool.ruff]
