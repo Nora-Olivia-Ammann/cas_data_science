@@ -29,7 +29,9 @@ In hohen dimensionen (schon drei) sind distanzen berechnen schwieriger, da die Z
   - Wenn ich 10 mal werfe kann ich 0-10 treffer haben (Zufallsgrösse)
   - Davon kann ich die Wahrscheinlichkeit berechnen
   - Wie gross ist die wahrscheinlichkeit dass du genau x mal triffst?
-  - Die **normiertheit**, alle Wahrscheinlichkeiten summieren sich zu 1 -> TODO: look up
+  - Die **normiertheit**, alle Wahrscheinlichkeiten summieren sich zu 1
+    - Die Wahrscheinlichkeit des gesamten Stichprobenraums (alle möglichen Ergebnisse) ist Eins.
+    - Es ist sicher, dass eines der möglichen Ereignisse eintreten wird.
 - Erwartungswert: mit der heueristischen idee (25)
   - Ich werfe einen Würfel 6'000 mal
   - Ungefähr 1'000 sechser sollte gehen.
@@ -37,7 +39,10 @@ In hohen dimensionen (schon drei) sind distanzen berechnen schwieriger, da die Z
   - Wenn ich die Augenzahl alle aufschreibe, was ist as arithmetisch mittel aller augenzahlen SUM(augenzahl * frequenz) / 6'000
   - Modellwelt: 1/6 ist die Wahrscheinlichkeit eine 1 zu würfeln, etc. -> Erwarungswert
   - Erwartungswert (Modellwelt) -> SUM(wahrscheinlichkeit * wert)/anzahl
-  - Varianz ist TODO: look up
+  - Varianz
+    - Die Varianz einer Zufallsgröße ist die quadratische Abweichung vom Erwartungswert eines Zufallsexperiments.
+    - Das heisst, die Varianz gibt an, wie weit die möglichen Werte im Mittel vom Erwartungswert entfernt sind.
+    - Je weniger die möglichen Ergebnisse Deines Zufallsexperiments dabei vom Erwartungswert abweichen, desto niedriger ist die Varianz. 
 - Binomialverteilung (Zwei) Versuch mit zwei möglichen Ausfällen (26)
   - Zwischen Erfolg und misserfolg kennen wir je nach dem ob ein resultat korrekt sein kann.
   - Wie viel treffe ich, wenn das niveau bekannt ist (wahrscheinlichkeit), können wir spühren ob ein resultat sein kann
@@ -66,7 +71,8 @@ In hohen dimensionen (schon drei) sind distanzen berechnen schwieriger, da die Z
   - 3 Würfel -> Glockenform
 - Wenn wir zufahlszahlen addieren, erhalten wir etwas dass aussieht wie eine Glauss'sche Glockenkurve
 - Ist auch nur eine Approximation der realtät weil es ist möglich auch negativ werte zu haben, auch wenn es in der realität nicht möglich ist.
-- Sigma -> Wendepunkt (zweite Ableitung 0) TODO: look up
+- Sigma -> Wendepunkt (zweite Ableitung 0)
+- Die Varianz σ² hingegen verändert die Form deiner Glockenkurve, sie wird also entweder gestreckt oder gestaucht. Je größer dein Sigma, desto gestauchter wird die Funktion: Die Gaussche Normalverteilung wird also breiter.
 - Distanz zwischen den zwei Wendepunkten ist die Standardabweichung
 - Flächeninhalt unter der Kurve ist 1 -> muss daher noch normiert werden
 - Es gibt keine Integralrechung für die Kurve, sie kann nicht genau berechnet werden sondern nur approximiert
