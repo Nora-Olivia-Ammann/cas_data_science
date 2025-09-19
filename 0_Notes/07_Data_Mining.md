@@ -13,4 +13,25 @@
     - gibt dem Business zurück, visualisieren, etc. was ist passiert.
     - Kann sein dass es follow up gibt von dem Business Fachpersonen, und der Prozess beginnt von neuem
   -  Deployment -> wenn das Modell gut ist und es keine weiteren Fragen mehr gibt
+-  16:
+   -  Wenn zwei Vektoren aneinander gelegt werden, kann herausgefunden werden wie gross der Winkel dazwischen ist.
+   -  Wenn zwei Vektoren in die gleiche Richtung zeigen -> 1, entgegengesetzt -> 1, rechtwiklig -> 0
+-  19: Clustering
+   -  Aufteilen in Gruppen die in irgendeiner Form ähnlich sind.
+- 21:
+  - Y unterschiedliche Datensätzte , das farbige ist was der algorythmus als ähnlich bezeichnen würde.
+-  22: K-means algorithm
+   -  **K** -> anzahl der punkte nach denen geclustert wird, wird irgendwie fest gelegt werden. Kann fix sein, eg.
+      Kleidergrössen.
+   -  Startpunkt komplett zufällig, der punkt bei dem alle punkte die dem ähnlich sind werden zugeordnet
+   -  Dann werden mehrere Punkte hinzugefügt.
+   -  Dann ortet man die punkte nach abstand, nimmt einen neuen zentroid beim mittelpunkt, und fügt neue punkte hinzu
+   -  Es kann sein, dass die Punkte die Farbe wechseln, weil sie einem neuen Zentroid hinzugeordnet werden
+   -  optimiert sich über die zeit, irgendwann bewegen die zentroiden sich nicht mehr. Dann kann gestoppt werden
+   -  konvergiert nicht jedesmal zur selben lösung, hängt von der start position ab. Daher wird es meistens mehrmals laufen gelassen
+-  24
+   -  Idealerweise will man ein möglichst kleines K haben.
+   -  Wie der quadrierte Abstand sich zu den Zentroiden verhält
+   -  Je mehr cluster wir starten (k) desto kleiner ist die summer der quadratischen Distanzen
+   -  Hier wenn wir bei K=3 nimmt der abstand nicht gross ab, also ist das ein erstes optimum.
 -  
