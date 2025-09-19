@@ -34,4 +34,12 @@
    -  Wie der quadrierte Abstand sich zu den Zentroiden verhält
    -  Je mehr cluster wir starten (k) desto kleiner ist die summer der quadratischen Distanzen
    -  Hier wenn wir bei K=3 nimmt der abstand nicht gross ab, also ist das ein erstes optimum.
--  
+- 26: DBSCAN
+  - epsilon -> distanz zwischen zwei samples, max distanz um reachable zu sein
+  - anzahl minimal points, wie viele punkte gegeben sein müssen um ein punkt als kern punkt zu zeichnen
+  - Border points: erreichbar von den core points, aber selbst haben sie nicht genügend nachbarn um ein core point sein können.
+  - Noise points: sind zu weit weg von irgendeinem punkt um reachable zu sein.
+  - Als erstes schauen wir nur wo core points sein könnten. Wenn im epsilon radius keine eg. 4 punkte drinn sind, ist es kein core point.
+  - Expansion, startet mit einem punkt und markiert alle punkte die innerhalb vom epsilon sind
+  - Stärke ist, dass automatisch implizit über die definition von epsilon und min points outliers identifiziert werden können
+  - 
