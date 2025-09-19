@@ -40,6 +40,9 @@
   - Border points: erreichbar von den core points, aber selbst haben sie nicht genügend nachbarn um ein core point sein können.
   - Noise points: sind zu weit weg von irgendeinem punkt um reachable zu sein.
   - Als erstes schauen wir nur wo core points sein könnten. Wenn im epsilon radius keine eg. 4 punkte drinn sind, ist es kein core point.
+  - Border points sind auch innerhalb einer cluster
   - Expansion, startet mit einem punkt und markiert alle punkte die innerhalb vom epsilon sind
   - Stärke ist, dass automatisch implizit über die definition von epsilon und min points outliers identifiziert werden können
+  - Ziel: möchte eine einordnung machen um daten zusammen zufassen. Wie weit muss der Datensatz reduziert werden?
+  - Werte Wahl sind abhängig von dichte von datensatz. Bei dichtem datensatz kann ein kleines epsilon gewählt werden.
   - 
