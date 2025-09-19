@@ -85,4 +85,40 @@
   - geht darum dass man versucht neue kontakte vorzuschlagen
   - Wer könnte interessant sein
   - eg. eine Gruppe hat viele links untereinander, es kommt eine neue person dazu, tritt vielleicht in die Gruppe ein?
-- 
+  - Citation links: eine publikation wird von einer anderen zitiert... welche publikationen sind da spannend?
+- 37: Data Reduction
+  - Wird oft versucht daten zu reduzieren. Also ein sub-sample nehmen
+  - Representation Learning -> Sucht ein sub-sample dass das original möglichst gut räpresentiert
+  - Data Reduction kann entweder die Anzahl daten reduzieren oder einfach daten punkte (spalten) wegwerfen
+- 38: Dimensionality Reduction
+  - grosse anzahl von dimensionen (multi-dimensiale vektoren) herunterbrechen auf weniger dimensionen, optimal 2-3 weil wir das gut darstellen und verstehen können
+  - Bild: Projektion, etwas dass in 3-D existiert und wird in einem schatten an die want, 3. Dimension verloren
+  - Welche Dimension kann ich weg-lassen sodass die Daten nachher immernoch ausagekräftig ist
+  - Vorteil: Zusammenhänge die nicht sichtbar waren, weile es zu kompliziert war, jetzt sichbar sind.
+- 40: Welche Dimension hat die meiste Varianz, suche die rechtwinklige dazu die die meiste Varianz hat. Dann weiss man welches die Hauptachsen sind. Dann wird der Datensatz so gedreht dass wir rechtwinklich auf diese Ebene schauen
+  - es erhält die distanzen aller punkte zu einander
+  - x, y, z sind immer neue angaben, ausser der datensatz war schon von anfang an 2-Dimensional
+  - Die meiste Varianz ist in den 1-5 Dimensionen schon erhalten, und man kann die weiteren Dimensionen ignorieren
+- 41: 
+  - nicht linearer ansatz der mächtig ist, aber sehr kompliziert ist
+  - Zei Schritte
+  - 1. Hoch dimensionalen raum (eg. 3)
+    - Eine verknüpfung zwischen einem datenpunkt und dem nachbarn
+    - Die stärke von der verknüpfung hängt von der distanz ab
+  - 2. Wir schauen immer zwei an. Entweder die dicht zusammen sind oder weit auseinander und passe es der anspannung an.
+    - Wenn die punkte dicht aneinander waren, wollen sie nachher auch dicht bei einander sein
+    - optimiert das iterativ
+  - 42: je mehr nachbarn gewählt werden desto näher sind sie bei einander
+    - extrem rechenintensiv
+    - n_neighbors sorgt dafür, je grösser das wird desto mehr wird auf die nachbarschaft geschaut. Mehr von der struktur rund herum wird erhalten. Je kleiner desto mehr wird jeder Punkt mit sich selbst vergleicht
+    - Min_distance -> wie dicht nach der projektion die punkte zusammen rutschen lässt. Mit wieviel abstand von einander die gummi bänder schon entspannt sind. Min dist 0, die gummi bänder sind nur entspannt wenn die punkte aufeinander liegen. Höher, die punkte müssen nicht aufeinander liegen bis die gummi bänder entspannt sind.
+    - Ist verlust behaftet, das heisst es kann sein, dass gewisse information wirklich nicht räpresentiert ist.
+  - Random Seed: zufallszahlen generieren können computer eigentlich nicht generieren. Computer rechnen pseudo zufallszahlen. Ist ein mathematischer algorithmus der Zahlen rausgibt die so nah wie möglich an einem wirklichen zufall ist. Wenn immer mit derselben zahl startet kommt dasselbe raus. Das heisst es kann nicht immer mit der selben zahl zu starten. Oft gestartet mit uhrzeit. Start-Zahl ist "seed" wenn random seed steht, dann sind es jedes mal andere ergebnisse. Wenn der seed gesetzt wird, dann kommen immer dieselben zahlen raus.
+- Umap -> Exercises
+  - Dimensionen die UMAP benutzt hat um die projektionen zu machen
+  - Was bedeuten die nummern auf der x und y achse? Nichts direktes, ist ein mass dafür, wie die punkte noch zusammen sind nachdem die berechnung ist. Es kann nichts wirklich damit zu verrechnen.
+  - Die Farben sind nach der projektion ziemlich getrennt und konsistent. Spricht die zusammenhänge sind erhalten.
+  - Z.b. es gibt zwei flecken die 2 Parkplätze haben, aber es sind immernoch zusammen
+  - die dinge liegen nicht direkt nebeneinander auch wenn sie in einer spezifischen dimension identisch sind, weil die anderen parameter auf miteinbezogen werden.
+  - Dann kann man sich einen cluster anschauen und ansehen wie sie zusammenhängen.
+  - BuildingArea innerhalb einem cluster ist es plötzlich divers, YearBuilt auch nicht mehr homogen.
