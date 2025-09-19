@@ -45,4 +45,44 @@
   - Stärke ist, dass automatisch implizit über die definition von epsilon und min points outliers identifiziert werden können
   - Ziel: möchte eine einordnung machen um daten zusammen zufassen. Wie weit muss der Datensatz reduziert werden?
   - Werte Wahl sind abhängig von dichte von datensatz. Bei dichtem datensatz kann ein kleines epsilon gewählt werden.
-  - 
+  - Algorithmus ist deterministisch, das heist egal wie oft es läuft wenn die reihenfolge konsistent ist, werden die randpunkte immer den gleichen cluster zugeordnet. Wenn die Reihenfolge randomisiert wird, dann werden vielleicht die randpunkte anderen cluster zugeordnet. Daher wenn mann diese sachen robust machen will muss es mehrmals randomised ausgeführt werden.
+- 28: Co-Occurrence Grouping (market-basekt)
+  - z.b. Wie hoch sind die chancen dass sachen zusammen gekauft werden? (Velo, hohe chance, dass ein velohelm dabei ist)
+  - Basierend darauf kann eine similarity gebaut werden.
+- 29: Classification
+  - Zuordnung von items
+  - wir schauen Nearest Neighbour Methode
+- 31: k-Nearest Neighbour (kNN)
+  - Wieviele Nachbarn schaue ich an um meinen punkt zuzuordnen
+  - Welches ist die dominierende klasse in meiner nachbarschaft
+  - anhand von "k" kann ich sagen zu welcher klasse es gehört und kann ihn entsprechend zuordnen
+  - Clustering, unsupervised nach klassen suchen, weiss nicht welches, wieviele etc.
+  - kNN, ich kenne die klassen und will die Datenpunkte denen zuordnen.
+  - Man muss daten haben bei denen man die klasse weiss (ground truth)
+  - Mit diesem bekannten Datensatz wird gearbeitet
+  - Hier der Punkt am fragezeichen wird rot zugeordnet weil die meisten darum sind rot. Ob das ergebniss stimmt wissen wir nicht
+  - DataSet split:
+    - wir ein daten set brauchen um ein modell zu trainieren, dann können wir nachher nicht kontrollieren wie gut das Modell ist, weil alle verfügbare daten gebraucht wurden um das modell zu trainieren.
+    - Daher das datenset splitten, sodass wir überprüfen wie gut das modell ist
+    - Wenn wir 100% accuracy haben, dann ist das modell overfittet und es hat den trainingsdaten satz auswendig gelernt
+    - Das kann nicht nur bei kNN passieren sondern auch bei anderen. Daher müssen die Daten aufgeteilt werden.
+    - Duplikate entfernen ist wichtig weil sonst over fitting. In der Realität sind duplikate nicht echte, also ausversehen doppelt eingegeben und nicht echte duplikate die zwei separate events beschreiben.
+    - Die Typische aufteilung ist ungf. 
+    - 70% -> Training: Daten zum trainieren
+    - 20% -> Validation Data: Welche von meinen hyper parameter sind gut?  -> Optimierung von Hyper parameter. Ist mit diesem Set optimiert also ist auch im modell miteinbezogen. Hyperparameter ist kein wert der in den daten steckt sondern zum beispiel der "k" wert, der verändert werden kann. Dieser wird verändert bis das Modell am besten läuft.
+    - 10% -> Test Set: wenn wir z.b. drei modelle gegeneinander test dann brauchen wir das set, weil das war noch komplett unberührt und kein modell weiss etwas davon. Anhand der resultat kann gesagt werden welches modell am besten war. Aber das resultat wird nicht verwendet um weiter an den modellen zu arbeiten.
+- 33: Association analysis
+  - Aus zwei faktoren folgt ein drittes
+  - eg. Patienten die astma haben und hochen blutdruck haben ein erhöhtes x
+  - Ein faktor alleine ist nicht aussage kräftig aber die kombination ist aussage kräftig
+- 34: Regression
+  - prediction
+- 35: Profiling
+  - Typisches Nutzerverhalten
+  - In Gruppen unterteilen, kann vorher klassifizierung machen
+- 36: Link Prediction
+  - Bereich Social Network interessant
+  - geht darum dass man versucht neue kontakte vorzuschlagen
+  - Wer könnte interessant sein
+  - eg. eine Gruppe hat viele links untereinander, es kommt eine neue person dazu, tritt vielleicht in die Gruppe ein?
+- 
