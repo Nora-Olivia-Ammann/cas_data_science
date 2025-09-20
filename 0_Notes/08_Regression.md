@@ -1,2 +1,28 @@
 # Regression
 
+- Wir können fast alles mit regressions rechnung machen
+- Realität -> lateinische Buchstaben, modell welt ist griechisch
+- 3: Simple Linear Regression Model: 1 input variabel und 1 output variable -> gerade linie
+- 5: Realität
+  - Extrem fälle sind selten
+  - Daten gehen trichterförmig auseinander
+  - Je mehr aufzufüllen desto grösser die streuung
+  - Wenn wir eine gerade einfügen, menschen können gut abschätzen
+  - Geht es durch 0? Was bedeutet es wenn es durch 0 geht oder nicht?
+- 6: Modell Welt
+  - beta steigung
+  - Epsilon ist der fehler
+  - Input x, y output
+  - epsilon (fehler), gerade wird nicht exakt durch die punkte durchgehen, daher fehler hinzu (10 flaschen unterschiedliche zeit)
+  - epsilon streuut um 0, wir wissen nicht wie viel es streuut (varianz)
+  - Relative fehler (trichterförmige verteilung)
+  - annahme fehler sind konstant
+- 7: Es gibt verschiedene Modell Welte
+  - Mechanistische Modelle: Physik, etc. fast alles lässt sich aus sachen ableiten (action reaktion, etc). Relativ stabil
+  - Empirisch: Alkhohol und Krebsrisiko, gibt keine pyhsik formel die das erklärt. Sondern daten die den zusammenhang suggerieren. Relativ instabil. Wir suchen nach modellen.
+- 8: Wir wollen eine vorhersage machen
+  - Vorhersagen müssen mit dem vertrauensinterval versehen
+  - In mechanische modelle gibt es oft variabeln die oft eine physikalische bedeutung haben. (strom, etc.)
+  - 
+- 
+
