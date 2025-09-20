@@ -256,4 +256,49 @@
   - sobald wenn wir in hochdimensinale räume gehen ist es ein problem
   - Wir haben kein gefühl für mehrdimensionale räume. Exponentielles Wachstum spüren wir nicht.
   - bei Ausreisser in mehrdimensionalen räumen nimmt der einfluss weder ein noch ab
-- 
+- Modelle sind selten verallgemeinerbar, wir sind overfittet und kleben zu stark an den messungen und sind von den ausreisser beeinflusst
+- 82:
+  - breakdown point -> eine fehlermessung und das arithmetische messung ist wertlos
+  - Beim median kann die hälfte der messung kaputt sein, bis er wertlos ist.
+- 83:
+  - also wir müssen schauen was der median macht
+  - wir nehmen die residuen (die fähnchen) im quadrat
+  - wir haben eine loss function (kosten funktion) und nehmen das minimum
+- 84:
+  - Huber hat eine funktion gemacht, im zentrm behalten wir das gute aber in den extrem werten nehmen wir sie quadratisch
+- 85:
+  - 1. Graphik
+    - Geraden mit diesem Ausreisser
+    - Schwarze linie ist the least square, der ausreisser zieht sie an
+    - rote ist ohne den ausreisser
+    - das blau gestrichelte sieht aus wie das rote, also sieht wie einen guten fit
+  - Was mach ich mit den ausreisser ist relevant. Auch wenn sie nicht in den fit rein kommen heisst es nicht was wir sie die Messung vergessen.
+  - P2. dasselbe wie oben
+- Wir haben eigentlich für alles robuste rechnungen
+- 86:
+  - Variable Selection Modelling
+  - oftmals haben wir hunderte input variabeln, wir haben sehr viele missing values.
+  - Was machen wir damit? Imputation (leere werte füllen)
+  - Die frage ist, welche von den vielen Input variabeln haben einen signifikanten einfluss auf das outcome.
+  - Was hat einen einfluss auf den hauspreis?
+  - Wir könnten alles rein werfen und bauen teilmodelle. Nimm eine variabel raus und schaue ob es immernoch ein gutes model ist. Wir können auch mehrere raus nehmen.
+  - Wir gehen durch die modelle durch und brauchen ein mass um zu wissen was ein gutes model ist.
+- 87:
+  - Wir können auch alle variabeln noch logarithmieren, zum beispiel. Oder kombinieren. Dann kommen wir von 100 ten variabeln in 1000ende. Also die lösung, teste mir alles raus, geht nicht.
+- 89: sehr kleiner datensatz
+- 90: output gegen 1 variabel pro quadrat
+- wenn wir variabeln haben die hoch korreliert sind, kann man vielleicht nur eine nehmen oder den durchschnitt, etc.
+- 91:
+  - wir sehen, bei der `p>|t|` dass viele variabeln nicht signifikant sind.
+  - Jetzt messe ich irgendwie, wie gut das model passt.
+  - R quadrat nimmt zu je mehr beobachtungen habe. Wenn ich gleich viele werte habe wie variabeln ist das r quadrat wahrscheinlich 1
+- 94:
+  - Wir können modelle automatisch suchen lassen indem wir es suchen lassen.
+  - Am schluss müssen wir das modell wieder anschauen und fragen ob es möglich ist
+  - Wir können auch wieder eine residual analyse machen des modells
+- 97:
+  - domain knowledge + statistik ist notwendig für modellierung
+  - optimale modelle müssen physikalisch nicht mehr sinn machen, es kann sein, dass sie plötzlich ein falsches vorzeichen hat
+  - Es kann sein, dass am schluss eure lieblingsvariabel gar nicht mehr drinn ist
+- faktor variablen -> wohnung in seewen ist billiger als in zürich -> ist aber keine zahl. Kann gemacht werden
+- **99** -> was machen um zu planen
