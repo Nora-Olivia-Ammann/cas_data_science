@@ -122,3 +122,17 @@
   - die dinge liegen nicht direkt nebeneinander auch wenn sie in einer spezifischen dimension identisch sind, weil die anderen parameter auf miteinbezogen werden.
   - Dann kann man sich einen cluster anschauen und ansehen wie sie zusammenhängen.
   - BuildingArea innerhalb einem cluster ist es plötzlich divers, YearBuilt auch nicht mehr homogen.
+  - Man sieht dass es fast keine brüche hat in den daten hat sondern es immer ein fächer ist, mit einem gradient
+  - Typ ist information die wir nicht hineingegeben haben. Spannend ist, dass es aus den anderen variabeln zusammenhänge habt die mit dem gebäude typ zusammenhängen, weil es hat farb gradiente es hat eine gewisse trennung
+  - Die grauen sind ziemlich ähnlich wie die häuser, weil die dimensionen die gewählt wurden zwischen townhouse und haus ähnlich sind.
+  - Subburb, ist konfetti. Also die dimensionen sind nicht aussage kräftig. Die ähnlichkeit ist weniger da.
+
+# Prüfungsfrage
+
+Warum wird ein Train-Validation-Test-Split bevorzugt gegenüber einer einzigen Datensammlung für Training und Test?
+    A. Weil es die Modellkomplexität verringert
+    B. Weil es sicherstellt, dass das Modell mit einer höheren Lerngeschwindigkeit trainiert
+    C. Weil es die Verfügbarkeit von separaten Daten für Training, Optimierung und abschließende Bewertung ermöglicht
+    D. Weil es verhindert, dass das Modell während des Trainings Fehler macht
+
+
