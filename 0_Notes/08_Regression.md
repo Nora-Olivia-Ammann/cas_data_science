@@ -123,5 +123,8 @@
   - 4. Annahme dass die fehler keinen zusammenhang haben
   - 5. Die Fehler sind normalverteilt.
   - Es geht darum kann es noch besser gehen? Gibt ein anderes Model das besser ist?
+- 34: Wir wollen explorative daten analyse machen. Wir wollen das Modell verbessern.
+  - Das ganze geht rein graphisch, wir schauen bilder an, nicht mathematisch.
+  - Das problem ist, wenn zwei personen bilder anschauen gibt es nicht daselbe resultat. Es ist abhängig von intuition und erfahrung. Es braucht auch domäne expertise. Eine verbindung zwischen den daten und der analyse. Wir müssen wissen in welchem gebiet wir darin sind.
 - 
 
