@@ -184,5 +184,9 @@
   - Ausreissen sind beliebig schwierig zu identifizieren
 - Mittelwert hat ein bruchpunkt von einem Datenpunkt (einer kann es zerstören). Regressionsrechnungen sind voll mit mittelwerten, daher extrem anfällig auf ausreisser. Auch neuronale netzwerke. Also die Daten müssen unbeding vorher angeschaut werden.
 - 55: Ausreisser seht man nicht an den linien. Sondern am scatterplot. Hier ist 37 heikel. nachschauen was passiert ist
+- Die 19 simulationen können mit keinem package gemacht werden das er kennt. R hat packages die das machen.
+- 58: annahme die fehler sind zufällig. Das ist schwierig nachzuvollziehen. Datum immer aufnehmen um zu wissen ob es eine zeitliche abhängigkeit hat.
+- 59: 1. schwingung über zeit, 3. zu stark mit der zeit korreliert. es sollte ungefähr aussehen wie in der mitt
+  - unten 3. Wir messen das residium von heute gegen morgen. -> wenn das residium heute gross ist dann ist es morgen auch gross. 1. Wenn es heute gross ist ist es morgen klein. In der mitt sehen wir nur noise
 - 
 
