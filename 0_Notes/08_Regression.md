@@ -167,6 +167,22 @@
 - 47: scale location, nur der betrag des residium wird aufgezeigt. Ein guter ist, wenn es gerade ist. Die varianz ist nicht gerade -> also ist es klar. Hier ist die sitatuion ziemlich krass und und wir wissen dass die modell annahme ist verletzt, die tabelle mit den p werte können weggeworfen werden.
 - 49: fehler sind normalverteilt -> q-q plot
   - wieder 19 normal q-q plots. Die frage ist mein datensatz da drin. In diesem fall ja.
+  - ist es normalverteilt?
 - Wir müssen etwas mit etwas anderem verteilen. Wir müssen immer wissen wie viel es streuut.
+- 51: wir haben noch mehr, wenn die plots nicht gut sind müssen wir herausfinden wieso es nicht gut ist.
+  - Die daten haben wir, die können wir nicht verändern. Wir können höchstens das modell verändern.
+  - Wir haben fast immer eine trichterförmige varianz. Das löst man dass man die zielgrösse logarithmiert. dann ist der trichter weg.
+  - Problem mit ausreisser
+  - problem dass q-q plot, dass es werte hat die oft vorkommen. Die normalverteilung hat fast keinen spielraum für extreme werte. In der realität haben wir mehr extreme werte als es die normalverteilung zulässt. Indem wir es logarithmieren können wir auch die extremen werten kleiner machen.
+- 52: in der regel werden alle graphen gleichzeitig angeschaut.
+- 53: wenn etwas nicht gut ist, kann es mit Tueky meistens geflickt werden.
+  - log wenn nicht gut ist -> wurzel wenn nicht gut ist -> etc. 
+  - In physik ist teilweise vorgeschrieben / klar welche transformation gemacht werden sollte
+- 54: 
+  - 1: der datensatz ist nicht falsch aber ein x wert ist falsch. Das macht die kurve komplett kaputt
+  - 2: ein anderer ausreisser. wenn der ausreisser nicht da wäre, hätten wir keine gute gerade.
+  - Ausreissen sind beliebig schwierig zu identifizieren
+- Mittelwert hat ein bruchpunkt von einem Datenpunkt (einer kann es zerstören). Regressionsrechnungen sind voll mit mittelwerten, daher extrem anfällig auf ausreisser. Auch neuronale netzwerke. Also die Daten müssen unbeding vorher angeschaut werden.
+- 55: Ausreisser seht man nicht an den linien. Sondern am scatterplot. Hier ist 37 heikel. nachschauen was passiert ist
 - 
 
