@@ -114,5 +114,14 @@
   - `x0` ist der neue wert den ich prognostizieren will
   - Die vertrauensintervale sind nicht linear, je weiter meine prognose ausserhalb der messwerte sind wird der vertrauensinterval grösser (also ungenauer)
 - Prognosen heisst ihr fährt auto, während ihr in den Rückspiegel schaut. Ihr wisst wie die strasse hinter euch aussieht. Dann geht ihr nach vorne und fährt blind nach vorne in der annahme dass sie gleich ist wie nach vorne. Wie weit könnt ihr fahren um nicht von der strasse weg kommen? Umso kürzer desto besser.
+- 32: Residual Analysis
+  - Können wir das model noch verbessern?
+  - Z.b. wäre es besser gewesen, wenn ich die input oder output variabel transformiert hätte. Z.b. den input logarithmieren.
+  - 1. Es ist linear
+  - 2. In der theorie ist es wahr.
+  - 3. Der fehler ist konstanz. Daten die trichterförmig auseinandergehen ist nicht gut für das model
+  - 4. Annahme dass die fehler keinen zusammenhang haben
+  - 5. Die Fehler sind normalverteilt.
+  - Es geht darum kann es noch besser gehen? Gibt ein anderes Model das besser ist?
 - 
 
