@@ -18,6 +18,7 @@ dependencies = [
     "openpyxl",
     "xlrd",
     "pycollada",
+    "statsmodels",
 ]
 
 [tool.ruff]
