@@ -126,5 +126,47 @@
 - 34: Wir wollen explorative daten analyse machen. Wir wollen das Modell verbessern.
   - Das ganze geht rein graphisch, wir schauen bilder an, nicht mathematisch.
   - Das problem ist, wenn zwei personen bilder anschauen gibt es nicht daselbe resultat. Es ist abhängig von intuition und erfahrung. Es braucht auch domäne expertise. Eine verbindung zwischen den daten und der analyse. Wir müssen wissen in welchem gebiet wir darin sind.
+- 36: wir haben ein exponentielles wachsumt. 
+  - Wir können das nie mit einer geraden modellieren. 
+  - Pressure -> Nicht lineral, A is linear, B ist nicht linear
+  - Also müssen wir die input variabel transformieren, sodass wir eine gerade erhalten.
+  - Wie transformieren wir sie?
+  - Wenn wir das modell auf beiden seiten logarithmieren
+  - ln(Pressure) ist gerade
+- 37: gäbe es eine andere transformation die das besser machen könnte. 
+  - Wir haben es logarithmiert, aber wir hätten auch auf beiden seiten die wurzel zienen können. Müssen wir sie anders transformieren?
+  - Graphic 1 ist gut, wenn die input variabel maximal 2 ist. Am besten 1, dann ist es 2-D
+  - Graphic 2: y achse ist dieselbe, x -> fitted values (das resultat). Wenn wir mehr als 3 Input variabeln haben, können wir wieder eine 2-D zeichnung machen. -> Gemessen vs. gefittet.
+  - Die Punkte sollten möglichst nahe zu der Diagonale sein. Schauen wir die Graphic 2 an. Wie gut sind wir? -> Mass ist das *Bestimmtheitsmass* (R quadrat). Gemessen vs. gefittet. Es ist jedoch nur eine gute Aussage wenn wir wissen dass es um diese gerade streuut. R quadrat wie linear ist das verhältnis zwischen response und fit.
+- 39: R2 ist nicht mehr gut wenn es nicht linear ist. 
+  - Die Daten sind so konstruiert, dass alle nummern (r2, etc. sind identisch).
+  - Nur durch die graphic sehen wir, dass das resultat bullshit ist.
+  - Das r quadrat sagt nur etwas aus wenn wir in der 1. Situation sind.
+  - Wie wissen wir in welchem plot wir sind? Wenn wir viele input variabeln haben, können wir nicht wissen in welchem plot wir sind.
+  - Also wir brauchen etwas besseres als r quadrat
+- 40: 3 plots welche besser sind als r quadrat
+  - Haben wir gefährliche Abweichungen der 5 Annahmen (S. 32)
+  - Wir können nur dem Vertrauensinterval trauen, wenn die 5 Annahmen erfüllt sind.
+  - Wir müssen zuerst diese drei plots anschauen um zu wissen ob wir die resultate in der tabelle überhaupt etwas wert sind.
+- 41: Blaue ist das residium, rot ist fitted
+- 42: plotten wir dieses verhältnis
+  - 1. Graphik es stimmt aber nicht gut, es sieht ein wenig gekrümmt aus. unten residual negativ oben positiv. Die krümmung ist nicht gut sichbar.
+  - 2. Residual vs. gefitteten werte geplottet sehen wir etwas klarer
+    - residuum 1. punkt und dann diestanz zu der linie. Wir sehen die abweichungen basierend auf den fitteten wert
+    - Wir sehen es hat struktur drin. Das ist nicht gut. Die residuen sollten im schnitt überall 0 sein.
+    - Die struktur zeigt, dass das model nicht gut ist. -> wieder zurück die transformierungen von input / output sollte neu gemacht werden.
+- 43: wir haben nur den pressure logarithmiert.
+  - Tukey Anscome zeight es hat weniger struktur, nicht keine. Keine exakte wisschenschaft, irgendwann müssen wir entscheiden. Wieviel struktur ist tollerierbar?
+- 44: 
+  - 2. Annahme, die fehler sind im mittel 0, das heisst
+  - 1. Graph: ich glätte die daten. Nehme ein fenster innerhalb der fittet values und berechne das mittel. gibt einen punkt auf der roten linie. Schiebe das fenster erneut, neuer punkt. etc. Kleine fenstergrösse wird sehr kurvig. grosse grösse wird sehr gerade. jetzt mache ich ein gewichtetes mittel mit einer gauss kurve. Jetzt kann ich noch ein polynom 2. grades and die kurve anpassen. 
+  - Rote kurve in jedem fenster sollte der schnitt 0 sein. Idealerweise sollte die rote kurve 0 sein. Reale welt, fast auf 0 ist gut. jetzt ist die frage wie viel weg von null ist gut?
+  - 2. Graph: weitere 19 kurven. boot-strap verfahren. Ich habe einmal gemessen und ich mache 19 simulationen. Jetzt ist die frage ob meine messung gut zu der simulation passt. Für signifikanzniveau von 5% dann 19 mal. 1% signifikanz, 99 mal simulieren.
+  - Vielleicht ist jedes Modell schlecht. Aber dann wissen wir dass es kein lineares modell ist. Dann gibt es nicht lineare modelle
+- 47: Annahme die fehler haben die gleiche varianz. In realität die fehler waren trichterförmig bei den Flaschen. Das darf nicht sein.
+- 47: scale location, nur der betrag des residium wird aufgezeigt. Ein guter ist, wenn es gerade ist. Die varianz ist nicht gerade -> also ist es klar. Hier ist die sitatuion ziemlich krass und und wir wissen dass die modell annahme ist verletzt, die tabelle mit den p werte können weggeworfen werden.
+- 49: fehler sind normalverteilt -> q-q plot
+  - wieder 19 normal q-q plots. Die frage ist mein datensatz da drin. In diesem fall ja.
+- Wir müssen etwas mit etwas anderem verteilen. Wir müssen immer wissen wie viel es streuut.
 - 
 
