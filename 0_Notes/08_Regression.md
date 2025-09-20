@@ -60,8 +60,10 @@
   - Kann das Model verwendet werden um eine vorhersage zu machen?
   - Wir haben angenommen, dass die varianz konstant ist.
   - Interpolation:
+    - Ist gut
     - Wir machen prognosen für einen wert der innerhalb der messwerte sind (max 20 Flaschen gemessen, ich will einen wert für 15 haben)
   - Extrapolation:
+    - ist heikel
     - 100 flaschen prognose, keine messwerte in diesem bereich
     - Veranstaltung, alles ist leer, müssen wir mehr leute anstellen um alle maschienen aufzufüllen. Dafür haben wir keine Messwerte. Können wir die gerade weiterziehen ausserhalb der Messwerte
 - 18: Zusätzlich neue annahmen
@@ -106,5 +108,11 @@
   - z.b. Wir haben ein Model für die Temperatur, prognose wert
   - Vertrauensinterval ist klein, wenn das modell gut ist (präzise)
   - Vertrauensinterval ist gross, wenn das modell sich nicht sicher ist (grosse mögliche temperatur)
-  - 
+- 27: -> `[wert auf der gerade (y hat) minus etwas , wert auf der gerade (y hat) plus etwas]`
+  - sigma hat -> wie viel streuuen haben die werte auf der gerade
+  - Vertrauensinterval ist grösser wenn sie mehr streuuen um die geraden
+  - `x0` ist der neue wert den ich prognostizieren will
+  - Die vertrauensintervale sind nicht linear, je weiter meine prognose ausserhalb der messwerte sind wird der vertrauensinterval grösser (also ungenauer)
+- Prognosen heisst ihr fährt auto, während ihr in den Rückspiegel schaut. Ihr wisst wie die strasse hinter euch aussieht. Dann geht ihr nach vorne und fährt blind nach vorne in der annahme dass sie gleich ist wie nach vorne. Wie weit könnt ihr fahren um nicht von der strasse weg kommen? Umso kürzer desto besser.
+- 
 
