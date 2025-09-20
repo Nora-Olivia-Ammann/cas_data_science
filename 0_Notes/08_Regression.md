@@ -19,10 +19,15 @@
   - annahme fehler sind konstant
 - 7: Es gibt verschiedene Modell Welte
   - Mechanistische Modelle: Physik, etc. fast alles lässt sich aus sachen ableiten (action reaktion, etc). Relativ stabil
-  - Empirisch: Alkhohol und Krebsrisiko, gibt keine pyhsik formel die das erklärt. Sondern daten die den zusammenhang suggerieren. Relativ instabil. Wir suchen nach modellen.
+  - Empirisch: Alkhohol und Krebsrisiko, gibt keine pyhsik formel die das erklärt. Sondern daten die den zusammenhang suggerieren. Relativ instabil. Wir suchen nach modellen. Welche variabeln sind signifikant. Hat das Körpergewicht einen einfluss? Welche variablen sind wirklich entscheidend?
 - 8: Wir wollen eine vorhersage machen
   - Vorhersagen müssen mit dem vertrauensinterval versehen
   - In mechanische modelle gibt es oft variabeln die oft eine physikalische bedeutung haben. (strom, etc.)
+  - Welche variablen sind signifikant?
+  - Optimierung, wenn wir nach einem Wunschresultat suchen, werden wir schauen welche input variablen gut sind um das optimum zu erreichen.
+- 9:
+  - Regression -> die modell welt sollte die resultate der realen welt am besten passen
+- 10:
+  - beta 0 -> y achsen abschnitt wenn x = 0 (oftmals nicht interessant, weil wir ja nicht interessiert sind wenn nichts passiert)
   - 
 - 
-
