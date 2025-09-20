@@ -188,5 +188,34 @@
 - 58: annahme die fehler sind zufällig. Das ist schwierig nachzuvollziehen. Datum immer aufnehmen um zu wissen ob es eine zeitliche abhängigkeit hat.
 - 59: 1. schwingung über zeit, 3. zu stark mit der zeit korreliert. es sollte ungefähr aussehen wie in der mitt
   - unten 3. Wir messen das residium von heute gegen morgen. -> wenn das residium heute gross ist dann ist es morgen auch gross. 1. Wenn es heute gross ist ist es morgen klein. In der mitt sehen wir nur noise
-- 
+  - Wenn wir eine zeitliche korrelation haben, dann müssen zeitreihen analyse gemacht werden. Es ist nicht mehr regression
+- Wenn die plots etwa gut sind, dann dürfen wir dem p wert und dem vertrauensinterval vertrauen. Also das modell muss so ge-tweaked werden dass die plots gut aussehen.
 
+## Multiple Lineare Regression (62)
+
+- Unterschied zu Simpel, wir haben mehr als eine input variabel
+- wir haben selten bis nie nur eine erklärende variabel
+- 62:
+  - x=1 bis x=m -> m ist anzahl erklärende variabeln. "m" sollte klein sein (max 100)
+  - wenn n (anzahl messungen) kleiner ist als m (erklärende variabeln) wir python einen fehler werfen
+  - Wri legen nicht mehr eine gerade in die messungen sondern eine ebene rein.
+  - k ist die Anzahl slopes
+- Kleinste quadrate, wieder residuen, quadrieren sie (das fähnchen bleibt zwei dimensional immer quadrate) und schieben wieder die ebene herum bis die quadrätchen am kleinsten sind. Wir haben drei variablen die wir verschieben und dann suchen wir das minimum.
+- 63:
+  - Tunnel bauen, sprengen im boden und in den häuser wurde vibration gemessen
+  - Häuser sollten nicht beschädigt werden (Schäden wenn Vibration grösser 12)
+  - Wussten, die Ladung, distanz zu messort und dann vibration
+  - Physik überlegen -> Vibration ist proportional zu? Ungf. -> 1 / (Distanz quadriert)
+  - Ladung hat auch einen einfluss -> Ladung mal ( 1/ (Distanz mal Distanz)) annahme gesetzt
+  - V ~ C mal (1/D2)
+  - Wir logarithmieren es log(V) ~ log(C) + log(1/D2)
+  - Ich habe ein modell vielleicht beschreibt mir das Modell den Datensatz?
+- 64:
+  - Wir bekommen wir die beta nummern heraus?
+- 65:
+  - Matrix Notation der gleichungen
+- 66:
+  - Matrix, ich will jedes einzige epsilon in der spalten matrize quadrieren und summieren
+  - Ich variiere die betas um die summe der epsilon im quadrat zu minimieren
+  - Wir lösen sie auf nach 0 -> weil wir suchen die horizontale tangente
+- 
