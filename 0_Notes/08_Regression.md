@@ -59,8 +59,10 @@
   - Analyse ob die antwort gut ist.
   - Kann das Model verwendet werden um eine vorhersage zu machen?
   - Wir haben angenommen, dass die varianz konstant ist.
-  - Interpelation:
-  - Extrapelation:
+  - Interpolation:
+    - Wir machen prognosen für einen wert der innerhalb der messwerte sind (max 20 Flaschen gemessen, ich will einen wert für 15 haben)
+  - Extrapolation:
+    - 100 flaschen prognose, keine messwerte in diesem bereich
     - Veranstaltung, alles ist leer, müssen wir mehr leute anstellen um alle maschienen aufzufüllen. Dafür haben wir keine Messwerte. Können wir die gerade weiterziehen ausserhalb der Messwerte
 - 18: Zusätzlich neue annahmen
   - Wir nehmen an, dass unsere fehler normalverteilt sind. Das haven wir vorher nicht gemacht.
@@ -99,5 +101,10 @@
     Ist 2 Volume auch möglich? Ja es ist zwischen den zwei interval grenzen
 
 - 25: Wie interpretiere ich den Vertrauensinterval?
-- 
+- in der statistik machen wir fehler 1. art. Im durchschnitt liegt man 1 mal in 20 falsch
+- 26: Wir wollen eine prognose machen
+  - z.b. Wir haben ein Model für die Temperatur, prognose wert
+  - Vertrauensinterval ist klein, wenn das modell gut ist (präzise)
+  - Vertrauensinterval ist gross, wenn das modell sich nicht sicher ist (grosse mögliche temperatur)
+  - 
 
