@@ -28,6 +28,30 @@
 - 9:
   - Regression -> die modell welt sollte die resultate der realen welt am besten passen
 - 10:
-  - beta 0 -> y achsen abschnitt wenn x = 0 (oftmals nicht interessant, weil wir ja nicht interessiert sind wenn nichts passiert)
-  - 
+  - beta 0 (hier nicht immer) -> y achsen abschnitt wenn x = 0 (oftmals nicht interessant, weil wir ja nicht interessiert sind wenn nichts passiert)
+  - beta 0 ist vielleicht nicht klar definiert (zeit an dem angefangen wird zu messen)
+  - der fehler können wir nicht schätzen, sondern nur wie sie streuut
+- 11:
+  - legen durch die datenpunkte die "best passende gerade" zu legen
+  - die suchen wir so, dass wir den abstand zwischen dem realen y wert (punkt) zu dem y wert der auf der gerade liegt zu messen
+  - die best passende gerade ist die bei denen alle abstände (betrag können negativ positiv sein) zusammengezählt möglichst klein.
+  - Wir minimieren die summe der quadrate aller abstände. Wir haben dann eine gerade und haben parameter so lange bis die summe der quadrate minimal ist.
+  - Wenn nur die summer angeschaut wird ist es schwierig, weil wir haben zwei parameter. Wie finde ich das optimum? -> lineare algebra
+  - die summe der quadrate können wir uns als fläche vorstellen. Wir haben so eine senke. Die Senke finden wir in dem wir dem gradienten entlang nach unten gehen.
+  - Im Minimum in der Senke hat es eine horizontale tangentialebene (die fläche wird nur einmal berührt)
+- 12: Wir abgeleitet und setzten gleich 0 -> beobachtung, wir leiten nach beta 0 ab und beta 1. Sie sind linear und daher einfach auch wenn sie lange ist. Weil sie sauber ausgeklammert werden können
+  - x werte kennen wir, egal wievile es sind. Die y werte sind auch bekannt. Dann können wir einfach nach den anderen auflösen.
+- 13: die gleichungen sind bekannt, und es kann ausgerechnet werden
+  - der fehler term haben wir nicht
+- 14: Residual für den fehler term
+  - messwert - fitteten wert -> es gibt so viele fehler wie beobachtungen. Im schnitt sind die fehler null
+  - die gerade bei der die Fehler im schnitt null sind gibt dasselbe resultat wie minum der quadrate
+  - summe aller kleinster quadrate (minus plus geht ja weg) ist error sum
+  - hüte auf den buchstaben -> wenn ich der hypothese (griechisch) einen wert zuweise dan gibt es einen "Hut" (hat) auf die variabel
+- in Python -> 08-Regression-notebooks/Example 7.1.1-7.4.2 Vending Machines (minimal).ipynb
+  - Im summary output steht viel, wir konzentrieren uns jetzt auf die koeffizienten 
+                    **coef**    std err          t      P>|t|      [0.025      0.975]
+    ------------------------------------------------------------------------------
+    **Intercept      3.3208**      1.371      2.422      0.024       0.484       6.157
+    **Volume         2.1762** 
 - 
