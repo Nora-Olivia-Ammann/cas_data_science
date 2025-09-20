@@ -218,4 +218,11 @@
   - Matrix, ich will jedes einzige epsilon in der spalten matrize quadrieren und summieren
   - Ich variiere die betas um die summe der epsilon im quadrat zu minimieren
   - Wir lösen sie auf nach 0 -> weil wir suchen die horizontale tangente
-- 
+- 67: Was muss ich machen um y hat zu erhalten?
+  - messwerte mal input werte gibt y hat (Fitted Values)
+  - Residual -> gemessenen minus gefitted
+  - Beta 0 ist die konstante (wo es durch 0 geht)
+- 68:
+  - Für alle koefizienten können wir vertrauensinterval, hypothesen test, etc. machen, wir rechnen es einfach mit matrizen aber in python merkt man das nicht
+- In scripts "Explicit formula" ist wie es "von hand" gerechnet. 
+- Formel -> "Output hängt ab von var1 + var2" -> `output ~ var1 + var2 + var3` ist die veränderte formel
