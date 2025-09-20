@@ -226,3 +226,34 @@
   - Für alle koefizienten können wir vertrauensinterval, hypothesen test, etc. machen, wir rechnen es einfach mit matrizen aber in python merkt man das nicht
 - In scripts "Explicit formula" ist wie es "von hand" gerechnet. 
 - Formel -> "Output hängt ab von var1 + var2" -> `output ~ var1 + var2 + var3` ist die veränderte formel
+
+
+## Sensitivity (72)
+
+- 72:
+  - In einer input variabel sagt uns der scatterplot noch etwas
+  - Wenn wir mehrere Input variabeln haben, dann sagt uns der scatterplot nichts mehr
+  - Wie finden wir die variabeln die einen einfluss auf das resultat hat?
+  - Wie finden wir ausreisser, wie gehen wir damit um?
+- 77:
+  - Was ist ein Ausreisser?
+  - Wir haben 48 Sprengungen, nehmen die erste raus. Dann stellt die frage, mit 47. Ist das model fast gleich wie wenn ich alle habe?
+  - Wenn ich einen punkt sehe, der einen riesen einfluss habe, kann ich diesen Punkt herauslassen.
+  - Ich erhalte für jede Beobachtung eine cooks distance
+  - Mehrere grouping und gleichzeitig raus nehmen, dann kann es sein das zwei extreme raus genommen werden die sich gegenseitig cancelen. Also ist es nicht zuverlässig.
+- 79: Regel, wenn eine cooks distance grösser ist als 1 dann sollten wir sie raus nehmen.
+- 79:
+  - Plot dieser Cooks distance, 10 / 27, 47 sind einflussreich.
+  - Wenn wir 1 million daten haben würden wir das ganze 1 million mal laufen lassen. Das ist eine performance frage ob wir es tun können.
+- 80:
+  - was können wir machen wenn wir die Cooks distance nicht machen können.
+  - Robuste Regression, wir rechnen also ob die ausreisser nicht da sind. Es ist möglich.
+  - wie median, der robust ist gegenüber ausreisser.
+  - Für jeden schätzer gibt es einen robusten schätzer (mittelwert, median (robuster mittelwert, etc))
+  - Wir können auch den datensatz selbst anschauen. Wenn wir den selber messen, dann können wir notizen machen. Z.b. es ist ein flugzeug geflogen und will den lärm des trams messen. Dann würde ich es markieren und später raus nehmen.
+- 81:
+  - kann schwierig sein, wenn die daten extern kommen ist es schwierig
+  - sobald wenn wir in hochdimensinale räume gehen ist es ein problem
+  - Wir haben kein gefühl für mehrdimensionale räume. Exponentielles Wachstum spüren wir nicht.
+  - bei Ausreisser in mehrdimensionalen räumen nimmt der einfluss weder ein noch ab
+- 
