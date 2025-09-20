@@ -54,4 +54,50 @@
     ------------------------------------------------------------------------------
     **Intercept      3.3208**      1.371      2.422      0.024       0.484       6.157
     **Volume         2.1762** 
+
+- 17: Jetzt fängt die arbeit an.
+  - Analyse ob die antwort gut ist.
+  - Kann das Model verwendet werden um eine vorhersage zu machen?
+  - Wir haben angenommen, dass die varianz konstant ist.
+  - Interpelation:
+  - Extrapelation:
+    - Veranstaltung, alles ist leer, müssen wir mehr leute anstellen um alle maschienen aufzufüllen. Dafür haben wir keine Messwerte. Können wir die gerade weiterziehen ausserhalb der Messwerte
+- 18: Zusätzlich neue annahmen
+  - Wir nehmen an, dass unsere fehler normalverteilt sind. Das haven wir vorher nicht gemacht.
+  - Wir haben unsere Gerade, punkte die nahe sind, sind wahrscheinlich. Punkte die weit davon entfernt sind, sind unwahrscheinlich. -> Wir nehmen an dass die fehler in einer Normalverteilung sind. Machen wir damit das was folgt, handle bar ist.
+  - Wir haben eine vending maschiene eine person füllt sie auf. Am nächsten tag mit gleichem elan. Ist immer gleich schnell beim auffüllen. Die geraden verändern sich etwas mit jeder neuen messung. Wir können alle steigungen zusammen nehmen und ein histogramm machen. Die verteilung der steigungen sind auch normalverteilt. Wir wissen auch die breite der Normalverteilung
+  - Wenn die verteilung schmal ist dann ist die varianz klein, wenn die normalverteilung breit ist hat es eiine grosse varianz
+  - Kleines Sxx
+    - kleine streuung der messdaten
+    - viel bewegung durch steigung
+  - Grosses Sxx
+    - grosse streuun der mess daten
+    - kleine bewegung durch steigung
+  - Wenn wir im labor sind wollen wir ein grosses Sxx sodass die gerade auf dem maximum stabil ist. Wenn wir zahlen empirische zahlen haben ist das vielleicht nicht möglich
+- 19: Test statistic (werte die ich gemessen habe - annahme test (0 hypothese)) / (standard fehler)
+- 20: P wert ausrechnen basierend auf dem statistischen test um zu wissen wie wahrscheinlich es ist
+- 22: Per default kommt in python raus, ob die steigung auch 0 sein kann, nicht mein wert "2". Annahme, wenn ich keine flaschen auffüllen muss kann es keinen einfluss haben auf die output variabel.
+-                  coef    std err          t      **P>|t|**      [0.025      0.975]
+    ------------------------------------------------------------------------------
+    Intercept      3.3208      1.371      2.422      **0.024**      0.484       6.157
+    Volume         2.1762      0.124     17.546      **0.000**     1.920       2.433  
+    kann die steigung 0 sein? -> nein weil **P>|t|** = 0.
+    Wenn es 0 flaschen hat hat es hat einen einfluss
+
+- 23: 
+  - welcher wert ist der plausibelste wert? Die kleinste quadrate
+  - Kann ein anderer Wert auch plausiebel sein -> Hypothesen test (ist 2 auf plausibel wenn ist 2.17 gemessen habe)
+  - Welche werte sind überhaupt pausibel? -> vertrauensinterval
+- 24: Vertrauensinterval
+  - Alle werte die die 0 Hypothese erfüllen. Zwischen dem unteren und dem oberen kritischen wert (signifikanz niveau ist per default 5%)
+  - Von - bis -> `[unterinterval grenze , oberinterval grenze]`
+-                   coef    std err          t      P>|t|      **[0.025      0.975]**
+    ------------------------------------------------------------------------------
+    Intercept      3.3208      1.371      2.422      0.024     **0.484       6.157**
+    Volume         2.1762      0.124     17.546      0.000     **1.920       2.433**
+    
+    Ist 2 Volume auch möglich? Ja es ist zwischen den zwei interval grenzen
+
+- 25: Wie interpretiere ich den Vertrauensinterval?
 - 
+
