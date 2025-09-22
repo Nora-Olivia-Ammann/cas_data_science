@@ -302,3 +302,6 @@
   - Es kann sein, dass am schluss eure lieblingsvariabel gar nicht mehr drinn ist
 - faktor variablen -> wohnung in seewen ist billiger als in zürich -> ist aber keine zahl. Kann gemacht werden
 - **99** -> was machen um zu planen
+  - Meaning of the number 0 -> ist es fehlend oder die Zahl 0
+  - wenn ein resultat nicht sein kann, dann muss gehandelt werden
+  - Trainingsdaten, test daten und validierungsdaten sind in regression prinzipiell nicht notwendig weil es sehr wenige variabeln hat. Aber es schadet sicher nicht
