@@ -176,6 +176,9 @@
   - skikit spezifisch: `sk.Pipeline` sagt, welche modelle es in welcher reihenfolge es macht
   - Jetzt hat es eine krümmung gelernt -> (x1)^2
   - Feature Space: Die features die in das modell gehen, es können variabeln drinn haben die engineert sind
+
+### Modell evaluierung
+
 - 79:
   - Auf den trainings daten ist es immer besser oder gleich gut
   - eher overfitting
@@ -223,6 +226,19 @@
   - Also die komplexität richtig wählen
   - Model based view: Das model ist im zentrum, daten sind fix
   - Aber wir können nicht nur die modelle anpassen sondern auch neue daten erheben oder feature engineering
-- 
+- 96
+  - 1. Modell ist nicht gut es ist zu einfach, modelle sind tendenziell zu einfach
+  - 2. Modell ist sehr gut auf test daten aber in der realität (neue daten) nicht. Modelle die overfittet sind, sind tendenziell komplexer
+  - 3. Validierungsdaten sind schlecht
+  - 4. Daten auf die seite
+  - 5. Iterative über alle segmente, alles ist einmal im validierungsset, alles ist vier mal im trainings set
 
+
+### Feature selection
+
+- 98
+  - nur ein teil der features werden genommen
+  - macht es dem modell einfacher und das modell wird selbst einfacher
+  - overfittet nicht auf zufällige features die nichts damit zu tun haben
+- 
 
