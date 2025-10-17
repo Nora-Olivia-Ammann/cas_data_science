@@ -160,6 +160,22 @@
   - generiert hier 5 neue features, ist eine art expertenwissen einzubeziehen, aber ist natürlich sehr sensibel darauf das es korrekt ist
   - wenn wir die features von den kategorien mit ordinal machen, dann hat das dritte mit nummer 2 einen grösseren einfluss als 
   - `y = b0 + b1x1 + b2x2 ...` wenn x1 ordinal 1 ist und dann x2 ordinal 2 hat es einen grösseren einfluss, mit vektoren würde es nur einen einfluss auf das beta haben wenn es zu der kategorie gehört. Also fällen die parameter weg die sich gar nicht dazu bezeien
+
+### Explizites Feature Engineering
+
+- 73
+  - Menge an gesammelten features, aus diesen gibt es ein neues feature, welches aber nicht in der reellen welt gesammelt wird.
+  - Standard: z.b. aus der grösse des fisches können wir das volumen berechnen, das wäre dann hilfreich für das modell wenn es das gewicht schätzen will
+  - In das feature engineering fliesst das expertenwissen rein, sodass man das richtige feature engineered wird
+  - Man sagt dem modell teile der Kausalität sodass es es nicht alleine erraten muss. Also ein teil des learning wird abgenommen.
+  - Es gibt so bessere Modelle
+- Polynomielle Regression: x1, x2, (x1)^2, (x2)^2, x1*x2 (zu einem -n degree)
+  - Man kann auch nur einen teil der berechnungen machen wenn sie so sinn machen, z.b. das volumen des fisches
+  - Zuerst mit polynomien feature engineering, dann lienare regression, das ist ein neues modell 
+- Code (poly_regression): 
+  - skikit spezifisch: `sk.Pipeline` sagt, welche modelle es in welcher reihenfolge es macht
+  - Jetzt hat es eine krümmung gelernt -> (x1)^2
+- 
 - 
 
 
