@@ -181,6 +181,28 @@
   - eher overfitting
   - Auf ungesehenen daten kann es schlechter sein, das ist ein grösseres problem
   - es kann die gewichtung eines feature vergrössern
+  - das wichtigste ist jedoch ob es gut auf neuen daten ist
+- 81
+  - Random Forest ist am besten auf den trainingsdaten am besten, aber es ist krass overfittet auf neuen daten wird es komplett unbrauchbar sein
+- 82
+  - gleiche trainingsdaten, aber neue validierungsdaten andere fitts und es ist klar das random forest am schlechtesten ist
+  - wird eigentlich immer auf neuen daten gerechnet, aber wenn die evaluierungsdaten sehr wenige sind oder viele ausreisser haben, kann das ergebnis verfälschen
+- 86
+  - Cross validation: trainings daten und dann validierungsdaten
+- 87
+  - Es gibt eine gefahr dass das modell durch das validierungsset nur durch zufall besser abschneidet
+- 88
+  - Zwei strategien -> noch ein weiteres test set
+  - Oder grössere validation sets, dann aber weniger trainingsdaten...
+- 89
+  - train (training), 
+  - validation (welches modell ist am besten), 
+  - test (schauen ob es wirklich gut ist, bei daten die 0 einfluss haben), werden nie angeschaut
+  - -> in der praxis am besten
+  - wenn ein modell verworfen werden wegen einem test set, hat es einen einfluss auf das moell und muss weggeworfen werden und ein neues test set gesammelt werden
+  - man kann auch auf ein validierungsset overfitten
+- 90
+  - "Herbei zaubern von test daten"
 - 
 
 
