@@ -37,7 +37,18 @@
   - Visualisierung ist auch gut um bugs zu finden, die auch in den daten sein können
 - 22
   - Möchten output vorhersagen
-  -  
+  - Abhängige Variabel -> output
+- 24:
+  - kontinuierlich -> eg. Preis eine Zahl
+- 25:
+  - expertenwissen zum beispiel dass es kein negatives gewicht
+- 26:
+  - Encoden -> zu beispiel text -> die fischart
+  - Standardisiert -> nummern
+- 30
+  - Betas ist das was wir lernen
+  - das modell kann die formel nicht verändern sondern nur die betas lernen
+- 
 
 
 
