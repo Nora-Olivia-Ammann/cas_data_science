@@ -175,7 +175,12 @@
 - Code (poly_regression): 
   - skikit spezifisch: `sk.Pipeline` sagt, welche modelle es in welcher reihenfolge es macht
   - Jetzt hat es eine krümmung gelernt -> (x1)^2
-- 
+  - Feature Space: Die features die in das modell gehen, es können variabeln drinn haben die engineert sind
+- 79:
+  - Auf den trainings daten ist es immer besser oder gleich gut
+  - eher overfitting
+  - Auf ungesehenen daten kann es schlechter sein, das ist ein grösseres problem
+  - es kann die gewichtung eines feature vergrössern
 - 
 
 
