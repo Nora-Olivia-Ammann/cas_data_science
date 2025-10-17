@@ -269,5 +269,9 @@
   - Wenn standardisiert wird ist best practice alle einheiten losgeworden
   - z.b. wir rechnen es um so dass die werte vergleichbar sind, zum beispiel können wir grösse und geld nicht vergleichen
   - Wenn sie standardisiert werden, dann ist nur noch ein verhältnis übrig, dass nichts mehr mit den einheiten zu tun hat und sie können verglichen werden
+  - die werte sind jetzt intutiv nicht mehr nachvollziehbar, die betas können auch nicht wirklich verstanden werden
+  - Wenn die betas verstanden werden wollen, dann müssten wir noch viel machen, es geht nicht so einfach
+  - Standard Scaler kann man als einen teil der pipeline vorstellen
+  - Wenn standardisiert wird, muss dann der input des modells in der anwendung auch standardisiert werden
 - 
 
