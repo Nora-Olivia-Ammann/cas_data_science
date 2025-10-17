@@ -240,5 +240,34 @@
   - nur ein teil der features werden genommen
   - macht es dem modell einfacher und das modell wird selbst einfacher
   - overfittet nicht auf zufällige features die nichts damit zu tun haben
+- 101
+  - grosse betas sind tendenziell eine indikation dass es overfittet ist
+
+- 102 & 103
+  - Die features müssen irgendwie standardisiert werden
+  - Alle betas haben das gleiche lambda
+- 102
+  - L-1 Regularisierung
+  - La Place verteilung
+  - Wenn es ein sehr grosses beta ist, wird es durch diese kosten funktion bestraft
+  - je grösser das beta desto höher die kosten funktion zusätzliche strafe in unsere kostenfunktion
+  - lambda ist ein hyperparameter und wird nicht gelernt sondern von uns gesetzt. ist eine konstante
+  - das modell sieht anders bei anderen lambdas
+  - L-1 ist gut für feature selection, wenn ein beta nicht wichtig ist (feature) dann wird es auf null gesetzt schlussendlich
+- 103: L-2 Regularisierung
+  - Normalverteilung
+  - betas sollten nahe 0 sind sonst wird es bestraft
+  - Standardisierung ist quadratisch, wir machen wie vorher eine straffunktion dazu
+  - Es wird dazu gezwungen kleinere betas zu nehmen
+  - Zahlen unter 1 sind weniger streng bestraft bei L2 als bei L1
+- 105
+  - Standardisierung
+  - Wie gross die betas werden hänge davon ab wie gross die gemessene daten sind
+  - Wenn breite in meter und länge in cm dann hat die einheit einen einfluss auf die gewichtung obwohl es das nicht sollte
+  - Also eigentlich die einheiten weg-werfen
+- 106
+  - Wenn standardisiert wird ist best practice alle einheiten losgeworden
+  - z.b. wir rechnen es um so dass die werte vergleichbar sind, zum beispiel können wir grösse und geld nicht vergleichen
+  - Wenn sie standardisiert werden, dann ist nur noch ein verhältnis übrig, dass nichts mehr mit den einheiten zu tun hat und sie können verglichen werden
 - 
 
