@@ -271,7 +271,23 @@
   - Wenn sie standardisiert werden, dann ist nur noch ein verhältnis übrig, dass nichts mehr mit den einheiten zu tun hat und sie können verglichen werden
   - die werte sind jetzt intutiv nicht mehr nachvollziehbar, die betas können auch nicht wirklich verstanden werden
   - Wenn die betas verstanden werden wollen, dann müssten wir noch viel machen, es geht nicht so einfach
-  - Standard Scaler kann man als einen teil der pipeline vorstellen
+  - Standard Scaler kann man als einen teil der pipeline vorstellen auch vor der regularisierung
   - Wenn standardisiert wird, muss dann der input des modells in der anwendung auch standardisiert werden
+  - Achsen müssen vergleichbar werden
+- 109
+  - Wann standard scaler, ist wahrscheinlich keinen nachteil auch wenn wir es nicht benötigen aber die features sind dann nicht mehr interpretierbar
+- 111
+  - 1. Schränken die betas ein, das modell wird einfacher
+  - 2. overfitting risiko weniger gross
+  - 3. Einheiten entfernen sodass die achsen der features vergleichbar sind, das modell ist nicht abhängig von den einheiten der features
+- 112
+  - Es gibt noch weitere Hyperparameter als lambdas, zum beispiel lambdas und polynom grad
+  - werden von hand gesetzt
+  - z.b. wenn wir lambdas hoch machen dann müssen die betas näher bei null sein, wenn sie tief sind, ist es weniger "konfiguriert", weil das modell mehr freiheiten haben weil grosse betas nicht so stark bestraft werden
+- 114
+  - Manuell nach best practice ist fehleranfällig, aber wenn die rechen-kapazität nicht existiert
+  - Suchen: wir versuchen verschiedene lambdas aus und dann schauen wir was am besten ist
+- 115
+  - Grid Search -> annhäherung, meistens nicht so gut wenn wir mehrere hyperparameter haben, weil alle kombinationen getestet werden müssen
 - 
 
