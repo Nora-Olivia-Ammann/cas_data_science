@@ -145,12 +145,14 @@
   - Zahl 0-n
   - 1 feature wird 1 neues feature, es sind kategorien aber NICHT eine ordnung (reihenfolge) oder unterschiedliche grössen
   - 3 kategorien 0, 1, 2
+  - 1:1 feature aber ist nicht gut wenn es keine ordnung gibt, wenn es eine ordnung gibt kann es gut sein, so lange der die gaps zwischen den kategorien konsistent ist
 - 67
   - One-hot-encoding
   - Auf einen n dimensionalen vektor
   - 3 Kategorien
   - 3 Vektorne [1, 0, 0] und [0, 1, 0] und [0, 0, 1]
   - Drei neue features 0 oder 1 an einer spezifischen stelle im vektor
+  - 1 neues feature pro kategorie: ist besser wenn es keine ordnung gibt weil dann die hierarchy einen einfluss haben kann obwohl sie das nicht sollte.
 - 68
   - Man will meistens keine Ordnung haben
   - Es ist auch möglich ein eigenes encoding zu machen mit domain knowledge
