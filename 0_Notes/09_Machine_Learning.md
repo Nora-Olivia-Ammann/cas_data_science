@@ -78,8 +78,86 @@
   - Häuserpreise, sollen wir das Schloss wegnehmen?
   - Müssen aussreisser mit einbezogen werden? Dann andere metrik
 - 43
-  - MAE -> Robust gegen ausreisser
-  - MSE -> nimmt ausreisser miteinbezogen und werden davon beeinflusst
+  - Mean Absolute Error (alle fehler zusammengezählt) MAE 
+    - -> Robust gegen ausreisser
+  - Mean Squared Error (Summe aller quadrate) MSE 
+    - -> nimmt ausreisser miteinbezogen und werden davon beeinflusst
+  - Das sind standard metriken, es können auch custom sein, zb. ab 20'000 franken muss es genauer sein, etc.
+- 45
+  - Was sind die Kosten von unseren Parameter? -> gleich einer metrik
+  - beta sind parameter und nicht die vorhersage
+  - kosten meinen eigentlich dass es schlecht ist je höher
+  - Schlechte betas hohe zahl (hohe kosten) das ist schlecht
+  - was für ein fehler machen wir auf dem datensatz?
+  - Kostenfunktion ist vergleich zu der gesetzten metrik parameterisiert mit den betas
+- 47
+  - Bei der Linearen Funktion ist die Kostenfunktion normalerweise der MSE die Kostenfunktion
+  - Das wird normalerweise genommen, oftmals auch normalverteilt
+  - sklearn hat das hard-coded
+- 49
+  - Metrk ist eine Zahl
+- 50
+  - Optimum wie wir die lernbaren parameter finden basierend auf einer Kostenfunktion und daten
+  - Unterschiedliche algorythmen die unterschiedliche vorteile haben, meistens wird ein schneller verwendet
+- 52
+  - Jeder punkt auf der fläche ist eine andere gerade und jeder punkt sagt wie die kosten für diese kobination
+  - Der tiefste punkt sind die besten betas -> kleinste fehler
+  - Nicht bei allen modellen ist die kostenfunktion eine schüssel
+- 53
+  - Wo ist die Ableitung (steigung) null ist das beste beta
+- 55: Gradient Descent
+  - Andere optimierungs algorithums
+  - iterativ, wir starten an einem punkt (zufällige betas)
+  - wir haben am anfang eine zufällige linie
+  - ist vielleicht noch nicht gut
+  - Wir machen dann einen schritt in eine richtung -> neue lösung die leicht besser ist aber immernoch nicht gut
+  - mit jedem schritt wird es etwas besser
+  - macht das so lange bis wir zum minimum kommen
+  - wir schauen wo es am steilsten runter geht, das funktioniert mit der ableitung
+- 56
+  - Analysis gibt die steigung der kosten funktion, mit mehreren variabeln muss mehrmals abgeleitet werden
+  - Bei einer kurve ist die ableitung die tangente zu dem punkt
+- 57
+  - wir machen die funktion minus weil wir runter laufen wollen das "n" ist die schrittgrösse
+  - es gibt verschiedene algorythem um eine lösung zu finden, wir nehmen normaler weise die die schneller ist weil wir sind am resultat interessiert und nicht am weg
+- 58
+  - Ist immer eine linie, weil es linear ist, andere modelle können auch ein krümmung lernen
+  - Zwei features: ebene, kann auch keine krümmung lernen und sich mehr an die daten anpassen
+  - die gefahr für overfitting ist kleiner bei linearen modellen als bei anderen weil sie starrer sind
+- 61
+  - 1:
+    - lineare modell nimmt die lineare funktion an
+    - wie wir das modell machen ist hard-coded weil es zwingend eine lineare formel nimmt
+    - wir nehmen an das es eine lösung hat (die ableitung = 0)
+    - nimmt meistens der MSE an (kann man aber auch leicht ändern) aber das ist meistens implizit mit definiert
+  - 2:
+    - betas
+    - formel ist ausprogrammiert, die betas werden aus den daten gelernt
+  - 3:
+    - Gradient Descent, Analytisch mit dem minimum
+- 64
+  - genauigkeit der daten kann erhalten werden
+- 65
+  - Kategorische Features
+- 66
+  - Ordinal encoding
+  - man hat einen text und will ihn in eine zahl verwandeln weil wir mit text nicht rechnen können
+  - Zahl 0-n
+  - 1 feature wird 1 neues feature, es sind kategorien aber NICHT eine ordnung (reihenfolge) oder unterschiedliche grössen
+  - 3 kategorien 0, 1, 2
+- 67
+  - One-hot-encoding
+  - Auf einen n dimensionalen vektor
+  - 3 Kategorien
+  - 3 Vektorne [1, 0, 0] und [0, 1, 0] und [0, 0, 1]
+  - Drei neue features 0 oder 1 an einer spezifischen stelle im vektor
+- 68
+  - Man will meistens keine Ordnung haben
+  - Es ist auch möglich ein eigenes encoding zu machen mit domain knowledge
+  - zb. 100 verschiedene Haus fassaden, werden auf 5 verschiedene eigenschaften gemapped, zb. Wert oder so
+  - generiert hier 5 neue features, ist eine art expertenwissen einzubeziehen, aber ist natürlich sehr sensibel darauf das es korrekt ist
+  - wenn wir die features von den kategorien mit ordinal machen, dann hat das dritte mit nummer 2 einen grösseren einfluss als 
+  - `y = b0 + b1x1 + b2x2 ...` wenn x1 ordinal 1 ist und dann x2 ordinal 2 hat es einen grösseren einfluss, mit vektoren würde es nur einen einfluss auf das beta haben wenn es zu der kategorie gehört. Also fällen die parameter weg die sich gar nicht dazu bezeien
 - 
 
 
