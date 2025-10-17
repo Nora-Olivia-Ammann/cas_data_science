@@ -203,6 +203,26 @@
   - man kann auch auf ein validierungsset overfitten
 - 90
   - "Herbei zaubern von test daten"
+  - Wir möchten ein möglichst grosses validierungsset haben damit wir ein model nicht nur zufällig wählen
+  - Einen trick das validierungsset zu vergrössern
+  - K-Fold Cross Validation eine methodik
+  - Alle daten sind validierung
+- 91
+  - 1, 2, 3, 4, 5 gelbes sind die validierungssets
+  - Wir haben verschiedene arten von modellen
+  - Ein model, zb. Lineare Regression trainieren sie 5 mal auf verschiedene teile vom Datenset
+  - jedes model hat die validierungsdaten während dem training nicht gesehen
+  - Dann werden die vorhersagen (von den verschiedenen modell arten verglichen, linear vs. polynom, etc) verglichen, wir wählen eine Modell art
+  - Dann können wir die resultate der Modelle zusammen nehmen, oder eines auswählen oder wir können ein neues modell trainieren auf allen daten (keine validierungsdaten) weil wir es ja vorher validiert haben
+- Hold-Out Cross validation -> train & validate
+- K-fold corss validation -> gemäss 91
+- 93
+  - Komplex -> wie stark passt sich das model an? Wie flexibel ist es?
+  - Sehr komplexes model & test schlecht -> overfitting
+  - Sehr einfaches model beides nicht besonders gut -> underfitting
+  - Also die komplexität richtig wählen
+  - Model based view: Das model ist im zentrum, daten sind fix
+  - Aber wir können nicht nur die modelle anpassen sondern auch neue daten erheben oder feature engineering
 - 
 
 
