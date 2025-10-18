@@ -541,7 +541,11 @@
   - Klare limite
   - ist eine regressions task (sinus kurve), hier hat es ein globales muster
   - sobald wir ausserhalb der gemessenen daten sind, ist es sehr schnell sehr schlecht
-- 
+- 219
+  - 1. feature grösser gleich oder kleiner gleich -> gibt ein spezifisches resultat, regionen links und rechts davon
+  - 2. Ja, aber nur sinnvoll wenn der optimale cut horizontal oder vertikal ist
+- 220
+  - Modelle, Preprocessing und Feature Engineering nur auf den trainingsdaten entwerfen und trainieren
 - 
 
 
