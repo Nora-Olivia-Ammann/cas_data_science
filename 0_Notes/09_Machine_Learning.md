@@ -348,6 +348,33 @@
 - 135
   - Metrik -> fehler für jeden einzelnen Datenpunk
   - die unterscheidung kann relevant sein in gewissen use-case
-- 
+- 137
+  - Die resultate vom modell
+  - Können die resultat von den Trainings oder Validierungs Daten machen
+  - Wenn es schon auf den Trainingsdaten fehler macht ist es vielleicht zu starr
+  - Wenn es die auch auf den Validierungsdaten macht ist es vielleicht overfittet oder so
+  - Gute Darstellung für die Fehler, viele kategorien gut dargestellt
+  - Keine Metrik weil es immer fehler von daten punkt, es ist nicht immer aussage kräftig ob ein modell besser ist als ein anderes
+- 138
+  - Accuracy -> sehr einfach
+    - 9 mal korrekt von 10 (9/10) -> 90 % genauigkeit
+    - Wird oft verwendet weil es ist intuitiv sehr verständlich
+  - wenn wir von einem fall viel mehr beispiele haben als von einem anderen ist diese aussage nicht sehr gut
+- 139
+  - F1-Score
+    - Harmonische Mittel, Binär -> mittel von den zwei Zahlen
+    - Precision -> True positive / (true positive + false positive) -> echter positive / alle guten + alle die falsch gefunden wurden
+    - Recall -> True positive / (true positive + false negative) -> echte positive / alle gute + alle falschen nicht gefundenen
+    - F1 ignoriert 
+- 141
+  - weil eine klasse so viel öfter vor kommt ist dieser score sehr hoch obwohl das modell sehr schlecht ist
+- 143
+  - xi (feature) sind beobachtete werte
+  - Produkt symbol (wie das summen symbol)
+  - Positive Sample -> eg. alles spam mail
+    - Wahrscheinlichkeiten für einen datenpunkt multipliziert mit den wahrscheinlichkeiten der restlichen datenpunkten
+  - Negative Sample -> eg. alle keine Spam mail
+    - 1 - (Wahrscheinlichkeiten multipliziert)
+  - Beide Produkte werden auch miteinander multipliziert
 - 
 
