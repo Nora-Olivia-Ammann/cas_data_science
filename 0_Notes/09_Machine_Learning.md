@@ -425,5 +425,51 @@
 - 165
   - Curse of Dimensionality -> Raum wir riesig bei vielen Achsen (Features), dann machen distanzen nicht mehr so viel Sinn
   - Andere Modell lernen besser die Features zu gewichten K-Nearest Neighbour kann das nicht
+
+### Support Vector Machine
+
+- 170
+  - Binäre entscheidung
+- 173
+  - Kosten funktion geht nicht likelihood weil wir keine likelihood vorhersehen
+- 175
+  - Das ist eine Annahme um das beste modell zu wählen
+  - geometrische intuition
+  - geht in n dimensionen
+  - position boundary und dann eine margin + / - von der position boundary, support vektoren sind die punkte die die position boundary entscheiden
+- 177
+  - beta ist ein vektor, der ist normiert und ist 1, sonst kann M unendlich werden
+- 183
+  - HARD-MARGIN -> wenn es daten gibt die nicht richtig passen, dann gibt es keine lösung
+  - darum soft margin
+- 184
+  - bei jeder variabel darf die margin ein wenig abweichen um einen "cheat" wert (zeta)
+  - aber wir müssen sagen, dass in der summe möglichst wenig verletzt werden
+  - wenn C sehr gross ist dann wird cheating minimiert (stärker bestraft) und umgekehrt, das sind hyper-parameter wenn ich C kleiner mache kann die margin grösser werden und mehr datenpunkte verletzten die margin
+  - Cheating darf nicht negativ sein, man darf nur in die selbe richtung cheaten nicht bei einer positiv und bei einer anderen negativ
+  - Es gibt immer eine lösung, aber es kann sein, dass das cheating relativ gross sein muss um eine lösung zu haben
+- 185
+  - alle daten punkte verletzten der margin und sind sogar falsch klassifiziert, aber sogar die die korrekt sind, können den margin verletzten
+- 186
+  - beeinflusst auch den winkel der geraden da bei jeder margin das optimum anders sein kann
+  - C gross, wir passen das modell stark auf die einzelnen daten and bei klein generalisieren wir es mehr
+- 187
+  - Keine wahrscheinlichkeit bei mehreren klassen ist nicht möglich
+  - es ist möglich mehrere modelle zu trainieren kann aber schnell gross werden bei mehreren klassen
+  - logistische regression ist meistens besser
+
+
+### Kernel Trick
+
+- 193
+  - kann man mit jedem modell machen
+  - ist vorallem effizient von support vector machine
+  - in den meisten fällen wir ein indirektes feature engineering
+  - feature engineering gemacht hätten. Aber es springt direkt zur lösung.
+  - Es kann sein dass es rechnerisch besser ist mit kernel trick zu arbeiten als feature egineering
+  - Wir wählen immernoch den Kernel, der dan die art des feature engineering macht
+  - Implikation ist, dass wir nicht das neue feature "materialisieren" (explizit machen)
+  - mathematisch ist es nicht ganz dasselbe alber in der praxis hier ist es gleich genug
+- 
 - 
 
