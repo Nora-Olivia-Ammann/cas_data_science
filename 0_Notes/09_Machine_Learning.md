@@ -508,6 +508,40 @@
   - in einer anderen region ist es vieleicht gemischt, dann ist wahrscheinlichkeit für x gemäss anzahl von klasse und dann geteilt durch anzahl punkte in region
   - das wird für jede klasse in jeder region gemacht
   - die prediction für diese region ist die wahrscheinlichkeit x%
+  - wenn wir abbrechen bevor es 100% akkurat ist dann müssen wir eine wahrscheinlichkeit nehmen in der region
+  - daran kann aber geschraubt werden
+- 206
+  - Wie können wir die kostenfunktion nehmen, wir müssen wissen welcher baum am besten ist, es haben alle dieselbe abbruch bedingung. Einfach andere bäume unter denselben konditionen
+  - Verunreinigung in einer region, dann werden diese summiert und durch alle punkte
+  - welche formel genommen wird ist ein hyper parameter
+- 207
+  - wie finden wir den richtigen cut?
+  - theoretisch gesehen gibt es einen idealen baum, ist aber sehr rechenintensiv
+    - Das machen wir nicht.
+  - Praxis
+    - Suchen guten baum mit greedy-algorithums, der die kostenfunktion gut minimiert
+    - Ich schaue was ist im moment die beste lösung, dann gehe ich weiter. Der cut wird später nicht mehr hinterfragt
+    - P-Hard wenig rechenzeit
+    - Ist vielleicht nicht so schlimm, dass wir nicht den besten nehmen weil wir sonst vieleicht auf die test daten overfitten
+  - Die möglichen cuts sind immmer in der mitte zwischen zwei punkten.
+- 212
+  - ebenen müssen auch rechtwinklig sein
+- 213
+  - ensemble: mehrere Modelle und nehmen den durchschnitt der individuellen vorhersagen als unsere endgültige vorhersage (als einfachste version)
+  - die modelle müssen nicht derselben art sein
+  - random forest sind mehrere decision trees
+  - die interpretierbarkeit geht verloren weil es zu viele komponenten hat
+  - Bagging -> ensemble mit allen modellen gleicher art
+- 213
+  - ein split ist immer auf einem feature gemacht, daher sind sie robust bei vielen features, weil diese den cut einfach nicht beeinflussen
+  - es ist weniger anfällig aber es können natürlich auch features geben die einen negativen einfluss haben
+  - in regression, bekommt jedes feature ein beta auch wenn es keinen einfluss haben sollte
+- 216
+  - Meistens sehr gut auf strukturierten daten, vorallem als ensemble
+  - Klare limite
+  - ist eine regressions task (sinus kurve), hier hat es ein globales muster
+  - sobald wir ausserhalb der gemessenen daten sind, ist es sehr schnell sehr schlecht
+- 
 - 
 
 
