@@ -2,6 +2,25 @@
 
 ## Tag 1
 
+### Übersicht Tag 1
+
+- Supervised Learning
+  - `X` Daten, `y` labels die wir schlussendlich predicten wollen
+  - Preprocessing
+    - Standardisierung
+    - Encoding
+    - Feature Selection
+    - Feature Engineering (polynomisierung, etc)
+  - Modell
+    - eg. Linear Regression -> gibt eine Kontinuierliche Variabel
+    - y-hat -> vorhersage
+    - betas
+  - Resultat
+    - `y` neues
+  - Metrik
+    - hat eine kosten funktion die sagt wie gut die betas sind
+
+
 - 10: 
   - beim tictactoe ist es möglich das perfekt zu machen, 
   - Wenn es perfekt möglich ist dann sind wir meistens nicht in ML
@@ -289,5 +308,46 @@
   - Suchen: wir versuchen verschiedene lambdas aus und dann schauen wir was am besten ist
 - 115
   - Grid Search -> annhäherung, meistens nicht so gut wenn wir mehrere hyperparameter haben, weil alle kombinationen getestet werden müssen
+
+
+## Tag 2
+
+### Classification in Supervised Learning
+
+- 123
+  - Menge von vordefinierten klassen (kann auch binär sein)
+- 124
+  - Iris datensatz als beispiel
+  - Blumenart basierend auf massen der blütenblätter
+  - Output space muss keine achse sein, sondern jetzt kann es farbig sein, da es klassifikation ist
+  - Kann auch durch lineare regression gemacht werden, es ist eine gerade
+  - hier sind die massen standardisiert (fehler es steht im cm)
+- 125
+  - Auch wenn es regression heisst ist es eine klassifikation in ML language
+- 126
+  - Data Specification -> Auswahl (127)
+  - Model -> ist in sklearn im fit drinn
+  - Kostenfunktion -> definiert
+- 129
+  - Wir wollen das Lineare Modell nehmen (wie Tag 1), eigentlich werte zwischen -unendlich und + unendlich
+  - Die formel muss modifiziert werden zwischen 0-1 -> ist die Wahrscheinlichkeit einer klasse
+  - Wird mit der Logistischen Funktion (sigmoid) gemacht (`e` -> Eulerische Zahl)
+  - Die genau an 0 oder 1 eine Annäherung
+  - `sigmoid(Lineare Modell)` -> zuerst nehmen wir das resultat vom modell, dann wird es in die formel rein gesetzt das ist das `z`
+- 131
+  - y-hat -> die klasse die wir vorhersagen, dann ist es normalerweise wenn es mehr 50 %
+  - Es sind so wenige werte die genau 0 sprich 50% kommen können, dass es besser ist sich für etwas zu entscheiden als einen fehler werfen
+  - können das Modell erweitern dass es einen spezifischen wert vorgeben bei dem das modell nichts vorhersagt, wenn unsicherheit wichtig ist
+  - wir können auch sagen, dass wir schon bei 20% sagen dass es schon true ist, anpassung an use case
+- 132
+  - beta kann auch negativ sein, daher können auch bei viel variabeln kleine `z` raus kommen
+- 133
+  - Weil wir den output farblich dargestellt wird, können 3 features 3-Dimensional dargestellt werden
+  - Ein feature wird einfach auf einer achse angezeigt -> eine linie
+  - 3 features ist eine fläche
+- 135
+  - Metrik -> fehler für jeden einzelnen Datenpunk
+  - die unterscheidung kann relevant sein in gewissen use-case
+- 
 - 
 
