@@ -461,6 +461,9 @@
 
 ### Kernel Trick
 
+- Normal: Wir loopen über anzahl features
+- Kernel Trick: wir loopen über anzahl daten
+
 - 193
   - kann man mit jedem modell machen
   - ist vorallem effizient von support vector machine
@@ -470,6 +473,13 @@
   - Wir wählen immernoch den Kernel, der dan die art des feature engineering macht
   - Implikation ist, dass wir nicht das neue feature "materialisieren" (explizit machen)
   - mathematisch ist es nicht ganz dasselbe alber in der praxis hier ist es gleich genug
-- 
-- 
+- 194
+  - Representer Theorem wird angenommen
+  - weil es über alle trainingsdaten looped ist es nicht effizient bei einem grossen trainings-daten set
+  - so lerne ich die alphas statt betas
+  - weil die lernbare parameter ist nicht mehr von den anzahl features sondern anhand der datenpunkte abhängig
+  - wenn wir mehr features als datenpunkte haben als features (das ist seltener im vergleich zu mehr daten wie features)
+- 197
+  - RBF kernel -> oft genommen, wie ein smoother k-nearest neighbour, weil nicht nur k nächste sondern alle datenpunkte
+- Bei SVM müssen wir nur über die support vektoren loopen die einen einfluss auf das modell haben. Diese support vektoren finden wir über das erste triaining
 
