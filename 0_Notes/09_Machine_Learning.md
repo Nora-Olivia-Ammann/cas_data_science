@@ -369,6 +369,9 @@
 - 141
   - weil eine klasse so viel öfter vor kommt ist dieser score sehr hoch obwohl das modell sehr schlecht ist
 - 143
+  - Kostenfunktion (Maximum Likelihood)
+  - Man nimmt an dass die Wahrscheinlichkeiten unabhängig sind (ist in der praxis nicht immer so), wenn man das nicht annimmt kann man nichts machen
+  - hier will man einen wert möglichst nahe bei 1
   - xi (feature) sind beobachtete werte
   - Produkt symbol (wie das summen symbol)
   - Positive Sample -> eg. alles spam mail
@@ -376,5 +379,28 @@
   - Negative Sample -> eg. alle keine Spam mail
     - 1 - (Wahrscheinlichkeiten multipliziert)
   - Beide Produkte werden auch miteinander multipliziert
+  - Resultat is wie wahrscheinlich sind die labels die ich habe und unserem modell
+  - je mehr datenpunkte desto näher geht er gegen 0, aber wenn man sie auf dieselben daten anwenden dass sind sie trotzdem vergleichbar
+  - Mit gradient descent wird negative maximum likelihood
+- 145
+  - Weil es auch linear ist, haben wir immernoch ein minimum
+- 147
+  - Gradient ascent wäre auch möglich aber es hat sich eingebürgert, dass man einfach negative gradient descent macht
+- 148
+  - Für die nummerische stabilität nehmen wir noch den logarithmus, ist ok, weil es das minimum nicht verändert
+  - Logarithmus von multiplikation macht es daraus additionen, von der theorie kommt das selbe raus, ist im kommputer besser, weil wir haben floating points und irgendwann wird das ungenau auf dem computer, addition ist bisser addieren ist stabiler im computer
+- 149
+  - Softmax ist wenn wir mehr klassen haben
+  - wahrscheinlichkeitsverteilung über alle klassen
+  - `x` kommt ins modell -> drei wahrscheinlichkeit für alle drei klassen
+  - `K` beim summenzeichen sind die anzahl klassen
+  - Der term macht dass es über alle klassen loopt
+  - beweis für die ite klasse -> drei modelle wie wir es vorhin hatten
+    - `z1` ist ein lineares modell
+    - `z2` ist ein anderes lineares modell
+    - `z2` ist ein drittes lineares modell
+    - Statt die sigmoid funktion um einen wert zwischen 0-1 erhalten nehmen wir eine andere funktion
+  - `i` ist der index des modells und `l` ist der index der klasse
+  - Predicten zwischenergebnisse -> diese individuellen ergebnisse müssen in eine Zahl umgewandelt werden weil wir wollen am schluss eine zahl
 - 
 
