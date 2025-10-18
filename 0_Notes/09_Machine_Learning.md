@@ -402,5 +402,14 @@
     - Statt die sigmoid funktion um einen wert zwischen 0-1 erhalten nehmen wir eine andere funktion
   - `i` ist der index des modells und `l` ist der index der klasse
   - Predicten zwischenergebnisse -> diese individuellen ergebnisse müssen in eine Zahl umgewandelt werden weil wir wollen am schluss eine zahl
+- 150
+  - Es sind zwar drei lineare modelle aber sie werden zusammen trainiert weil sie über den soft max verbunden weil sie alle zusammen immer 1 geben müssen
+- Code: `slides/code-examples/classification/logistic_regression.ipynb`
+  - Evaluierung auf test daten sollte gut sein, weil es hat sie gesehen
+- 152
+  - Es ist nicht für alles geeignet wenn die daten nicht mit einer geraden von einander getrennt werden können kommt nichts sinnvolles raus
+  - Vielleicht ist es möglich mit mehr features die klassen noch mehr unterscheiden
+  - Feature engineering wäre möglich (polynome feature engineering (rot umrandetes bild))
+- 
 - 
 
