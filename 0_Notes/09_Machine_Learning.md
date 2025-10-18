@@ -322,6 +322,9 @@
   - Output space muss keine achse sein, sondern jetzt kann es farbig sein, da es klassifikation ist
   - Kann auch durch lineare regression gemacht werden, es ist eine gerade
   - hier sind die massen standardisiert (fehler es steht im cm)
+
+### Lineare Regression
+
 - 125
   - Auch wenn es regression heisst ist es eine klassifikation in ML language
 - 126
@@ -410,6 +413,11 @@
   - Es ist nicht für alles geeignet wenn die daten nicht mit einer geraden von einander getrennt werden können kommt nichts sinnvolles raus
   - Vielleicht ist es möglich mit mehr features die klassen noch mehr unterscheiden
   - Feature engineering wäre möglich (polynome feature engineering (rot umrandetes bild))
-- 
-- 
+- Statisk -> wir machen annahmen über eine perfekte welt, LM wir schauen was am besten passt aber wir machen keine annahmen die wir prüfen
+- 156
+  - 1. Fixe Gruppen, zuweisung zu einer Gruppe (im vergleich zu clustering das gruppen selbst findet)
+  - 2. Annahme, dass es eine dieser Gruppe ist, wie die betas verwendet werden ist lieanr, das lineare modell ist drinn. Es hat eher eine tendenz zu underfitting. Resultat ist zwischen 0-1 (bei 2 betas), ist eine wahrscheinlichkeit.
+  - 3. 
+
+### K-Nearest Neighbour
 
