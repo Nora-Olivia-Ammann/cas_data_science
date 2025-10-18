@@ -483,3 +483,31 @@
   - RBF kernel -> oft genommen, wie ein smoother k-nearest neighbour, weil nicht nur k nächste sondern alle datenpunkte
 - Bei SVM müssen wir nur über die support vektoren loopen die einen einfluss auf das modell haben. Diese support vektoren finden wir über das erste triaining
 
+
+### Decision Tree
+
+- 199
+  - ist für viele probleme sehr erfolgreich
+  - ist üblicherweise binär
+- 201
+  - Nichts muss standardisiert werden
+- 203
+  - die features werden in regionen aufgeteilt, innerhalb der region wird 
+  - alles was in der region ist wird tendenzeiel vorausgesagt
+  - keine schräge schritte weil es dann kein baum mehr ist
+  - Dann haben wir zwei neue regionen, dann kann dort nochmals unterteilt werden
+  - funktioniert auch in n dimensionen
+  - wo es den cut gibt wird vom learning algorithmus entschieden
+  - das kann undendlich gehen, dann ist es auf dem trainings set 100%, kann aber extrem overfittet sein
+  - normalerweise abbruch bedingung
+  - wir zerstückeln so lange wir unreinheiten haben
+  - ist auch möglich nachträglich der baum aufgeräumt wird so dass es nicht overfitting ist
+  - Es macht nur einen neuen cut wenn es etwas unterteilen kann
+- 204
+  - dann schauen wir die wahrscheinlichkeit für eine entscheidung -> blaue region -> 100% blau
+  - in einer anderen region ist es vieleicht gemischt, dann ist wahrscheinlichkeit für x gemäss anzahl von klasse und dann geteilt durch anzahl punkte in region
+  - das wird für jede klasse in jeder region gemacht
+  - die prediction für diese region ist die wahrscheinlichkeit x%
+- 
+
+
