@@ -419,5 +419,11 @@
   - 2. Annahme, dass es eine dieser Gruppe ist, wie die betas verwendet werden ist lieanr, das lineare modell ist drinn. Es hat eher eine tendenz zu underfitting. Resultat ist zwischen 0-1 (bei 2 betas), ist eine wahrscheinlichkeit.
   - 3. 
 
+
 ### K-Nearest Neighbour
+
+- 165
+  - Curse of Dimensionality -> Raum wir riesig bei vielen Achsen (Features), dann machen distanzen nicht mehr so viel Sinn
+  - Andere Modell lernen besser die Features zu gewichten K-Nearest Neighbour kann das nicht
+- 
 
