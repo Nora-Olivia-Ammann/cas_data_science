@@ -644,6 +644,37 @@ Code (Slides/pca):
 - Üblicherweise wird meistens 90% gemacht
 
 
+#### Non-Negative Matrix Factorisation (263)
+
+- Pixel ist es gegeben
+- speziell, dass sie nur positiv sein dürfen
+- einheitliche grösse haben (wenn alle features pixel sind, ist das auch gegeben). Wir können nicht standardisieren, weil es hier negative werte gibt. Also einheitlich aber nur positiv
+- 267
+  - Intuition, Möchten Matrix A und B lernen, sodass wenn ich A*B rechne kommen ungefähr unsere daten raus
+  - wir wählen A und B so, dass A*B möglichst nahe bei X ist
+  - Die anzahl features wird von uns definiert
+  - Bedingung beide Positiv -> also X (unsere Features) muss auch positiv sein
+  - B ist der Decoder
+  - k ist kleiner als anzahl features, aber dieselbe anzahl samples
+- 268
+  - wir haben keinen encoder, wir lernen direkt unsere reduzieren features -> lernen A und dann lernen wir B
+  - weil wir keinen encoder haben, können wir es nicht nochmals auf andere daten anwenden weil A direkt gelernt ist
+  - Nicht als pre-processing geeignet
+  - Wenn wir eine pipeline zweimal laufen lassen, dann rechnet es NMF neu aus, wir können nichts verwenden dass es vorher gerechnet hat. Also keine gute idee für pre-processing
+- 269
+  - PCA sehr schwer zu verstehen was ein feature genau macht weil es immer im zusammenhang mit anderen features verstanden wird
+  - NMF: die reduktion ist einfacher verständlich (die gelernten features) weil es alles positiv ist
+- 271
+  - selbe Kostenfunktion wie PCA aber die rekonstruktion ist A*B
+- 273
+  - zufällige werte (klever zufällig)
+  - Coordinate-Descent -> zuerst A dann B, etc.
+  - Wenn sich A verändert muss ich B verändern
+  - darum optimiere ich A, ich verändere A mit dem gefixten decoder
+  - Dann wchseln, ich verändere B und halte A fix
+  - Lokales minimum, ist vielleicht global nicht die beste lösung
+
+- K-means geht in die richtung von der struktur, cluster zugehörigkeit mit fixen schwerpunkt, dann neues cluster zentrum, etc. Auch coordinate descent
 - 
 
   
