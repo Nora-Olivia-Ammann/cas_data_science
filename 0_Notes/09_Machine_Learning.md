@@ -675,7 +675,21 @@ Code (Slides/pca):
   - Lokales minimum, ist vielleicht global nicht die beste lösung
 
 - K-means geht in die richtung von der struktur, cluster zugehörigkeit mit fixen schwerpunkt, dann neues cluster zentrum, etc. Auch coordinate descent
-- 
+
+- 275
+  - 1. Wir gehen von 100% info auf ungf. 90%, weniger features mit möglichst viel variation erhalten
+  - 2. 
+    - Ich identifiziere die hauptachsen mit meister streuung (info)
+    - dann nehme ich die anzahl hauptachsen wie ich will
+    - Nimmt linearität und manifold an
+  - 3.
+    - Nicht negative
+    - wir können neue datenpunkte nicht mappen weil es immer nur auf die existierenden daten sinn macht
+    - wird viel in NLP verwendet bei vielen wörter und dann nachher clustering gemacht werden soll
+  - Gemeinsamkeit
+    - gleiche kostenfunktion
+    - das modell funktioniert aber anders
+
 
   
 - Transfer Learning: Nehmen betas eines existierendes Modell und trainiert es weiter mit eingenen kleineren daten (wie verfeinert)
