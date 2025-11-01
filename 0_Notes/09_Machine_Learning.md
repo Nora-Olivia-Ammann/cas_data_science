@@ -546,6 +546,49 @@
   - 2. Ja, aber nur sinnvoll wenn der optimale cut horizontal oder vertikal ist
 - 220
   - Modelle, Preprocessing und Feature Engineering nur auf den trainingsdaten entwerfen und trainieren
+
+
+## Tag 3
+
+### Unsupervised Learning
+
+- Keine zugehörigen outputs, nur daten und wollen etwas machen
+
+#### Clustering
+
+- 228
+  - Bei der Klassifikation geben wir die Gruppen vor
+  - Gruppen in Daten, finden sie selbst
+  - Wir wissen auch nicht was ein cluster überhaupt ist
+  - Das müssen wir später analysieren um zu verstehen was da überhaupt drinn ist, kann sein, dass es gar keinen sinn macht
+  - k-means Algorithm
+- 229
+  - Suchgergebnisse die Zusammengehören werden gruppiert und werden zusammen angezeigt
+  - Von der Forschung hatten sie daten von gesichter, hat gelernt personen zu erkennen (ungefähr)
+
+#### Dimensionality Reduction
+
+- 1 Dimension -> 1 feature
+- Anstatt jeden Datenpunkt mit drei Features zu beschreiben, wollen wir nur noch zwei features haben die sinn machen
+- 2D-Manifold -> ist eine 2D ebene die im 3D raum abgebildet ist
+- Informationsverlust, aber die die man wegnimmt ist nicht so wichtig
+- Manifold-Annahme: wissen nicht ob es für die Daten stimmt, eg. Bilder mit vielen Pixeln, liegen eigentlich auf einem tieferen manifold
+- 233
+  - 3 farb kanäle -> 3072 features 1 pro pixel und 3 für farbkanäle
+  - Mit 3072 features können wir viele Daten räpresentieren, die in der echten welt gar nicht vorkommen also können wir etwas weg nehmen
+  - Wir versuchen die 3072 auf weniger features reduzieren die aber die Daten präzieser beschreiben
+- 234 Encoder -> reduktion von features (sind auch ML modelle)
+  - Wir verwenden Machine Learning um die features zu reduzieren um ein ML zu trainieren oder für visualisierung
+  - Wörter original sind immer gleich voneinander entfernt, macht keinen sinn, dann encoder die es mehr gruppieren so dass es näher ist
+  - Die Features die raus kommen sind gelernte features, es hat kein natürliches label für uns, wir verstehen eigentlich das resultat des encodings eigentlich nicht
+- 235
+  - bei dimensionsreduktion braucht es keine labels, daher können z.b. mehr bilder gelernt werden und dann auf weniger gelablede bilder reduziert werden dann hat es ein supervised model einfacher
+  - Motivation: anzahl info auf wesentliche features reduzieren, feature engineering macht tendenziell mehr features
+  - Obwohl die dimensionality reduction auf den daten gelernt wird, wollen wir sie meistens auf nur auf die eigenen daten anwenden. Darum wird es nicht in training, validierung und test getrennt, weil man z.b. alles visualisieren will. Das resultat wird dann einfach genommen wenn es sinnvoll erscheint
 - 
+  
+- Transfer Learning: Nehmen betas eines existierendes Modell und trainiert es weiter mit eingenen kleineren daten (wie verfeinert)
+- 
+
 
 
