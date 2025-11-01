@@ -585,7 +585,33 @@
   - bei dimensionsreduktion braucht es keine labels, daher können z.b. mehr bilder gelernt werden und dann auf weniger gelablede bilder reduziert werden dann hat es ein supervised model einfacher
   - Motivation: anzahl info auf wesentliche features reduzieren, feature engineering macht tendenziell mehr features
   - Obwohl die dimensionality reduction auf den daten gelernt wird, wollen wir sie meistens auf nur auf die eigenen daten anwenden. Darum wird es nicht in training, validierung und test getrennt, weil man z.b. alles visualisieren will. Das resultat wird dann einfach genommen wenn es sinnvoll erscheint
+- 238
+  - kann sein, dass wenn es zu viele features hat, das es overfitted (gibt einem pixel zu viel gewicht). Mit weniger features ist das fitting eventuell besser
+- Encoder kann auf allen daten die wir finden trainieren, keine labels, lerne nur bilder anders zu räpresentieren. Und dann kann ich ein encoder auf daten verwenden die labels brauchen.
+- 240: Feature selection ist eine dimensionsreduktion, kann aus einer reduktionssicht sehr dumm sein, weil das was übrig ist, nicht mehr viel wert ist. Muss aber nicht, weil es features gibt die noise sind
+- 241
+  - Rote Gerade ist das neue feature, räpresentiert die original daten besser als wenn wir ein feature entfernen
+  - Muss nicht zwingend eine Gerade sein
+  - Haben immernoch informationsverlust
+  - Bei Linearer Regression minimieren die square (vertikale linie), aber hier minimieren die distanz rechtwinkling zu der geraden, was feature loss minimiert. Andere Motivation als lin. reg. Da ist vorhersage hier ist kombination, daher andere optimierung
+- **Principal Component Analysis (PCA)** 243 ist ein
+- 244:
+  - Keine zielvariabel sondern nur features
+  - Encoding: eg. Texte
+  - Nummern müssen mit standard scaler standardisiert werden
+- 246
+  - 1. Hauptkomponente: die achse die am meisten streuung erklärt
+  - 2. Hauptkomponente: die nächste achse die am meisten streuung erklärt (ist rechtwinklig auf der 1.)
+  - -> neues koordinaten system für pc1
+- 247
+  - Nach rotation nehmen wir die wichtigsten feature raus, und nehmen die zweite weg, also eigentlich feature selection
+  - Man macht immer alle hauptkomponenten und werfen dann weg. Wir geben die hautpkomponenten vor
+- 248
+  - Macht einen matrix multiplikation (lineare transformation)
+  - Wir machen immer eine rotation der daten
+  - matrix ist 3000 mal 200 gross dann kommt 200 raus
 - 
+
   
 - Transfer Learning: Nehmen betas eines existierendes Modell und trainiert es weiter mit eingenen kleineren daten (wie verfeinert)
 - 
