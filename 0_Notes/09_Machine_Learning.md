@@ -633,8 +633,18 @@
 - 259
   - Sollte nur für Performance genutzt werden (eg. wenn wir einen algorithmus haben der sehr langsam ist)
   - andere dimensionsreduktionen können gegen overfitting genutzt werden aber PCA weniger
+- Wenn die daten linear sind, dann ist es die optimale wahl, aber viele Daten sind halt nicht linear. Nicht lineare modelle overfitten eher als dies
+- Manifold ist schon eine annahme die vielleicht auch nur halb wahr ist
+- Aber die annahme dass sie noch linear ist, ist noch eine extra annahme die vielleicht nicht stimmt
+
+Code (Slides/pca):
+- n_components: man kann sagen wie viel prozent streuung wir haben wollen, es schaut selbst wie viele komponenten es braucht
+- hier sind 90% streuung sind 31 PCA von 64 features (slide 251 hat die kurve analysiert)
+- optimierung ist nicht enorm rechenintensiv
+- Üblicherweise wird meistens 90% gemacht
 
 
+- 
 
   
 - Transfer Learning: Nehmen betas eines existierendes Modell und trainiert es weiter mit eingenen kleineren daten (wie verfeinert)
