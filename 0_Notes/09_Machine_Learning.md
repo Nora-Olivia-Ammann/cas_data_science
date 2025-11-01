@@ -576,7 +576,7 @@
 - 233
   - 3 farb kanäle -> 3072 features 1 pro pixel und 3 für farbkanäle
   - Mit 3072 features können wir viele Daten räpresentieren, die in der echten welt gar nicht vorkommen also können wir etwas weg nehmen
-  - Wir versuchen die 3072 auf weniger features reduzieren die aber die Daten präzieser beschreiben
+  - Wir versuchen die 3072 auf weniger features reduzieren die aber die Daten präzieser beschreiben (ein feature sagt mehr aus als eines vorher)
 - 234 Encoder -> reduktion von features (sind auch ML modelle)
   - Wir verwenden Machine Learning um die features zu reduzieren um ein ML zu trainieren oder für visualisierung
   - Wörter original sind immer gleich voneinander entfernt, macht keinen sinn, dann encoder die es mehr gruppieren so dass es näher ist
@@ -610,7 +610,31 @@
   - Macht einen matrix multiplikation (lineare transformation)
   - Wir machen immer eine rotation der daten
   - matrix ist 3000 mal 200 gross dann kommt 200 raus
-- 
+- 250
+  - kommt mit decoder -> macht die ursprünglichen features aus den reduzieren wiederherstellen
+  - Das resultat ist ein wenig unscharf weil es info verloren hat
+  - Bild nehmen encoden und dann decoden mit matrix transposition
+- 251
+  - Wie viele streueung bleibt erhalten bei anzahl haupt komponenten -> verliefen 10% streeung wenn wir auf 200 features gehen
+  - Wie viele Hauptkomponente es waren wieder zurück ins original
+- 253
+  - Wenn wir 200 pixel auswählt statt PCA dann bewahren wir nur 9.3% der info mit PCA bewahren wir 94.4% der streuung
+  - hier zeigt es das feature selection in diesem fall sehr dumm wäre
+- 254
+  - Kostenfunktion ist bei PCA immer dieselbe -> L2 distanz -> squared error der rekonstruktion
+  - J(W) = (ursprünglichen bilder (jedes Pixel) - rekonstruktion der Bilder (jedes Pixel))^2 dann aufsummiert
+  - Die W die minimal sind nehmen wir, das sind die hauptkomponenten
+  - PCA ist so definiert dass es L2 distanz ist, wenn man eine andere Kostenfunktion wäre, wäre es nicht mehr PCA einfach ein anderer Algorithmus
+- 257: Optimierung ist lineare algebra
+- 258
+  - Nicht linearer Zusammenhang geht nicht
+  - Swiss Roll funktioniert mit PCA auch nicht weil es eine gerade rein tut
+  - sehr gut wenn es linear ist, aber es ist nur gut wenn es linear ist
+- 259
+  - Sollte nur für Performance genutzt werden (eg. wenn wir einen algorithmus haben der sehr langsam ist)
+  - andere dimensionsreduktionen können gegen overfitting genutzt werden aber PCA weniger
+
+
 
   
 - Transfer Learning: Nehmen betas eines existierendes Modell und trainiert es weiter mit eingenen kleineren daten (wie verfeinert)
