@@ -594,6 +594,7 @@
   - Muss nicht zwingend eine Gerade sein
   - Haben immernoch informationsverlust
   - Bei Linearer Regression minimieren die square (vertikale linie), aber hier minimieren die distanz rechtwinkling zu der geraden, was feature loss minimiert. Andere Motivation als lin. reg. Da ist vorhersage hier ist kombination, daher andere optimierung
+
 - **Principal Component Analysis (PCA)** 243 ist ein
 - 244:
   - Keine zielvariabel sondern nur features
@@ -691,8 +692,141 @@ Code (Slides/pca):
     - das modell funktioniert aber anders
 
 
-  
+#### Deep Learning (277)
+
+- Grosses Teilgebiet von ML
+- Wenn das Model ein neurales Netz ist spricht man von deep learning
+- bei vielem steckt DL dahinter
+- 279: Vorher
+  - model geholfen mit feature engineering und dimensionality reduction und dann ML
+  - Früher auch mit bilder / text, etc wurde das gemacht
+  - Vor deep learning waren die approaches nicht sehr erfolgreich
+- 280
+  - Motivation bevor wir wussten dass es sinnvoll ist
+  - Aufwand räpresentation soll irgendwie automatisch gelernt wird
+  - können einfache symbolische regeln lernen (wie zum beispiel was ist ein onkel in einem Stammbaum)
+  - Kann immer wie abstrakter werden für eine vorhersage
+  - Decision trees, machen eher interpolation, keine gloable muster ausserhalb der daten
+- 281
+  - Ohne annahmen geht es nicht, wie es lernen soll muss bestimmt werden
+  - Viele Daten für ein modell ohne overfitting
+- 282
+  - Unstrukturiert bedeutet dass ein einziges feature sehr wenig aussagt (ein pixel sagt nicht viel)
+  - Bei strukturierten Daten sind sie mieistens nicht die beste wahl (empirisch belegt)
+- 283
+  - Biologische Gehirn ganz anders wie heutiges NN
+
+#### Fully Connected NN (284)
+
+-> linear + liner neben und nacheinander + nicht lineare aktivierungsfunktion
+layer für layer ist alles mit allem verbunden horizontal
+
+- Das üblichste
+- 268
+- Spezifikation:
+  - Kostenfunktion immer vorgeben, idee ist dass diese verändert werden kann
+  - Features: Was kommt in das modell rein
+  - Encoding (eg. Text muss in Zahlen gemacht werden)
+  - Standardisiert (weil gradient descent)
+  - Arbeiten mit Gradient Descent
+- Model (288) (kein neurales netz)
+  - Die formel ist das lineare model
+  - so würde die regression als graph aussehen
+  - Der pfeil ist das beta
+  - letzter knoten ist die summe
+- Idee: 289 (noch kein neurales netz)
+  - Wir fügen zwischen input und output layer ein neues layer hinzu (hidden layer)
+  - Hidden layer sind eigentlich wie zwischenergebnisse
+  - Von den knoten im hidden layer gehen wir zum output
+  - Im fully connected NN sind alle x mit allen z verbunden (x0 und z0 sind die bias)
+  - ein pfeil räpresentiert ein beta, die sind alle unterschiedlich
+  - die anzahl von x ist nicht zwingend gleich wie die anzahl von z
+  - Es sind wie mehrere lineare modelle nebeneinander und hintereinander
+  - Das hier könnte man immernoch umschreiben in mathe um ein lineares modell machen also noch kein NN
+- 290
+  - Wir summmieren alle inputs in z und kreieren eine aktivierungsfunktion
+  - gibt unterschiedliche Aktivierungsfunktionen, muss gewisse eigenschaften haben
+  - **ReLU** -> wenn input negativ ist dann gebe ich 0 weiter sonst, funktioniert gut
+    - Input: -5 -ReLU -> 0 weiter
+    - input: 5 - ReLU -> 5 weiter
+    - Kann auch umgekehrt sein, es kann auch sein dass es alle positiven auf 0 setzt (beta wir angepasst)
+  - Man braucht irgendetwas dass nicht linear ist
+  - binary step funktioniert nicht so gut
+  - Es gibt viele weiterentwicklung von ReLU
+  - Es muss nicht überall die gleiche Aktivierungsfunktion haben. Zum beispiel bei klassifikation wollen wil 0 / 1 haben, im zwischenlayer aber kann es ReLU sein wo die werte anders sein können
+  - Normalerweise sind die Aktivierungsfunktionen pro layer gleich
+- 291
+  - Die logistische regression ist ähnlich wie die aktivierungsfunktionen in NN
+- 292
+  - Gute an NN ist das mehrere vorhersagen problemlos hinzugefügt werden beim gleichen input
+  - in der theorie sollte noise features keinen einfluss haben
+  - aber in der praxis lernt es dann komische zusammenhänge -> overfitting also auch feature selection ist relevant
+  - wir können recht viel konfigurieren, input / output ist fix, aber layer, anzahl neuronen, aktivierungsfunktionen kann überall daran geschraubt werden
+- 294 (wichtige slide)
+  - DL kann sich wie vorgestellt werden dass wir ein modell konfiguireren können sehr komplexe architektur
+  - mehr layer -> mehr betas -> kann sich stärker anpassen ist mächter aber auch einfacher overfitting
+  - wenn wir sehen dass es overfittet, können wir das modell
+  - Fixe architektur, anzahl layer, anzahl knoten pro layer sind von uns vorgegeben, nicht vom modell!
+  - Beim training lernt es nur die betas (gewichtung)
+  - Mehr layers -> meistens ist es besser mehrere layers hinzuzufügen als mehr nodes pro layer
+  - Kostenfunktion 
+    - muss ableitbar sein für gradient descent
+    - Wird problemspezifisch gewählt
+    - kommt auf die funktion darauf an (regression -> squared error, etc.)
+- 295
+  - Hidden layer kann wie ein gelerntes feature engineering  (10 features mach 100 knoten im hidden layer)
+    - oder kann auch als gelernte dimensionsreduktion gesehen werden (100 features auf 10 im hidden layer)
+  - PCA hat möglichst wenig info weggeworfen, aber vielleicht hat es etwas weggeworfen dass bei diesem ziel wichtig wäre, weil es ist in isolation gemacht wurde
+  - Hidden Layer wirft weg was es sieht dass für dieses problem output nicht wichtig ist
+- 297
+  - Google hat zusätzlich versucht zu verstehen bei welchem input bild welche nodes angehen
+- 299
+  - Kostenfunktion
+  - man muss es immer sagen
+  - aber es gibt klare kostenfunktionen bei verschiedenen mathe vorgehen
+  - kann natürlich auch eine eigene machen, zum beispiel wenn überschäzten schlimmer ist wie unterschätzen
+- 301
+  - Gradient Descent aber ist es nicht so einfach weil es unterschiedliche minimum hat -> Lokale minimum
+  - unterschiedliche lösungen je nach dem wo ich starte
+  - mehrfach starten ist eine möglichkeit um das beste minimum zu finden, macht man bei NN in der praxis nicht weil es zu lange dauert (teuer)
+  - lösung in der Praxis, das lokale minimum akzeptieren, es hat sich mit grösseren netzwerken herausgestellt, dass es nicht schlimm ist wenn wir nicht das globale minimum gefunden haben
+  - wenn ich viele parameter habe und viele richtungen wo das minimum ist, ist das lokale minimum gut genug
+  - weil wir es nur 3-d anschauen sieht es dramatischer aus als es in der praxis ist
+- 302
+  - Z.b. wenn wir mean square error rechnen, dann müssten wir über alle unserer Daten iterieren (alle y and y predicted) ist sehr blöd wenn wir um 1 beta verbessern wollen (1 schritt) dann müssten wir über eg. 1 Mio. Daten iterieren.
+  - Anderes Extrem: Stochasitc Gradient Descent nimmt nur ein beispiel
+  - Normalerweise nimmt mini batch (ein sub-sample) um die funktion zu berechnen (kompromis)
+  - In der Praxis geht man immer einmal über alles, es fängt von vorne an und nimmt dann den nächsten batch
+- NN werden mit Mini Batch Gradient Descent gemacht
+- 304
+  - Ist ein algorithmus der den gradient effizient berechnet
+  - wir fangen hinten
+  - Backpropagation geht bei jeder Kostenfunktion
+  - wird immer mit backpropagation gemacht
+- 305
+  - Man trifft immer annahmen um das lernen vereinfacht wird aber es soll flexibel sein
+
+- 307
+  - 1. Zwischenergebnis, Feature Engingeering oder Dimensions Reduktion
+  - 2. Aktivierungsfunktion -> transformierung vom wert, was passiert in einem knoten bevor man den Wert weitergibt
+        ReLU hat sich als gute gezeigt
+
+- 308
+  - Pitfalls, wann benutze ich was?
+  - sklearn user guide ist ein wenig zu einfach
+  - muss das modell am schluss interpretierbar sein? oder kann es eine black box sein? Im medizinischen bereich kann es sein, dass das modell nachvollziehbar sein muss
+- Vorgehen
+  - Gibt es ähnliche probleme? Haben andere erfahrungen? Was haben die gemacht?
+  - bei strukturierten daten ist feature engineering oftmals einfacher weil es klare kategorien hat
+  - weil es bei strukturierten daten hat es weniger daten da sind fehler viel schlimmer
 - Transfer Learning: Nehmen betas eines existierendes Modell und trainiert es weiter mit eingenen kleineren daten (wie verfeinert)
+- 311
+  - Resultate Interpretieren, wir müssen das resultat eines modells richtig interpretieren
+  - Was kann mein modell und was kann es nicht?
+  - Ein modell ist nicht grenzenlos und die grenzen müssen klar kommuniziert werden
+  - dass man die resultate nicht zu sehr generalisiert, wenn ich sehr homogene trainigsdaten habe dann ist es nicht auf die ganze welt anwendbar
+  - Ein einfaches modell ist ein qualitätmerkmal für sich
+  - kleine verbesserungen im validation score könnten auch zufall sein
 - 
 
 
