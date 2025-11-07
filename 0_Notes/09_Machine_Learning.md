@@ -938,6 +938,15 @@ Annahme, die Nachbarschaft von einem input wert hat einen Einfluss auf den Wert.
   - Vorteil ist, dass ein Bild von einer neuen Person, welche nicht ein teil von trainingsdaten ist, sollte eine Person ungefährl plaziert werden, das nächste bild von der neuen person soll dan in die nähe der neuen person sein ohne neu trainiert werden zu müssen
   - Weil wir nicht klassifikation lernen kann einfach eine neu person genommen werden und wird einbezpgen
   - Wenn das Modell gut generalisiert ist, ist es gut zum wieder verwenden
-- 
-
+  - One-Shot-Learning -> anhand von einem beispiel einer neuen person kann ich das modell nutzen um eine neue person zu erlenen
+- Zu jedem Bild ein Text
+  - Das bild und der Text die gleich sind müssen in die gleiche richtung zeigen
+  - Gemeinsamer label space von bild und text
+- Zero-Shot-Learning
+  - Modell konstruieren ohne dass wir etwas lernen
+  - zb. "A photo of a dog" & "A photo of a cat" -> Text Encoder -> Vektor von 300 Dimensionen
+  - und Bild von Hund -> image encoder -> Vektor von 300 Dimensionen 
+  - Lade zwei Encoding modell herunter die zusammen trainiert wurden
+  - Ich mache basierend darauf ein neues Modell machen das nur einen input haben
+  - 
 
