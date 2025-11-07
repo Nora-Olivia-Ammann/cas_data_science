@@ -852,18 +852,17 @@ layer für layer ist alles mit allem verbunden horizontal
 
 ## Tag 4
 
-- 284
   - Bei statistik weiss man genau wass man macht
   - Bei neural networks muss man kreativer sein als nur neue layer
   - Die rechnung kann man zwar aufschreiben aber man kann sie nicht mehr verstehen
   - Aber man kann schauen welche pixel wie viel einfluss haben
   - Schauen dass es auch das richtige pixel anschaut (krebszellen und massstag)
 
-#### Convolution Neural Network (284)
+#### Convolution Neural Network
 
 Annahme, die Nachbarschaft von einem input wert hat einen Einfluss auf den Wert.
 
-- 284
+- Folie
   - Wichtiger Forscher, ist jetzt bei Meta
   - Altes beispeil, erstes network dass tatsächlich funktioniert hat in der praxi
   - Hier ein bisschen schlauer, nicht alles hat auf alles einen einflus
@@ -871,7 +870,7 @@ Annahme, die Nachbarschaft von einem input wert hat einen Einfluss auf den Wert.
   - Dann kleiner, und wieder grösser
   - dann am schluss flach (re-shape)
   - Hier Guassian, heute wäre es softmax
-- 285 Convolution Neural Network
+- Convolution Neural Network
   - Wir verändern die verkabelung im netzwerk um den input besser zu berücksichtigen. Aber die andere verkabelung ist nicht zufällig sondern sehr systematisch
   - Statt alles flach zu machen, berücksichtigen wir die nachbarschaft der pixel
   - Es schaut immer zwangsweise auf die nachbarschaft. Wenn die nachbarschaft keine rolle spielt ist CNN nicht die richtige wahl
@@ -886,10 +885,10 @@ Annahme, die Nachbarschaft von einem input wert hat einen Einfluss auf den Wert.
   - wir können nicht nur ein solchen filter haben sondern mehrere filte die auf dasselbe bild angewendet wird, dann haben wir mehrere neue bilder. Zum beispiel könnte die farbe beschreiben, etwas anderes eine kante beschreiben etc.
   - Dann werden die werte zusammen gefügt und das maximum wird genommen und dann haben wir die grösse halbiert (maximum 2D pooling). Das bild ist wie weniger aufgelöst aber wir verschärfen die unterschiede
   
-#### Reconstruction Based Methods (284)
+#### Reconstruction Based Methods
 
 - Auto Encoder -> macht eine dimensionality reduction
-- 284
+- 
   - Ist ein neurales netzwerk, dass eine dimensionsreduktion
   - Nachher gehen wir von der reduktion, gehen wir wieder auf mehrere features
   - Es muss nicht komplett symetrisch sein
@@ -897,22 +896,22 @@ Annahme, die Nachbarschaft von einem input wert hat einen Einfluss auf den Wert.
   - Anreiz ist dimensionsreduktion zu machen ohne labels von hand zu machen
   - Trainiert alleine um die reduktion zu lernen
   - Aber es wird eigentlich immer mit dem decoder verwendet
-- 300
+- Folie
   - Machen ein bottelneck -> gelernte dimensionsreduktion
-- 332
+- 
   - Kostenfunktion kann der rekonstruktionsfehler sein (L1 oder L2 distanz)
   - Wird für pre-processing angewendet, zum beispiel dann sind rgb werte nicht mehr so einflussreich bei clustering, weil diese sind meistens eher störend
-- 335
+- 
   - Beispiel von nicht liear bild oben rechts
     - Encoder - [2 (features) - 20 (zwischenergebnisse)]
     - 1 (ist das zweite bild) 
     - Decoder - [20 (zwischenergebnisse) 2 (features)]
-- 336
+- 
   - Egal wo genau das blatt ist um ein baum zu erkennen, aber der encoder lernt sehr start auf pixel information
   - Eigentlich mehr rechts ist ein baum, links eine Wiese
-- 337
+- 
   - Autoencoder kann man nicht linear machen mit der Aktiverungsfunktion, wenn diese linear ist, kann es nicht mehr als PCA ist einfach nicht so effizient
-- 339
+- 
   - Word2Vec -> damals ein wichtiger baustein dass zeigte, dass deep learning funktioniert, basis auch für LLM
   - Würde man heute nicht mehr so machen, heutzutage 
   - Die reihenfolge der wörter speilen keine rolle
@@ -928,7 +927,7 @@ Annahme, die Nachbarschaft von einem input wert hat einen Einfluss auf den Wert.
 - Heuzutage encoden sie den ganzen satz und macht den ganzen satz zu einem vektor
 - Die bilder könnten corrupt sein, also nur einen teil des bild reingeben, die learning taks ist schwieriger für das motell, lernt aber mehr über die welt
 
-#### Constrastive Learing (384)
+#### Constrastive Learing
 
 
 - zum Beispiel Gesichtserkennung
@@ -966,6 +965,34 @@ Annahme, die Nachbarschaft von einem input wert hat einen Einfluss auf den Wert.
   - Wir wollen nicht das in das U pixel perfekt lernen muss
   - Über die horizontalen lernt es die pixel perfekte, weil es bei der kompression nicht geeignet ist
   - Auch in CNN werden die heutzutage immer angewendet
-- 
-- 
+
+
+#### In Context Learning (362)
+
+- mehr kontext als word2vek, mehr kontext um ein nächstes wort vorherzusagen
+- 70 milliarden betas
+- betas sind eingefrohren!
+- in-context learning (ICL) (363)
+  - Wenn wir learning definieren als es verändert die betas, dann ist es kein learning
+  - promt engineering -> wie schreiben wir die task welche die absicht beschreibt
+  - man spricht von learning hier, weil wir den output verbessern können durchdas wir beispiele geben
+  - wir machen eigentlich kein training mehr
+  - wir machen ein allgemeinen wrapper um ein modell
+  - "trainingsdaten" können als beispiel hinzugefügt werden
+- solche modelle können benutzt werden um few-shot oder zero-shot modelle gebaut zu werden
+- Task beschreibung kommt von uns, ist programmiert in der software
+  - promt ist dan von den usern -> welches einen output von llm gibt
+- zero-shot -> ohne beispiel
+- one-shot -> mit einem beispiel, etc.
+- RAG -> sodass das gut funktioniert muss das retrieval sehr gut sein
+  - Auch bei RAG kann es haluzinieren
+  - weil es generiert einfach plausibeln text
+- ACU (368)
+  - in der forschung, dass es die ganze code applikation steuern kann
+  - Agentic Coding ist ein teil, das sehr spezifisch darauf eingegrenzt
+
+
+#### 
+
+
 
