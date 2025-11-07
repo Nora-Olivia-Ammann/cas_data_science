@@ -964,6 +964,8 @@ Annahme, die Nachbarschaft von einem input wert hat einen Einfluss auf den Wert.
   - Das U -> layer nach layer (convolution layer), das bild wird immer kleiner, hilft das bild global zu verstehen
   - Dann müssen wir uns auf pixel ebene verstehen
   - Wir wollen nicht das in das U pixel perfekt lernen muss
-  - Über die horizontalen lernt es die pixel perfekte
+  - Über die horizontalen lernt es die pixel perfekte, weil es bei der kompression nicht geeignet ist
+  - Auch in CNN werden die heutzutage immer angewendet
+- 
 - 
 
