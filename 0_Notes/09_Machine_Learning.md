@@ -828,8 +828,11 @@ layer für layer ist alles mit allem verbunden horizontal
   - Ein einfaches modell ist ein qualitätmerkmal für sich
   - kleine verbesserungen im validation score könnten auch zufall sein
 - code Beispiel
+  - Wenn man wenig inputs hat -> dann grösser und dann kleiner
+  - Wenn man viele inputs hat wird man incrementell kleiner
+  - Die knoten anzahl sind oftmals 2^irgendwas -> hardware gründe anzahl cashes, so dass es nicht wieder ins ram gehen muss etc. Also auf die Hardware abgestimmt
   - `Reshape` -> aus 8 mal 8 Bild kommt ein eindimensionalen Vektor, kann auch extern gemacht werden
-  - `Dense` -> dass alles miteinander verbunden ist
+  - `Dense` -> dass alles miteinander verbunden ist, das ist das layer dass alles mit allem verbindet. Die anderen layer typen gibt es auch zur auswahl
     - `activation=` -> Aktivierungsfunktion ReLu
     - `kernel_regularizier` -> regularisierung optional
     - Letztes Layer -> Lienar aber oftmals `softmax`
@@ -845,7 +848,7 @@ layer für layer ist alles mit allem verbunden horizontal
   - 11 mal in einer epoche -> dann ist es durch alle trainings daten durch
   - Immer eine validierung am schluss mit den validierungsdaten
   - Dann sieht man wann die validierung gut ist oder ob sie schlechter wird bei overfitting
-  - 
+
 
 ## Tag 4
 
