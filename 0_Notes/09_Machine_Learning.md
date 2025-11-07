@@ -992,7 +992,17 @@ Annahme, die Nachbarschaft von einem input wert hat einen Einfluss auf den Wert.
   - Agentic Coding ist ein teil, das sehr spezifisch darauf eingegrenzt
 
 
-#### 
+#### Pitfalls
+
+- Bias In Daten -> lernt alte biases die wir nicht wollen
+- Feedback Loop -> Confimation Bias und Echo Chamber
+- Clickbait -> fast notwendig etwas als clickbait darzustellen sonst wird man nicht mehr vorgeschlagen
+- 378
+  - Bias zu entfernen ist schwierig
+  - Gewisse Problemen können oder sollen nie mit ML automatisiert werden
+  - Wie mit bias umgehen
+
+
 
 
 
