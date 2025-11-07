@@ -827,7 +827,9 @@ layer für layer ist alles mit allem verbunden horizontal
   - dass man die resultate nicht zu sehr generalisiert, wenn ich sehr homogene trainigsdaten habe dann ist es nicht auf die ganze welt anwendbar
   - Ein einfaches modell ist ein qualitätmerkmal für sich
   - kleine verbesserungen im validation score könnten auch zufall sein
-- 
+  
+## Tag 4
 
+- 
 
 
