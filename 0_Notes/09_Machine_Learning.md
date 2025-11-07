@@ -831,7 +831,7 @@ layer für layer ist alles mit allem verbunden horizontal
   - Wenn man wenig inputs hat -> dann grösser und dann kleiner
   - Wenn man viele inputs hat wird man incrementell kleiner
   - Die knoten anzahl sind oftmals 2^irgendwas -> hardware gründe anzahl cashes, so dass es nicht wieder ins ram gehen muss etc. Also auf die Hardware abgestimmt
-  - `Reshape` -> aus 8 mal 8 Bild kommt ein eindimensionalen Vektor, kann auch extern gemacht werden
+  - `Reshape` -> aus 8 mal 8 Bild kommt ein eindimensionalen Vektor, kann auch extern gemacht werden, der zusammenhang der pixel geht weg sie sind losgelöst voneinander
   - `Dense` -> dass alles miteinander verbunden ist, das ist das layer dass alles mit allem verbindet. Die anderen layer typen gibt es auch zur auswahl
     - `activation=` -> Aktivierungsfunktion ReLu
     - `kernel_regularizier` -> regularisierung optional
@@ -852,6 +852,66 @@ layer für layer ist alles mit allem verbunden horizontal
 
 ## Tag 4
 
+- 284
+  - Bei statistik weiss man genau wass man macht
+  - Bei neural networks muss man kreativer sein als nur neue layer
+  - Die rechnung kann man zwar aufschreiben aber man kann sie nicht mehr verstehen
+  - Aber man kann schauen welche pixel wie viel einfluss haben
+  - Schauen dass es auch das richtige pixel anschaut (krebszellen und massstag)
+
+#### Convolution Neural Network (284)
+
+Annahme, die Nachbarschaft von einem input wert hat einen Einfluss auf den Wert.
+
+- 284
+  - Wichtiger Forscher, ist jetzt bei Meta
+  - Altes beispeil, erstes network dass tatsächlich funktioniert hat in der praxi
+  - Hier ein bisschen schlauer, nicht alles hat auf alles einen einflus
+  - Aus einem bild unterschiedliche interpretation
+  - Dann kleiner, und wieder grösser
+  - dann am schluss flach (re-shape)
+  - Hier Guassian, heute wäre es softmax
+- 285 Convolution Neural Network
+  - Wir verändern die verkabelung im netzwerk um den input besser zu berücksichtigen. Aber die andere verkabelung ist nicht zufällig sondern sehr systematisch
+  - Statt alles flach zu machen, berücksichtigen wir die nachbarschaft der pixel
+  - Es schaut immer zwangsweise auf die nachbarschaft. Wenn die nachbarschaft keine rolle spielt ist CNN nicht die richtige wahl
+  - Um ein Pixel zu verstehen, schaut es sich die pixel die am nächsten sind, also einen neuen wert der aus einer gewichteten rechnung der nachbarschaft pixel sodass ein pixel einen neuen wert erhält, "translation equivariance"
+  - Das wird für alle pixel gemacht
+  - Es wird nie grösser
+  - Das bild anzahl input bleibt gleich gross
+  - Bei reshape geht der zusammenhang zwischen den pixel verloren
+  - Die betas welche angewendet werden, sind gelernt aus dem ganzen Bild, es hat wie eine maske die über das ganze geht und die selben betas auf das ganze bild anwendet, "Weight Sharing" es bildet eine maske die es auf das ganze bild anwendet
+  - Die ursprünglichen betas sind komplett zufällig, wenn per zufall die anfangs betas gut waren, trainiert es schneller. Aber sie werden innerhalb einer range zufällig gewählt also Carefully Selected Randomness
+  - Alle layers werden immer parallel optimiert basierend auf dem resultat von dem output layer, man fokusiert sich nicht auf ein layer bei jeder iteration
+  - wir können nicht nur ein solchen filter haben sondern mehrere filte die auf dasselbe bild angewendet wird, dann haben wir mehrere neue bilder. Zum beispiel könnte die farbe beschreiben, etwas anderes eine kante beschreiben etc.
+  - Dann werden die werte zusammen gefügt und das maximum wird genommen und dann haben wir die grösse halbiert (maximum 2D pooling). Das bild ist wie weniger aufgelöst aber wir verschärfen die unterschiede
+  
+#### Reconstruction Based Methods (284)
+
+- Auto Encoder -> macht eine dimensionality reduction
+- 284
+  - Ist ein neurales netzwerk, dass eine dimensionsreduktion
+  - Nachher gehen wir von der reduktion, gehen wir wieder auf mehrere features
+  - Es muss nicht komplett symetrisch sein
+  - Es können auch convolution layers sein, nicht nur fully connected
+  - Anreiz ist dimensionsreduktion zu machen ohne labels von hand zu machen
+  - Trainiert alleine um die reduktion zu lernen
+  - Aber es wird eigentlich immer mit dem decoder verwendet
+- 300
+  - Machen ein bottelneck -> gelernte dimensionsreduktion
+- 332
+  - Kostenfunktion kann der rekonstruktionsfehler sein (L1 oder L2 distanz)
+  - Wird für pre-processing angewendet, zum beispiel dann sind rgb werte nicht mehr so einflussreich bei clustering, weil diese sind meistens eher störend
+- 335
+  - Beispiel von nicht liear bild oben rechts
+    - Encoder - [2 (features) - 20 (zwischenergebnisse)]
+    - 1 (ist das zweite bild) 
+    - Decoder - [20 (zwischenergebnisse) 2 (features)]
+- 336
+  - Egal wo genau das blatt ist um ein baum zu erkennen, aber der encoder lernt sehr start auf pixel information
+  - Eigentlich mehr rechts ist ein baum, links eine Wiese
 - 
+ 
+
 
 
