@@ -910,8 +910,34 @@ Annahme, die Nachbarschaft von einem input wert hat einen Einfluss auf den Wert.
 - 336
   - Egal wo genau das blatt ist um ein baum zu erkennen, aber der encoder lernt sehr start auf pixel information
   - Eigentlich mehr rechts ist ein baum, links eine Wiese
-- 
- 
+- 337
+  - Autoencoder kann man nicht linear machen mit der Aktiverungsfunktion, wenn diese linear ist, kann es nicht mehr als PCA ist einfach nicht so effizient
+- 339
+  - Word2Vec -> damals ein wichtiger baustein dass zeigte, dass deep learning funktioniert, basis auch für LLM
+  - Würde man heute nicht mehr so machen, heutzutage 
+  - Die reihenfolge der wörter speilen keine rolle
+  - Task: Lückentext
+  - One Hot encoded words
+  - Matrix, überall dieselbe matrix
+  - Jedes Wort wird auf einen Vektor mit 300 zahlen gemapped
+  - Dann wird vektoraddition gemacht
+  - Vektor mit 300 Zahlen dass die 6 wörter beschreibt
+  - Klassifikation mit softmax
+  - Die Vektoren die wir nicht verstehen, mit denen kann man dinge berechnen die wir als menschen sinnvoll verstehen
+  - Präziese -> weniger zahlen als mit one hot encoding, model hat es leicher, weil es sysnonyme nicht lernen muss
+- Heuzutage encoden sie den ganzen satz und macht den ganzen satz zu einem vektor
+- Die bilder könnten corrupt sein, also nur einen teil des bild reingeben, die learning taks ist schwieriger für das motell, lernt aber mehr über die welt
 
+#### Constrastive Learing (384)
+
+
+- zum Beispiel Gesichtserkennung
+  - Bilder von einer Person müssen sehr nahe liegen
+  - Distanz zu anderen Personen muss maximal gross sein
+  - Das wird gelernt
+  - Vorteil ist, dass ein Bild von einer neuen Person, welche nicht ein teil von trainingsdaten ist, sollte eine Person ungefährl plaziert werden, das nächste bild von der neuen person soll dan in die nähe der neuen person sein ohne neu trainiert werden zu müssen
+  - Weil wir nicht klassifikation lernen kann einfach eine neu person genommen werden und wird einbezpgen
+  - Wenn das Modell gut generalisiert ist, ist es gut zum wieder verwenden
+- 
 
 
