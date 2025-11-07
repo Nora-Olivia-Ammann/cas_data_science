@@ -948,5 +948,22 @@ Annahme, die Nachbarschaft von einem input wert hat einen Einfluss auf den Wert.
   - und Bild von Hund -> image encoder -> Vektor von 300 Dimensionen 
   - Lade zwei Encoding modell herunter die zusammen trainiert wurden
   - Ich mache basierend darauf ein neues Modell machen das nur einen input haben
-  - 
+
+
+#### Skip Connection
+
+- Wir können manche layers überspringen
+- Wenn man 20-30 layers hat, hatte man probleme einzelne layers zu trainieren
+- Die dimensionen müssen identisch sein
+- Mit skip connection kann man tiefere netzwerke trainieren
+- Kann man auch als ensemble von verschiedenen netzwerken ansehen
+- Die unterschiedlichen Wege werden parallel trainiert, dann haben wir für ein Beta mehrere Werte, diese werden dann aufsummiert um ein schlussendliches beta zu verwandeln
+- Niemand macht so grosse netzwerke 1202, sondern nur proof of concept, dass es möglich ist dass es möglich ist sehr tiefe netzwerke zu trainieren
+- U-Net wird eigentlich immer für segmentierung verwendet
+  - Um für ein pixel muss man pixel perfekt zu sein (genau auf ein pixel), zweite herausforderung das ganze bild als gesammtes muss verstanden werden
+  - Das U -> layer nach layer (convolution layer), das bild wird immer kleiner, hilft das bild global zu verstehen
+  - Dann müssen wir uns auf pixel ebene verstehen
+  - Wir wollen nicht das in das U pixel perfekt lernen muss
+  - Über die horizontalen lernt es die pixel perfekte
+- 
 
