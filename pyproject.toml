@@ -19,6 +19,13 @@ dependencies = [
     "xlrd",
     "pycollada",
     "statsmodels",
+    "seaborn",
+    "plotly",
+    "dash",
+    "jupyterlab",
+    "flask",
+    "joblib",
+    "scikit-learn",    
 ]
 
 [tool.ruff]
