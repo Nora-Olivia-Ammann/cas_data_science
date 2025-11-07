@@ -417,7 +417,7 @@
 - 156
   - 1. Fixe Gruppen, zuweisung zu einer Gruppe (im vergleich zu clustering das gruppen selbst findet)
   - 2. Annahme, dass es eine dieser Gruppe ist, wie die betas verwendet werden ist lieanr, das lineare modell ist drinn. Es hat eher eine tendenz zu underfitting. Resultat ist zwischen 0-1 (bei 2 betas), ist eine wahrscheinlichkeit.
-  - 3. 
+
 
 
 ### K-Nearest Neighbour
@@ -827,7 +827,26 @@ layer für layer ist alles mit allem verbunden horizontal
   - dass man die resultate nicht zu sehr generalisiert, wenn ich sehr homogene trainigsdaten habe dann ist es nicht auf die ganze welt anwendbar
   - Ein einfaches modell ist ein qualitätmerkmal für sich
   - kleine verbesserungen im validation score könnten auch zufall sein
-  
+- code Beispiel
+  - `Reshape` -> aus 8 mal 8 Bild kommt ein eindimensionalen Vektor, kann auch extern gemacht werden
+  - `Dense` -> dass alles miteinander verbunden ist
+    - `activation=` -> Aktivierungsfunktion ReLu
+    - `kernel_regularizier` -> regularisierung optional
+    - Letztes Layer -> Lienar aber oftmals `softmax`
+  - `compile` -> optimisierung `sgd` -> stochastic gradient descent
+  - `loss` -> Maximum likelihood, `from_logits=True` muss nicht softmax oben haben -> so kann man mathematisch einen term kürzen -> ist schneller
+  - letzte funktion -> beide versionen identisch
+    - softmax dann `from_logits=False`
+    - linear dann `from_logits=True` -> schneller
+  - Summary
+    - Output Shape -> 64 -> next 10 --> param 650 `(10*64) + 10`
+  - `batch_size` -> 128
+  - `epochs` -> gehe 10 mal durch alle daten
+  - 11 mal in einer epoche -> dann ist es durch alle trainings daten durch
+  - Immer eine validierung am schluss mit den validierungsdaten
+  - Dann sieht man wann die validierung gut ist oder ob sie schlechter wird bei overfitting
+  - 
+
 ## Tag 4
 
 - 
