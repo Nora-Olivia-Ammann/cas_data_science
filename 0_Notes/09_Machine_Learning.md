@@ -1004,5 +1004,8 @@ Annahme, die Nachbarschaft von einem input wert hat einen Einfluss auf den Wert.
 
 
 
+Ersten 8 Kapitel von Hands-On Machine-Learning with Sklearn (Orilley)
+- Reasoning dazuschreiben, dann kann man noch darüber diskutieren
+- 
 
 
