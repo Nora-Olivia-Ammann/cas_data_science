@@ -1,5 +1,7 @@
 # NLP
 
+Lektion 1-4 -> "Klassisches NLP", alles vor Chatbots, wird wahrscheinlich in der praxis weniger verwendet
+Nach chat bots Lektion 5 + viel besser
 
 ## Tag 1
 
@@ -27,6 +29,9 @@
   - Natural:
     - Umgekehrt aufgrund der benutzung wird eine grammatik abgeleitet
     - Historisch entwickelt
+
+### Wörter / Morphologie (Lexikon / Vokabulary / Wortschatz)
+
 - 25
   - Zu selten -> weg nehmen weil ich nicht weiss wie umgehen
   - Zu häufig -> weg nehmen weil nicht aussagekräftig
@@ -64,4 +69,42 @@
   - Schreibfehler sind häufig
   - Spelling Error Algorithmus -> wie bei google vorschlag
   - Ist nicht trivial, aber kann verwendet werden wenn dies sehr wichtig ist
+
+### Syntax (Satz)
+
+- Welche regeln gibt es um die einheiten von wörter zusammenzufügen
+- 36
+  - Syntax tree: 
+    - viele grammatische interpretationen, beide bäume haben unterschiedliche bedeutung
+    - 1: Mensch 1 auge
+    - 2: Hund 1 auge
+- 39
+  - Information Extraction 
+    - -> Roh-text extraktion von information
+    - NER
+  - AI ist falsch im Text (geografische entität)
+- 40
+  - Classifier auch mit NLP
+  - eg. Spam filter zusammen mit metadaten (woher geschickt, etc.)
+- 42
+  - beispiel, alles nach freundliche grüsse weg nehmen in email, ist wahrscheinlich signatur, etc.
+  - reduktion mit länge, um nur die relevanten information zu behalten und die rechenkomplexität zu reduzieren
+  - viel sinn ist verloren (zum beispiel "nicht" im letzten satz ist verloren gegangen)
+  - Kompromiss wie viel reduzieren um es rechenbar machen und nicht information zu verlieren
+- 43
+  - Diagnostik Notizen
+  - NLP pipeline aufbauen der vom Rohtext interpretation machen
+  - Bridge abkürzung, was es bedeutet
+- 47
+  - Wenige Daten -> Deep Learning NLP
+    - Man fangt nicht von 0 an
+    - Kann ich ein netzwerk nehmen, dass auf natürlicher sprache gelernt ist. 
+    - Dann wird nur das letztes stück gelernt (fine tuning)
+  - Klassisches NLP -> muss von grund an lernen
+     - Nachvollziehbarkeit ist besser
+     - Viel mehr kontrolle
+     - Möglich dass es nicht möglich ist ein LLM in-house laufen zu lassen (medizin), es ist aber auch nicht möglich es extern zu senden. Dann Klassisches
+   - Es gibt kein einfaches rezept welche lösung zwischen klassisch und deep learning besser ist
 - 
+
+
