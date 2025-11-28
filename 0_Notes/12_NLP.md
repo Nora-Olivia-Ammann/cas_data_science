@@ -127,11 +127,36 @@ Nach chat bots Lektion 5 + viel besser
   - automatic
     - wenn oft evaluiert
 - 5
-  - intrinsich kleiner teil vom system
+  - intrinsisch kleiner teil vom system
 - 6
   - Was ist falsch bei dem kreis -> overfitting problem
   - was verhindern -> cross evaluation (train, eval, test)
-  - 
 
+## 3 Regex
+
+- Summary 1 & 2 (seite 4-5) ist für prüfung
+
+
+## 4 TF-IDF
+
+- 4
+  - Invertierter Index: Wir haben wörter und dann pointer zu dem dokument
+  - Index: eg. buch konzept -> seite auf dem es ist
+  - Invertierter Index -> schnell zu finden
+- 5
+  - Nur matches reicht nicht weil wir wollen die besten oben haben
+  - Wie kann ich sinnvolle dokumente haben und nicht nur alle die die wörter haben
+  - Bag of words -> reihenvolge der wörter vergessen
+- 6 (beispiel)
+  - Korpus: 3 Dokumente
+  - Wortschatz 9 Wörter
+  - Mit word counts
+- 10
+  - Term Frequency -> relative häufigkeit
+  - all wörter auf einer zeile summieren sich auf 1
+- 11
+  - Inverse Document Frequency
+  - 
+- 
 
 
