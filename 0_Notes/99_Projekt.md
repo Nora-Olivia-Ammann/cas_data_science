@@ -17,3 +17,17 @@
 - welche werke müsste man eher im katalog bearbeiten
 - bei welchen werken ist die erkennung von google eher in frage zu stellen
 
+
+
+
+- google sprache: en -> zb: en
+  - score in google für ein volume 
+
+
+alle raus die sie sich einig sein
+
+- pro seite -> mehrsprachig schmeissen in db
+- google mehrheit runden -> denn verlgieichen
+- was ist bei mismatch
+- dann schauen was ein mismatch ist
+- schlecht erkennte seiten herausnehmen vergleich mit mismatch, ist es immernoch so ein grosser unterschied wie nur gerundet?
