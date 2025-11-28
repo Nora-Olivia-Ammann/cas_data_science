@@ -3,8 +3,6 @@
 Lektion 1-4 -> "Klassisches NLP", alles vor Chatbots, wird wahrscheinlich in der praxis weniger verwendet
 Nach chat bots Lektion 5 + viel besser
 
-## Tag 1
-
 ### Essentials:
   - Gut genug: ist richtwort von NLP, perfekt geht nicht (memory restrictions auch)
   - 
@@ -105,6 +103,13 @@ Nach chat bots Lektion 5 + viel besser
      - Viel mehr kontrolle
      - Möglich dass es nicht möglich ist ein LLM in-house laufen zu lassen (medizin), es ist aber auch nicht möglich es extern zu senden. Dann Klassisches
    - Es gibt kein einfaches rezept welche lösung zwischen klassisch und deep learning besser ist
-- 
+  - Oftmals ist labelling trainings daten ist aufwändig als ein paar GPUs zu mieten
+- Trainingsdaten in NLP ist text mit labels
+
+
+## Evaluation
+
+
+
 
 
