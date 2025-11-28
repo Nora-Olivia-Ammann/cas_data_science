@@ -10,7 +10,12 @@ Nach chat bots Lektion 5 + viel besser
 - **Data Wrangling in NLP:**
   - Stop Words -> häufigste weg
   - Stemming & Lemmatisierung -> vielfalt der Wörter reduzieren
+  - Levenstein: 
+    - Wort dass ich nicht kenne im korpus
+    - Ich sage, du kannst max 2 edits mache
+    - Wenn es nach edit ein teil meines wortschatzes ist dann darfst du die edits machen
 
+## 1 Intro
 
 - 8
   - Sprache ist für menschen natürlich
@@ -107,9 +112,26 @@ Nach chat bots Lektion 5 + viel besser
 - Trainingsdaten in NLP ist text mit labels
 
 
-## Evaluation
+## 2 Evaluation
 
-
+- 2
+  - in einer pipeline gibt es eine evaluation
+  - messung um die nächste iteration zu verbessern
+- 3
+  - Kriterien von anfang an definieren
+  - eg. Ich möchte dass die personen richtig erkennt sind, aber es sollte auch einen fuzzy match machen können
+- 4
+  - manual evaluation
+    - quick and dirty (vorteil und nachteil)
+    - one shot und wird nicht oft evaluiert
+  - automatic
+    - wenn oft evaluiert
+- 5
+  - intrinsich kleiner teil vom system
+- 6
+  - Was ist falsch bei dem kreis -> overfitting problem
+  - was verhindern -> cross evaluation (train, eval, test)
+  - 
 
 
 
