@@ -154,9 +154,20 @@ Nach chat bots Lektion 5 + viel besser
 - 10
   - Term Frequency -> relative häufigkeit
   - all wörter auf einer zeile summieren sich auf 1
+  - Wichtig weil nicht alle dokumente gleich lang sind. Ein langes dokument hat mehr wahrscheinlichkeit als ein kürzeres. Das ist nicht erwünscht.
 - 11
   - Inverse Document Frequency
-  - 
+  - Häufige sind weniger wichtig als seltene (aussagekräftiger) über den gesammten korpus
+  - logarithmus ist einfach für smoothing
+- 12 TF-IDF -> kombination von beiden
+- 13
+  - "is" ist so häufig dass es 0 gewicht hat
+- 14
+  - "a" kommt im query zwei mal vor -> score wird *2 gerechnet
+- 17
+  - TF-IDF sind werte die in dem resultat angezeigt werden
+  - berechnung des scores ist nachvollziehbar und validierbar
+- 
 - 
 
 
