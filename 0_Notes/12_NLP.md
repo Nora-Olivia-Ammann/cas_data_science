@@ -300,8 +300,25 @@ Exam Questions: Seite 92
 - 15 Chain of Thought
   - Input: Beispiel frage und beispiel antwort. Dann kommt richtige frage
   - Wenn mein promt zeigt wie ich die antwort will, ist die chance höher dass es so raus kommt wie wir es gerne wollen
-- 
 
+
+## 8 LLM API
+
+02_completions
+
+  - 1. System Promt (optional)
+    - Benutzen wenn wir mehrere interaktionen haben und ich will eine grund interaktion geben die über die ganze interaktion stärker gewichtet wird die wie anderen interaktionen
+    - Grundregeln der Interaktion
+  - 2. User input
+  - 3. Assistant
+    - antwort
+  - 4. User nächster input
+  - 5. Assistant: nächste antwort
+- -> Es ist stateless. Ich muss jedesmal die ganze interaktion mitschicken um für die nächste interaktion zu fragen
+
+
+- Kostenunterschied input / output -> input kann im transformer optimiert und cached werden
+- 
 
 
 
