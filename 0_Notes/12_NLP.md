@@ -173,7 +173,7 @@ Nach chat bots Lektion 5 + viel besser
 
 ## 5 Neural Networks in NLP
 
-1. Pytorch (5-)
+0. Pytorch (5-)
 
 - 6
   - Grösser als Matrix ist Tensor
@@ -182,6 +182,14 @@ Nach chat bots Lektion 5 + viel besser
 - 8
   - CPU -> wenige cores aber die können schwierige sachen machen
   - GPU -> viele cores die aber nur eine operation sehr schnell machen (weil parallel) können, sehr spezialisiert
-- 
+
+1. Classifier (10)
+
+- 11
+  - input text dokumente
+  - output: 3 kategorien
+- Wie können wir das mit Neural Networks machen?
+- 12
+  - 
 
 
