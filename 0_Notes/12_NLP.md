@@ -242,6 +242,8 @@ With Embedding (vektor) schicht vor Neural Network: dense floats -> besser für 
 
 5. Attention Mechanism (40): Kernpunkt vom Kapitel
 
+Die ganze architektur mit den gewichten und layers ist ein Transformer (ein namen die die entwickler ausgesucht haben). Ist eine kluge verstapelung von matrix multiplikationen, die architektur ist Transformer genannt.
+
 - problem:
   - Ich kann nur ein wort nach dem anderen berechnen
   - Wenn es lange sätze sind dann ist es schwierig von anfang nach ende information zu propagieren
@@ -259,6 +261,45 @@ With Embedding (vektor) schicht vor Neural Network: dense floats -> besser für 
     - -> dann werden die matrizen multipliziert
   - 1 query in einer attention schicht, wird in jeder schicht wiederholt
   - Das netzwerk lernt während dem training diese queries zu stellen die sind nicht vorgegeben (keine hyperparameter)
+- Wurde von Google durch trial und error von 8 Jahren entwickelt. Es sind bastler die ausprobieren und die architektur verändern um es besser zu machen. Es hat kein fundiertes konzept das sie von vorher gemacht haben und anwenden.
+- Nur die kombination von Hardware, Software leute und grosser Korpus hat es möglich gemacht es zu entwickeln
+- Transformer-Aarchitektur hat sich für text entwickelt. Wurde nicht gedacht und dann implementiert.
+- Die queries sind nicht zwingend von menschen interpretierbar
+  
+- Attention Head
+  - 1 attention head hat N attention layers (query / key / value)
+    - Alle layer können parallel laufen
+    - Man wählt die anzahl von attention heads die in parallel laufen basierend auf den GPU kapazitäten, optimiert auf die GPU architektur
+  - Mehrere attention heads in parallel, jeder schaut dasselbe wort an mit einer anderen query an
+  - GPUs sind gut in parallel, darum ist das netzwerk auch parallel konzipiert
+  - Zwischebn den attention heads sind normale netzwerke
+- Code beispiel ist zum lesen, weniger zu laufen: solcher code wird genutz um GPT-3 zu trainieren
+
+- Episeode 6 nano-gpt annotation -> bezieht sich auf ML folien
+
+
+Exam Questions: Seite 92
+
+## 6 Transformers
+
+- S. 4 -> Definition von transformer
+- 8: erste transformer der veröffentlicht wurde
+- 10: wichtig: pre-training und dann als zweites fine-tuning
+  - fine tuning ist billiger, und ein allgemeines modell wird auf die spezifische task spezifiziert, aber wir müssen nicht englisch lernen
+- 12: grund training ein teil des satzes wird versteckt -> dann evaluation mit richtigem
+- 13: andere zwei sätze werden zusammen gesetzt die zusammen wirklich vorkommen. Dann nehmen wir zwei neue sätze und fragen ob es zusammen gesetzt sinn macht. Non-supervised
+- ich fine-tune ein transformer auf meine eigene task, nur die letzte schicht wird verändert
+- 
+- Reinforced learning ist der fine-tuning teil
+
+
+## 7 Chatbots
+
+- 14 
+  - -> hier ist fokus auf details in das model einzugreiffen, und sich auf die grössere architektur fokusieren
+- 15 Chain of Thought
+  - Input: Beispiel frage und beispiel antwort. Dann kommt richtige frage
+  - Wenn mein promt zeigt wie ich die antwort will, ist die chance höher dass es so raus kommt wie wir es gerne wollen
 - 
 
 
