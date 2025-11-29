@@ -6,6 +6,9 @@ Nach chat bots Lektion 5 + viel besser
 ### Essentials:
   - Gut genug: ist richtwort von NLP, perfekt geht nicht (memory restrictions auch)
   - 
+Neural network:
+- Bag of words als direkter input: sparse binary ints -> schlechter für netzwerke
+- With Embedding (vektor) hidden layer bei Neural Network: dense floats -> besser für netzwerke
 
 - **Data Wrangling in NLP:**
   - Stop Words -> häufigste weg
@@ -189,7 +192,47 @@ Nach chat bots Lektion 5 + viel besser
   - input text dokumente
   - output: 3 kategorien
 - Wie können wir das mit Neural Networks machen?
-- 12
-  - 
+
+2. Embedding (17)
+
+Bag of words: sparse binary ints -> schlechter für netzwerke
+With Embedding (vektor) schicht vor Neural Network: dense floats -> besser für netzwerke
+
+- 18
+  - Bag of Words
+    - Problem : no semantic
+    - langer vektor
+    - meistens nullen im vektor
+    - zu viele input die keine neuronen aktivieren
+    - dichte vektoren sind besser die weniger 0 haben
+    - keine synonyme
+    - binär keine nuancen
+- 21
+  - Embedding
+  - **Embedding is ein normales hidden layer, wenn input layer ein sparse vektor ist, ist es gut den zu reduzieren in einem ersten hidden layer.**
+    - hier sind es floats, netzwerke werden besser mit dichten floats als mit sparse ints
+    - input sehr grosser input vektor
+    - embedding schicht die dimensionen reduziert
+    - der rest des netztes bleibt gleich
+    - dieses embedding muss auch trainiert werden
+    - bei embedding führen ähnliche wörter zu ähnlichen vektoren
+    - das embedding zusammen mit allem anderem trainiert, das model wird besser wenn wir alles ende to end trainieren
+
+3. RNN (Recurrent Neural Networds): Limitation von Episode 2 (26)
+
+-> watch video (not to understand in detail)
+
+- Bag of words annahme ist ein problem
+- Wichtig ist kontext, also memory zu wissen was vorher und nachher kommt
+- Recurrent Abbildung 28 
+  - -> das output eines layers wird im nächsten durchgang auf das selbe layer angewendet
+  - in dieser architektur kann ein wort nur auf das vorherige hinschauen nicht länger
+- am ende liesst es nur das gewicht des letzten neuron
+- Problem wenn der satz sehr gross ist und das sentiment ist im ersten wort, dann geht es lang bis wir zum resultat kommen, da es erst beim letzten raus kommt. Dann funktioniert es nicht so gut
+
+
+
+
+
 
 
