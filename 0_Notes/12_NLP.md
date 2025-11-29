@@ -230,8 +230,36 @@ With Embedding (vektor) schicht vor Neural Network: dense floats -> besser für 
 - am ende liesst es nur das gewicht des letzten neuron
 - Problem wenn der satz sehr gross ist und das sentiment ist im ersten wort, dann geht es lang bis wir zum resultat kommen, da es erst beim letzten raus kommt. Dann funktioniert es nicht so gut
 
+4. RNN Language Model: Generative (33)
 
+- Es wird sequentiell immer ein wort nach dem anderen generiert
+- Gib dem netzwerk ein satz verstecke das letze word, und dann evaluiere das generierte wort, wenn es schlecht ist, dann wird es negativ bewertet sonst enforcing
+- Generiert labels indem man das letzte wort als label nutzt
+- Temperature
+  - Wenn jedesmal das höchstwahrscheinlichste wort genommen wird, ist der output immer sehr ähnlich. 
+  - Daher muss ein gewisses ausmass an zufälligkeit hinzugeüft werden, sodass es aus einem set von möglichen wörter auswählt
+  - Tiefe temperatur ist es deterministisch > zuverlässig aber langweilig
 
+5. Attention Mechanism (40): Kernpunkt vom Kapitel
+
+- problem:
+  - Ich kann nur ein wort nach dem anderen berechnen
+  - Wenn es lange sätze sind dann ist es schwierig von anfang nach ende information zu propagieren
+- Attention
+  - Ein wort darf auf alle vorherigen wörter schauen um das nächste vorherzusagen
+  - komplexer zu trainieren als nur RNN
+  - Diesen effekt von kontext muss in das netzwerk
+- Wie kontext: (45)
+  - 3 Konzepte:
+    - Query:
+      - Adjective in front of me?
+    - Key: zwei wörter ja (fluffy, blue) aktivation (matrizen) von den "positiven" antworten
+    - Query + Key wird kombiniert -> Value
+    - Value: effekt von der kombination von key und query transformation -> geht weiter
+    - -> dann werden die matrizen multipliziert
+  - 1 query in einer attention schicht, wird in jeder schicht wiederholt
+  - Das netzwerk lernt während dem training diese queries zu stellen die sind nicht vorgegeben (keine hyperparameter)
+- 
 
 
 
