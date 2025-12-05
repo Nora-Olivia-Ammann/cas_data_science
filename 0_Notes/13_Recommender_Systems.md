@@ -1,4 +1,52 @@
 # Recommender Systems
 
+- 8
+  - Long Tail, einzelne werden nicht verkauft, aber es gibt viele davon, dann lohnt es sich trotzdem
+- 10
+  - Recommender Systeme sind auf benutzerinnen zugeschnitten
+- 11
+  - IMDB: gewichtete bewertung, siehe übung 1
+  - m -> alles weniger als diese anzahl stimmen wird bestraft
+- 13
+  - Oftmals bewertungsmatrix
+  - viele benutzerinnen
+  - viele bewertungen
+  - so gibt es eine matrix
+- 15: herausforderung
+  - Ratings erhalten
+  - was machen wir mit allen fehlenden bewertungen, sprich die fehlenden orte
+  - -> Wir wollen die unbekannten bewertungen finden die ein user hoch bewerten würde
+  - evaluation muss am schluss gemacht werden
+- 16: sammlung von bewertungen
+  - explizit: 
+    - fragt user nach bewertung
+    - was jetzt am besten ist sind sie nicht einig
+    - user experience welche skala gewählt wird, kommt auch ins spiel
+  - implizit: 
+    - Verhalten lernen und evaluieren
+    - negative ist schwieriger zu lernen, einfluss von zeitdauer
+    - range von ratings ist nicht klar definiert
+- 17: extrapolation
+  - kernstück jedes systems -> leere kästchen in der matrix ausfüllen und das höchste leere kästchen vorschlagen
+  - Schwierig: matrix ist sehr sparse, wenige bewertungen für eine person, teilweise wenige bewertungen pro object
+  - Cold-start problem: neue dinge, neue user oder wenn wir neu anfangen haben gar keine bewertungen
+  - 3 Ansätzte
+    - Content Based
+    - Collaborative Filtering
+    - Matrix Faktorisierung
 
+### Content Based 19
 
+- 20: Text -> längerer text schwieriger das profil zu erstellen
+- ähnliche objekte präsentieren, wenn ein user ein objekt betrachtet
+- 23: ähnlichkeits matrix aufbauen, wie ähnlich sind sich zwei filme
+  - es kommt auf die features darauf an welche ähnlichkeits matrix art wir wählen
+  - bei binär is hamming oder jaccard macht es mehr sinn
+  - cosinus eher bei kontinuierlichen werten (erscheinungsjahr)
+  - Hemming
+    - Schnittmenge wo beide zutreffen und die schnittmenge wo beide 0 sind
+    - und vergleichen es mit der gesammtmenge
+  - Jaccard: (todo: noch besser recherchieren)
+    - Schnittmenge aber teilen es nicht durch das gesammte
+    - wenn beide 0 haben, ziehen wir es nicht in betracht
+  - 
