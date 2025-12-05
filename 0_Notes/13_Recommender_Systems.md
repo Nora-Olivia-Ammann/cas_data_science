@@ -41,11 +41,12 @@
 - ähnliche objekte präsentieren, wenn ein user ein objekt betrachtet
 - 23: ähnlichkeits matrix aufbauen, wie ähnlich sind sich zwei filme
   - es kommt auf die features darauf an welche ähnlichkeits matrix art wir wählen
-  - bei binär is hamming oder jaccard macht es mehr sinn
+  - bei binär is hamming oder jaccard macht es mehr sinn, dann ist wenn alle features die sie nicht gemeinsam haben uns egal. Zum beispiel bei Regiseur name von filmen (wenn sparse dann eher jaccard sonst werden auch die werte sehr klein)
   - cosinus eher bei kontinuierlichen werten (erscheinungsjahr)
   - Hemming
     - Schnittmenge wo beide zutreffen und die schnittmenge wo beide 0 sind
     - und vergleichen es mit der gesammtmenge
+    - da ziehen wir dinge die bei beiden unähnlich sind auch ein
   - Jaccard: (todo: noch besser recherchieren)
     - Schnittmenge aber teilen es nicht durch das gesammte
     - wenn beide 0 haben, ziehen wir es nicht in betracht
@@ -76,4 +77,6 @@
   - user bleibt in der eigenen bubble
   - objekt profile können kompliziert sein (zb. text, bilder), film oder e-commerce ist einfacher weil sie klare features haben
   - nachteil auch andere user bewertungen werden nicht einbezogen, können wertvolle informationen enthalten
+
+- Die wahl der features und die gewichtung ist sehr objektspezifisch, zb. werden studios bei filemen berücksichtigt?
 - 
