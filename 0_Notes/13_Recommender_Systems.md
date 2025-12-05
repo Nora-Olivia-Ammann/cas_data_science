@@ -79,4 +79,39 @@
   - nachteil auch andere user bewertungen werden nicht einbezogen, können wertvolle informationen enthalten
 
 - Die wahl der features und die gewichtung ist sehr objektspezifisch, zb. werden studios bei filemen berücksichtigt?
-- 
+
+
+### Collaborative Filtering 37
+
+- zunächst ähnliche user identifizieren
+- dann was haben diese sonst noch bewertet dann für den user
+- Hier haben wir keine metainformationen über die objekte mehr, sondern nur noch bewertungen
+
+- 40
+  - Ähnliche user finden
+  - Vektor von einem user ist der feature vektor, statt objektprofile
+  - dafür benötigen wir wieder eine ähnlichkeitsmetrik
+  - Jaccard geht der wert der bewertung verloren daher wenn sie nicht binär sind weniger gut 
+  - Pearson Correlation coefficient
+    - wird meist verwendet
+    - für den vergleich verwenden wir nur objekte die von beiden bewertet wurden
+- 42:
+  - jaccard schaut nur wo haben sie beide eine bewertung gegeben
+  - negative werte -> sie haben nur einen gleich bewertet, kommt durch die normierung mit dem durchschnits bewertung
+- 45
+  - nächste user die das objekt bewertet haben
+  - durch schnitt aller dieser bewertungen normal oder gewichtet, gewichtung da ist die ähnlichkeit der user
+
+- objekt-Objekt collaborative filtering (46)
+  - Man kann auch dies auf objekt ebene tun, ähnliche objekte suchen die user bewertet hat
+- 47
+  - n = 2 -> hyper parameter der bestimmt werden muss auswahl von n hat einen einfluss auf die wertung
+    - n auch abhängig mach von der anzahl bewertung, user und objekte
+  - 1. ähnliche filme finden
+- 50
+  - praxis ist objekt-objekt besser als user-user (können auch mehrere präferenzen haben)
+  - vorteil auch ist erklärbar gegenüber deep learning
+  - oftmals wird custom mix verwenden, bei cold start ist content based sinnvoll, später dann auch user, etc.
+- es gibt auch noch, dass man user aus der bubble raus bringt indem man random objekte noch reinstreuut
+
+
