@@ -115,3 +115,27 @@
 - es gibt auch noch, dass man user aus der bubble raus bringt indem man random objekte noch reinstreuut
 
 
+### Matrix Faktorisierung 57
+
+- 1 matrix für objekte 1 für user
+- Für die faktorisierung gibt es verschiedene algorithmen
+- 61
+  - Dimensionsreduktion bei faktorisierung dadurch dass die zwei matrixen schmal sind
+  - user fallen in denselben raum wie filme und so zeigt sich präferenz
+- 66
+  - Fehler minimieren pro element in der matrix
+  - dann geht man mehrmals durch bis der fehler klein genug ist (fixe anzahl oder unterschied von jetzt zu nächsten klein genug)
+
+### Evaluation 68
+
+- ähnlich wie in ML
+- bewertungsmatrix
+- kann wieder test / validation set rausziehen und dann evaluation darauf
+- Fehler metrik RMSE kann gewählt werden, gibt unterschiedliche metriken
+- unterschiedliche arten der metriken, da wir oftmals mehrere vorschläge raus geben
+- auch live evaluation, hat es gewirkt?
+
+### Was ist aktuell im Einsatz 73
+
+- Kontext ist wichtig
+
