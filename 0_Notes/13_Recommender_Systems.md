@@ -49,4 +49,31 @@
   - Jaccard: (todo: noch besser recherchieren)
     - Schnittmenge aber teilen es nicht durch das gesammte
     - wenn beide 0 haben, ziehen wir es nicht in betracht
-  - 
+  - wenn wir die matrix haben, dann können wir sortieren und die ähnlichsten den user präsentieren
+  - Hier wird für alle user dieselbe objekte präsentiert, projektprofiele aber user rating wird nicht miteinbezogen
+- 24
+  - user hat 2 objekte positiv bewertet
+  - daraus machen wir ein profil
+  - abgleichen mit user profil und nicht mit dem einzelnen objekt profil abgleichen
+- 25
+  - Abhängig wie die objektprofile aussehen und wie die bewertungsmethode gewählt ist
+  - Hier ist explizit rating im beispiel
+  - zb. gewichteter durchschnitt, gewichte sind da die bewertung der user
+  - Rot wir schauen nur die romance kategorie
+  - alle filme die bewertet wurden sind fantasy, romance is tiefer weil nicht alle filme sind romance
+  - wenn gegensätzliche präferenzen sind, dann gibt es eine gemischte bewertung und sehr gut wird um die 0.5 sein nicht 1
+  - dann werden die objektprofile mit den user profilen verglichen werden
+- 34
+  - Kosinus ähnlichkeit, wir haben zwei vektoren (wie nahe sind die winkel im n dimensionalen raum)
+  - hier nur positive werte also zwischen 0 und 1, dann mal 10 rechnen um das approximierte rating im verhältnis zu den tatsächlien ratings hast
+- Vorteile
+  - privacy muss nicht in betracht gezogen werden weil andere user nicht miteinbezogen werden
+  - cold-start ist kein problem weil ein neuer film hat ein objekt profil
+  - neue user muss ein profil erstellt werden bevor vorschläge kommen, kann gemacht werden durch ein welcome quiz
+  - ungewöhnliche geschmacke sind kein problem
+- Nachteil
+  - mehrere interessen die sehr unterschiedliche sind, ist schwieriger
+  - user bleibt in der eigenen bubble
+  - objekt profile können kompliziert sein (zb. text, bilder), film oder e-commerce ist einfacher weil sie klare features haben
+  - nachteil auch andere user bewertungen werden nicht einbezogen, können wertvolle informationen enthalten
+- 
