@@ -45,6 +45,8 @@ Links auf der Folie zu mehr info
     - Wenn weit in die Zukunft, dann gröberes Sampling
     - Wenn nah in die Zukunft hohe granularität
   - Unterschiedliche Sasonalitäten. eg. strom (Tag (licht), Woche, Jahr (saison))
+
+### Explorative Data Analyse (EDA)
 - 12
   - Explorative Data Analyse (EDA):
     - Wir fragen die Daten eine Frage, die Daten geben uns eine Antwort
@@ -58,6 +60,9 @@ Links auf der Folie zu mehr info
   - Lineare Interpolation: Mit dem mittelwert zwischen den zwei zeit zeitpunkten ergänzen
   - Forward / Backward fill: nehme den jetzigen punkt und fülle alle bis zum nächsten mit dem wert, ist schlechter
 - Wenn Daten keine Saisonalität haben ist es einfacher vorhersagen, weil es noch einen Trend haben kann
+
+### Zerlegung
+
 - 13
   - Zerlegung: gruppieren die Inhalte
   - Seasonal Decompose
@@ -67,6 +72,9 @@ Links auf der Folie zu mehr info
     - Domänenwissen brauchen um ausreisser zu erklären, ist es ein messgerät fehler oder ein extrem event
   - Es gibt auch noch andere möglichkeiten es zu auseinander zu nehmen
   - Loesdekomosition: kontrolle über rolling window und period
+
+### Zeitreihe komposition
+
 - Zeitreihe komposition
   - Trend
   - Saisonalität: (können auch tages saison sein)
@@ -74,6 +82,9 @@ Links auf der Folie zu mehr info
   - Zeitreihe = Trend + Saisonalität + Residuen (additives Model)
   - Die komposistion kann beliebig modelliert sein, wenn additiv nicht sinn macht (wenn es keine negative werte gibt), können die Daten transformiert werden, zum Beispiel logarithmus und dann kann ein additives Model gebraucht werden
 - Am Anfang und am Ende können die Daten nicht verwendet werden weil ein teil des Fensters leer wäre
+
+### Stationarität
+
 - Stationarität von Residuen:
   - Bedingung die an die Residuen gestellt werden sollten
   - Im linearen modell wollen wir sie so klein wie möglich haben wollen
@@ -96,9 +107,13 @@ Links auf der Folie zu mehr info
   - Mit domänen modelle kann es sein, dass es eine regelmässigkeit erhalten sind, dann muss man die dekomposition
 - Analysen sind am einfachten, wenn die zeitpunkte konstanter abstand von einander zu haben, alle x minuten, etc.
 
-### Statistischen Test
+### Statistischen Test (16)
 
 - Kann die Zeitreihe **stationär** sein? - Augmented Dickey-Fuller Test (TODO: more investigation)
+  - -> können wir etwas mit den residuen anfangen?
+  - -> müssen wir noch weiter modellieren?
+  - -> stationarität ist auch hilfreich zum sehen ob sich etwas verändert?
+  - -> versuche die regel zu modellieren, in den residuen sehen wir ob sich etwas verändert
   - Hat es einen random walk (next move depends only on the current position), ist es stationär
   - Hypothesen test: 0 Hypothese: zeitreihe ist nicht stationär
   - Wenn der p wert unterschiedliche von 0 ist, dann kann es nicht stationär sein. Wenn er 0 ist, kann es stationär sein, muss aber nicht. Keine false negative aber false positive
@@ -108,5 +123,16 @@ Links auf der Folie zu mehr info
   - Wenn die residuen nicht stationär sind, dann gehen wir zurück in die modellieren, zum beispiel neue dummy variabel gefunden, wochenende arbeitswoche, etc. Prozess ist nicht linear
 - Zerlegung: Manuell mit Vorwissen, zum beispiel wochenende
 - Differenzieren wenn wir einen linearen trend haben, dann gibt es eine konstante, wenn der zuwachs linear ist, dann ist die differenz zwischen dem vorherigen und jetzigen wert
+- Stationaritätstest kann uns auch sagen, haben wir wirklich verstanden was wir analysiert haben, gibt es noch mehr die modelliert werden muss?
+- 19
+  - Stochastisch heisst "zufall" ist im spiel. Ist nicht unbedingt zufall aber wir verstehen es einfach nicht.
+  - Wenn wir etwas erklären können kommt es nicht in die residuen
+
+### Analyse der Residuen (20)
+
+- hat der "würfel" ein gedächniss, oft ja, wenn es gestern geregnet hat ist die wahrscheinlichkeit grösser dass es heute regnet. Es gibt eine trägheit
+- 1 lag ist ein Zeitschritt und ist eine zeitdifferenz (eg 1 monat). 1 lag von `i` ist `i+1`
+- Autokorrelationsfuktion (TODO: mehr recherche)
+  - nach 6 Monaten sind sie anti-korreliert, eine zeitreihe die um 6 lags verschoben ist, wenn die verschobene ein maximum hat, dann hat die unverschobene hat ihren miinimum
 - 
 
