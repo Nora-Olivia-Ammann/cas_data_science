@@ -72,11 +72,12 @@ Seite 7: Vor der prüfung überprüfen (ersetzte die folien mit neuen grau wird 
   - Zeitreihe = Trend + Saisonalität + Residuen (additives Model)
   - Die komposistion kann beliebig modelliert sein, wenn additiv nicht sinn macht (wenn es keine negative werte gibt), können die Daten transformiert werden, zum Beispiel logarithmus und dann kann ein additives Model gebraucht werden
 - Am Anfang und am Ende können die Daten nicht verwendet werden weil ein teil des Fensters leer wäre
-- Stationarität:
+- Stationarität von Residuen:
   - Bedingung die an die Residuen gestellt werden sollten
   - Im linearen modell wollen wir sie so klein wie möglich haben wollen
   - 1. Es ist zufällig verteil (Normalverteilt)
   - 2. Die bedingungen ändern sich nicht, der Würfel in der Vergangenheit muss den selben regeln folgen wie in der zukunft
+  - Wir möchten ein modell anhand der vergangenheit trainiert auf die Zukunft anwenden. Die spielregeln müssen gleich bleiben sonst kann die vergangenheit nicht auf die zukunft angewendet werden. In der praxis ist nichts ganz schwarz-weiss, es muss aus der domäne beurteilt werden ob die veränderung einen sehr grossen einfluss hat um das modell unbrauchbar zu machen.
 ### Kriterien der zeitreihe (18)
 - 1. kriterium: durchschnitt 
   - Ich habe alle änderungen im trend drinn, sodass sich an den residuen nichts mehr ändert
@@ -84,6 +85,7 @@ Seite 7: Vor der prüfung überprüfen (ersetzte die folien mit neuen grau wird 
 - 2. Kriterium: Varianz
   - Die streuung muss konstant sein
   - Es existiert eine obere schranke die typisch ist für die zeitreihe, muss visuell getestet werden gibt keine metrik
+  - Co-varianz von zeitreihe zu zeitpunkt T, verschiebung mit 4 lags, neuer zeitpunkt, vergleich mit 4 langs, wenn diese varianz gleich ist, wissen wir, dass der zusammenhang besteht bleibt
 - 3. Kriterium: ähnliche verteilung über die zeit
   - Stationarität, zusammenhänge über die Zeit ist nicht erhalten
   - Unterschiedliche Muster zu unterschiedlichen Zeiten
