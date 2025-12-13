@@ -206,7 +206,12 @@ Links auf der Folie zu mehr info
   - Hier die blaue ist vor der roten, jede library macht es etwas anders, die zusammenhänge zwischen der einen und anderen, wenn man berücksitigt, dass es eine weile dauern kann bis man etwas sieht.
 - Wenn wir die daten korrelieren, dann können wir die zeit rausnehmen weil wir die zwei dinge zusammen korrelieren und wann ist egal. Korrelation sind nicht immer linear, wenn sie linear sind, können wir klasse regression machen
 
-- 
+
+- Temperatur auf Niederschlag, zuerst regnet es, dann wird es überdurchschnittlich warm
+- Code:Beide Vorzeichen der Verzögerung (Kreuzkorrelationsfunktion in R emulieren)
+  - Was kann ich aussagen über lag = 0 -> -0.16 was heisst das?
+    - Wir sind in extrem bereichnen, wenn es überdurschnittlich warm ist, dann regnet es unterdurchschnittlich
+  - lag + 1 -> gewissen zusammenhang
 
 
 
