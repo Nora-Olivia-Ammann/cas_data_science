@@ -241,9 +241,42 @@ Was haben zwei Zeitreihen mit anderen zu tun?
 - Residuen sollen möglichst normalverteilt sein, ausser es sind diskrete werte (anzahl, dann nehmen wir poisson)
 - normalverteilung ist relativ universell, weil wir nicht viel wissen müssen
 - Normalverteilt, mit dem erwartungswert 0 sind die residuen, alles rein zufällig, keine zusammenhänge über die zeit
-- covarianz 0 -> keinen zusammenhang der zwei zeitreihen, wir müssen nur oft genug würfeln wir finden für alles einen gegensatz
+- covarianz 0 -> keinen zusammenhang der zwei zeitreihen, wir müssen nur oft genug würfeln wir finden für alles einen gegensatz. weisses rauschen, vergangenheit hat kein gedächniss
 - varianz -> wenn t mit t-strich korreliert ist
-- 
 
 
+### Autoregressiver Prozess (AR-Prozess)
+
+- AR-1 bezieht sich auf sich selbst um einen lag in die vergangenheit
+- Wir haben rauschen (zufall) und etwas gedächnis (wenn es gestern geregnet hat wir die heutige regenmenge noch davon beeinflusst)
+- vergangener wert der zeitreihe bestimmt den wert von jetzt
+- erinnert sich an den wert selbst
+
+xt = wt + ai * xt-1
+ai = 0.5
+
+### Moving Average Prozess (MA)
+
+- rauschen von heute, kommt das gedächnis dazu wir erinnern uns an gestern
+- erinnert sich nicht an den wert selbst sondern an das rauschen
+- erinnert sich nur an den n-lag von vorher (MA-1 ist ein lag, etc.)
+- erinnert sich nur an das was wir vorgeben
+
+xt = wt + bi * wt-1
+
+bi = 0.5
+
+ `0.5` wert gewählt
+
+
+1. wert gibt noch keine vergangenheit ist der wert selbst
+2. wert: 
+   1. AR: wir erinnern uns an vorher: -0.5 (jetzt) + `0.5` * 1 (vorher)
+   2. MA: -0.5 + `0.5` * 1 (vorher)
+3. Wert
+   1. AR: 0.5 + `0.5` * (-0.5 + 0.5 x1)
+   2. MA: 0.5 + `0.5` * -0.5
+4. Wert:
+   1. AR: 0 + 0.5 (0.5 + `0.5` (-0.5 + 0.5 x1))
+   2. MA: 0 + 0.5 * 0.5
 
