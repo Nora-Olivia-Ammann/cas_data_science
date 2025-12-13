@@ -3,6 +3,8 @@
 Leistungsbeurteilung -> was kann es 
 Seite 7: Vor der prüfung überprüfen (ersetzte die folien mit neuen grau wird nicht gemacht)
 
+Links auf der Folie zu mehr info
+
 ## Wichtige Begriffe
 
 - **Regelmässige Abtastung**: einteilung von kontinuierlichen Daten in punkte -> wir machen daraus diskrete zeit (von kontinuierlich)
@@ -77,7 +79,9 @@ Seite 7: Vor der prüfung überprüfen (ersetzte die folien mit neuen grau wird 
   - Im linearen modell wollen wir sie so klein wie möglich haben wollen
   - 1. Es ist zufällig verteil (Normalverteilt)
   - 2. Die bedingungen ändern sich nicht, der Würfel in der Vergangenheit muss den selben regeln folgen wie in der zukunft
-  - Wir möchten ein modell anhand der vergangenheit trainiert auf die Zukunft anwenden. Die spielregeln müssen gleich bleiben sonst kann die vergangenheit nicht auf die zukunft angewendet werden. In der praxis ist nichts ganz schwarz-weiss, es muss aus der domäne beurteilt werden ob die veränderung einen sehr grossen einfluss hat um das modell unbrauchbar zu machen.
+  - Wir möchten ein modell anhand der vergangenheit trainiert auf die Zukunft anwenden. Die spielregeln müssen gleich bleiben sonst kann die vergangenheit nicht auf die zukunft angewendet werden. In der praxis ist nichts ganz schwarz-weiss, es muss aus der domäne beurteilt werden ob die veränderung einen sehr grossen einfluss hat um das modell unbrauchbar zu machen. Wie manifestiert sich die veränderung der spielregeln sich in der variabel die mich interessiert. 
+
+
 ### Kriterien der zeitreihe (18)
 - 1. kriterium: durchschnitt 
   - Ich habe alle änderungen im trend drinn, sodass sich an den residuen nichts mehr ändert
@@ -90,5 +94,17 @@ Seite 7: Vor der prüfung überprüfen (ersetzte die folien mit neuen grau wird 
   - Stationarität, zusammenhänge über die Zeit ist nicht erhalten
   - Unterschiedliche Muster zu unterschiedlichen Zeiten
   - Mit domänen modelle kann es sein, dass es eine regelmässigkeit erhalten sind, dann muss man die dekomposition
+- Analysen sind am einfachten, wenn die zeitpunkte konstanter abstand von einander zu haben, alle x minuten, etc.
+
+### Statistischen Test
+
+- Kann die Zeitreihe **stationär** sein? - Augmented Dickey-Fuller Test (TODO: more investigation)
+  - Hat es einen random walk, ist es stationär
+  - Hypothesen test: 0 Hypothese: zeitreihe ist nicht stationär
+  - Wenn der p wert unterschiedliche von 0 ist, dann kann es nicht stationär sein. Wenn er 0 ist, kann es stationär sein, muss aber nicht. Keine false negative aber false positive
+  - visuelle überprüfung ist trotzdem wichtig
+  - Saisonalität: ein hoher wert folgt einen tiefen wert, etc. hier ist p=0 also 
+- Dummy Variabel: eg. ist es ein Wochenende, brauche ich ein anderes Modell als wenn es ein wochentag ist.
+  - Wenn die residuen nicht stationär sind, dann gehen wir zurück in die modellieren, zum beispiel neue dummy variabel gefunden, wochenende arbeitswoche, etc. Prozess ist nicht linear
 - 
 
