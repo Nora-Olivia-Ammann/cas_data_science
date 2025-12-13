@@ -202,6 +202,8 @@ Links auf der Folie zu mehr info
   - mit einem lag sehe ich einen zusammenhang, aber es kann sein, dass die abhängige variabel in die falsche richtung verschoben wir. Es kann keine verursachung vorlieben.
   - 1. Art der Kausalität: philosophische domäne wissen
   - 2. Schwächere: Granger kausalität, was war zuerst huhn oder ei?
+- Es ist nicht klar ersichtlich welches jetzt die leading indicator ist. Gibt keine konvention, kann nur durch ausprobieren herausgefunden werden welches leading oder trailing ist. (code: Welches Signal ist zuerst - anhand von Demodaten)
+  - Hier die blaue ist vor der roten, jede library macht es etwas anders, die zusammenhänge zwischen der einen und anderen, wenn man berücksitigt, dass es eine weile dauern kann bis man etwas sieht.
 - 
 
 
