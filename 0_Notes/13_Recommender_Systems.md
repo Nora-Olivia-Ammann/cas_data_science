@@ -85,7 +85,7 @@
 
 - zunächst ähnliche user identifizieren
 - dann was haben diese sonst noch bewertet dann für den user
-- Hier haben wir keine metainformationen über die objekte mehr, sondern nur noch bewertungen
+- Hier haben wir keine meta-informationen über die objekte mehr, sondern nur noch bewertungen
 
 - 40
   - Ähnliche user finden
