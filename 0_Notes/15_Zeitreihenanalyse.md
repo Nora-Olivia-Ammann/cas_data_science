@@ -106,5 +106,7 @@ Links auf der Folie zu mehr info
   - Saisonalität: ein hoher wert folgt einen tiefen wert, etc. hier ist p=0 also 
 - Dummy Variabel: eg. ist es ein Wochenende, brauche ich ein anderes Modell als wenn es ein wochentag ist.
   - Wenn die residuen nicht stationär sind, dann gehen wir zurück in die modellieren, zum beispiel neue dummy variabel gefunden, wochenende arbeitswoche, etc. Prozess ist nicht linear
+- Zerlegung: Manuell mit Vorwissen, zum beispiel wochenende
+- Differenzieren wenn wir einen linearen trend haben, dann gibt es eine konstante, wenn der zuwachs linear ist, dann ist die differenz zwischen dem vorherigen und jetzigen wert
 - 
 
