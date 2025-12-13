@@ -5,6 +5,11 @@ Seite 7: Vor der prüfung überprüfen (ersetzte die folien mit neuen grau wird 
 
 Links auf der Folie zu mehr info
 
+
+1. Was hat eine zeitreihe mit sich selbst zusammen zu tun? (wetter über jahrzehnte)
+2. Was hat eine zeitreihe mit einer anderen zu tun? (Niederschlag und temperatur)
+
+
 ## Wichtige Begriffe
 
 - **Regelmässige Abtastung**: einteilung von kontinuierlichen Daten in punkte -> wir machen daraus diskrete zeit (von kontinuierlich)
@@ -17,7 +22,9 @@ Links auf der Folie zu mehr info
 - **Residuen**: Zeitreihe - Trend - Saisonalität -> Residuen
 - **LOESS**: -> STL (seasonal trend decompose), MSTL (multi seasonal trend decompose)
 - **Parsimonious model**: wenn ein model mit weniger parameter gleich gut auskommt wie eines mit mehr, dann nehmen wir das mit weniger (über-parameterisierung ist nicht gut)
-- **Kovariaten**: Die x, externe faktoren, 
+- **Kovariaten**: Die x, externe faktoren
+- **Scheinkorrelation**: korrelation die stark korreliert aussehn aber hat nichts damit zu tun
+- **Granger kausalität**: Leading indicator (vorauseilender indikator) -> zeigt in die zukunft für die trailing variabel
 
 ## Notizen
 
@@ -171,7 +178,7 @@ Links auf der Folie zu mehr info
 - Korrelationsfunktionen (oben)
 - Zeitreihen (unten)
 - Welche gehören, was ist die darstellung wenn es ungefähr so aussieht
-  - Gehören zusammen
+  - Gehören zusammen (kann mehrere haben)
     - a: Steigend / 3
     - b: Periodisch glatt schwankend / 1
     - c: Sinkend / 3
@@ -181,5 +188,21 @@ Links auf der Folie zu mehr info
 - 2: White noise
 - 3: wir wisschen nicht dass es einen absteigenden trend ist, wir wissen nicht ob nach oben oder unten
 - 4: kurzlebige zusammenhänge, übersieht man fast immer in der reihe, ist aber nicht nur white noise
+
+### Was haben zwei Zeitreihen mit anderen zu tun?
+
+- Niederschlag und temperatur
+- Die residuen wurden zusammen 
+- Was hat ein überdurchschnittlich warmer monat mit einem überdurchschnittlichen regenreichen zu tun?
+- pearson korrelation -> korrlation von x & y
+- Wir verschieben eine zeitreihe um einen lag, die andere nicht und schauen ob die andere etwas mit ihr zu tun hat.
+- vielleicht braucht es eine weile dass wir einen unterschied von x in y sehen
+- -> Anitkorreliert: ohne zeitverschiebung sind sie negativ korreliert (überdurchschnittlich warm hat weniger regen)
+  - Wenn wir die eine um 1 verschieben haben sie immernoch etwas miteinander zu tun? Es ist sehr unwahrscheinlich dass nur aus zufall eine korrelation bei den residuen gefunden wird.
+  - mit einem lag sehe ich einen zusammenhang, aber es kann sein, dass die abhängige variabel in die falsche richtung verschoben wir. Es kann keine verursachung vorlieben.
+  - 1. Art der Kausalität: philosophische domäne wissen
+  - 2. Schwächere: Granger kausalität, was war zuerst huhn oder ei?
+- 
+
 
 
