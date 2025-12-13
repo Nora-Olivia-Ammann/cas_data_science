@@ -173,7 +173,7 @@ Links auf der Folie zu mehr info
   - 
 
 
-### Wandtafel (Foto)
+### Wandtafel (Foto) Autokorrelation
 
 - Korrelationsfunktionen (oben)
 - Zeitreihen (unten)
@@ -189,7 +189,9 @@ Links auf der Folie zu mehr info
 - 3: wir wisschen nicht dass es einen absteigenden trend ist, wir wissen nicht ob nach oben oder unten
 - 4: kurzlebige zusammenhänge, übersieht man fast immer in der reihe, ist aber nicht nur white noise
 
-### Was haben zwei Zeitreihen mit anderen zu tun?
+### Kreuzkorrelation CCF
+
+Was haben zwei Zeitreihen mit anderen zu tun?
 
 - Niederschlag und temperatur
 - Die residuen wurden zusammen 
@@ -212,6 +214,28 @@ Links auf der Folie zu mehr info
   - Was kann ich aussagen über lag = 0 -> -0.16 was heisst das?
     - Wir sind in extrem bereichnen, wenn es überdurschnittlich warm ist, dann regnet es unterdurchschnittlich
   - lag + 1 -> gewissen zusammenhang
+
+
+Bild: (kreuzkorrelation)
+
+- 1: normalverteilung
+- 2: hat einen ausreisser (ein ausreisser reicht für eine korrelation)
+- 3: noise
+- 4: korrelation mit verzögerung
+
+- a: keinen zusammenhang (3)
+- b: A und B sind instantan (ohne verzögerrung) korreliert bei lag = 0 korreliert (1, 2) 2
+- c: A und B sind korreliert am stärksten instantan (1)
+- d: A um 6 lags in der zukunft korreliert mit B (4)
+- e: A um 6 lags in der vergangenheit korreliert mit B (keine)
+- f: conversion delay = 0 (1, 2)
+- g: conversion delay = 6 (4)
+
+- b und f sind eine identische aussagen anders formuliert
+- bei g hat es kein vorzeichen, deshalb ist nicht klar ob es in die vergangenheit oder zukunft geht
+
+
+
 
 
 
