@@ -245,6 +245,8 @@ Was haben zwei Zeitreihen mit anderen zu tun?
 - varianz -> wenn t mit t-strich korreliert ist
 
 
+## Zwei arten von Gedächniss
+
 ### Autoregressiver Prozess (AR-Prozess)
 
 - AR-1 bezieht sich auf sich selbst um einen lag in die vergangenheit
