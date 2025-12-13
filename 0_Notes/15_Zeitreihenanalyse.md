@@ -216,7 +216,7 @@ Was haben zwei Zeitreihen mit anderen zu tun?
   - lag + 1 -> gewissen zusammenhang
 
 
-Bild: (kreuzkorrelation)
+**Wandtafel**: (kreuzkorrelation)
 
 - 1: normalverteilung
 - 2: hat einen ausreisser (ein ausreisser reicht für eine korrelation)
@@ -235,7 +235,10 @@ Bild: (kreuzkorrelation)
 - bei g hat es kein vorzeichen, deshalb ist nicht klar ob es in die vergangenheit oder zukunft geht
 
 
+### Stochastische Modellierung (22)
 
+
+- 
 
 
 
