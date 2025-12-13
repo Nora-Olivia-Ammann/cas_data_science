@@ -251,6 +251,7 @@ Was haben zwei Zeitreihen mit anderen zu tun?
 - Wir haben rauschen (zufall) und etwas gedächnis (wenn es gestern geregnet hat wir die heutige regenmenge noch davon beeinflusst)
 - vergangener wert der zeitreihe bestimmt den wert von jetzt
 - erinnert sich an den wert selbst
+- geomentrische reihe
 
 xt = wt + ai * xt-1
 ai = 0.5
