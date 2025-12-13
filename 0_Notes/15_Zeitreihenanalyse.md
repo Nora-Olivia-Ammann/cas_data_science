@@ -99,7 +99,7 @@ Links auf der Folie zu mehr info
 ### Statistischen Test
 
 - Kann die Zeitreihe **stationär** sein? - Augmented Dickey-Fuller Test (TODO: more investigation)
-  - Hat es einen random walk, ist es stationär
+  - Hat es einen random walk (next move depends only on the current position), ist es stationär
   - Hypothesen test: 0 Hypothese: zeitreihe ist nicht stationär
   - Wenn der p wert unterschiedliche von 0 ist, dann kann es nicht stationär sein. Wenn er 0 ist, kann es stationär sein, muss aber nicht. Keine false negative aber false positive
   - visuelle überprüfung ist trotzdem wichtig
