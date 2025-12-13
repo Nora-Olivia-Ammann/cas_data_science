@@ -13,6 +13,7 @@ Seite 7: Vor der prüfung überprüfen (ersetzte die folien mit neuen grau wird 
   - Forward / Backward fill: nehme den jetzigen punkt und fülle alle bis zum nächsten mit dem wert, ist schlechter
   - Kallman-Filter: guter filter, besonders gut für lange lücken mit viel struktur
 - **Residuen**: Zeitreihe - Trend - Saisonalität -> Residuen
+- **LOESS**: -> STL (seasonal trend decompose), MSTL (multi seasonal trend decompose)
 
 
 ## Notizen
@@ -56,10 +57,36 @@ Seite 7: Vor der prüfung überprüfen (ersetzte die folien mit neuen grau wird 
   - Forward / Backward fill: nehme den jetzigen punkt und fülle alle bis zum nächsten mit dem wert, ist schlechter
 - Wenn Daten keine Saisonalität haben ist es einfacher vorhersagen, weil es noch einen Trend haben kann
 - 13
-  - Zerlegung
+  - Zerlegung: gruppieren die Inhalte
   - Seasonal Decompose
     - Trend der unterschiede: optimaler kompromiss zwischen glattheit und information
     - Seasonal: Wenn jedes Jahr gleich aussehen würde, was bleibt übrig, wenn wir das seasonal raus nehmen und sehr regelmässig machen dann hilft das uns für die Zukunft
-    - Residuen: Modell, alles was übrig bleibt sind die Residuen, Zeitreihe - Modell
+    - Residuen: Modell, alles was übrig bleibt sind die Residuen, Zeitreihe - Modell (normalverteilt, zufällig), residuen sollten über die zeit nicht korrelieren
+    - Domänenwissen brauchen um ausreisser zu erklären, ist es ein messgerät fehler oder ein extrem event
   - Es gibt auch noch andere möglichkeiten es zu auseinander zu nehmen
+  - Loesdekomosition: kontrolle über rolling window und period
+- Zeitreihe komposition
+  - Trend
+  - Saisonalität: (können auch tages saison sein)
+  - Residuen: Das was übrig bleibt
+  - Zeitreihe = Trend + Saisonalität + Residuen (additives Model)
+  - Die komposistion kann beliebig modelliert sein, wenn additiv nicht sinn macht (wenn es keine negative werte gibt), können die Daten transformiert werden, zum Beispiel logarithmus und dann kann ein additives Model gebraucht werden
+- Am Anfang und am Ende können die Daten nicht verwendet werden weil ein teil des Fensters leer wäre
+- Stationarität:
+  - Bedingung die an die Residuen gestellt werden sollten
+  - Im linearen modell wollen wir sie so klein wie möglich haben wollen
+  - 1. Es ist zufällig verteil (Normalverteilt)
+  - 2. Die bedingungen ändern sich nicht, der Würfel in der Vergangenheit muss den selben regeln folgen wie in der zukunft
+### Kriterien der zeitreihe (18)
+- 1. kriterium: durchschnitt 
+  - Ich habe alle änderungen im trend drinn, sodass sich an den residuen nichts mehr ändert
+  - Durchschnitt muss konstant bleiben, wenn der durchschnitt des würfels in der vergangenheit 1 war und jetzt 6 dann folgt es nicht den selben regeln
+- 2. Kriterium: Varianz
+  - Die streuung muss konstant sein
+  - Es existiert eine obere schranke die typisch ist für die zeitreihe, muss visuell getestet werden gibt keine metrik
+- 3. Kriterium: ähnliche verteilung über die zeit
+  - Stationarität, zusammenhänge über die Zeit ist nicht erhalten
+  - Unterschiedliche Muster zu unterschiedlichen Zeiten
+  - Mit domänen modelle kann es sein, dass es eine regelmässigkeit erhalten sind, dann muss man die dekomposition
 - 
+
