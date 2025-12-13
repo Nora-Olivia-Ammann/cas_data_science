@@ -256,12 +256,16 @@ Was haben zwei Zeitreihen mit anderen zu tun?
 xt = wt + ai * xt-1
 ai = 0.5
 
+wenn wir die verkettung wegnehmen dann haben wir den MA prozess
+
 ### Moving Average Prozess (MA)
 
 - rauschen von heute, kommt das gedächnis dazu wir erinnern uns an gestern
 - erinnert sich nicht an den wert selbst sondern an das rauschen
 - erinnert sich nur an den n-lag von vorher (MA-1 ist ein lag, etc.)
 - erinnert sich nur an das was wir vorgeben
+
+- wenn wir eine verkettung raus die es gar nicht gibt, dann habe ich nichts
 
 xt = wt + bi * wt-1
 
