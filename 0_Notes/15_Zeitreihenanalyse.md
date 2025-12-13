@@ -204,6 +204,8 @@ Links auf der Folie zu mehr info
   - 2. Schwächere: Granger kausalität, was war zuerst huhn oder ei?
 - Es ist nicht klar ersichtlich welches jetzt die leading indicator ist. Gibt keine konvention, kann nur durch ausprobieren herausgefunden werden welches leading oder trailing ist. (code: Welches Signal ist zuerst - anhand von Demodaten)
   - Hier die blaue ist vor der roten, jede library macht es etwas anders, die zusammenhänge zwischen der einen und anderen, wenn man berücksitigt, dass es eine weile dauern kann bis man etwas sieht.
+- Wenn wir die daten korrelieren, dann können wir die zeit rausnehmen weil wir die zwei dinge zusammen korrelieren und wann ist egal. Korrelation sind nicht immer linear, wenn sie linear sind, können wir klasse regression machen
+
 - 
 
 
