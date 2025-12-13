@@ -7,7 +7,12 @@ Seite 7: Vor der prüfung überprüfen (ersetzte die folien mit neuen grau wird 
 
 - **Regelmässige Abtastung**: einteilung von kontinuierlichen Daten in punkte -> wir machen daraus diskrete zeit (von kontinuierlich)
 - **Lag**: Zeitspanne von einem zeitpunkt zum nächsten (verzögerung, zeit differenz)
-- 
+- **Extrapolation**: neue Daten ausserhalb der Zeitreihe (davor / nachher) darf man nicht, da würde man das Modell auf das Modell anwenden.
+- **Interpolation / Imputation**: füllen von Lücken innerhalb der Daten ist ok
+  - Lineare Interpolation: Mit dem mittelwert zwischen den zwei zeit zeitpunkten ergänzen
+  - Forward / Backward fill: nehme den jetzigen punkt und fülle alle bis zum nächsten mit dem wert, ist schlechter
+  - Kallman-Filter: guter filter, besonders gut für lange lücken mit viel struktur
+- **Residuen**: Zeitreihe - Trend - Saisonalität -> Residuen
 
 
 ## Notizen
@@ -37,6 +42,24 @@ Seite 7: Vor der prüfung überprüfen (ersetzte die folien mit neuen grau wird 
     - Wenn weit in die Zukunft, dann gröberes Sampling
     - Wenn nah in die Zukunft hohe granularität
   - Unterschiedliche Sasonalitäten. eg. strom (Tag (licht), Woche, Jahr (saison))
+- 12
+  - Explorative Data Analyse (EDA):
+    - Wir fragen die Daten eine Frage, die Daten geben uns eine Antwort
+  - EDA: Zoom in von einem Lag (eine Zeitspanne)
+  - Extrapolation: Lücken füllen in den Daten (eg. keinen niederschlag) gibt wird nicht gemacht
+    - Lücke in der Zeitreihe (interpolation) -> für einen Monat keinen Datenpunkt, kann ergänzt werden
+    - Extrapolation ausserhalb des Datensatztes kann nicht gemacht werden
+- Imputation (Ergänzung von Lücken)
+  - Eine range mit einem anderen lag
+  - Ergänzung von leeren daten, alle werte die näher als 10 Tag weg sind können benutzt werden um eine lücke zu füllen
+  - Lineare Interpolation: Mit dem mittelwert zwischen den zwei zeit zeitpunkten ergänzen
+  - Forward / Backward fill: nehme den jetzigen punkt und fülle alle bis zum nächsten mit dem wert, ist schlechter
+- Wenn Daten keine Saisonalität haben ist es einfacher vorhersagen, weil es noch einen Trend haben kann
+- 13
+  - Zerlegung
+  - Seasonal Decompose
+    - Trend der unterschiede: optimaler kompromiss zwischen glattheit und information
+    - Seasonal: Wenn jedes Jahr gleich aussehen würde, was bleibt übrig, wenn wir das seasonal raus nehmen und sehr regelmässig machen dann hilft das uns für die Zukunft
+    - Residuen: Modell, alles was übrig bleibt sind die Residuen, Zeitreihe - Modell
+  - Es gibt auch noch andere möglichkeiten es zu auseinander zu nehmen
 - 
-
-
