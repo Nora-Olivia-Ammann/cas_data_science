@@ -224,7 +224,7 @@ Was haben zwei Zeitreihen mit anderen zu tun?
 - 4: korrelation mit verzögerung
 
 - a: keinen zusammenhang (3)
-- b: A und B sind instantan (ohne verzögerrung) korreliert bei lag = 0 korreliert (1, 2) 2
+- b: A und B sind instantan (ohne verzögerrung) korreliert bei lag = 0 korreliert (2)
 - c: A und B sind korreliert am stärksten instantan (1)
 - d: A um 6 lags in der zukunft korreliert mit B (4)
 - e: A um 6 lags in der vergangenheit korreliert mit B (keine)
@@ -237,7 +237,12 @@ Was haben zwei Zeitreihen mit anderen zu tun?
 
 ### Stochastische Modellierung (22)
 
-
+- geben nur ein kleines fenster in die zukunft man sieht jedoch die zusammenhänge besser
+- Residuen sollen möglichst normalverteilt sein, ausser es sind diskrete werte (anzahl, dann nehmen wir poisson)
+- normalverteilung ist relativ universell, weil wir nicht viel wissen müssen
+- Normalverteilt, mit dem erwartungswert 0 sind die residuen, alles rein zufällig, keine zusammenhänge über die zeit
+- covarianz 0 -> keinen zusammenhang der zwei zeitreihen, wir müssen nur oft genug würfeln wir finden für alles einen gegensatz
+- varianz -> wenn t mit t-strich korreliert ist
 - 
 
 
