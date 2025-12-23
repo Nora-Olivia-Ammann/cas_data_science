@@ -50,45 +50,46 @@
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
 \begin{document}
-{\setstretch{1}
+{\setstretch{1}}
 \begin{landscape}
 
+{\tiny
 \begin{longtable}{|p{2.5cm}|p{3cm}|p{3cm}|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
 \hline
 \thead{\small{Typ}} & \thead{\small{Name}} & \thead{\small{Beschreibung}} & \thead{\small{Data Specification}} & \thead{\small{Model}} & \thead{\small{Kostenfunktion}} & \thead{\small{Optimierung}} \\
 \hline
 % ----- %
-\rowcolor{lightergray}\makecell[lt]{\tiny{Supervised: Regression}} & \makecell[lt]{\tiny\textbf{{Linear Regression}}} & \makecell[lt]{\tiny{Beschreibung}} & \makecell[lt]{\tiny{Data}} & \makecell[lt]{\tiny{model}} & \makecell[lt]{\tiny{kost}} & \makecell[lt]{\tiny{optimierung}} \\
+\rowcolor{lightergray}\makecell[lt]{Supervised: Regression} & \makecell[lt]\textbf{{Linear Regression}} & \makecell[lt]{Beschreibung} & \makecell[lt]{Data} & \makecell[lt]{model} & \makecell[lt]{kost} & \makecell[lt]{optimierung} \\
 \hline
 % ----- %
-\makecell[lt]{\tiny{Supervised: Classification}} & \makecell[lt]{\tiny\textbf{{Logistic Regression}}} & \makecell[lt]{\tiny{Beschreibung}} & \makecell[lt]{\tiny{Data}} & \makecell[lt]{\tiny{model}} & \makecell[lt]{\tiny{kost}} & \makecell[lt]{\tiny{optimierung}} \\
-\hline
-
-% ----- %
-\rowcolor{lightergray}\makecell[lt]{\tiny{Supervised: Classification}} & \makecell[lt]{\tiny\textbf{{K-Nearest Neighbours}}} & \makecell[lt]{\tiny{Beschreibung}} & \makecell[lt]{\tiny{Data}} & \makecell[lt]{\tiny{model}} & \makecell[lt]{\tiny{kost}} & \makecell[lt]{\tiny{optimierung}} \\
-\hline
-% ----- %
-\makecell[lt]{\tiny{Supervised: Classification}} & \makecell[lt]{\tiny\textbf{{Support Vector Machine}}} & \makecell[lt]{\tiny{Beschreibung}} & \makecell[lt]{\tiny{Data}} & \makecell[lt]{\tiny{model}} & \makecell[lt]{\tiny{kost}} & \makecell[lt]{\tiny{optimierung}} \\
+\makecell[lt]{Supervised: Classification} & \makecell[lt]\textbf{{Logistic Regression}} & \makecell[lt]{Beschreibung} & \makecell[lt]{Data} & \makecell[lt]{model} & \makecell[lt]{kost} & \makecell[lt]{optimierung} \\
 \hline
 
 % ----- %
-\rowcolor{lightergray}\makecell[lt]{\tiny{Supervised: Classification}} & \makecell[lt]{\tiny\textbf{{Decision Trees}}} & \makecell[lt]{\tiny{Beschreibung}} & \makecell[lt]{\tiny{Data}} & \makecell[lt]{\tiny{model}} & \makecell[lt]{\tiny{kost}} & \makecell[lt]{\tiny{optimierung}} \\
+\rowcolor{lightergray}\makecell[lt]{Supervised: Classification} & \makecell[lt]\textbf{{K-Nearest Neighbours}} & \makecell[lt]{Beschreibung} & \makecell[lt]{Data} & \makecell[lt]{model} & \makecell[lt]{kost} & \makecell[lt]{optimierung} \\
 \hline
 % ----- %
-\makecell[lt]{\tiny{Unsupervised: Dimensionality Reduction}} & \makecell[lt]{\tiny\textbf{{Principal Component Analysis}}} & \makecell[lt]{\tiny{Beschreibung}} & \makecell[lt]{\tiny{Data}} & \makecell[lt]{\tiny{model}} & \makecell[lt]{\tiny{kost}} & \makecell[lt]{\tiny{optimierung}} \\
+\makecell[lt]{Supervised: Classification} & \makecell[lt]\textbf{{Support Vector Machine}} & \makecell[lt]{Beschreibung} & \makecell[lt]{Data} & \makecell[lt]{model} & \makecell[lt]{kost} & \makecell[lt]{optimierung} \\
 \hline
 
 % ----- %
-\rowcolor{lightergray}\makecell[lt]{\tiny{Unsupervised: Dimensionality Reduction}} & \makecell[lt]{\tiny\textbf{{Non-Negative Matric Factorisation}}} & \makecell[lt]{\tiny{Beschreibung}} & \makecell[lt]{\tiny{Data}} & \makecell[lt]{\tiny{model}} & \makecell[lt]{\tiny{kost}} & \makecell[lt]{\tiny{optimierung}} \\
+\rowcolor{lightergray}\makecell[lt]{Supervised: Classification} & \makecell[lt]\textbf{{Decision Trees}} & \makecell[lt]{Beschreibung} & \makecell[lt]{Data} & \makecell[lt]{model} & \makecell[lt]{kost} & \makecell[lt]{optimierung} \\
 \hline
 % ----- %
-\makecell[lt]{\tiny{Unsupervised: Dimensionality Reduction}} & \makecell[lt]{\tiny\textbf{{Auto Encoder}}} & \makecell[lt]{\tiny{Beschreibung}} & \makecell[lt]{\tiny{Data}} & \makecell[lt]{\tiny{model}} & \makecell[lt]{\tiny{kost}} & \makecell[lt]{\tiny{optimierung}} \\
+\makecell[lt]{Unsupervised: Dimensionality Reduction} & \makecell[lt]\textbf{{Principal Component Analysis}} & \makecell[lt]{Beschreibung} & \makecell[lt]{Data} & \makecell[lt]{model} & \makecell[lt]{kost} & \makecell[lt]{optimierung} \\
+\hline
+
+% ----- %
+\rowcolor{lightergray}\makecell[lt]{Unsupervised: Dimensionality Reduction} & \makecell[lt]\textbf{{Non-Negative Matric Factorisation}} & \makecell[lt]{Beschreibung} & \makecell[lt]{Data} & \makecell[lt]{model} & \makecell[lt]{kost} & \makecell[lt]{optimierung} \\
 \hline
 % ----- %
-\rowcolor{lightergray}\makecell[lt]{\tiny{???}} & \makecell[lt]{\tiny\textbf{{Fully Connected Neural Network}}} & \makecell[lt]{\tiny{Beschreibung}} & \makecell[lt]{\tiny{Data}} & \makecell[lt]{\tiny{model}} & \makecell[lt]{\tiny{kost}} & \makecell[lt]{\tiny{optimierung}} \\
+\makecell[lt]{Unsupervised: Dimensionality Reduction} & \makecell[lt]\textbf{{Auto Encoder}} & \makecell[lt]{Beschreibung} & \makecell[lt]{Data} & \makecell[lt]{model} & \makecell[lt]{kost} & \makecell[lt]{optimierung} \\
+\hline
+% ----- %
+\rowcolor{lightergray}\makecell[lt]{???} & \makecell[lt]\textbf{{Fully Connected Neural Network}} & \makecell[lt]{Beschreibung} & \makecell[lt]{Data} & \makecell[lt]{model} & \makecell[lt]{kost} & \makecell[lt]{optimierung} \\
 \hline
 \end{longtable}
-
+    }
 
 
 \end{landscape}
