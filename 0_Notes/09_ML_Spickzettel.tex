@@ -1,0 +1,95 @@
+\documentclass[a4paper,10pt]{article}
+
+% import packages
+\usepackage[margin=0.2cm]{geometry}
+\usepackage{pdflscape}
+\usepackage{array}
+\usepackage{makecell}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{longtable}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{needspace}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{librebaskerville}
+
+% ------------------------------------------------------
+% \usepackage[scaled=1.05]{beramono} % If you want to change the scaling of the font un-comment this line
+\renewcommand{\ttdefault}{fvm}    % Ensure \texttt uses Bera Mono (fvm)
+
+% Make \texttt bold by default
+\makeatletter
+\DeclareRobustCommand\ttfamily{%
+  \not@math@alphabet\ttfamily\mathtt
+  \fontfamily\ttdefault\bfseries\selectfont}
+\makeatother
+% ------------------------------------------------------
+
+% Configure makecell package
+\renewcommand\theadalign{bc}
+\renewcommand\theadfont{\bfseries}
+\renewcommand\theadgape{\Gape[4pt]}
+\renewcommand\cellgape{\Gape[4pt]}
+\renewcommand\cellalign{lt}
+
+% Only change level 1 itemize bullets
+\setlist[itemize,1]{label=\raisebox{0.5ex}{\tiny$\bullet$}}
+
+% global line spacing
+\renewcommand{\baselinestretch}{1.25}
+
+% colour definitions
+\definecolor{lightergray}{gray}{0.90}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\begin{document}
+{\setstretch{1}
+\begin{landscape}
+
+\begin{longtable}{|p{2.5cm}|p{3cm}|p{3cm}|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+\thead{\small{Typ}} & \thead{\small{Name}} & \thead{\small{Beschreibung}} & \thead{\small{Data Specification}} & \thead{\small{Model}} & \thead{\small{Kostenfunktion}} & \thead{\small{Optimierung}} \\
+\hline
+% ----- %
+\rowcolor{lightergray}\makecell[lt]{\tiny{Supervised: Regression}} & \makecell[lt]{\small\textbf{{Linear Regression}}} & \makecell[lt]{\small{Beschreibung}} & \makecell[lt]{\small{Data}} & \makecell[lt]{\small{model}} & \makecell[lt]{\small{kost}} & \makecell[lt]{\small{optimierung}} \\
+\hline
+% ----- %
+\makecell[lt]{\tiny{Supervised: Classification}} & \makecell[lt]{\small\textbf{{Name}}} & \makecell[lt]{\small{Beschreibung}} & \makecell[lt]{\small{Data}} & \makecell[lt]{\small{model}} & \makecell[lt]{\small{kost}} & \makecell[lt]{\small{optimierung}} \\
+\hline
+
+% ----- %
+\rowcolor{lightergray}\makecell[lt]{\tiny{Supervised: Classification}} & \makecell[lt]{\small\textbf{{Name}}} & \makecell[lt]{\small{Beschreibung}} & \makecell[lt]{\small{Data}} & \makecell[lt]{\small{model}} & \makecell[lt]{\small{kost}} & \makecell[lt]{\small{optimierung}} \\
+\hline
+% ----- %
+\makecell[lt]{\tiny{Supervised: Classification}} & \makecell[lt]{\small\textbf{{Name}}} & \makecell[lt]{\small{Beschreibung}} & \makecell[lt]{\small{Data}} & \makecell[lt]{\small{model}} & \makecell[lt]{\small{kost}} & \makecell[lt]{\small{optimierung}} \\
+\hline
+
+% ----- %
+\rowcolor{lightergray}\makecell[lt]{\tiny{Supervised: Classification}} & \makecell[lt]{\small\textbf{{Name}}} & \makecell[lt]{\small{Beschreibung}} & \makecell[lt]{\small{Data}} & \makecell[lt]{\small{model}} & \makecell[lt]{\small{kost}} & \makecell[lt]{\small{optimierung}} \\
+\hline
+% ----- %
+\makecell[lt]{\tiny{Typ}} & \makecell[lt]{\small\textbf{{Name}}} & \makecell[lt]{\small{Beschreibung}} & \makecell[lt]{\small{Data}} & \makecell[lt]{\small{model}} & \makecell[lt]{\small{kost}} & \makecell[lt]{\small{optimierung}} \\
+\hline
+
+% ----- %
+\rowcolor{lightergray}\makecell[lt]{\tiny{Typ}} & \makecell[lt]{\small\textbf{{Name}}} & \makecell[lt]{\small{Beschreibung}} & \makecell[lt]{\small{Data}} & \makecell[lt]{\small{model}} & \makecell[lt]{\small{kost}} & \makecell[lt]{\small{optimierung}} \\
+\hline
+% ----- %
+\makecell[lt]{\tiny{Typ}} & \makecell[lt]{\small\textbf{{Name}}} & \makecell[lt]{\small{Beschreibung}} & \makecell[lt]{\small{Data}} & \makecell[lt]{\small{model}} & \makecell[lt]{\small{kost}} & \makecell[lt]{\small{optimierung}} \\
+\hline
+% ----- %
+\rowcolor{lightergray}\makecell[lt]{\tiny{Typ}} & \makecell[lt]{\small\textbf{{Name}}} & \makecell[lt]{\small{Beschreibung}} & \makecell[lt]{\small{Data}} & \makecell[lt]{\small{model}} & \makecell[lt]{\small{kost}} & \makecell[lt]{\small{optimierung}} \\
+\hline
+\end{longtable}
+
+
+
+\end{landscape}
+\end{document}
