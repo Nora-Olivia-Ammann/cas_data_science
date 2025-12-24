@@ -1,4 +1,4 @@
-\documentclass[a4paper,10pt]{article}
+\documentclass[a4paper, 10pt]{article}
 
 % import packages
 \usepackage[margin=0.2cm]{geometry}
@@ -20,22 +20,21 @@
 
 % ------------------------------------------------------
 % \usepackage[scaled=1.05]{beramono} % If you want to change the scaling of the font un-comment this line
-\renewcommand{\ttdefault}{fvm}    % Ensure \texttt uses Bera Mono (fvm)
+\renewcommand{\ttdefault}{fvm} % Ensure \texttt uses Bera Mono (fvm)
 
 % Make \texttt bold by default
 \makeatletter
 \DeclareRobustCommand\ttfamily{%
-  \not@math@alphabet\ttfamily\mathtt
-  \fontfamily\ttdefault\bfseries\selectfont}
+\not@math@alphabet\ttfamily\mathtt{\fontfamily}\ttdefault\bfseries\selectfont}
 \makeatother
 % ------------------------------------------------------
 
 % Configure makecell package
-\renewcommand\theadalign{bc}
-\renewcommand\theadfont{\bfseries}
-\renewcommand\theadgape{\Gape[4pt]}
-\renewcommand\cellgape{\Gape[4pt]}
-\renewcommand\cellalign{lt}
+\renewcommand{\theadalign}{bc}
+\renewcommand{\theadfont}{\bfseries}
+\renewcommand{\theadgape}{\Gape[4pt]}
+\renewcommand{\cellgape}{\Gape[4pt]}
+\renewcommand{\cellalign}{lt}
 
 % Only change level 1 itemize bullets
 \setlist[itemize,1]{label=\raisebox{0.5ex}{\tiny$\bullet$}}
@@ -47,50 +46,60 @@
 \definecolor{lightergray}{gray}{0.90}
 
 \providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setlength{\itemsep}{0pt}
+\setlength{\parskip}{0pt}}
 
 \begin{document}
-{\setstretch{1}}
-\begin{landscape}
+  {\setstretch{1}}
+  \begin{landscape}
+    {\tiny \begin{longtable}{|p{1.3cm}|p{2cm}|p{5cm}|p{4cm}|p{4cm}|p{4cm}|p{4cm}|} 
+      \hline \thead{Typ} & \thead{Name} & \thead{Beschreibung} & \thead{Data Specification} & 
+      \thead{Model} & \thead{Kostenfunktion} & \thead{Optimierung} \\ \hline
+    % ----- %
+    \rowcolor{lightergray}\makecell[lt]{Supervised\\Regression} & 
+    \makecell[lt]{Linear Regression} & \makecell[lt]{Beschreibung} & 
+    \makecell[lt]{Data} & \makecell[lt]{model} & \makecell[lt]{kost} & \makecell[lt]{optimierung} \\ \hline
 
-{\tiny
-\begin{longtable}{|p{1.3cm}|p{2cm}|p{5cm}|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
-\hline
-\thead{Typ} & \thead{Name} & \thead{Beschreibung} & \thead{Data Specification} & \thead{Model} & \thead{Kostenfunktion} & \thead{Optimierung} \\
-\hline
-% ----- %
-\rowcolor{lightergray}\makecell[lt]{Supervised\\Regression} & \makecell[lt]{Linear Regression} & \makecell[lt]{Beschreibung} & \makecell[lt]{Data} & \makecell[lt]{model} & \makecell[lt]{kost} & \makecell[lt]{optimierung} \\
-\hline
-% ----- %
-\makecell[lt]{Supervised\\Classification} & \makecell[lt]{Logistic Regression} & \makecell[lt]{Beschreibung} & \makecell[lt]{Data} & \makecell[lt]{model} & \makecell[lt]{kost} & \makecell[lt]{optimierung} \\
-\hline
+    % ----- %
+    \makecell[lt]{Supervised\\Classification} & 
+    \makecell[lt]{Logistic Regression} & 
+    \makecell[lt]{Beschreibung} & \makecell[lt]{Data} & \makecell[lt]{model} & \makecell[lt]{kost} & \makecell[lt]{optimierung} \\ \hline
 
-% ----- %
-\rowcolor{lightergray}\makecell[lt]{Supervised\\Classification} & \makecell[lt]{K-Nearest Neighbours} & \makecell[lt]{Beschreibung} & \makecell[lt]{Data} & \makecell[lt]{model} & \makecell[lt]{kost} & \makecell[lt]{optimierung} \\
-\hline
-% ----- %
-\makecell[lt]{Supervised\\Classification} & \makecell[lt]{Support Vector\\Machine} & \makecell[lt]{Beschreibung} & \makecell[lt]{Data} & \makecell[lt]{model} & \makecell[lt]{kost} & \makecell[lt]{optimierung} \\
-\hline
+    % ----- %
+    \rowcolor{lightergray}\makecell[lt]{Supervised\\Classification} & 
+    \makecell[lt]{K-Nearest Neighbours} & 
+    \makecell[lt]{Beschreibung} & \makecell[lt]{Data} & \makecell[lt]{model} & \makecell[lt]{kost} & \makecell[lt]{optimierung} \\ \hline
+    
+    % ----- %
+    \makecell[lt]{Supervised\\Classification} & 
+    \makecell[lt]{Support Vector\\Machine} & 
+    \makecell[lt]{Beschreibung} & \makecell[lt]{Data} & \makecell[lt]{model} & \makecell[lt]{kost} & \makecell[lt]{optimierung} \\ \hline
 
-% ----- %
-\rowcolor{lightergray}\makecell[lt]{Supervised\\Classification} & \makecell[lt]{Decision Trees} & \makecell[lt]{Beschreibung} & \makecell[lt]{Data} & \makecell[lt]{model} & \makecell[lt]{kost} & \makecell[lt]{optimierung} \\
-\hline
-% ----- %
-\makecell[lt]{Unsupervised\\Dimensionality\\Reduction} & \makecell[lt]{Principal Component\\Analysis} & \makecell[lt]{Beschreibung} & \makecell[lt]{Data} & \makecell[lt]{model} & \makecell[lt]{kost} & \makecell[lt]{optimierung} \\
-\hline
+    % ----- %
+    \rowcolor{lightergray}\makecell[lt]{Supervised\\Classification} & 
+    \makecell[lt]{Decision Trees} & 
+    \makecell[lt]{Beschreibung} & \makecell[lt]{Data} & \makecell[lt]{model} & \makecell[lt]{kost} & \makecell[lt]{optimierung} \\ \hline
+    
+    % ----- %
+    \makecell[lt]{Unsupervised\\Dimensionality\\Reduction} & 
+    \makecell[lt]{Principal Component\\Analysis} & 
+    \makecell[lt]{Beschreibung} & \makecell[lt]{Data} & \makecell[lt]{model} & \makecell[lt]{kost} & \makecell[lt]{optimierung} \\ \hline
 
-% ----- %
-\rowcolor{lightergray}\makecell[lt]{Unsupervised\\Dimensionality\\Reduction} & \makecell[lt]{Non-Negative\\Matrix Factorisation} & \makecell[lt]{Beschreibung} & \makecell[lt]{Data} & \makecell[lt]{model} & \makecell[lt]{kost} & \makecell[lt]{optimierung} \\
-\hline
-% ----- %
-\makecell[lt]{Unsupervised\\Dimensionality\\Reduction} & \makecell[lt]{Auto Encoder} & \makecell[lt]{Beschreibung} & \makecell[lt]{Data} & \makecell[lt]{model} & \makecell[lt]{kost} & \makecell[lt]{optimierung} \\
-\hline
-% ----- %
-\rowcolor{lightergray}\makecell[lt]{???} & \makecell[lt]{Fully Connected\\Neural Network} & \makecell[lt]{Beschreibung} & \makecell[lt]{Data} & \makecell[lt]{model} & \makecell[lt]{kost} & \makecell[lt]{optimierung} \\
-\hline
-\end{longtable}
-    }
-
-
-\end{landscape}
+    % ----- %
+    \rowcolor{lightergray}\makecell[lt]{Unsupervised\\Dimensionality\\Reduction} & 
+    \makecell[lt]{Non-Negative\\Matrix Factorisation} & 
+    \makecell[lt]{Beschreibung} & \makecell[lt]{Data} & \makecell[lt]{model} & \makecell[lt]{kost} & \makecell[lt]{optimierung} \\ \hline
+    
+    % ----- %
+    \makecell[lt]{Unsupervised\\Dimensionality\\Reduction} & 
+    \makecell[lt]{Auto Encoder} & \makecell[lt]{Beschreibung} & 
+    \makecell[lt]{Data} & \makecell[lt]{model} & \makecell[lt]{kost} & \makecell[lt]{optimierung} \\ \hline
+    
+    % ----- %
+    \rowcolor{lightergray}\makecell[lt]{???} & 
+    \makecell[lt]{Fully Connected\\Neural Network} & 
+    \makecell[lt]{Beschreibung} & \makecell[lt]{Data} & \makecell[lt]{model} & \makecell[lt]{kost} & \makecell[lt]{optimierung} \\ \hline
+  
+  \end{longtable} }
+  \end{landscape}
 \end{document}
