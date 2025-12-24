@@ -20,6 +20,11 @@
 \usepackage{multicol}
 \usepackage{enumitem}
 
+\newlength\tindent
+\setlength{\tindent}{\parindent}
+\setlength{\parindent}{0pt}
+\renewcommand{\indent}{\hspace*{\tindent}}
+
 % global list spacing (affects all levels)
 \setlist{noitemsep, topsep=0pt, parsep=0pt, partopsep=0pt}
 
@@ -29,7 +34,6 @@
 \setlist[itemize,3]{leftmargin=1em}
 
 \setlength{\columnseprule}{0.1pt}
-
 % ------------------------------------------------------
 % \usepackage[scaled=1.05]{beramono} % If you want to change the scaling of the font un-comment this line
 \renewcommand{\ttdefault}{fvm} % Ensure \texttt uses Bera Mono (fvm)
@@ -413,7 +417,29 @@
 
 {\normalsize{\textbf{Feature Preprocessing}}}
 
-{\footnotesize{\textbf{Encoding}}}
+{\footnotesize{\textbf{Encoding}}} \\
+Information in anderer Maschienen freundlichen Art darzustellen. \\
+oft notwendig für text \\
+mit oder ohne Informationsverlust
+
+\textbf{Kategorisch}
+\begin{itemize}
+    \item \textbf{Ordinal}
+    \begin{itemize}
+        \item mapping von kategorie mit aufsteigender Zahl 0-n
+        \item 1 Feature \(\rightarrow\) 1 Feature
+        \item hat eine Ordnung, grösse der Zahl hat einen Einfluss!
+        \item nicht gut wenn es keine Ordnung hat oder Abstände nicht regelmässig
+    \end{itemize}
+    \item \textbf{One-Hot}
+    \begin{itemize}
+        \item n-Einzigartige Eigenschaften \(\rightarrow\) n-Dimensionalen Vektoren
+        \item 1 Feature \(\rightarrow\) n Feature
+    \end{itemize}
+\end{itemize}
+
+Meistens One-Hot weil Dinge keine Ordnung haben \\
+Möglich mit Domänen-Wissen eigene Encoding machen (eg. Kategorien zusammenfassen)
 
 {\footnotesize{\textbf{Feature Selection}}}
 
