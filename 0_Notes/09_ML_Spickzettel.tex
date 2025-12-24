@@ -17,7 +17,10 @@
 \usepackage{fancyhdr}
 \usepackage{enumitem}
 \usepackage{librebaskerville}
+\usepackage{multicol}
+\usepackage{enumitem}
 
+\setlist[itemize,2]{leftmargin=1em}
 % ------------------------------------------------------
 % \usepackage[scaled=1.05]{beramono} % If you want to change the scaling of the font un-comment this line
 \renewcommand{\ttdefault}{fvm} % Ensure \texttt uses Bera Mono (fvm)
@@ -40,7 +43,7 @@
 \setlist[itemize,1]{label=\raisebox{0.5ex}{\tiny$\bullet$}}
 
 % global line spacing
-\renewcommand{\baselinestretch}{1.25}
+\renewcommand{\baselinestretch}{1}
 
 % colour definitions
 \definecolor{lightergray}{gray}{0.90}
@@ -50,7 +53,6 @@
 \setlength{\parskip}{0pt}}
 
 \begin{document}
-  {\setstretch{1}}
   \begin{landscape}
     {\tiny \begin{longtable}{|p{1.3cm}|p{2cm}|p{5cm}|p{4cm}|p{4cm}|p{4cm}|p{4cm}|} 
       \hline \thead{Typ} & \thead{Name} & \thead{Beschreibung} & \thead{Data Specification} & 
@@ -101,5 +103,100 @@
     \makecell[lt]{Beschreibung} & \makecell[lt]{Data} & \makecell[lt]{model} & \makecell[lt]{kost} & \makecell[lt]{optimierung} \\ \hline
   
   \end{longtable} }
+\newpage
+
+%\begin{multicols}{3}
+
+{\textbf{Optimisation}}
+\small
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Metrik}
+    \begin{itemize}
+      \item Regression
+      \item Klassifikation
+    \end{itemize}
+\item
+  \textbf{Kostenfunktion}
+\item
+  \textbf{Optimisation Algorithm}
+      \begin{itemize}
+      \item Analytisch
+      \item Gradient Descent
+    \end{itemize}
+\end{itemize}
+
+\vspace{0.1em}
+\hrule
+\vspace{0.5em}
+
+{\textbf{Feature Preprocessing}}
+\small
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Encoding}
+\item
+  \textbf{Feature Selection}
+\item
+  \textbf{Standardise}
+\item
+  \textbf{Dimensionality Reduction}
+\end{itemize}
+
+\vspace{0.1em}
+\hrule
+\vspace{0.5em}
+
+{\textbf{Feature Engineering}}
+\small
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Explizit}
+\item
+  \textbf{Kernel Trick}
+\end{itemize}
+
+\vspace{0.1em}
+\hrule
+\vspace{0.5em}
+
+
+{\textbf{Modell Komplexität}}
+\small
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Overfitting vs. Underfitting}
+\item
+  \textbf{Cross Validation}
+\item
+  \textbf{Regularisation}
+\end{itemize}
+
+\vspace{0.1em}
+\hrule
+\vspace{0.5em}
+
+
+{\textbf{Model Selection}}
+\small
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Hyper Parameter}
+\item
+  \textbf{Algorithm Selection}
+\end{itemize}
+
+\vspace{0.1em}
+\hrule
+\vspace{0.5em}
+
+
+%\end{multicols}
+  
   \end{landscape}
 \end{document}
