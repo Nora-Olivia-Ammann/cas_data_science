@@ -83,7 +83,8 @@
     \end{itemize}
     \item \textbf{Metrik}
     \begin{itemize}
-        \item 
+        \item Residuen \(y- \hat{y} = \epsilon\) (zusammenfassing von \(\epsilon\) ist Metrik)
+        \item Mean Absolute Error or Mean Sware Error
     \end{itemize}
     \item \textbf{Kostenfunktion}
     \begin{itemize}
@@ -357,54 +358,58 @@
 
 %\begin{multicols}{3}
 
+{\tiny
+
 {\normalsize{\textbf{Optimisation}}}
+
+{\footnotesize{\textbf{Metrik}}}
 \begin{itemize}
-\tightlist
-\item
-  \textbf{Metrik}
-    \begin{itemize}
-      \item Regression
-      \item Klassifikation
-    \end{itemize}
-\item
-  \textbf{Kostenfunktion}
-\item
-  \textbf{Optimisation Algorithm}
+  \item Regression
+  \begin{itemize}
+      \item \textbf{Mean Absolute Error (MAE)} \\
+      \(\mathrm{MAE} = \frac{1}{n}\sum_{i=1}^{n} \left| y_i - \hat{y}_i \right|\) \\
+      robust gegen ausreisser \\
+      Fehler $>$ 1 start bestraft \\
+      Fehler $<$ 1 schwächer bestraft
+  \item \textbf{Mean Square Error (MSE)} \\
+  \(\mathrm{RMSE} = \sqrt{\frac{1}{n}\sum_{i=1}^{n} \left( y_i - \hat{y}_i \right)^2}\) \\
+  beieinflusst von Ausreisser \\
+  bestraft grosse Fehler stark
+  \end{itemize}
+  \item Klassifikation
+\end{itemize}
+
+{\footnotesize{\textbf{Kostenfunktion}}}
+
+{\footnotesize{\textbf{Optimisation Algorithm}}}
       \begin{itemize}
       \item Analytisch
       \item Gradient Descent
     \end{itemize}
-\end{itemize}
 
 \vspace{0.1em}
 \hrule
 \vspace{0.7em}
 
 {\normalsize{\textbf{Feature Preprocessing}}}
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Encoding}
-\item
-  \textbf{Feature Selection}
-\item
-  \textbf{Standardise}
-\item
-  \textbf{Dimensionality Reduction}
-\end{itemize}
+
+{\footnotesize{\textbf{Encoding}}}
+
+{\footnotesize{\textbf{Feature Selection}}}
+
+{\footnotesize{\textbf{Standardise}}}
+
+{\footnotesize{\textbf{Dimensionality Reduction}}}
 
 \vspace{0.1em}
 \hrule
 \vspace{0.7em}
 
 {\normalsize{\textbf{Feature Engineering}}}
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Explizit}
-\item
-  \textbf{Kernel Trick}
-\end{itemize}
+
+{\footnotesize{\textbf{Explizit}}
+
+{\footnotesize{\textbf{Kernel Trick}}}
 
 \vspace{0.1em}
 \hrule
@@ -412,15 +417,12 @@
 
 
 {\normalsize{\textbf{Modell Komplexität}}}
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Overfitting vs. Underfitting}
-\item
-  \textbf{Cross Validation}
-\item
-  \textbf{Regularisation}
-\end{itemize}
+
+{\footnotesize{\textbf{Overfitting vs. Underfitting}}}
+
+{\footnotesize{\textbf{Cross Validation}}}
+
+{\footnotesize{\textbf{Regularisation}}}
 
 \vspace{0.1em}
 \hrule
@@ -428,13 +430,11 @@
 
 
 {\normalsize{\textbf{Model Selection}}}
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Hyper Parameter}
-\item
-  \textbf{Algorithm Selection}
-\end{itemize}
+
+{\footnotesize{\textbf{Hyper Parameter}}}
+
+
+{\footnotesize{\textbf{Algorithm Selection}}}
 
 \vspace{0.1em}
 \hrule
@@ -442,6 +442,8 @@
 
 
 %\end{multicols}
-  
+
+}
+}
 \end{landscape}
 \end{document}
