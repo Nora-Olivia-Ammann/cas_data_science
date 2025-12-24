@@ -35,19 +35,10 @@
 
 \setlength{\columnseprule}{0.1pt}
 % ------------------------------------------------------
-% \usepackage[scaled=1.05]{beramono} % If you want to change the scaling of the font un-comment this line
-\renewcommand{\ttdefault}{fvm} % Ensure \texttt uses Bera Mono (fvm)
 
-% Make \texttt bold by default
-\makeatletter
-\DeclareRobustCommand\ttfamily{%
-\not@math@alphabet\ttfamily\mathtt{\fontfamily}\ttdefault\bfseries\selectfont}
-\makeatother
-% ------------------------------------------------------
 
 % Configure makecell package
 \renewcommand{\theadalign}{bc}
-\renewcommand{\theadfont}{\bfseries}
 \renewcommand{\theadgape}{\Gape[4pt]}
 \renewcommand{\cellgape}{\Gape[4pt]}
 \renewcommand{\cellalign}{lt}
@@ -370,7 +361,7 @@
 
 \newpage
 
-\begin{multicols}{3}
+%\begin{multicols}{3}
 
 {\tiny
 
@@ -419,12 +410,14 @@
 
 {\normalsize{\textbf{Feature Preprocessing}}}
 
-{\footnotesize{\textbf{Encoding}}} \\
-Information in anderer Maschienen freundlichen Art darzustellen. \\
-oft notwendig für text \\
-mit oder ohne Informationsverlust
+{\footnotesize{\textbf{Encoding}}}
 
-\textbf{Kategorisch}
+\begin{itemize}
+    \item Information in anderer Maschienen freundlichen Art darzustellen.
+    \item oft notwendig für text
+\item mit oder ohne Informationsverlust
+
+\item \textbf{Kategorisch}
 \begin{itemize}
     \item \textbf{Ordinal}
     \begin{itemize}
@@ -440,8 +433,10 @@ mit oder ohne Informationsverlust
     \end{itemize}
 \end{itemize}
 
-Meistens One-Hot weil Dinge keine Ordnung haben \\
-Möglich mit Domänen-Wissen eigene Encoding machen (eg. Kategorien zusammenfassen)
+\item Meistens One-Hot weil Dinge keine Ordnung haben
+\item Möglich mit Domänen-Wissen eigene Encoding machen (eg. Kategorien zusammenfassen)
+
+\end{itemize}
 
 {\footnotesize{\textbf{Feature Selection}}}
 
@@ -457,8 +452,20 @@ Möglich mit Domänen-Wissen eigene Encoding machen (eg. Kategorien zusammenfass
 
 {\footnotesize{\textbf{Explizit}}}
 
-Bestehende features \(\rightarrow\) neue features \\
-expertenwissen, nimmt einen Teil des Learning Ab \(\rightarrow\) gibt wissen vor
+\begin{itemize}
+    \item Bestehende features \(\rightarrow\) neue features
+\item expertenwissen, nimmt einen Teil des Learning Ab \(\rightarrow\) gibt wissen vor.
+
+\item {\textbf{Polynomielle Regression}} (Standard)
+\begin{itemize}
+    \item Input Space: \texttt{x}
+    \item Feature Engineering \(\rightarrow\) Feature Space: \texttt{x}, \texttt{$x^2$}
+    \item Modell \(\rightarrow\) Output Space: \texttt{y}
+\end{itemize}
+
+\item E.g. Volumen von Fisch berechnen, so kann regression Polynome haben
+\item Sind besser auf trainings daten, nicht immer besser auf test daten
+\end{itemize}
 
 
 {\footnotesize{\textbf{Kernel Trick}}}
@@ -494,7 +501,7 @@ expertenwissen, nimmt einen Teil des Learning Ab \(\rightarrow\) gibt wissen vor
 
 }
 
-\end{multicols}
+%\end{multicols}
 
 \end{landscape}
 \end{document}
