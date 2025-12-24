@@ -70,7 +70,8 @@
 
 {\footnotesize\textbf{Linear Regression}} Supervised Regression
   \begin{itemize}
-    \item \textbf{Input / Output} Kontinuierlich
+    \item \textbf{Input / Output:} Kontinuierlich
+    \item \textbf{Annahme:} 1 Lösung weil Ableitung 0
     \item \textbf{Data Specification}
     \begin{itemize}
         \item Zielvariabel festlegen
@@ -92,12 +93,16 @@
     \end{itemize}
     \item \textbf{Kostenfunktion}
     \begin{itemize}
-        \item 
+        \item Guides Optimisation
+        \item In Linear Regression kann auch MSE sein
     \end{itemize}
     \item \textbf{Optimierung}
     \begin{itemize}
-        \item 
+        \item Gradient Descent
+        \item Analytische Methode
     \end{itemize}
+    \item \textbf{Pro} niedrige gefahr für overfitting
+    \item \textbf{Con} kann sich nicht gut an daten anpassen (starr), kann keine Krümmungen lernen
   \end{itemize}
 
 \vspace{0.4em}
@@ -387,8 +392,19 @@
 
 {\footnotesize{\textbf{Optimisation Algorithm}}}
       \begin{itemize}
-      \item Analytisch
-      \item Gradient Descent
+      \item {\textbf{Analytische Methode}}
+      \begin{itemize}
+          \item nicht iterativ (löst die Normalgleichung)
+          \item besser bei wenigen features
+          \item Matrix muss invertierbar sein
+      \end{itemize}
+      \item \textbf{Gradient Descent}
+      \begin{itemize}
+          \item Iterativ, Start zufällige \(\beta\)
+          \item Ableitung der Kostenfunktion
+          \item mit jedem Schritt in die bessere richtung, bis zum minimum
+          \item gut für viele Daten und \(\beta\)
+      \end{itemize}
     \end{itemize}
 
 \vspace{0.4em}
