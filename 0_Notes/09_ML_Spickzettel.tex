@@ -479,7 +479,26 @@
 
 {\footnotesize{\textbf{Overfitting vs. Underfitting}}}
 
+\begin{itemize}
+    \item \textbf{Overfitting}: super training, schelcht test
+    \item \textbf{Underfitting}: schlecht training schlecht test
+    \item Je komplexer das Modell desto höher die Gefahr für overfitting
+\end{itemize}
+
 {\footnotesize{\textbf{Cross Validation}}}
+
+\begin{itemize}
+    \item vergleich von verschiedenen ML Modell-Arten
+    \item Gefahr: falsches Modell, nur durch Zufall gut, mehr validierungsdaten, desto unwahrscheinlicher
+    \item 2 Strategien
+    \begin{itemize}
+        \item Train, Val, Test (no peeking)
+        \item k-Fold mehr validierungsdaten herbeizaubern
+    \end{itemize}
+    \item Alle Daten sind im validierungsset
+    \item Iterativ üver alle Segmente gehen
+    \item Mehr rechenzeit, aber weil wenig daten nicht ein problem
+\end{itemize}
 
 {\footnotesize{\textbf{Regularisation}}}
 
