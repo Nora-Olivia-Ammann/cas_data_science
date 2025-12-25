@@ -190,15 +190,26 @@
   \begin{itemize}
     \item \textbf{Beschreibung}
     \begin{itemize}
-        \item 
+        \item Support Vektoren: Punkte die die Decision Boundary Entscheiden (kleine Anzahl)
+        \item Hoch dimensional möglich
+        \item Keine wahrscheinlichkeit bei mehreren klassen ist nicht möglich
+        \item es ist möglich mehrere modelle zu trainieren kann aber schnell gross werden bei mehreren klassen
+        \item logistische regression ist meistens besser
     \end{itemize}
     \item \textbf{Data Specification}
     \begin{itemize}
-        \item 
+        \item Vorgegebene kategorische Zielvariabel
+        \item Feature selection
+        \item Encode Kategorische
+        \item Standardisier Nummerische
     \end{itemize}
     \item \textbf{Model}
     \begin{itemize}
-        \item 
+        \item Heaviside Step Function (TODO: graph)
+        \item Binäre Entscheidung, keine Wahrscheinlichkeit
+        \item Decision Boundary ist linie mit maximalen Abstand zum nächsten Punkt der anderen Klasse
+        \item Geometrische Annahmen
+        \item Soft margin (bei hard margin gäbe es daten bei denen es keine lösung gibt)
     \end{itemize}
     \item \textbf{Metrik}
     \begin{itemize}
@@ -206,11 +217,15 @@
     \end{itemize}
     \item \textbf{Kostenfunktion}
     \begin{itemize}
-        \item 
+        \item wenn C sehr gross ist dann wird cheating minimiert (stärker bestraft) und umgekehrt, das sind hyper-parameter 
+        \item wenn ich C kleiner mache kann die margin grösser werden und mehr datenpunkte verletzten die margin
+        \item Cheating darf nicht negativ sein, man darf nur in die selbe richtung cheaten nicht bei einer positiv und bei einer anderen negativ
+        \item Es gibt immer eine lösung, aber es kann sein, dass das cheating relativ gross sein muss um eine lösung zu haben
     \end{itemize}
     \item \textbf{Optimierung}
     \begin{itemize}
-        \item 
+        \item bei jeder variabel darf die margin ein wenig abweichen um einen "cheat" wert (zeta)
+        \item aber wir müssen sagen, dass in der summe möglichst wenig verletzt werden
     \end{itemize}
   \end{itemize}
 
@@ -620,7 +635,21 @@
 %\begin{multicols}{3}
 
 \tiny{
+{\normalsize{General}}
+\begin{itemize}
+    \item \textbf{Logistische Reg vs. SVM?}
+    \begin{itemize}
+        \item Log Reg: wahrscheinlichkeit für klasse mit schwellenwert
+        \item SVM: binäre Trennlinie mit maximalen Abstand
+    \end{itemize}
+    \item \textbf{Zusammenhang SVM \& Lineare Reg}
+    \begin{itemize}
+        \item minimiert distanz
+        \item lineare decision boundary
+    \end{itemize}
+\end{itemize}
 
+\vspace{1em}
 {\normalsize{Wie Problem Angehen?}}
 \begin{itemize}
     \item \textbf{Problem Verstehen:} Klassifikation, Regression, etc.?
