@@ -18,8 +18,8 @@
 \usepackage{enumitem}
 \usepackage{multicol}
 \usepackage{amsmath}
-\usepackage{pgfplots}
-\pgfplotsset{compat=1.18}
+\usepackage{graphicx}
+
 
 \newlength\tindent
 \setlength{\tindent}{\parindent}
@@ -45,8 +45,7 @@
 \renewcommand{\cellalign}{lt}
 
 % Only change level 1 itemize bullets
-\setlist[itemize,1]{label=\raisebox{0.1ex}{\tiny$\bullet$}}
-
+\setlist[itemize,1]{label=\raisebox{0.5ex}{\scalebox{0.6}{$\bullet$}}}
 % global line spacing
 \renewcommand{\baselinestretch}{1.2}
 
@@ -385,8 +384,11 @@
   \item Klassifikation
 \end{itemize}
 
+\vspace{0.4em}
 {\footnotesize{\textbf{Kostenfunktion}}}
 
+
+\vspace{0.4em}
 {\footnotesize{\textbf{Optimisation Algorithm}}}
       \begin{itemize}
       \item {\textbf{Analytische Methode}}
@@ -436,9 +438,9 @@
 
 \item Meistens One-Hot weil Dinge keine Ordnung haben
 \item Möglich mit Domänen-Wissen eigene Encoding machen (eg. Kategorien zusammenfassen)
-
 \end{itemize}
 
+\vspace{0.4em}
 {\footnotesize{\textbf{Feature Selection}}}
 
 \begin{itemize}
@@ -450,8 +452,15 @@
     \end{itemize}
 \end{itemize}
 
+\vspace{0.4em}
 {\footnotesize{\textbf{Standardise}}}
+\begin{itemize}
+    \item Entfernt Einheiten
+    \item Schiebt alles um 0 Punkt
+    \item notwendiger Schritt sodass Modelle richtig funktionieren
+\end{itemize}
 
+\vspace{0.4em}
 {\footnotesize{\textbf{Dimensionality Reduction}}}
 
 \vspace{0.4em}
@@ -477,7 +486,7 @@
 \item Sind besser auf trainings daten, nicht immer besser auf test daten
 \end{itemize}
 
-
+\vspace{0.4em}
 {\footnotesize{\textbf{Kernel Trick}}}
 
 \vspace{0.4em}
@@ -495,6 +504,7 @@
     \item Je komplexer das Modell desto höher die Gefahr für overfitting
 \end{itemize}
 
+\vspace{0.4em}
 {\footnotesize{\textbf{Cross Validation}}}
 
 \begin{itemize}
@@ -510,6 +520,7 @@
     \item Mehr rechenzeit, aber weil wenig daten nicht ein problem
 \end{itemize}
 
+\vspace{0.4em}
 {\footnotesize{\textbf{Regularisation}}}
 \begin{itemize}
     \item Annahme: Grosse \(\beta\) zeichen für overfitting, sollten nahe 0 sein
@@ -539,6 +550,7 @@
 {\footnotesize{\textbf{Hyper Parameter}}}
 
 
+\vspace{0.4em}
 {\footnotesize{\textbf{Algorithm Selection}}}
 
 \vspace{0.4em}
