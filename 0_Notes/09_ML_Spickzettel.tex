@@ -20,6 +20,7 @@
 \usepackage{amsmath}
 \usepackage{graphicx}
 
+\renewcommand{\familydefault}{\sfdefault}
 
 \newlength\tindent
 \setlength{\tindent}{\parindent}
@@ -32,7 +33,11 @@
 % now explicitly override indentation for each level you care about:
 \setlist[itemize,1]{leftmargin=1.8em}
 \setlist[itemize,2]{leftmargin=1.4em}
-\setlist[itemize,3]{leftmargin=1em}
+\setlist[itemize,3]{leftmargin=0.5em}
+
+% Only change level 1 itemize bullets
+\setlist[itemize,1]{label=\raisebox{0.5ex}{\scalebox{0.6}{$\bullet$}}}
+%\setlist[itemize,3]{label=\raisebox{0.5ex}{\scalebox{0.6}{$\bullet$}}}
 
 \setlength{\columnseprule}{0.1pt}
 % ------------------------------------------------------
@@ -44,8 +49,6 @@
 \renewcommand{\cellgape}{\Gape[4pt]}
 \renewcommand{\cellalign}{lt}
 
-% Only change level 1 itemize bullets
-\setlist[itemize,1]{label=\raisebox{0.5ex}{\scalebox{0.6}{$\bullet$}}}
 % global line spacing
 \renewcommand{\baselinestretch}{1.2}
 
@@ -158,27 +161,24 @@
   \begin{itemize}
     \item \textbf{Beschreibung}
     \begin{itemize}
-        \item 
+        \item Wir lernen keine \(\beta\)
+        \item Wir suchen die nächsten k Punkte im train set (basierend auf mehrzahl)
+        \item k ist Hyperparameter
+        \item Keine Optimierung, keine Kostenfunktion
     \end{itemize}
     \item \textbf{Data Specification}
     \begin{itemize}
-        \item 
+        \item Vorgabe: Was ist ziel variabel, was sind features?
+        \item Encode Kategorsiche Features
+        \item Standardisie Nummerische Features
     \end{itemize}
     \item \textbf{Model}
     \begin{itemize}
-        \item 
-    \end{itemize}
-    \item \textbf{Metrik}
-    \begin{itemize}
-        \item 
-    \end{itemize}
-    \item \textbf{Kostenfunktion}
-    \begin{itemize}
-        \item 
-    \end{itemize}
-    \item \textbf{Optimierung}
-    \begin{itemize}
-        \item 
+        \item \textbf{Curse of Dimensionality}
+        \begin{itemize}
+            \item Nicht gut bei vielen Features
+            \item im hoch dimensionalen raum bedeutet distanz nicht viel
+        \end{itemize}
     \end{itemize}
   \end{itemize}
 
