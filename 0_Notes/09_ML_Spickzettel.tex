@@ -558,7 +558,10 @@
     \item Z.B. Regularisierungsstärke
     \item Manuell: Erfahrung \& Theorie  \(\rightarrow\) schwierig
     \item Suchen: Ausprobieren und auf ungesehen Daten merken  \(\rightarrow\) Rechenintensiv
-    
+    \begin{itemize}
+        \item \textbf{Grid Search:} Liste von Werten, ausprobieren, nicht gut bei vielen hyper Parameter wegen kombination
+        \item \textbf{Randomised Search:} Zufällige Zahlen innerhalb eines vorgegebenen Bereiches
+    \end{itemize}
 \end{itemize}
 
 
@@ -568,10 +571,41 @@
 \vspace{0.4em}
 \hrule
 \vspace{0.7em}
-
-}
+} % end tiny
 
 %\end{multicols}
+
+
+\newpage
+
+%\begin{multicols}{3}
+
+\tiny{
+
+{\normalsize{Wie Problem Angehen?}}
+\begin{itemize}
+    \item \textbf{Problem Verstehen:} Klassifikation, Regression, etc.?
+    \item \textbf{Ziel Verstehen:} Einfluss auf Metrik Auswahl
+    \item \textbf{Verstehe / Evaluiere Daten:} genug? Garbage-in Grabage-out
+    \item \textbf{Datenlandschaft Evaluieren:} crawlable, API, etc.?
+    \item \textbf{Domänen Experten:} Was ist wichtig (Feature Selection). Bekannte Zusammenhänge (feature engineering)
+    \item \textbf{Datenqualität:}
+    \begin{itemize}
+        \item verstehen
+        \item Standardisieren, Encoden
+        \item Inkonsitenz finden \(\rightarrow\) erklären oder ausschliessen
+        \item Visualisieren \& Analysieren
+        \item Muster mit Domänen Experten bestätigen
+        \item Zusammenhänge überprüfen
+    \end{itemize}
+\end{itemize}
+
+\vspace{0.4em}
+
+%\end{multicols}
+
+} % end tiny
+
 
 \end{landscape}
 \end{document}
