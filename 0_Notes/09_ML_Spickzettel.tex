@@ -127,10 +127,12 @@
         \item \(p(y=1|x_i) = \phi(\beta_0 + x_i\beta_1)\) (Wahrscheinlichkeit klasse y)
         \item \(p(y=0|x_i) = 1- \phi(\beta_0 + x_i\beta_1)\) (Wahrscheinlichkeit andere klasse als y)
         \item \(\hat{y} = arg \; max  \;  p(y = k | x_1)\) (maximum davon \(\rightarrow\) predicted klasse)
+        \item Kann auch konfiguriert werden dass es schon ab eg. 20\% Klasse 1 predicted
     \end{itemize}
     \item \textbf{Metrik}
     \begin{itemize}
-        \item 
+        \item Accuracy (nicht gut für inbalanced)
+        \item F1-Score (gut bei inbalanced)
     \end{itemize}
     \item \textbf{Kostenfunktion}
     \begin{itemize}
@@ -390,7 +392,17 @@
   beieinflusst von Ausreisser \\
   bestraft grosse Fehler stark
   \end{itemize}
-  \item Klassifikation
+  \item \textbf{Klassifikation}
+  \begin{itemize}
+        \item True Positive \(\rightarrow\) TP / True Negative \(\rightarrow\) TN, etc
+      \item \textbf{Accuracy} \(\dfrac{TP + TN}{TP + TN + FP + FN}\) \\ 
+      irreführend bei inbalanced klassen (99 A und 1 B, wenn immer A dann gute accuracy auch wenn Modell dumm)
+      \item \textbf{Precision} \\ \(\dfrac{TP}{TP + FN}\)
+      \vspace{0.4em}
+      \item \textbf{Recall} \\ \(\dfrac{TP}{TP + FN}\)
+      \vspace{0.4em}
+      \item \textbf{F1-Score} \\ \(F_1 = 2 \cdot \dfrac{Precision \cdot Recall}{Precision + Recall}\) \\ gut bei inbalanced klassen
+  \end{itemize}
 \end{itemize}
 
 \vspace{0.4em}
