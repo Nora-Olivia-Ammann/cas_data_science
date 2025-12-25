@@ -16,9 +16,10 @@
 \usepackage{setspace}
 \usepackage{fancyhdr}
 \usepackage{enumitem}
-\usepackage{librebaskerville}
 \usepackage{multicol}
-\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
 
 \newlength\tindent
 \setlength{\tindent}{\parindent}
@@ -510,6 +511,23 @@
 \end{itemize}
 
 {\footnotesize{\textbf{Regularisation}}}
+\begin{itemize}
+    \item Annahme: Grosse \(\beta\) zeichen für overfitting, sollten nahe 0 sein
+    \item Daten müssen Standard Skaliert werden (TODO: see that it is included)
+    \item {\textbf{L1 Lasso}}: Absolut \(|\beta|\)
+    \begin{itemize}
+        \item Grosse \(|\beta|\) werden bestraft
+        \item Gut für automatische Feature-Selection (unwichtiges \(|\beta|\) verschwindet)
+        \item \(J_{\text{Reg}}(\beta) = J(\beta) + \lambda \sum_{j=1}^{p} |\beta_j|\)
+    \end{itemize}
+        \item {\textbf{L2 Ridge}}: Quardrat \(\beta^2\)
+    \begin{itemize}
+        \item \(|\beta|\) nahe 0 sonst bestraft
+        \item Zahlen unter 1 weniger bestraft als bei L1
+        \item Alle \(|\beta|\) klein, ausgewogen in vergleich zu L1
+        \item \(J_{\text{Reg}}(\beta) = J(\beta) + \lambda \sum_{j=1}^{p} \beta^2_j|\)
+    \end{itemize}
+\end{itemize}
 
 \vspace{0.4em}
 \hrule
