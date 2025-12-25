@@ -113,11 +113,20 @@
     \end{itemize}
     \item \textbf{Data Specification}
     \begin{itemize}
-        \item 
+        \item Kategorische vorgegebene Zielvariabel
+        \item Features werden gewählt
+        \item Kategorische Features Encoden
+        \item Wenn Regularisiert (L1/L2) \(\rightarrow\) Standardisiert
     \end{itemize}
     \item \textbf{Model}
     \begin{itemize}
-        \item 
+        \item Modifikation Lineares Modell
+        \item Output zwischen 0-1 (wahrscheinlichkeit für eine Klasse)
+        \item Eg. Sigmpoid / Logistik  \(\rightarrow\) resultat von Modell in diese Funktion (z) einsetzten
+        \item \(\phi(z) = \dfrac{1}{1 + e^-z}\) (definition von funktion Z)
+        \item \(p(y=1|x_i) = \phi(\beta_0 + x_i\beta_1)\) (Wahrscheinlichkeit klasse y)
+        \item \(p(y=0|x_i) = 1- \phi(\beta_0 + x_i\beta_1)\) (Wahrscheinlichkeit andere klasse als y)
+        \item \(\hat{y} = arg \; max  \;  p(y = k | x_1)\) (maximum davon \(\rightarrow\) predicted klasse)
     \end{itemize}
     \item \textbf{Metrik}
     \begin{itemize}
