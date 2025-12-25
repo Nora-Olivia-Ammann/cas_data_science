@@ -528,6 +528,8 @@
 \begin{itemize}
     \item Annahme: Grosse \(\beta\) zeichen für overfitting, sollten nahe 0 sein, Modell wird einfacher
     \item Daten müssen Standard Skaliert werden
+    \item Regularisierungsstärke \(\lambda \rightarrow\) ist Hyperparameter
+    \item Grosses \(\lambda \rightarrow\) stark konfiguriert \(\beta\) näher bei 0
     \item {\textbf{L1 Lasso}}: Absolut \(|\beta|\)
     \begin{itemize}
         \item Grosse \(|\beta|\) werden bestraft
@@ -539,7 +541,7 @@
         \item \(|\beta|\) nahe 0 sonst bestraft
         \item Zahlen unter 1 weniger bestraft als bei L1
         \item Alle \(|\beta|\) klein, ausgewogen in vergleich zu L1
-        \item \(J_{\text{Reg}}(\beta) = J(\beta) + \lambda \sum_{j=1}^{p} \beta^2_j|\)
+        \item \(J_{\text{Reg}}(\beta) = J(\beta) + \lambda \sum_{j=1}^{p} \beta^2_j\)
     \end{itemize}
 \end{itemize}
 
@@ -551,6 +553,13 @@
 {\normalsize{\textbf{Model Selection}}}
 
 {\footnotesize{\textbf{Hyper Parameter}}}
+\begin{itemize}
+    \item Werden nicht gelernt \(\rightarrow\) konfiguriert das Modell
+    \item Z.B. Regularisierungsstärke
+    \item Manuell: Erfahrung \& Theorie  \(\rightarrow\) schwierig
+    \item Suchen: Ausprobieren und auf ungesehen Daten merken  \(\rightarrow\) Rechenintensiv
+    
+\end{itemize}
 
 
 \vspace{0.4em}
