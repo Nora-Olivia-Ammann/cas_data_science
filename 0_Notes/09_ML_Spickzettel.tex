@@ -455,9 +455,12 @@
 \vspace{0.4em}
 {\footnotesize{\textbf{Standardise}}}
 \begin{itemize}
-    \item Entfernt Einheiten
+    \item \texttt{StandardScaler} = \(\dfrac{Wert - Durchschnitt}{Standardabweichung}\)
     \item Schiebt alles um 0 Punkt
+    \item Entfernt Einheiten, separat pro Feature, erhält Verhältnisse
     \item notwendiger Schritt sodass Modelle richtig funktionieren
+    \item Wann?: Parameter müssen vergleichbar sein
+    \item Wann?: Distanzen im input space spielen eine Rolle, ansonsten haben grosse Werte einen einfluss
 \end{itemize}
 
 \vspace{0.4em}
@@ -523,8 +526,8 @@
 \vspace{0.4em}
 {\footnotesize{\textbf{Regularisation}}}
 \begin{itemize}
-    \item Annahme: Grosse \(\beta\) zeichen für overfitting, sollten nahe 0 sein
-    \item Daten müssen Standard Skaliert werden (TODO: see that it is included)
+    \item Annahme: Grosse \(\beta\) zeichen für overfitting, sollten nahe 0 sein, Modell wird einfacher
+    \item Daten müssen Standard Skaliert werden
     \item {\textbf{L1 Lasso}}: Absolut \(|\beta|\)
     \begin{itemize}
         \item Grosse \(|\beta|\) werden bestraft
