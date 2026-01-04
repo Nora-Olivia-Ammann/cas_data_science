@@ -1,0 +1,72 @@
+\documentclass[a4paper, 10pt]{article}
+
+% import packages
+\usepackage[margin=0.2cm]{geometry}
+\usepackage{pdflscape}
+\usepackage{array}
+\usepackage{makecell}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{longtable}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{needspace}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\newlength\tindent
+\setlength{\tindent}{\parindent}
+\setlength{\parindent}{0pt}
+\renewcommand{\indent}{\hspace*{\tindent}}
+
+% global list spacing (affects all levels)
+\setlist{noitemsep, topsep=0pt, parsep=0pt, partopsep=0pt}
+
+% now explicitly override indentation for each level you care about:
+\setlist[itemize,1]{leftmargin=1.8em}
+\setlist[itemize,2]{leftmargin=1.4em}
+\setlist[itemize,3]{leftmargin=0.5em}
+
+% Only change level 1 itemize bullets
+\setlist[itemize,1]{label=\raisebox{0.5ex}{\scalebox{0.6}{$\bullet$}}}
+%\setlist[itemize,3]{label=\raisebox{0.5ex}{\scalebox{0.6}{$\bullet$}}}
+
+\setlength{\columnseprule}{0.1pt}
+% ------------------------------------------------------
+
+
+% Configure makecell package
+\renewcommand{\theadalign}{bc}
+\renewcommand{\theadgape}{\Gape[4pt]}
+\renewcommand{\cellgape}{\Gape[4pt]}
+\renewcommand{\cellalign}{lt}
+
+% global line spacing
+\renewcommand{\baselinestretch}{1.2}
+
+% colour definitions
+\definecolor{lightergray}{gray}{0.90}
+
+\providecommand{\tightlist}{%
+\setlength{\itemsep}{0pt}
+\setlength{\parskip}{0pt}}
+
+\begin{document}
+  \begin{landscape}
+
+\tiny
+
+
+
+
+
+\end{landscape}
+\end{document}
