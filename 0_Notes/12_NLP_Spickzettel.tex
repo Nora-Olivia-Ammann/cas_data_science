@@ -169,6 +169,81 @@ If one words appears eg. 2 times in query, score is multiplied by 2
 \vspace{0.7em}
 
 
+{\footnotesize Attention (Transformer Core)}
+
+\begin{itemize}
+    \item \textbf{which parts of a sequence matter most} for each token
+    \item Instead of reading strictly left-to-right, attention lets each token measure its \textbf{relevance to other tokens} and build a \textbf{context-aware representation}.
+    \item models \textbf{token-to-token relevance}
+    \item strengthens \textbf{important context}
+    \item creates each output token as a \textbf{weighted combination of previous tokens}
+\end{itemize}
+
+\vspace{0.4em}
+
+{\footnotesize Self-Attention}
+
+In \textbf{self-attention}, each token can “look at” \textbf{all other tokens} (including itself). This allows the model to capture:
+\begin{itemize}
+    \item \textbf{local dependencies} (nearby words)
+    \item \textbf{long-range dependencies} (far relationships)
+    \item richer \textbf{contextual embeddings}
+\end{itemize}
+
+Self-attention produces \textbf{new embeddings} that are more informative than the input embeddings.
+
+
+\vspace{0.4em}
+{\footnotesize Query / Key / Value (Q / K / V)}
+
+Each token is projected (via learned weight matrices) into three vectors:
+\begin{itemize}
+    \item \textbf{Query (Q):} what the current token is looking for
+    \item \textbf{Key (K):} what each token offers as “matchable information”
+    \item \textbf{Value (V):} the information each token contributes if selected
+\end{itemize}
+
+{\scriptsize How it works:}
+\begin{enumerate}[leftmargin=1.8em]
+    \item Compare current token’s query with all keys:
+    \(Q \cdot K^\top\)
+    \item Scale scores by $\sqrt{d_k}$ to keep values stable
+    \item Apply a \textbf{mask} (for causal models) to block future tokens
+    \item Apply \textbf{softmax} to get attention weights
+    \item Compute weighted sum of values:
+    \( \text{weights} \times V \rightarrow \text{context output} \)
+\end{enumerate}
+
+\textbf{Key insight:}  
+Each token becomes a weighted mixture of \textit{all} value vectors, where weights depend on how well the query matches the keys.
+
+\vspace{0.4em}
+{\footnotesize Multi-Head Attention}
+
+Transformers run \textbf{multiple attention heads in parallel}. Each head has its own Q/K/V projections, learning a different “view” of the sequence.
+
+Heads often specialize in:
+\begin{itemize}
+    \item syntax (grammar structure)
+    \item semantics (meaning)
+    \item coreference (pronouns $\rightarrow$ nouns)
+    \item long-range vs local patterns
+\end{itemize}
+
+Outputs from heads are:
+\begin{itemize}
+    \item concatenated
+    \item passed through a linear layer to mix into one combined representation
+\end{itemize}
+
+\textbf{Analogy:}  
+Each head is a different perspective on the sentence — combining them gives deeper understanding.
+As embeddings pass through layers of attention, they become increasingly meaningful until the model selects the next word.
+
+
+\vspace{0.4em}
+\hrule
+\vspace{0.7em}
 
 \end{landscape}
 \end{document}
