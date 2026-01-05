@@ -22,6 +22,8 @@
 \usepackage[table]{xcolor}
 \usepackage{booktabs}   % for \toprule, \midrule, \bottomrule
 \usepackage{adjustbox}  % for \begin{adjustbox}{max width=\textwidth}
+\usepackage{etoolbox}
+\AtBeginEnvironment{tabular}{\tiny}
 
 \renewcommand{\familydefault}{\sfdefault}
 
@@ -84,9 +86,7 @@
 \end{itemize}
 
 Query: "cat is wolf"
-
 \begin{table}[ht]
-\centering
 \begin{adjustbox}{max width=\textwidth}
 \begin{tabular}{lrrrrrrrrr||rr}
 \toprule
@@ -95,13 +95,10 @@ Query: "cat is wolf"
 & \textbf{my} & \textbf{not} & \textbf{old} & \textbf{wolf} 
 & \textbf{score} & \textbf{rank} \\
 \midrule
-
 \textit{``It is a dog.''} 
 & 0.044 &  & 0.044 & \cellcolor{yellow} 0 &  0.044 &  &  &  & & 0 & - \\
-
 \textit{``my cat is old''} 
 & & \cellcolor{yellow} 0.119 & & \cellcolor{yellow} 0 & & 0.199 &  & 0.119 & & 0.119 & 1 \\
-
 \textit{``It is not a dog, it a is wolf.''} 
 & 0.039 &  & 0.02 & \cellcolor{yellow} 0 & 0.039 &  & 0.053 &  & \cellcolor{yellow} 0.053 & 0.053 &  2 \\
 \bottomrule
