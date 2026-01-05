@@ -168,7 +168,6 @@ If one words appears eg. 2 times in query, score is multiplied by 2
 \hrule
 \vspace{0.7em}
 
-
 {\footnotesize Attention (Transformer Core)}
 
 \begin{itemize}
@@ -178,6 +177,10 @@ If one words appears eg. 2 times in query, score is multiplied by 2
     \item strengthens \textbf{important context}
     \item creates each output token as a \textbf{weighted combination of previous tokens}
 \end{itemize}
+
+\textbf{Example:}  
+Sentence: \textit{``The animal didn't cross the street because it was tired.''}  
+The token \textbf{``it''} should attend strongly to \textbf{``animal''} (not \textbf{street}), because that resolves the meaning.
 
 \vspace{0.4em}
 
@@ -192,6 +195,9 @@ In \textbf{self-attention}, each token can “look at” \textbf{all other token
 
 Self-attention produces \textbf{new embeddings} that are more informative than the input embeddings.
 
+\textbf{Example (long-range dependency):}  
+\textit{``The book that the professor recommended was expensive.''}  
+The token \textbf{``was''} must attend to \textbf{``book''} (the true subject), even though they are far apart.
 
 \vspace{0.4em}
 {\footnotesize Query / Key / Value (Q / K / V)}
@@ -201,6 +207,20 @@ Each token is projected (via learned weight matrices) into three vectors:
     \item \textbf{Query (Q):} what the current token is looking for
     \item \textbf{Key (K):} what each token offers as “matchable information”
     \item \textbf{Value (V):} the information each token contributes if selected
+\end{itemize}
+
+\textbf{Quick intuition:}  
+\textbf{Query} = “What do I need?”  
+\textbf{Key} = “What do I contain?”  
+\textbf{Value} = “What information do I pass on if chosen?”
+
+\textbf{Example:}  
+Sentence: \textit{``Alice gave Bob her book.''}  
+For token \textbf{``her''}:  
+\begin{itemize}
+    \item Query asks: “Whose?”  
+    \item Keys from \textbf{Alice}, \textbf{Bob} compete as possible owners  
+    \item Attention weight becomes larger for \textbf{Alice}, so \textbf{``her''} mixes more of Alice’s value vector.
 \end{itemize}
 
 {\scriptsize How it works:}
@@ -214,32 +234,140 @@ Each token is projected (via learned weight matrices) into three vectors:
     \( \text{weights} \times V \rightarrow \text{context output} \)
 \end{enumerate}
 
+\textbf{Mask example (causal language model):}  
+In \textit{``I eat pizza''}, when predicting \textbf{``eat''}, the model may attend to \textbf{``I''} but cannot attend to \textbf{``pizza''}, because it lies in the future.
+
 \textbf{Key insight:}  
 Each token becomes a weighted mixture of \textit{all} value vectors, where weights depend on how well the query matches the keys.
 
 \vspace{0.4em}
-{\footnotesize Multi-Head Attention}
+\hrule
+\vspace{0.7em}
 
-Transformers run \textbf{multiple attention heads in parallel}. Each head has its own Q/K/V projections, learning a different “view” of the sequence.
+{\footnotesize Multi-Head Attention (MHA)}
+
+Transformers run \textbf{multiple self-attention heads in parallel}. Each head has its own learned projection matrices:
+\(Q = XW_Q,\quad K = XW_K,\quad V = XW_V\)
+
+This allows each head to learn a different alignment rule over the same input.
+
+\vspace{0.3em}
+\textbf{Why multiple heads?}
+
+A single attention head produces only \textbf{one attention pattern} --- a limited view. With multiple heads, the model can attend to different kinds of relationships \textbf{simultaneously}.
 
 Heads often specialize in:
 \begin{itemize}
-    \item syntax (grammar structure)
-    \item semantics (meaning)
-    \item coreference (pronouns $\rightarrow$ nouns)
-    \item long-range vs local patterns
+    \item syntax (subject--verb, nearby dependencies)
+    \item semantics (topic/meaning connections)
+    \item coreference (pronouns $\rightarrow$ entities)
+    \item local vs long-range patterns (short vs far dependencies)
 \end{itemize}
 
-Outputs from heads are:
+\vspace{0.3em}
+\textbf{How it works (high level)}
+
+Each head computes scaled dot-product attention:
+\(
+\text{Attention}(Q,K,V)=\text{softmax}\left(\frac{QK^\top}{\sqrt{d_k}}\right)V
+\)
+
+Outputs from all heads are:
 \begin{itemize}
-    \item concatenated
-    \item passed through a linear layer to mix into one combined representation
+    \item \textbf{concatenated} (wider feature space)
+    \item passed through a \textbf{final linear projection} $W_O$ to mix information back into $d_{\text{model}}$
 \end{itemize}
 
-\textbf{Analogy:}  
-Each head is a different perspective on the sentence — combining them gives deeper understanding.
-As embeddings pass through layers of attention, they become increasingly meaningful until the model selects the next word.
+\vspace{0.3em}
+\textbf{Example:}  
+Sentence: \textit{``The scientist who won the award wrote a paper.''}
 
+\begin{itemize}
+    \item One head may link \textbf{``scientist''} $\rightarrow$ \textbf{``wrote''} (grammatical dependency)
+    \item Another head may focus inside \textbf{``who won the award''} (relative clause)
+    \item Another head may connect \textbf{``won''} $\leftrightarrow$ \textbf{``award''} (semantic association)
+\end{itemize}
+
+\textbf{Key idea:}  
+Each head is a different perspective on the same sentence --- combining them produces richer token representations.
+
+\vspace{0.4em}
+\hrule
+\vspace{0.7em}
+
+
+
+{\footnotesize Transformer Language Model (Decoder-Style)}
+
+A decoder-style transformer is designed for \textbf{next-token prediction}. It uses self-attention with a causal mask so that each token can only attend to earlier positions.
+
+\begin{itemize}
+    \item \textbf{Masked self-attention:} prevents future information leakage  
+    (token at position $t$ can only attend to positions $\leq t$)
+    \item \textbf{Positional encoding:} attention has no built-in notion of order, so positional information is injected into embeddings (sinusoidal or learned)
+    \item \textbf{Feed-forward network (FFN):} applied independently to each token, expanding and compressing dimensions:
+    \(
+    d_{\text{model}} \rightarrow d_{\text{ff}} \rightarrow d_{\text{model}}
+    \)
+    adds nonlinearity beyond attention
+    \item \textbf{Residual connections:} input is added back after each sublayer (skip connections), improving gradient flow and enabling deep stacking
+    \item \textbf{Layer normalization:} stabilizes training by controlling activation scale and improving convergence
+\end{itemize}
+
+\vspace{0.4em}
+\hrule
+\vspace{0.7em}
+
+
+
+{\footnotesize Transformer Architecture (Stacked Blocks)}
+
+A transformer is built by stacking many identical \textbf{decoder blocks}.
+
+\vspace{0.3em}
+\textbf{One transformer block (decoder)}
+
+In the \textbf{Pre-Norm} version (common in modern models):
+\begin{itemize}
+    \item LayerNorm $\rightarrow$ Masked MHA $\rightarrow$ Residual add
+    \item LayerNorm $\rightarrow$ FFN $\rightarrow$ Residual add
+\end{itemize}
+
+Pre-Norm means normalization happens \textbf{before} each sublayer:
+\begin{itemize}
+    \item improves stability in deep transformers
+    \item avoids gradient issues seen in post-norm designs
+\end{itemize}
+
+\vspace{0.3em}
+\textbf{Why stacking many blocks matters}
+
+Representations become increasingly abstract across layers:
+\begin{itemize}
+    \item \textbf{Lower layers:} token identity, local syntax
+    \item \textbf{Middle layers:} phrase structure, grammatical relations, semantic grouping
+    \item \textbf{Higher layers:} long-range dependencies, high-level meaning, prediction-ready features
+\end{itemize}
+
+Finally, the output is mapped through a linear layer and softmax to produce the \textbf{next-token probability distribution}.
+
+\vspace{0.4em}
+\hrule
+\vspace{0.7em}
+
+\textcolor{red}{Sample Exam Questions}
+
+Explain the progression from Bag-of-Words to learned embeddings:
+a) What are the key limitations of binary Bag-of-Words representations? (List at least 3)
+b) How do learned embeddings address these limitations?
+A student says: "Why do we need attention? RNNs already have memory through their hidden state."
+a) Explain the fundamental bottleneck problem with RNNs when processing long sequences.
+b) Draw a simple diagram showing how information flows in:
+– An RNN processing a 10-word sentence
+– A transformer with attention processing the same sentence
+The Three Representations of Text
+– Across episodes, we saw three ways to represent text. 
+– For each, explain when and why it's useful: Binary BoW; Dense Embeddings; Contextualized (Transformer)
 
 \vspace{0.4em}
 \hrule
