@@ -85,7 +85,57 @@
     \item 
 \end{itemize}
 
-Query: "cat is wolf"
+{\scriptsize{Term Frequency TF}}
+\(\uparrow\) weight of common words in doc \\
+tf(term,doc) = \# times term in doc / total \# of terms in doc
+
+\vspace{-12pt}
+\begin{table}[ht]
+\begin{adjustbox}{max width=\textwidth}
+\setlength{\tabcolsep}{1pt}      % default is ~6pt
+\renewcommand{\arraystretch}{0.5} % default is 1.0
+\begin{tabular}{l|r|r|r|r|r|r|r|r|r}
+\midrule
+\textbf{sentence} 
+& \textbf{a} & \textbf{cat} & \textbf{dog} & \textbf{is} & \textbf{it} 
+& \textbf{my} & \textbf{not} & \textbf{old} & \textbf{wolf} \\
+\midrule
+\textit{``It is a dog.''} & 0.25 & 0 & 0.25 & 0.25 & 0.25 & 0 & 0 & 0 & 0 \\
+\textit{``my cat is old''} & 0 &  0.25 & 0 & 0.25 & 0 & 0.25 & 0 & 0.25 & 0 \\
+\textit{``It is not a dog, it a is wolf.''} & 0.22 & 0 & 0.11 & 0.22 & 0.22 & 0 & 0.11 & 0 & 0.11 \\
+\midrule
+\end{tabular}
+\end{adjustbox}
+\end{table}
+\vspace{-11pt}
+
+{\scriptsize{Inverse Document Frequency IDF}}
+\(\downarrow\) weight for common words \(\uparrow\) weights for rare words
+
+idf(term) = log(\# docs / \# docs with term)
+
+\vspace{-12pt}
+\begin{table}[ht]
+\begin{adjustbox}{max width=\textwidth}
+\setlength{\tabcolsep}{1pt}      % default is ~6pt
+\renewcommand{\arraystretch}{0.5} % default is 1.0
+\begin{tabular}{l|l}
+\midrule
+\textbf{term} & \textbf{idf} \\
+\midrule
+a & log(3/2) = 0.17 \\
+cat & log(3/1) = 0.47 \\
+dog & log(3/2) = 0.17 \\
+is & log(3/3) = 0 \\
+my & log(3/1) = 0.47 \\
+.. & .. \\
+\end{tabular}
+\end{adjustbox}
+\end{table}
+\vspace{-11pt}
+
+{\scriptsize{Query}} 
+\textbf{"cat is wolf"} 
 If one words appears eg. 2 times in query, score is multiplied by 2
 \vspace{-12pt}
 \begin{table}[ht]
@@ -109,7 +159,6 @@ If one words appears eg. 2 times in query, score is multiplied by 2
 \end{tabular}
 \end{adjustbox}
 \end{table}
-
 \vspace{-11pt}
 
 
