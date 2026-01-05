@@ -88,8 +88,10 @@
 Query: "cat is wolf"
 \begin{table}[ht]
 \begin{adjustbox}{max width=\textwidth}
-\begin{tabular}{lrrrrrrrrr||rr}
-\toprule
+\setlength{\tabcolsep}{1pt}      % default is ~6pt
+\renewcommand{\arraystretch}{0.5} % default is 1.0
+\begin{tabular}{l|r|r|r|r|r|r|r|r|r||rr}
+\midrule
 \textbf{sentence} 
 & \textbf{a} & \textbf{cat} & \textbf{dog} & \textbf{is} & \textbf{it} 
 & \textbf{my} & \textbf{not} & \textbf{old} & \textbf{wolf} 
@@ -101,7 +103,7 @@ Query: "cat is wolf"
 & & \cellcolor{yellow} 0.119 & & \cellcolor{yellow} 0 & & 0.199 &  & 0.119 & & 0.119 & 1 \\
 \textit{``It is not a dog, it a is wolf.''} 
 & 0.039 &  & 0.02 & \cellcolor{yellow} 0 & 0.039 &  & 0.053 &  & \cellcolor{yellow} 0.053 & 0.053 &  2 \\
-\bottomrule
+\midrule
 \end{tabular}
 \end{adjustbox}
 \end{table}
