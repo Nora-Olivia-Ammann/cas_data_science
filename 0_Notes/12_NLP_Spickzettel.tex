@@ -19,6 +19,9 @@
 \usepackage{multicol}
 \usepackage{amsmath}
 \usepackage{graphicx}
+\usepackage[table]{xcolor}
+\usepackage{booktabs}   % for \toprule, \midrule, \bottomrule
+\usepackage{adjustbox}  % for \begin{adjustbox}{max width=\textwidth}
 
 \renewcommand{\familydefault}{\sfdefault}
 
@@ -75,10 +78,39 @@
 \hrule
 \vspace{0.7em}
 
-{\footnotesize }
+{\footnotesize TF-IDF}
 \begin{itemize}
     \item 
 \end{itemize}
+
+Query: "cat is wolf"
+
+\begin{table}[ht]
+\centering
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{lrrrrrrrrr||rr}
+\toprule
+\textbf{sentence} 
+& \textbf{a} & \textbf{cat} & \textbf{dog} & \textbf{is} & \textbf{it} 
+& \textbf{my} & \textbf{not} & \textbf{old} & \textbf{wolf} 
+& \textbf{score} & \textbf{rank} \\
+\midrule
+
+\textit{``It is a dog.''} 
+& 0.044 &  & 0.044 & \cellcolor{yellow} 0 &  0.044 &  &  &  & & 0 & - \\
+
+\textit{``my cat is old''} 
+& & \cellcolor{yellow} 0.119 & & \cellcolor{yellow} 0 & & 0.199 &  & 0.119 & & 0.119 & 1 \\
+
+\textit{``It is not a dog, it a is wolf.''} 
+& 0.039 &  & 0.02 & \cellcolor{yellow} 0 & 0.039 &  & 0.053 &  & \cellcolor{yellow} 0.053 & 0.053 &  2 \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table}
+
+
+
 
 \vspace{0.4em}
 \hrule
