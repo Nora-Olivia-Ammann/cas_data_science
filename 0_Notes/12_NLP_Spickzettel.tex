@@ -409,7 +409,7 @@ The Three Representations of Text
 % --- Softmax / Mask / Score ---
 \node[mid, below=of AV] (SM) {Softmax weights\\ convert scores to probabilities\\ sum to 1};
 \node[mid, below=of SM] (MASK) {Mask\\ hide future positions};
-\node[mid, below=of MASK] (SCORE) {$\frac{QK^T}{\sqrt{d_k}}$\\ similarity measure\\ between $Q$ \& $K$\\ result: attention scores};
+\node[mid, below=of MASK] (SCORE) {Dotproduct $\frac{QK^T}{\sqrt{d_k}}$\\ Check if both Q and K vector point in \\same direction similarity measure\\result: attention scores};
 
 % --- Q / K / V ---
 \node[vec, below left=of SCORE, xshift=-4mm] (Q) {Query\\ Vector};
@@ -422,7 +422,10 @@ The Three Representations of Text
 \node[proj, below=of V] (WV) {$W_V$ Matrix};
 
 % --- Input ---
-\node[input, below=of WK] (IN) {Input $B,T,C$};
+\node[input, below=of WK] (IN) {Input Embeddings\\
+B (sequence per batch, eg. sentences)\\
+T (tokens each)\\
+C (embedding size)};
 
 % --- Arrows ---
 \draw[->] (IN) -- node[left, align=center] {learned\\ Linear Layer} (WQ);
