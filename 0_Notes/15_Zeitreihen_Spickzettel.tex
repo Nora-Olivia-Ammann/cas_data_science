@@ -26,6 +26,20 @@
 \usepackage{tikz}
 \usepackage{caption}
 \usetikzlibrary{arrows.meta, positioning, shapes.geometric,fit,calc}
+\usepackage{pgfplots}
+\usepgfplotslibrary{groupplots}
+\pgfplotsset{compat=1.18}
+
+% ---------- custom plot styles ----------
+\pgfplotsset{
+  acfstyle/.style={
+    ycomb,
+    mark=o,
+    mark size=1.0pt, % <-- smaller circles
+    mark options={solid, fill=white}
+  }
+}
+
 
 \AtBeginEnvironment{tabular}{\tiny}
 \definecolor{cDark}{HTML}{203F4A}
@@ -127,8 +141,8 @@
 
     \item \textbf{Korrelationsstruktur}
     \begin{itemize}
-        \item \textbf{PACF}
         \item \textbf{ACF}
+        \item \textbf{PACF}
         \item \textbf{CCF}
     \end{itemize}
 \end{itemize}
@@ -161,6 +175,130 @@ Es ändert sich nichts, voraussetzung für stochastische modellierung
 
 {\footnotesize{}}
 
+
+\begin{tikzpicture}
+\begin{groupplot}[
+  group style={
+    group size=4 by 2,
+    horizontal sep=0.2cm,
+    vertical sep=0.4cm
+  },
+  width=3.3cm,
+  height=2.4cm,
+  axis lines=middle,
+  xmin=-0.5, xmax=12.5,
+  ymin=-1.2, ymax=1.2,
+  xtick=\empty,
+  ytick={-1,0,1},
+  tick label style={font=\scriptsize},
+  label style={font=\scriptsize},
+  title style={font=\scriptsize},
+  clip=false,
+]
+
+% ---------------- TOP ROW: ACF ----------------
+
+% (1) alternating and dying out
+\nextgroupplot[title={\tiny(1)}, xlabel={\tiny{lag}}, ylabel={\tiny{ACF}}]
+\addplot+[acfstyle] coordinates {
+ (0,1)
+ (1,0.75) (2,0.55) (3,0.35)
+ (4,-0.15) (5,-0.35) (6,-0.55) (7,-0.70)
+ (8,-0.55) (9,-0.35) (10,-0.15) (11,0.05)
+ (12,0)
+};
+
+% (2) only lag 0 spike
+\nextgroupplot[title={\tiny(2)}, xlabel={\tiny{lag}}, ylabel={\tiny{ACF}}]
+\addplot+[acfstyle] coordinates {
+ (0,1)
+ (1, 0.03) (2,-0.02) (3, 0.01) (4,-0.04) (5, 0.02) (6,-0.01)
+ (7, 0.04) (8,-0.03) (9, 0.01) (10,-0.02) (11, 0.02) (12,-0.01)
+};
+
+% (3) positive decaying ACF
+\nextgroupplot[title={\tiny(3)}, xlabel={\tiny{lag}}, ylabel={\tiny{ACF}}]
+\addplot+[acfstyle] coordinates {
+ (0,1)
+ (1,0.92) (2,0.84) (3,0.76) (4,0.69) (5,0.62)
+ (6,0.56) (7,0.50) (8,0.45) (9,0.40) (10,0.35)
+ (11,0.30) (12,0.26)
+};
+
+% (4) two spikes then ~0
+\nextgroupplot[title={\tiny(4)}, xlabel={\tiny{lag}}, ylabel={\tiny{ACF}}]
+\addplot+[acfstyle] coordinates {
+ (0,1)
+ (1,0.55)
+ (2,-0.45)
+ (3,0) (4,0) (5,0) (6,0) (7,0)
+ (8,0) (9,0) (10,0) (11,0) (12,0)
+};
+
+% ---------------- BOTTOM ROW: TIME SERIES ----------------
+
+% (a) upward trend with small noise
+\nextgroupplot[
+  title={\tiny(a)},
+  xmin=0, xmax=12,
+  ymin=-0.3, ymax=2.2,
+  xlabel={\tiny{t}}, ylabel={\tiny{x}},
+  ytick=\empty
+]
+\addplot+[smooth,line width=0.35pt] coordinates {
+ (0,0.0) (1,0.12) (2,0.25) (3,0.42) (4,0.60) (5,0.78)
+ (6,0.95) (7,1.12) (8,1.35) (9,1.55) (10,1.75) (11,1.95) (12,2.10)
+};
+\addplot+[only marks, mark=*, mark size=0.8pt] coordinates {
+ (0,0.0) (1,0.10) (2,0.27) (3,0.40) (4,0.63) (5,0.74)
+ (6,0.98) (7,1.10) (8,1.33) (9,1.58) (10,1.72) (11,1.97) (12,2.05)
+};
+
+% (b) oscillation
+\nextgroupplot[
+  title={\tiny(b)},
+  xmin=0, xmax=12,
+  ymin=-0.2, ymax=1.6,
+  xlabel={\tiny{t}}, ylabel={\tiny{x}},
+  ytick=\empty
+]
+\addplot+[smooth, samples=200, domain=0:12]
+  {0.8 + 0.25*sin(deg(2*pi*x/4))};
+
+% (c) downward trend with noise
+\nextgroupplot[
+  title={\tiny(c)},
+  xmin=0, xmax=12,
+  ymin=-0.1, ymax=2.2,
+  xlabel={\tiny{t}}, ylabel={\tiny{x}},
+  ytick=\empty
+]
+\addplot+[smooth, thick] coordinates {
+ (0,2.0) (1,1.85) (2,1.70) (3,1.55) (4,1.40) (5,1.22)
+ (6,1.05) (7,0.88) (8,0.70) (9,0.52) (10,0.35) (11,0.18) (12,0.02)
+};
+\addplot+[only marks, mark=*, mark size=0.8pt] coordinates {
+ (0,2.02) (1,1.83) (2,1.72) (3,1.53) (4,1.38) (5,1.25)
+ (6,1.02) (7,0.90) (8,0.68) (9,0.50) (10,0.38) (11,0.16) (12,0.05)
+};
+
+% (d) stationary noise around constant level
+\nextgroupplot[
+  title={\tiny(d)},
+  xmin=0, xmax=12,
+  ymin=-0.2, ymax=1.6,
+  xlabel={\tiny{t}}, ylabel={\tiny{x}},
+  ytick=\empty
+]
+\addplot+[smooth, thick] coordinates {
+ (0,0.65) (1,0.70) (2,0.62) (3,0.68) (4,0.60) (5,0.66)
+ (6,0.61) (7,0.64) (8,0.58) (9,0.62) (10,0.59) (11,0.60) (12,0.57)
+};
+
+\end{groupplot}
+\end{tikzpicture}
+
+{\normalsize{TODO: make explanation and change}}
 
 
 %\end{multicols}
