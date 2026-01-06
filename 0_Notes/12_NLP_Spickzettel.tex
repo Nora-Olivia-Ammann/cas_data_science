@@ -24,6 +24,7 @@
 \usepackage{adjustbox}  % for \begin{adjustbox}{max width=\textwidth}
 \usepackage{etoolbox}
 \usepackage{tikz}
+\usepackage{caption}
 \usetikzlibrary{arrows.meta, positioning, shapes.geometric}
 
 \AtBeginEnvironment{tabular}{\tiny}
@@ -70,6 +71,8 @@
 \begin{document}
   \begin{landscape}
 
+\begin{multicols}{3}
+
 \tiny
 
 \begin{itemize}
@@ -93,8 +96,8 @@
 tf(term,doc) = \# times term in doc / total \# of terms in doc
 
 \vspace{-12pt}
-\begin{table}[ht]
-\begin{adjustbox}{max width=\textwidth}
+\begin{center}
+\begin{adjustbox}{max width=\columnwidth}
 \setlength{\tabcolsep}{1pt}      % default is ~6pt
 \renewcommand{\arraystretch}{0.5} % default is 1.0
 \begin{tabular}{l|r|r|r|r|r|r|r|r|r}
@@ -109,7 +112,7 @@ tf(term,doc) = \# times term in doc / total \# of terms in doc
 \midrule
 \end{tabular}
 \end{adjustbox}
-\end{table}
+\end{center}
 \vspace{-11pt}
 
 {\scriptsize{Inverse Document Frequency IDF}}
@@ -118,8 +121,8 @@ tf(term,doc) = \# times term in doc / total \# of terms in doc
 idf(term) = log(\# docs / \# docs with term)
 
 \vspace{-12pt}
-\begin{table}[ht]
-\begin{adjustbox}{max width=\textwidth}
+\begin{center}
+\begin{adjustbox}{max width=\columnwidth}
 \setlength{\tabcolsep}{1pt}      % default is ~6pt
 \renewcommand{\arraystretch}{0.5} % default is 1.0
 \begin{tabular}{l|l}
@@ -134,7 +137,7 @@ my & log(3/1) = 0.47 \\
 .. & .. \\
 \end{tabular}
 \end{adjustbox}
-\end{table}
+\end{center}
 \vspace{-11pt}
 
 {\scriptsize{TF-IDF}} tf-idf(term,doc) = tf(term,doc) * idf(term) 
@@ -142,8 +145,8 @@ my & log(3/1) = 0.47 \\
 {\scriptsize{Query}} 
 \textbf{"cat is wolf"} 
 If one words appears eg. 2 times in query, score is multiplied by 2
-\vspace{-12pt}
-\begin{table}[ht]
+\vspace{-10pt}
+\begin{center}
 \begin{adjustbox}{max width=\textwidth}
 \setlength{\tabcolsep}{1pt}      % default is ~6pt
 \renewcommand{\arraystretch}{0.5} % default is 1.0
@@ -163,7 +166,7 @@ If one words appears eg. 2 times in query, score is multiplied by 2
 \midrule
 \end{tabular}
 \end{adjustbox}
-\end{table}
+\end{center}
 \vspace{-11pt}
 
 
@@ -502,7 +505,7 @@ C (embedding size)};
 
 \end{tikzpicture}
 
-
+\end{multicols}
 
 
 \end{landscape}
