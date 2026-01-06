@@ -508,8 +508,9 @@ C (embedding size)};
 {\footnotesize{Transformers}}
 
 \begin{tikzpicture}[
-  node distance=3mm,
-  every node/.style={font=\small},
+  node distance=2.5mm and 3.5mm,   % <<< tighter overall
+  >=Latex,
+  font=\tiny,
   box/.style={draw, rounded corners, align=center},
   innerbox/.style={draw, rounded corners, align=center},
   bigbox/.style={draw, rounded corners},
@@ -520,16 +521,17 @@ C (embedding size)};
 \node[box] (in) {Input};
 \node[box, below=of in] (tok) {Tokenisation};
 \node[box, below=of tok] (emb) {Embedding};
-\node[box, below=of emb] (pos) {Positional\\Encoding};
+\node[box, below=of emb] (pos) {Positional Encoding \\Preserving word order};
 
 % Transformer block (big box containing two inner boxes)
 \node[innerbox, below=3mm of pos] (attn) {Attention};
-\node[innerbox, below=16mm of attn] (ffn) {Feedforward};
+\node[innerbox, below=7mm of attn] (ffn) {Feedforward\\Traditional NN Layers};
 
 \node[bigbox, fit=(attn)(ffn)] (block) {1-n \\Transformer Blocks};
 
 % Continue pipeline
-\node[box, below=3mm of ffn] (softmax) {Softmax};
+\node[box, below=3mm of ffn] (res) {Result scores for words};
+\node[box, below=of res] (softmax) {Softmax\\not get the same result every time samples for probability};
 \node[box, below=of softmax] (out) {Output};
 
 % Arrows
@@ -538,7 +540,8 @@ C (embedding size)};
 \draw[->] (emb) -- (pos);
 \draw[->] (pos) -- (attn);
 \draw[->] (attn) -- (ffn);
-\draw[->] (ffn) -- (softmax);
+\draw[->] (ffn) -- (res);
+\draw[->] (res) -- (softmax);
 \draw[->] (softmax) -- (out);
 
 \end{tikzpicture}
