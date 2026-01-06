@@ -505,8 +505,45 @@ C (embedding size)};
 
 \end{tikzpicture}
 
+{\footnotesize{Transformers}}
+
+\begin{tikzpicture}[
+  node distance=8mm,
+  every node/.style={font=\small},
+  box/.style={draw, rounded corners, align=center},
+  innerbox/.style={draw, rounded corners, align=center},
+  bigbox/.style={draw, rounded corners, inner sep=6mm},
+  arrow/.style={-Latex, thick}
+]
+
+% Main vertical boxes
+\node[box] (in) {Input};
+\node[box, below=of in] (tok) {Tokenisation};
+\node[box, below=of tok] (emb) {Embedding};
+\node[box, below=of emb] (pos) {Positional\\Encoding};
+
+% Transformer block (big box containing two inner boxes)
+\node[innerbox, below=12mm of pos] (attn) {Attention};
+\node[innerbox, below=12mm of attn] (ffn) {Feedforward};
+
+\node[bigbox, fit=(attn)(ffn)] (block) {1-n Transformer Blocks};
+
+% Continue pipeline
+\node[box, below=12mm of ffn] (softmax) {Softmax};
+\node[box, below=of softmax] (out) {Output};
+
+% Arrows
+\draw[arrow] (in) -- (tok);
+\draw[arrow] (tok) -- (emb);
+\draw[arrow] (emb) -- (pos);
+\draw[arrow] (pos) -- (attn);
+\draw[arrow] (attn) -- (ffn);
+\draw[arrow] (ffn) -- (softmax);
+\draw[arrow] (softmax) -- (out);
+
+\end{tikzpicture}
+
+
 \end{multicols}
-
-
 \end{landscape}
 \end{document}
