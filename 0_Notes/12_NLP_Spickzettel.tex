@@ -23,6 +23,9 @@
 \usepackage{booktabs}   % for \toprule, \midrule, \bottomrule
 \usepackage{adjustbox}  % for \begin{adjustbox}{max width=\textwidth}
 \usepackage{etoolbox}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning, shapes.geometric}
+
 \AtBeginEnvironment{tabular}{\tiny}
 
 \renewcommand{\familydefault}{\sfdefault}
@@ -372,6 +375,76 @@ The Three Representations of Text
 \vspace{0.4em}
 \hrule
 \vspace{0.7em}
+
+
+
+\vspace{0.7em}
+
+{\footnotesize{Attention}}
+
+\begin{tikzpicture}[
+  node distance=3mm and 5mm,
+  >=Latex,
+  font=\tiny,
+  block/.style={
+    rectangle, rounded corners,
+    draw, thick, align=center,
+    inner sep=1pt,              % <<< less padding
+    minimum width=2cm,          % <<< smaller nodes
+    % minimum height=7mm
+  },
+  input/.style={block, fill=blue!10, draw=blue!70},
+  proj/.style={block, fill=orange!15, draw=orange!80},
+  vec/.style={block, fill=purple!15, draw=purple!70},
+  mid/.style={block, fill=violet!10, draw=violet!70},
+  att/.style={block, fill=teal!12, draw=teal!70},
+]
+
+% --- Output ---
+\node[input] (OUT) {Output\\ context aware representation};
+
+% --- Weighted sum ---
+\node[att, below=of OUT] (AV) {Attention $\cdot V$\\ weight the values by attention};
+
+% --- Softmax / Mask / Score ---
+\node[mid, below=of AV] (SM) {Softmax weights\\ convert scores to probabilities\\ sum to 1};
+\node[mid, below=of SM] (MASK) {Mask\\ hide future positions};
+\node[mid, below=of MASK] (SCORE) {$\frac{QK^T}{\sqrt{d_k}}$\\ similarity measure\\ between $Q$ \& $K$\\ result: attention scores};
+
+% --- Q / K / V ---
+\node[vec, below left=of SCORE, xshift=-4mm] (Q) {Query\\ Vector};
+\node[vec, below=of SCORE] (K) {Key\\ Vector};
+\node[vec, below right=of SCORE, xshift=4mm] (V) {Value\\ Vector};
+
+% --- Projection matrices ---
+\node[proj, below=of Q] (WQ) {$W_Q$ Matrix};
+\node[proj, below=of K] (WK) {$W_K$ Matrix};
+\node[proj, below=of V] (WV) {$W_V$ Matrix};
+
+% --- Input ---
+\node[input, below=of WK] (IN) {Input $B,T,C$};
+
+% --- Arrows ---
+\draw[->] (IN) -- node[left, align=center] {learned\\ Linear Layer} (WQ);
+\draw[->] (IN) -- node[right, align=center] {learned\\ Linear Layer} (WV);
+\draw[->] (IN) -- node[midway, right, align=center, xshift=6mm] {learned\\ Linear Layer} (WK);
+
+\draw[->] (WQ) -- (Q);
+\draw[->] (WK) -- (K);
+\draw[->] (WV) -- (V);
+
+\draw[->] (Q) -- (SCORE);
+\draw[->] (K) -- (SCORE);
+
+\draw[->] (SCORE) -- (MASK);
+\draw[->] (MASK) -- (SM);
+
+\draw[->] (SM) -- (AV);
+\draw[->] (V) -- (AV);
+
+\draw[->] (AV) -- (OUT);
+
+\end{tikzpicture}
 
 \end{landscape}
 \end{document}
