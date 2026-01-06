@@ -86,6 +86,42 @@
 \hrule
 \vspace{0.7em}
 
+{\footnotesize{Binary Bag-of-Words}}
+\begin{itemize}
+  \item Representation: High-dim vector over vocab; 1 if word appears, else 0. Ignores order/frequency.
+  \item When useful:
+    \begin{itemize}
+      \item TF-IDF, Simple classification/retrieval (e.g., spam, topic flags).
+      \item Large-scale, fast, interpretable baselines (low compute, low semantics).
+    \end{itemize}
+\end{itemize}
+
+{\footnotesize{Dense (non-contextual) embeddings}}
+\begin{itemize}
+  \item Representation: Low-dim continuous vectors for words/sentences (e.g., Word2Vec, GloVe); similar words $\rightarrow$ nearby vectors.
+  \item When useful:
+    \begin{itemize}
+      \item Semantic similarity: clustering, nearest-neighbor search, retrieval.
+      \item Fixed features when data/compute are limited (more compact than BoW).
+    \end{itemize}
+\end{itemize}
+
+{\footnotesize{Contextualized transformer embeddings}}
+\begin{itemize}
+  \item Representation: Token vectors depend on full context via self-attention; same word $\rightarrow$ different vectors in different sentences. Sentence models can pool to one vector.
+  \item When useful:
+    \begin{itemize}
+      \item Context-sensitive tasks: QA, NLI, nuanced sentiment, generation.
+      \item Transfer learning: pretrained transformer embeddings + fine-tuning for best performance.
+    \end{itemize}
+\end{itemize}
+
+
+
+\vspace{0.4em}
+\hrule
+\vspace{0.7em}
+
 {\footnotesize TF-IDF}
 \begin{itemize}
     \item 
