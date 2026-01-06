@@ -82,53 +82,12 @@
     \item \texttt{*?} \(\rightarrow\) 0-n (lazy)
 \end{itemize}
 
-\vspace{0.4em}
-\hrule
-\vspace{0.7em}
-
-3 Representations of text
-
-{\footnotesize{Binary Bag-of-Words}}
-\begin{itemize}
-  \item Representation: High-dim vector over vocab; 1 if word appears, else 0. Ignores order/frequency. No semantics
-  \item When useful:
-    \begin{itemize}
-      \item TF-IDF, Simple classification/retrieval (e.g., spam, topic flags).
-      \item Large-scale, fast, interpretable baselines (low compute, low semantics).
-    \item Limitation: No Semantics, sparse mostly 0, no magnitude only presence or not, not how important
-    \end{itemize}
-\end{itemize}
-
-{\footnotesize{Dense (non-contextual) embeddings}}
-\begin{itemize}
-  \item Representation: Low-dim continuous vectors for words/sentences (e.g., Word2Vec, GloVe); similar words $\rightarrow$ nearby vectors.
-  \item When useful:
-    \begin{itemize}
-      \item Semantic similarity: clustering, nearest-neighbor search, retrieval.
-      \item Fixed features when data/compute are limited (more compact than BoW).
-    \end{itemize}
-\end{itemize}
-
-{\footnotesize{Contextualized transformer embeddings}}
-\begin{itemize}
-  \item Representation: Token vectors depend on full context via self-attention; same word $\rightarrow$ different vectors in different sentences. Sentence models can pool to one vector.
-  \item When useful:
-    \begin{itemize}
-      \item Context-sensitive tasks: QA, NLI, nuanced sentiment, generation.
-      \item Transfer learning: pretrained transformer embeddings + fine-tuning for best performance.
-    \end{itemize}
-\end{itemize}
-
-
 
 \vspace{0.4em}
 \hrule
 \vspace{0.7em}
 
 {\footnotesize TF-IDF}
-\begin{itemize}
-    \item 
-\end{itemize}
 
 {\scriptsize{Term Frequency TF}}
 \(\uparrow\) weight of common words in doc \\
@@ -400,21 +359,6 @@ Finally, the output is mapped through a linear layer and softmax to produce the 
 \hrule
 \vspace{0.7em}
 
-\textcolor{red}{Sample Exam Questions}
-
-Explain the progression from Bag-of-Words to learned embeddings:
-a) What are the key limitations of binary Bag-of-Words representations? (List at least 3)
-b) How do learned embeddings address these limitations?
-A student says: "Why do we need attention? RNNs already have memory through their hidden state."
-a) Explain the fundamental bottleneck problem with RNNs when processing long sequences.
-b) Draw a simple diagram showing how information flows in:
-– An RNN processing a 10-word sentence
-– A transformer with attention processing the same sentence
-
-\vspace{0.4em}
-\hrule
-\vspace{0.7em}
-
 
 
 \vspace{0.7em}
@@ -581,6 +525,60 @@ C (embedding size)};
 \draw[->] (softmax) -- (out);
 
 \end{tikzpicture}
+
+
+\vspace{0.4em}
+\hrule
+\vspace{0.7em}
+
+3 Representations of text
+
+{\scriptsize{Binary Bag-of-Words}}
+\begin{itemize}
+  \item Representation: High-dim vector over vocab; 1 if word appears, else 0. Ignores order/frequency. No semantics
+  \item When useful:
+    \begin{itemize}
+      \item TF-IDF, Simple classification/retrieval (e.g., spam, topic flags).
+      \item Large-scale, fast, interpretable baselines (low compute, low semantics).
+    \item Limitation: No Semantics, sparse mostly 0, no magnitude only presence or not, not how important
+    \end{itemize}
+\end{itemize}
+
+{\scriptsize{Dense (non-contextual) embeddings}}
+\begin{itemize}
+  \item Representation: Low-dim continuous vectors for words/sentences (e.g., Word2Vec, GloVe); similar words $\rightarrow$ nearby vectors.
+  \item When useful:
+    \begin{itemize}
+      \item Semantic similarity: clustering, nearest-neighbor search, retrieval.
+      \item Fixed features when data/compute are limited (more compact than BoW).
+    \end{itemize}
+\end{itemize}
+
+{\scriptsize{Contextualized transformer embeddings}}
+\begin{itemize}
+  \item Representation: Token vectors depend on full context via self-attention; same word $\rightarrow$ different vectors in different sentences. Sentence models can pool to one vector.
+  \item When useful:
+    \begin{itemize}
+      \item Context-sensitive tasks: QA, NLI, nuanced sentiment, generation.
+      \item Transfer learning: pretrained transformer embeddings + fine-tuning for best performance.
+    \end{itemize}
+\end{itemize}
+
+
+\vspace{0.4em}
+\hrule
+\vspace{0.7em}
+
+\textcolor{red}{Sample Exam Questions}
+
+Explain the progression from Bag-of-Words to learned embeddings:
+a) What are the key limitations of binary Bag-of-Words representations? (List at least 3)
+b) How do learned embeddings address these limitations?
+A student says: "Why do we need attention? RNNs already have memory through their hidden state."
+a) Explain the fundamental bottleneck problem with RNNs when processing long sequences.
+b) Draw a simple diagram showing how information flows in:
+– An RNN processing a 10-word sentence
+– A transformer with attention processing the same sentence
 
 
 \end{multicols}
