@@ -492,16 +492,43 @@ Reinforcement Learning from human feedback (RLHF)
         \item limited computability: bad at logic for example math
         \item no inherent memory: stateless no knowledge of previous
     \end{itemize}
+    \item Agency: ability to steer its own workflow
     \item Independently accomplish tasks
-    \item Agents have
-    \begin{itemize}
-        \item Tools
-        \item Memory
-        \item Agency: ability to steer its own workflow
-    \end{itemize}
     \item When to use agents?
     \begin{itemize}
-        \item 
+        \item Complex Decision making: context sensitive, exceptions, etc.
+        \item Difficult to maintain rules: systems with complicated rule set
+        \item Heavy reliance on unstructured data: interpreting natural languages
+    \end{itemize}
+    \item Here too, find simplest answer, may not be an agent.
+    \item Definition / Components
+    \begin{itemize}
+        \item Environments: world agent interacts with
+        \item Sensors: used to observe environment
+        \item Actuators: tools to interact with the environment
+        \item Effectors: "brain", rules deciding how to go from observation to actions
+    \end{itemize}
+    \item Agent components
+    \begin{itemize}
+        \item Planning: Chain-of-Thoughts, Reflection, subgoal decomposition
+        \item Tools: Search, API, function calling
+        \item Memory: short / long-term, retrieval
+        \item Autonomous Steps: plan \(\rightarrow\) Action (and back again)
+    \end{itemize}
+    \item Model Context Protocol (MCP)
+    \begin{itemize}
+        \item Standardised API services for services
+        \item Host (LLM app) / Client (1:1 connection to server) / Server (provides context)
+        \item For example, i need to do x, what can I use to do that?
+    \end{itemize}
+    \item Guardrails
+    \begin{itemize}
+        \item Layered Defense mechanism
+        \item relevance classifiers: flags off-topic queries
+        \item Safety classifier: detects unsafe input
+        \item PII filter: prevents exposure personal info
+        \item Moderation: flags harmful content
+        \item Tool safeguards
     \end{itemize}
 \end{itemize}
 
