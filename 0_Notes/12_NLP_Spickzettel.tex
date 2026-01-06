@@ -86,13 +86,16 @@
 \hrule
 \vspace{0.7em}
 
+3 Representations of text
+
 {\footnotesize{Binary Bag-of-Words}}
 \begin{itemize}
-  \item Representation: High-dim vector over vocab; 1 if word appears, else 0. Ignores order/frequency.
+  \item Representation: High-dim vector over vocab; 1 if word appears, else 0. Ignores order/frequency. No semantics
   \item When useful:
     \begin{itemize}
       \item TF-IDF, Simple classification/retrieval (e.g., spam, topic flags).
       \item Large-scale, fast, interpretable baselines (low compute, low semantics).
+    \item Limitation: No Semantics, sparse mostly 0, no magnitude only presence or not, not how important
     \end{itemize}
 \end{itemize}
 
@@ -407,9 +410,6 @@ a) Explain the fundamental bottleneck problem with RNNs when processing long seq
 b) Draw a simple diagram showing how information flows in:
 – An RNN processing a 10-word sentence
 – A transformer with attention processing the same sentence
-The Three Representations of Text
-– Across episodes, we saw three ways to represent text. 
-– For each, explain when and why it's useful: Binary BoW; Dense Embeddings; Contextualized (Transformer)
 
 \vspace{0.4em}
 \hrule
