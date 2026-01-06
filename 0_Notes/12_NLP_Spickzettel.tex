@@ -364,8 +364,29 @@ Finally, the output is mapped through a linear layer and softmax to produce the 
 \hrule
 \vspace{0.7em}
 
-{\footnotesize{LLM Breakthroughs}}
-\vspace{-1em}
+
+{\footnotesize{LLM API}}
+
+\begin{itemize}
+    \item System Prompt (base interaction rules)
+    \item is stateless
+    \item Prompt Injection
+    \begin{itemize}
+        \item Malicious prompt (ignore system prompts, etc.)
+        \item Indirect prompt injection (read webpages, etc. possible to have malicious prompt there)
+        \item Difficult to avoid
+    \end{itemize}
+    \item Prompt Engineering: Role + Context (Examples, description) + Task
+    \item Context Engineering: Designing and building dynamic systems that provide right info and tools to LLM
+\end{itemize}
+
+\vspace{0.4em}
+\hrule
+\vspace{0.7em}
+
+{\footnotesize{LLM}}
+
+{\scriptsize{Breakthroughs}}
 
 \begin{itemize}
     \item 1: Deep Neural Networks (2012)
@@ -374,13 +395,120 @@ Finally, the output is mapped through a linear layer and softmax to produce the 
     \item 4: Reasoning (2024)
 \end{itemize}
 
+{\scriptsize{Architecture}}
+Each of the points build on top of each other
+\begin{itemize}
+    \item Simple
+    \begin{itemize}
+        \item Query \(\rightarrow\) Model \& Generation \(\rightarrow\) Response
+    \end{itemize}
+    \item Context
+    \begin{itemize}
+        \item Query \(\rightarrow\) Context Construction Read Only (RAG / DB) \(\rightarrow\) Model \& Generation \(\rightarrow\) Response
+        \item context with retrieval mechanisms, like feature engineering for foundation models
+    \end{itemize}
+    \item Guardrails
+    \begin{itemize}
+        \item Query \(\rightarrow\) Context Construction Read Only (RAG / DB) \(\rightarrow\) Input Guardrails \(\rightarrow\) Model \& Generation \(\rightarrow\) Scoring \(\rightarrow\) Output Guardrails \(\rightarrow\) Response
+        \item two types of risks: leaking private information externally, executing bad promts that compromise the system
+        \item Masking / Unmasking Information
+    \end{itemize}
+    \item Routing and model gateway
+    \begin{itemize}
+        \item instead of Model \& Generation: Model Gateway: Routing \(\rightarrow\) Generation \(\rightarrow\) Scoring
+        \item Gateway: intermediate layer to interface with different models
+        \item Router: intent classifier, predicts what user wants to do and routes to the appropriate action
+    \end{itemize}
+    \item Agent
+    \begin{itemize}
+        \item Layer to orchestrate sequence of actions and tools
+    \end{itemize}
+\end{itemize}
+
+
 \vspace{0.4em}
 \hrule
 \vspace{0.7em}
 
 
+{\footnotesize{Chatbots}}
 
+\begin{itemize}
+    \item {\textbf{Definition:}} LLM that is finetuned to follow instructions
+    \item {\textbf{Chain-of-Thought:}} Input is Example question and answer, then also provide real question
+    \item {\textbf{Reasoning LLMs:}} Question, "thinks" several times before providing answer
+    \item {\textbf{Challenges:}} Legal, Privacy, Service is down, price, societal implications
+\end{itemize}
+
+
+Reinforcement Learning from human feedback (RLHF)
+\begin{itemize}
+    \item Supervised fine-tuning
+    \begin{itemize}
+        \item starts with pre-trained LLM
+        \item supervised fine-tuning on high quality human demonstrations establishing baseline
+    \end{itemize}
+    \item Reward model training
+    \begin{itemize}
+        \item Human rank / rate multiple output for same promt
+        \item Preference data trains separate reward model (other transformer), learns to predict human preference
+    \end{itemize}
+    \item Policy Optimisation
+    \begin{itemize}
+        \item LLM fine-tuned with reinforcement learning, for maximal learned reward score while maintaining constraints from original model
+    \end{itemize}
+    \item Evaluate on unseen tasks
+\end{itemize}
+
+
+\vspace{0.4em}
+\hrule
 \vspace{0.7em}
+
+{\footnotesize{RAG}} Retrieval-Augmented Generation
+
+\begin{itemize}
+    \item Context information is retrieved
+    \item Benefits
+    \begin{itemize}
+        \item Reduces hallucinations
+        \item Low cost, no training / finetuning
+        \item Explainability, can provide citations
+    \end{itemize}
+\end{itemize}
+
+
+
+\vspace{0.4em}
+\hrule
+\vspace{0.7em}
+
+{\footnotesize{Agent}}
+
+\begin{itemize}
+    \item Issue with LLM
+    \begin{itemize}
+        \item only computes probability of next token
+        \item limited computability: bad at logic for example math
+        \item no inherent memory: stateless no knowledge of previous
+    \end{itemize}
+    \item Independently accomplish tasks
+    \item Agents have
+    \begin{itemize}
+        \item Tools
+        \item Memory
+        \item Agency: ability to steer its own workflow
+    \end{itemize}
+    \item When to use agents?
+    \begin{itemize}
+        \item 
+    \end{itemize}
+\end{itemize}
+
+\vspace{0.4em}
+\hrule
+\vspace{0.7em}
+
 
 {\footnotesize{RNN Word processing}}
 
@@ -609,62 +737,6 @@ C (embedding size)};
 \vspace{0.4em}
 \hrule
 \vspace{0.7em}
-
-{\footnotesize{Chatbots}}
-
-\begin{itemize}
-    \item {\textbf{Definition:}} LLM that is finetuned to follow instructions
-    \item {\textbf{Chain-of-Thought:}} Input is Example question and answer, then also provide real question
-    \item {\textbf{Reasoning LLMs:}} Question, "thinks" several times before providing answer
-    \item {\textbf{Challenges:}} Legal, Privacy, Service is down, price, societal implications
-\end{itemize}
-
-
-Reinforcement Learning from human feedback (RLHF)
-\begin{itemize}
-    \item Supervised fine-tuning
-    \begin{itemize}
-        \item starts with pre-trained LLM
-        \item supervised fine-tuning on high quality human demonstrations establishing baseline
-    \end{itemize}
-    \item Reward model training
-    \begin{itemize}
-        \item Human rank / rate multiple output for same promt
-        \item Preference data trains separate reward model (other transformer), learns to predict human preference
-    \end{itemize}
-    \item Policy Optimisation
-    \begin{itemize}
-        \item LLM fine-tuned with reinforcement learning, for maximal learned reward score while maintaining constraints from original model
-    \end{itemize}
-    \item Evaluate on unseen tasks
-\end{itemize}
-
-
-\vspace{0.4em}
-\hrule
-\vspace{0.7em}
-
-
-{\footnotesize{LLM API}}
-
-\begin{itemize}
-    \item System Prompt (base interaction rules)
-    \item is stateless
-    \item Prompt Injection
-    \begin{itemize}
-        \item Malicious prompt (ignore system prompts, etc.)
-        \item Indirect prompt injection (read webpages, etc. possible to have malicious prompt there)
-        \item Difficult to avoid
-    \end{itemize}
-    \item Prompt Engineering: Role + Context (Examples, description) + Task
-    \item Context Engineering: Designing and building dynamic systems that provide right info and tools to LLM
-\end{itemize}
-
-\vspace{0.4em}
-\hrule
-\vspace{0.7em}
-
-
 
 
 3 Representations of text
