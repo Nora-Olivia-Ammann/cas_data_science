@@ -28,6 +28,11 @@
 \usetikzlibrary{arrows.meta, positioning, shapes.geometric,fit,calc}
 
 \AtBeginEnvironment{tabular}{\tiny}
+\definecolor{cDark}{HTML}{203F4A}
+\definecolor{cTeal}{HTML}{1D8F7E}
+\definecolor{cGold}{HTML}{E9C06A}
+\definecolor{cOrange}{HTML}{F29B5C}
+\definecolor{cRed}{HTML}{E85D47}
 
 \renewcommand{\familydefault}{\sfdefault}
 
@@ -363,6 +368,66 @@ Finally, the output is mapped through a linear layer and softmax to produce the 
 
 \vspace{0.7em}
 
+{\footnotesize{RNN Word processing}}
+
+
+\begin{tikzpicture}[
+    >=Latex,
+    arrow/.style={-Latex, shorten >=1pt, shorten <=0.5pt},
+    updown/.style={-Latex, shorten >=1pt, shorten <=0.5pt},
+    lab/.style={font=\tiny},
+    word/.style={font=\tiny},
+]
+
+% ---------- Helper macro: circle with vertical bands ----------
+\newcommand{\tokencircle}[4]{%
+  \begin{scope}
+    \coordinate (C) at (#1,#2);
+    \clip (C) circle (#3);
+    \fill[cDark] (C) circle (#3);
+    \foreach \xs/\xe/\col in {#4}{
+      \fill[\col] ($(C)+(\xs*#3,-#3)$) rectangle ($(C)+(\xe*#3,#3)$);
+    }
+  \end{scope}
+}
+
+% ---------- Geometry (smaller + tighter) ----------
+\def\r{0.2}      % smaller radius
+\def\dx{1.00}     % tighter horizontal spacing
+\def\y{0}
+
+% ---------- Circles ----------
+\tokencircle{0*\dx}{\y}{\r}{-1/1/cDark}
+
+\tokencircle{1*\dx}{\y}{\r}{-1/0/cDark,0/1/cTeal}
+
+\tokencircle{2*\dx}{\y}{\r}{-1/-0.55/cDark,-0.55/0/cTeal,0/1/cGold}
+
+\tokencircle{3*\dx}{\y}{\r}{-1/-0.75/cDark,-0.75/-0.55/cTeal,-0.55/-0.05/cGold,-0.05/1/cOrange}
+
+\tokencircle{4*\dx}{\y}{\r}{-1/-0.86/cDark,-0.86/-0.74/cTeal,-0.74/-0.54/cGold,-0.54/-0.18/cOrange,-0.18/1/cRed}
+
+% ---------- Horizontal arrows ----------
+\foreach \i in {0,1,2,3}{
+  \draw[arrow] (\i*\dx+\r+0.1,\y) -- (\i*\dx+\dx-\r-0.1,\y);
+}
+
+% ---------- Vertical arrows + labels ----------
+\foreach \i/\labtext in {0/O1,1/O2,2/O3,3/O4,4/O5}{
+  \draw[updown] (\i*\dx,\y+\r+0.10) -- (\i*\dx,\y+\r+0.4);
+  \draw[updown] (\i*\dx,\y-\r-0.10) -- (\i*\dx,\y-\r-0.4);
+\node[lab] at (\i*\dx,\y+\r+0.55) {\labtext};
+}
+
+% ---------- Words under circles ----------
+\node[word, text=cDark]   at (0*\dx,\y-\r-0.5) {What};
+\node[word, text=cTeal]   at (1*\dx,\y-\r-0.5) {time};
+\node[word, text=cGold]   at (2*\dx,\y-\r-0.5) {is};
+\node[word, text=cOrange] at (3*\dx,\y-\r-0.5) {it};
+\node[word, text=cRed]    at (4*\dx,\y-\r-0.5) {?};
+
+\end{tikzpicture}
+
 {\footnotesize{Attention}}
 
 \begin{tikzpicture}[
@@ -531,11 +596,14 @@ C (embedding size)};
 \hrule
 \vspace{0.7em}
 
+
+
+
 3 Representations of text
 
 {\scriptsize{Binary Bag-of-Words}}
 \begin{itemize}
-  \item Representation: High-dim vector over vocab; 1 if word appears, else 0. Ignores order/frequency. No semantics
+  \item Representation: High-dim vector over vocab; count of word appearance, else 0. Ignores order/frequency. No semantics
   \item When useful:
     \begin{itemize}
       \item TF-IDF, Simple classification/retrieval (e.g., spam, topic flags).
