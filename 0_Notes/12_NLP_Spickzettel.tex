@@ -449,5 +449,61 @@ C (embedding size)};
 
 \end{tikzpicture}
 
+{\footnotesize{Multi Head Attention}}
+
+\begin{tikzpicture}[
+  node distance=2.5mm and 3.5mm,   % <<< tighter overall
+  >=Latex,
+  font=\tiny,
+  block/.style={
+    rectangle, rounded corners,
+    draw, thick, align=center,
+    inner sep=0.7pt,
+    minimum height=4.5mm,
+    minimum width=2.0cm
+  },
+  wide/.style={
+    block,
+    minimum width=3.0cm
+  },
+  input/.style={block, fill=blue!10, draw=blue!70},
+  mid/.style={block, fill=violet!10, draw=violet!70},
+  head/.style={block, fill=teal!10, draw=teal!70},
+  concat/.style={wide, fill=gray!10, draw=black!60},
+  proj/.style={block, fill=orange!15, draw=orange!80},
+]
+
+% --- Top / output ---
+\node[input] (OUT) {Output\\ $(B,T,C)$};
+
+% --- Final projection + concat ---
+\node[proj, below=of OUT] (WO) {Linear\\ Projection};
+\node[concat, below=of WO] (CAT) {Concatenate\\ Heads};
+
+% --- Heads: explicitly placed close together ---
+\node[head, below=of CAT, xshift=-1.1cm] (H1) {Head 1\\ Scaled Dot\\ Product Attn};
+\node[head, right=2mm of H1] (H2) {Head n\\ Scaled Dot\\ Product Attn};
+
+% --- Split + input ---
+\node[mid, below=of H1, xshift=1.05cm] (SPLIT) {Split into\\ n heads};
+\node[input, below=of SPLIT] (IN) {Input\\ $(B,T,C)$};
+
+% --- Arrows (BT) ---
+\draw[->] (IN) -- (SPLIT);
+
+\draw[->] (SPLIT) -| (H1);
+\draw[->] (SPLIT) -| (H2);
+
+\draw[->] (H1) -- (CAT);
+\draw[->] (H2) -- (CAT);
+
+\draw[->] (CAT) -- (WO);
+\draw[->] (WO) -- (OUT);
+
+\end{tikzpicture}
+
+
+
+
 \end{landscape}
 \end{document}
