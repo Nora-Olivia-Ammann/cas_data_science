@@ -78,6 +78,44 @@
 %\begin{multicols}{3}
 \tiny
 
+{\footnotesize{Analyse Prozess}}
+
+{\scriptsize{1. Exploration \& Vorbereitung}}
+\begin{itemize}
+    \item Zeitreihe Input \(\rightarrow\) Technische Vorbereitung
+    \item Diskrete Zeit und Kontinuierlicher Wert
+    \item Erkennen der grundstruktur, erfüllung technischer Anforderungen, keine lücken, vergleichen mit erwartungen, ergänzung wenn erforderlich
+\end{itemize}
+
+{\scriptsize{2. Modellierung: Zerlegung in}}
+\begin{itemize}
+    \item Trend (Glatte Komponente) (deterministisch)
+    \item Saisonalität (Periodische Komponente) (deterministisch)
+    \item Residuen (Stoachistische Komponente) \(\rightarrow\) Stationaritätstest
+    \item Getan mit libraries und oder vorwissen
+\end{itemize}
+
+{\scriptsize{3. Analyse von Residuent}}
+\begin{itemize}
+    \item Korrelationsanalyse
+    \item Kreuzkorrelation
+    \item (partielle) Autokorrelation
+\end{itemize}
+
+{\scriptsize{4. Stochastische Modellierung}}
+\begin{itemize}
+    \item Trend / Saisonalität \(\rightarrow\) Vorhersage Erwartung
+    \item Trend / Saisonalität \(\rightarrow\) Vorhersage seltene ereignisse
+    \item Korrelationsanalysen \(\rightarrow\) Stochastische Modellierung \(\rightarrow\) Extremwert analyse
+    \item Korrelationen / Stochastische Modellierung \(\rightarrow\) Einsicht (Zusammenhänge)
+\end{itemize}
+
+
+
+
+\vspace{0.4em}
+\hrule
+\vspace{0.7em}
 
 {\footnotesize{Zeitreihen statistisch charakterisieren}}
 
@@ -86,40 +124,42 @@
     \item \textbf{Varianz}
     \item \textbf{Trend}
     \item \textbf{Saisonalität}
-    \item \textbf{Stationarität}
+
     \item \textbf{Korrelationsstruktur}
     \begin{itemize}
         \item \textbf{PACF}
         \item \textbf{ACF}
         \item \textbf{CCF}
     \end{itemize}
-    
 \end{itemize}
 
+{\textbf{Stationarität}}
+Es ändert sich nichts, voraussetzung für stochastische modellierung
+
+{\textbf{Bedingungen}} Jede separat überprüfen (wir erwarten im diagramm eine semi-gerade linie, die keinen trend zeigt
+\begin{enumerate}
+    \item Erwartungswert erhalten -- Ist ein Trend vorhanden?
+    \begin{itemize}
+        \item Augmentierter Dickey-Fuller Test (Hypothesentest H0 Prozess ist nicht stationär)
+    \end{itemize}
+    \item Varianz in Grenzen / unter kontrolle -- Ändert die Variabilität stark?
+    \begin{itemize}
+        \item 
+    \end{itemize}
+    \item Autokovarianz unabhängig von der Zeit -- Gibt es Regimewechsel?
+\end{enumerate}
+
+\begin{itemize}
+    \item Methoden zur erreichung \(\rightarrow\) zerlegung (automatisch / manuell), differenzierung (wenn interpretierbar)
+\end{itemize}
+
+    
 \vspace{0.4em}
 \hrule
 \vspace{0.7em}
 
 
 {\footnotesize{}}
-
-\vspace{0.4em}
-\hrule
-\vspace{0.7em}
-
-
-{\footnotesize{}}
-
-\vspace{0.4em}
-\hrule
-\vspace{0.7em}
-
-
-{\footnotesize{}}
-
-\vspace{0.4em}
-\hrule
-\vspace{0.7em}
 
 
 
