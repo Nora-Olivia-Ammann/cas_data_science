@@ -188,12 +188,49 @@ Erwartungswert, Varianz, Trend, Saisonalität, korrelationsstruktur (ACF, PACF, 
 {\textbf{Kreuzkorrelation (CCF)}}
 \begin{itemize}
     \item Was haben Zeitreihen miteinander zu tun (eg. Regen und Temperatur)
-    \item Granger Causality: One time series may be the cause of another
+    \item One time series may be the cause of another
+    \item + (korrelation) 0 (no correlation) negative (anti-korrelation)
 \end{itemize}
-
-{\textbf{CCF(B, A) -- A auf B korreliert}}
-
+\vspace{-1em}
 \begin{multicols}{2}
+
+\begin{tikzpicture}
+\begin{axis}[
+  width=3.3cm,
+  height=2.4cm,
+  axis lines=middle,
+  xtick=\empty,
+  ytick=\empty,
+  tick label style={font=\tiny},
+  label style={font=\tiny},
+  title style={font=\tiny},
+  clip=false,
+]
+\addplot+[smooth, mark size=1pt] coordinates {
+    (1, 3) (2, 2) (3,2.5) (4,2.3) (5,4) (6,1)
+};
+\addplot+[smooth, green, mark size=1pt] coordinates {
+    (2, 3) (3, 2) (4,2.5) (5,2.3) (6,4)
+};
+\addplot+[smooth, yellow, mark size=1pt] coordinates {
+    (2, 6) (3, 5) (4,5.75) (5,9.2) (6,4)
+};
+\end{axis}
+\end{tikzpicture}
+
+Green is 1 lag behind blue (at lag=1 green has value that blue has at lag=0)
+\end{multicols}
+\vspace{-1em}
+
+Granger Causality: One time series may be the cause of another (blue granger causes green)
+
+\vspace{0.7em}
+{\textbf{CCF(B, A) -- A auf B korreliert}}
+je höher zahl desto stärker korreliert
+
+\vspace{-1em}
+\begin{multicols}{2}
+
     
 {\textit{Normalverteilung}} \\
  A, B korreliert am stärksten instantan \\
@@ -219,12 +256,11 @@ conversion delay = 0
 (0.5,0.882497) (1,0.606531) (1.5,0.324652) (2,0.135335)
 (2.5,0.043937) (3,0.011109) (3.5,0.002187) (4,0.000335)
 };
-
 \end{axis}
 \end{tikzpicture}
 
 {\textit{1 Ausreisser}} \\
-A, B instantan (ohne verzögerrung) bei lag=0 korreliert \\
+A, B instantan (ohne verzögerrung) bei lag=0 anti-korreliert \\
 conversion delay = 0
 
 \begin{tikzpicture}
@@ -363,6 +399,8 @@ A um 6 lags in der vergangenheit korreliert mit B
 
 
 \end{multicols}
+\hrule
+\vspace{0.1em}
 
 \tiny
 
