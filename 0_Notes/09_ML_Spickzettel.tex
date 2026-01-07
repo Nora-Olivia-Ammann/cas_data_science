@@ -31,13 +31,8 @@
 \setlist{noitemsep, topsep=0pt, parsep=0pt, partopsep=0pt}
 
 
-% Only change level 1 itemize bullets
-\setlist[itemize,1]{label=\raisebox{0.5ex}{\scalebox{0.6}{$\bullet$}}}
-%\setlist[itemize,3]{label=\raisebox{0.5ex}{\scalebox{0.6}{$\bullet$}}}
-
-
 % now explicitly override indentation for each level you care about:
-\setlist[itemize,1]{leftmargin=1.2em}
+\setlist[itemize,1]{leftmargin=1.2em,label=\raisebox{0.5ex}{\scalebox{0.6}{$\bullet$}}}
 \setlist[itemize,2]{leftmargin=1.4em}
 \setlist[itemize,3]{leftmargin=0.5em}
 

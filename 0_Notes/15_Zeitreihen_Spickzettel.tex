@@ -59,12 +59,8 @@
 \setlist{noitemsep, topsep=0pt, parsep=0pt, partopsep=0pt}
 
 
-% Only change level 1 itemize bullets
-\setlist[itemize,1]{label=\raisebox{0.5ex}{\scalebox{0.6}{$\bullet$}}}
-%\setlist[itemize,3]{label=\raisebox{0.5ex}{\scalebox{0.6}{$\bullet$}}}
-
 % now explicitly override indentation for each level you care about:
-\setlist[itemize,1]{leftmargin=1.2em}
+\setlist[itemize,1]{leftmargin=1.2em,label=\raisebox{0.5ex}{\scalebox{0.6}{$\bullet$}}}
 \setlist[itemize,2]{leftmargin=1.4em}
 \setlist[itemize,3]{leftmargin=0.5em}
 
@@ -98,92 +94,41 @@
 \begin{multicols}{4}
 \tiny
 
+{\textbf{Statistische Charakter Zeitreihe:}}
+Erwartungswert, Varianz, Trend, Saisonalität, korrelationsstruktur (ACF, PACF, CCF, ARIMA)
+
 {\footnotesize{Analyse Prozess}}
-
-{\scriptsize{1. Exploration \& Vorbereitung}}
-\begin{itemize}
-    \item Zeitreihe Input \(\rightarrow\) Technische Vorbereitung
-    \item Diskrete Zeit und Kontinuierlicher Wert
-    \item Erkennen der grundstruktur, erfüllung technischer Anforderungen, keine lücken, vergleichen mit erwartungen, ergänzung wenn erforderlich
-\end{itemize}
-
-{\scriptsize{2. Modellierung: Zerlegung in}}
-\begin{itemize}
-    \item Trend (Glatte Komponente) (deterministisch)
-    \item Saisonalität (Periodische Komponente) (deterministisch)
-    \item Residuen (Stoachistische Komponente) \(\rightarrow\) Stationaritätstest
-    \item Getan mit libraries und oder vorwissen
-\end{itemize}
-
-{\scriptsize{3. Analyse von Residuent}}
-\begin{itemize}
-    \item Korrelationsanalyse
-    \item Kreuzkorrelation
-    \item (partielle) Autokorrelation
-\end{itemize}
-
-{\scriptsize{4. Stochastische Modellierung}}
-\begin{itemize}
-    \item Trend / Saisonalität \(\rightarrow\) Vorhersage Erwartung
-    \item Trend / Saisonalität \(\rightarrow\) Vorhersage seltene ereignisse
-    \item Korrelationsanalysen \(\rightarrow\) Stochastische Modellierung \(\rightarrow\) Extremwert analyse
-    \item Korrelationen / Stochastische Modellierung \(\rightarrow\) Einsicht (Zusammenhänge)
-\end{itemize}
-
-
+\begin{enumerate}
+    \item 1. Exploration \& Vorbereitung
+    \begin{itemize}
+        \item Zeitreihe Input \(\rightarrow\) Technische Vorbereitung
+        \item Diskrete Zeit und Kontinuierlicher Wert
+        \item Erkennen der grundstruktur, erfüllung technischer Anforderungen, keine lücken, vergleichen mit erwartungen, ergänzung wenn erforderlich
+    \end{itemize}
+    \item Modellierung: Zerlegung (Trend, Saisonalität, Residuen)
+    \item Analyse von Residuen (Korrelation, Kreuzkorrelation / (partielle) autokorrelation)
+    \item Stochastische Modellierung
+    \begin{itemize}
+        \item Trend / Saisonalität \(\rightarrow\) Vorhersage Erwartung
+        \item Trend / Saisonalität \(\rightarrow\) Vorhersage seltene ereignisse
+        \item Korrelationsanalysen \(\rightarrow\) Stochastische Modellierung \(\rightarrow\) Extremwert analyse
+        \item Korrelationen / Stochastische Modellierung \(\rightarrow\) Einsicht (Zusammenhänge)
+    \end{itemize}
+\end{enumerate}
 
 
 \vspace{0.4em}
 \hrule
 \vspace{0.7em}
 
-{\footnotesize{Zeitreihen statistisch charakterisieren}}
+
+{\scriptsize{2. Modellierung: Zerlegung}}
 
 \begin{itemize}
-    \item \textbf{Erwartungswert}
-    \item \textbf{Varianz}
-    \item \textbf{Trend}
-    \begin{itemize}
-        \item a long-term increasing or decreasing tendency
-    \end{itemize}
-    \item \textbf{Saisonalität}
-    \begin{itemize}
-        \item a short-term repeating pattern at fixed periods, e.g., weekly, monthly, or annually.
-    \end{itemize}
-    \item \textbf{Korrelationsstruktur}
-    \begin{itemize}
-        \item \textbf{ACF}
-        \item \textbf{PACF}
-        \item \textbf{CCF}
-        \item \textbf{ARIMA}
-        
-    \end{itemize}
-\end{itemize}
-
-{\textbf{Stationarität}}
-
-\begin{itemize}
-    \item Es ändert sich nichts, voraussetzung für stochastische modellierung
-    \item the concept that how a time series is changing will remain the same in the future 
-    \item if statistical properties (mean, variance, and covariance) are independent of time
-\end{itemize}
-
-
-{\textbf{Bedingungen}} Jede separat überprüfen (wir erwarten im diagramm eine semi-gerade linie, die keinen trend zeigt
-\begin{enumerate}
-    \item Erwartungswert erhalten -- Ist ein Trend vorhanden?
-    \begin{itemize}
-        \item Augmentierter Dickey-Fuller Test (Hypothesentest H0 Prozess ist nicht stationär)
-    \end{itemize}
-    \item Varianz in Grenzen / unter kontrolle -- Ändert die Variabilität stark?
-    \begin{itemize}
-        \item 
-    \end{itemize}
-    \item Autokovarianz unabhängig von der Zeit -- Gibt es Regimewechsel?
-\end{enumerate}
-
-\begin{itemize}
-    \item Methoden zur erreichung \(\rightarrow\) zerlegung (automatisch / manuell), differenzierung (wenn interpretierbar)
+    \item Trend (Glatte Komponente) (deterministisch): a long-term increasing or decreasing tendency
+    \item Saisonalität (Periodische Komponente) (deterministisch): short-term repeating pattern at fixed periods, e.g., weekly, monthly
+    \item Residuen (Stoachistische Komponente) \(\rightarrow\) Stationaritätstest
+    \item Getan mit libraries und oder vorwissen
 \end{itemize}
 
 {\textbf{Zerlegung Zeitreihe \(x_n\)}}
@@ -191,10 +136,67 @@
     \item 3 komponenten Trend \(t_n\) , Saisonalität \(s_n\), error (residuen) \(\epsilon_n\)
     \item Additive decomposition \(x_n = t_n + s_n + \epsilon_n\) (multiplicative ersetzen mit multiplikation)
 \end{itemize}
-    
+
+{\textbf{Differenzierung}} ???
+
+{\textbf{Stationarität}}
+\begin{itemize}
+    \item Ist: Mean and standard deviation (varianz) are constant, no seasonality ?
+    \item Es ändert sich nichts, voraussetzung für stochastische modellierung
+    \item the concept that how a time series is changing will remain the same in the future 
+    \item All white noise time series are stationary (similar conditions)
+    \item Augmented-Dickey Fuller Test for this
+\end{itemize}
+
+
 \vspace{0.4em}
 \hrule
 \vspace{0.7em}
+
+
+{\scriptsize{3. Analyse}}
+
+
+{\textbf{ACF}}
+\begin{itemize}
+    \item 
+\end{itemize}
+
+{\textbf{PACF}}
+\begin{itemize}
+    \item 
+\end{itemize}
+
+\vspace{0.4em}
+\hrule
+\vspace{0.7em}
+
+
+{\scriptsize{4. Stochastische Modellierung}}
+
+
+{\textbf{AR-Modell}}
+\begin{itemize}
+    \item 
+\end{itemize}
+
+{\textbf{MA-Modell}}
+\begin{itemize}
+    \item 
+\end{itemize}
+
+
+{\textbf{ARIMA}}
+\begin{itemize}
+    \item 
+\end{itemize}
+
+
+\vspace{0.4em}
+\hrule
+\vspace{0.7em}
+
+    
 
 
 \begin{itemize}
@@ -224,7 +226,7 @@
 {\footnotesize{Autokorrelation}}
 
 \begin{itemize}
-    \item [1] Periodisch, [2] white noise, [3] unklar ob absteigender trend, [4] kurzlebige zusammenhänge ist nicht noise
+    \item (1) Periodisch, [2] white noise, [3] unklar ob absteigender trend, [4] kurzlebige zusammenhänge ist nicht noise
     \item[a] steigend \(\rightarrow\) 3
     \item[b] periodisch glatt schankend \(\rightarrow\) 1
     \item[c] sinkend \(\rightarrow\) 3
