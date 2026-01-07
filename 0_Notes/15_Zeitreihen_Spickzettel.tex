@@ -273,7 +273,7 @@ conversion delay = 0
   title style={font=\tiny},
   clip=false,
 ]
-\addplot+[smooth] coordinates {
+\addplot+[smooth, mark size=1pt] coordinates {
 (-4,0.000335) (-3.5,0.002187) (-3,0.011109) (-2.5,0.043937)
 (-2,0.135335) (-1.5,0.324652) (-1,0.606531) (-0.5,0.882497)
 (0,1.000000)
@@ -300,7 +300,7 @@ conversion delay = 0
   title style={font=\tiny},
   clip=false,
 ]
-\addplot+[ycomb] coordinates {
+\addplot+[ycomb, mark size=1pt] coordinates {
  (-5, 0.05) (-4,-0.04) (-3, -0.01) (-2,-0.07) (-1, 0.03) (0,-0.7)
  (1, 0.06) (2,-0.04) (3, 0.02) (4,-0.04) (5, 0.0) (6,-0.01)
 };
@@ -324,7 +324,7 @@ A, B keinen Zusammenhang
   title style={font=\tiny},
   clip=false,
 ]
-\addplot+[ycomb] coordinates {
+\addplot+[ycomb, mark size=1pt] coordinates {
  (-5, 0.05) (-4,-0.04) (-3, -0.01) (-2,-0.07) (-1, 0.03) (0,-0.01)
  (1, 0.06) (2,-0.04) (3, 0.02) (4,-0.04) (5, 0.0) (6,-0.01)
 };
@@ -350,7 +350,7 @@ conversion delay = 6
   title style={font=\tiny},
   clip=false,
 ]
-\addplot+[ycomb] coordinates {
+\addplot+[ycomb, mark size=1pt] coordinates {
  (-3,0.01) (-2,0.05) (-1,-0.10) (0,-0.05)
  (1,0.15) (2,0.05) (3,-0.10) (4,-0.22)
  (5,-0.28) (6,-0.18) (7,0.00) (8,0.22)
@@ -376,6 +376,10 @@ A um 6 lags in der vergangenheit korreliert mit B
 
 {\scriptsize{4. Stochastische Modellierung}}
 
+\begin{itemize}
+    \item kleines fenster in die Zukunft
+    \item residuen sollten normalverteilt sein mit dem Erwartungswert 0
+\end{itemize}
 
 {\textbf{Autoregressive (AR) Modell}}
 \begin{itemize}
@@ -385,13 +389,39 @@ A um 6 lags in der vergangenheit korreliert mit B
     \item erinnert sich an den wert selbst
     \item We only want to include lags that have a direct effect, meaning anything that has a PACF that is statistically different from 0 (outside of the bands)
     \item \(x_t = \beta_0 + \beta_1 x_{t-1} + \beta_3 x_{t-3} + ...\) (betas learned coefficient, + intercept). Sum of all the betas * PACF of those lags
+    \item The ACF helps determine how many past time steps (lags) should be included in the model. Typically you will look at the ACF plot along with a Partial Autocorrelation Function (PACF) plot to choose a suitable lag order.
+    \item AR models can't capture long-term dependencies well.
+    \item Sensitive to Noise: Random fluctuations can lead to inaccurate forecasts.
 \end{itemize}
 
 {\textbf{Moving Average (MA) Modell}}
 \begin{itemize}
-    \item 
+    \item How wrong was I in the previous time period (error), this I am using to adjust the value in the current time period
+    \item \(x_t = \mu + bias \cdot \epsilon_{t-1}\) (now value = average + bias (chosen parameter) * error from last time)
+    \item I take my average number and take bias (chosen) eg. 50\% of my last error and that is the current value
+    \item \(x_t\) blue, average = green
 \end{itemize}
 
+
+\begin{tikzpicture}
+\begin{axis}[
+  width=3.3cm,
+  height=2.4cm,
+  axis lines=middle,
+  ymin=5,
+  xtick=\empty,
+  ytick=\empty,
+  tick label style={font=\tiny},
+  label style={font=\tiny},
+  title style={font=\tiny},
+  clip=false,
+]
+\addplot+[smooth, blue, mark size=1pt] coordinates {
+    (1, 8) (2, 10) (3, 10.5) (4,10) (5,12) (6,12)
+};
+\addplot[green] coordinates {(1,10) (6,10)};
+\end{axis}
+\end{tikzpicture}
 
 {\textbf{ARIMA}}
 \begin{itemize}
