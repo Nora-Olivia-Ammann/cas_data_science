@@ -135,10 +135,11 @@ Erwartungswert, Varianz, Trend, Saisonalität, korrelationsstruktur (ACF, PACF, 
     \item[1] Trend der unterschiede: kompromiss zwischen glattheit und info
     \item[2] Saisonal: rausnehmen, das überbleibsel ist sehr regelmässig
     \item[3] Residuen: Zeitreihe - Modell, sollten Normalverteilt sein, nicht über die Zeit korrelieren
-
     \item 3 komponenten Trend \(t_n\) , Saisonalität \(s_n\), error (residuen) \(\epsilon_n\)
     \item Additive decomposition \(x_n = t_n + s_n + \epsilon_n\) (multiplicative ersetzen mit multiplikation)
-    \item LOESS Dekomposition: kontrolle über rolling window und period
+    \item Klassische Dekomposition: Moving Average
+    \item LOESS Dekomposition: kontrolle über rolling window und period (moderner) (weight points in moving window that are closer stronger)
+    \item Vorteile: Erklärungskraft der bekannten Vorgänge, stationäre residuen
 \end{itemize}
 
 {\textbf{Differenzierung}} ???
@@ -146,14 +147,17 @@ Erwartungswert, Varianz, Trend, Saisonalität, korrelationsstruktur (ACF, PACF, 
 {\textbf{Stationarität}}
 \begin{itemize}
     \item the concept that how a time series is changing will remain the same in the future 
-    \item[1] Durchschnitt (konstant): ich habe alle änderungen im trend drinn, an den residuen ändert sich nichts mehr. Wenn jetzt der Durchschnitt ändert, dann folgt jetzt einer anderen regel wie in der vergangenheit
-    \item[2] Varianz (konstant): streuung muss konstant sein. Co-Varianz: zeitreihe zeitpunk T, verschiebung 4 lags, neuer Zeitpunkt verlgiech mit neuen lags. Wenn der zusammenhang besteht ist die varianz gleich
-    \item[3] Saisonalität (keine): Ähnliche verteilung über der Zeit
+    \item[1] Durchschnitt (konstant): ich habe alle änderungen im trend drinn, an den residuen ändert sich nichts mehr. Wenn jetzt der Durchschnitt ändert, dann folgt jetzt einer anderen regel wie in der vergangenheit \\ Ist ein Trend vorhanden?
+    \item[2] Varianz (konstant): streuung muss konstant sein. Co-Varianz: zeitreihe zeitpunk T, verschiebung 4 lags, neuer Zeitpunkt verlgiech mit neuen lags. Wenn der zusammenhang besteht ist die varianz gleich \\ Ändert die Variabilität startk?
+    \item[3] Saisonalität (keine): Ähnliche verteilung über der Zeit \\ Gibt es Regimewechsel?
     \item Es ändert sich nichts, voraussetzung für stochastische modellierung
     \item All white noise time series are stationary (similar conditions)
-    \item Augmented-Dickey Fuller Test
+    \item (Augmented)-Dickey Fuller Test
     \begin{itemize}
-        \item 
+        \item Is a type of test "Unit Root" is a characteristics that means that a time series is not stationary
+        \item \(H_0\): \(lag_1 = 1\) that is the root of the augoregressiva lag (coefficient between lag 1) (non-stationary)
+        \item \(H_1\): \(lag_1 < 1\) no unit root, it is stationary
+        
     \end{itemize}
 \end{itemize}
 
