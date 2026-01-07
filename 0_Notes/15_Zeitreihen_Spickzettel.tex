@@ -190,7 +190,16 @@ Erwartungswert, Varianz, Trend, Saisonalität, korrelationsstruktur (ACF, PACF, 
     \item Was haben Zeitreihen miteinander zu tun (eg. Regen und Temperatur)
     \item One time series may be the cause of another
     \item + (korrelation) 0 (no correlation) negative (anti-korrelation)
+    \item Primär variabel (blau) bleibt, sekundär variabel (green) wird um lags verschoben
+    \item Green is 1 lag behind blue (at lag=1 green has value that blue has at lag=0)
+    \item What leads?
+    \begin{itemize}
+        \item If lag + \(\rightarrow\) secondary (green) changes first
+        \item If lag -- \(\rightarrow\) primary (blue) changes first
+    \end{itemize}
+    \item 
 \end{itemize}
+
 \vspace{-1em}
 \begin{multicols}{2}
 
@@ -236,10 +245,6 @@ Erwartungswert, Varianz, Trend, Saisonalität, korrelationsstruktur (ACF, PACF, 
 
 \end{multicols}
 \vspace{-1em}
-
-Green is 1 lag behind blue (at lag=1 green has value that blue has at lag=0)
-Yellow (y is lag)
-Kept blue static. Moved green in lags. Once - lag (expect strongest) and once + lag (weak correlation)
 
 Granger Causality: One time series may be the cause of another (blue granger causes green)
 
@@ -375,10 +380,14 @@ A um 6 lags in der vergangenheit korreliert mit B
 {\textbf{Autoregressive (AR) Modell}}
 \begin{itemize}
     \item regression type: predict something based on the past values of that something
-    \item 
+    \item AR-1 bezieht sich auf sich selbst um einen lag in die vergangenheit
+    \item wir haben rauschen (zufall) und etwas gedächnis (wenn es gestern geregnet hat wird die heutige regenmenge davon beeinflusst)
+    \item erinnert sich an den wert selbst
+    \item We only want to include lags that have a direct effect, meaning anything that has a PACF that is statistically different from 0 (outside of the bands)
+    \item \(x_t = \beta_0 + \beta_1 x_{t-1} + \beta_3 x_{t-3} + ...\) (betas learned coefficient, + intercept). Sum of all the betas * PACF of those lags
 \end{itemize}
 
-{\textbf{MA-Modell}}
+{\textbf{Moving Average (MA) Modell}}
 \begin{itemize}
     \item 
 \end{itemize}
