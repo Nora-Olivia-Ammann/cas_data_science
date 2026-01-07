@@ -58,7 +58,6 @@
 % global list spacing (affects all levels)
 \setlist{noitemsep, topsep=0pt, parsep=0pt, partopsep=0pt}
 
-
 % now explicitly override indentation for each level you care about:
 \setlist[itemize,1]{leftmargin=1.2em,label=\raisebox{0.5ex}{\scalebox{0.6}{$\bullet$}}}
 \setlist[itemize,2]{leftmargin=1.4em}
@@ -132,20 +131,30 @@ Erwartungswert, Varianz, Trend, Saisonalität, korrelationsstruktur (ACF, PACF, 
 \end{itemize}
 
 {\textbf{Zerlegung Zeitreihe \(x_n\)}}
-\begin{itemize}
+\begin{itemize}    
+    \item[1] Trend der unterschiede: kompromiss zwischen glattheit und info
+    \item[2] Saisonal: rausnehmen, das überbleibsel ist sehr regelmässig
+    \item[3] Residuen: Zeitreihe - Modell, sollten Normalverteilt sein, nicht über die Zeit korrelieren
+
     \item 3 komponenten Trend \(t_n\) , Saisonalität \(s_n\), error (residuen) \(\epsilon_n\)
     \item Additive decomposition \(x_n = t_n + s_n + \epsilon_n\) (multiplicative ersetzen mit multiplikation)
+    \item LOESS Dekomposition: kontrolle über rolling window und period
 \end{itemize}
 
 {\textbf{Differenzierung}} ???
 
 {\textbf{Stationarität}}
 \begin{itemize}
-    \item Ist: Mean and standard deviation (varianz) are constant, no seasonality ?
-    \item Es ändert sich nichts, voraussetzung für stochastische modellierung
     \item the concept that how a time series is changing will remain the same in the future 
+    \item[1] Durchschnitt (konstant): ich habe alle änderungen im trend drinn, an den residuen ändert sich nichts mehr. Wenn jetzt der Durchschnitt ändert, dann folgt jetzt einer anderen regel wie in der vergangenheit
+    \item[2] Varianz (konstant): streuung muss konstant sein. Co-Varianz: zeitreihe zeitpunk T, verschiebung 4 lags, neuer Zeitpunkt verlgiech mit neuen lags. Wenn der zusammenhang besteht ist die varianz gleich
+    \item[3] Saisonalität (keine): Ähnliche verteilung über der Zeit
+    \item Es ändert sich nichts, voraussetzung für stochastische modellierung
     \item All white noise time series are stationary (similar conditions)
-    \item Augmented-Dickey Fuller Test for this
+    \item Augmented-Dickey Fuller Test
+    \begin{itemize}
+        \item 
+    \end{itemize}
 \end{itemize}
 
 
