@@ -207,20 +207,39 @@ Erwartungswert, Varianz, Trend, Saisonalität, korrelationsstruktur (ACF, PACF, 
   clip=false,
 ]
 \addplot+[smooth, mark size=1pt] coordinates {
-    (1, 3) (2, 2) (3,2.5) (4,2.3) (5,4) (6,1)
+    (1, 3) (2, 2) (3,2.5) (4,4) (5,1)
 };
 \addplot+[smooth, green, mark size=1pt] coordinates {
-    (2, 3) (3, 2) (4,2.5) (5,2.3) (6,4)
-};
-\addplot+[smooth, yellow, mark size=1pt] coordinates {
-    (2, 6) (3, 5) (4,5.75) (5,9.2) (6,4)
+    (2, 3) (3, 2) (4,2.5) (5,4)
 };
 \end{axis}
 \end{tikzpicture}
 
-Green is 1 lag behind blue (at lag=1 green has value that blue has at lag=0)
+\begin{tikzpicture}
+\begin{axis}[
+  width=3.3cm,
+  height=2.4cm,
+  axis lines=middle,
+  ymin=0,
+  xtick={-1, 0, 1},
+  ytick=\empty,
+  tick label style={font=\tiny},
+  label style={font=\tiny},
+  title style={font=\tiny},
+  clip=false,
+]
+\addplot+[smooth, yellow, mark size=1pt] coordinates {
+    (-1,35.25) (0,25) (1,21)
+};
+\end{axis}
+\end{tikzpicture}
+
 \end{multicols}
 \vspace{-1em}
+
+Green is 1 lag behind blue (at lag=1 green has value that blue has at lag=0)
+Yellow (y is lag)
+Kept blue static. Moved green in lags. Once - lag (expect strongest) and once + lag (weak correlation)
 
 Granger Causality: One time series may be the cause of another (blue granger causes green)
 
