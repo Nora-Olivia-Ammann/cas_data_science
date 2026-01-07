@@ -151,13 +151,33 @@
         \end{itemize}
     \end{itemize}
     \end{itemize}
-    \item {\textbf{Entwicklung, Validierung, Betrieb}}
+    \item DevOps nicht gleich MLOps weil modelle aus daten bestehen nicht code und devops ist kompliziert
+    \item {\textbf{DevOps: Bereitstellung von Code}}
     \begin{itemize}
-        \item 
+        \item Statisch: Daten + Code ändern sich langsam und werden durch Anforderungen gesteuert
+        \item Produktion-Silo: Daten sind hauptsächlich für die Produktion relevant
+        \item Minimale Ressourcen: Produktionsressourcen \(>\) Dev-Ressourcen
+        \item "Keep-alive" Ops: Überwachung aus System ebene nicht Inhalte
+        \item Gut: Code + Modell versioniert und als release verpackt
+        \item Schlecht: Schwergewichtig mit Fullstack, online Lernen mit mehrfachversionen nicht einfach
     \end{itemize}
-    \item {\textbf{MLOps v.s. DevOps}}
+    \item {\textbf{MLOps: Bereitstellung von Daten + Modellen + Code}}
     \begin{itemize}
-        \item 
+        \item Dynamisch: Daten erzeugen Funktion, unerwartet und plötzlich
+        \item Produktions-Parität: Daten sind Schlüssel in Entwicklung + Produktion
+        \item Maximale Ressourcen: Trainingsressourcen \(>\) Live-System
+        \item Value Ops: Überwachung auf Daten-, Modell- und Systemebene
+        \item ML-Systeme werden anhand von Geschäftszielen entwickelt und in drei Phasen iterativ operationalisiert: Development \(\rightarrow\) Delivery \(\rightarrow\) Operations \(\rightarrow\) beginning
+        \item MLOps umfasst einen prozess und eine Ingrastruktur um Entwicklung, Lieferung / Installation und den Betrieb ink. Qualitätssicherung (teil-)automatisieren
+        \item MLOps Focus 1:  Operationalize \& Run: Get to production \& run efficiently
+        \item MLOps Focus 2:  Keep it running + Quality assurance: ensure results stay valid and improve
+        \item MLOps als Prozess
+        \begin{itemize}
+        \item Gewünschte Eigenschaften: Zielgerichtet, messbare Ergebnisse, Wiederholbar, Versioniert
+        \item Um dies zu erreichen: Definierte Schritte, Automatisierte Prozesse 8Code), Resultate sind gespeichert, Einheitliche Infrastruktur
+        \item Gut: Modelle als Daten, sofortige bereitstellung und mehrere Versionen, standardisiertes Engineering
+        \item Schlecht: Innovativ muss erklärt werden
+        \end{itemize}
     \end{itemize}
 \end{itemize}
 
@@ -165,6 +185,44 @@
 \vspace{0.4em}
 \hrule
 \vspace{0.7em}
+{\footnotesize{Entwicklung / Betrieb}}
+
+\begin{itemize}
+    \item {\textbf{ML-Entwicklulng}}
+    \begin{itemize}
+        \item Wenige personen
+        \item direkter sporadischer Zugriff auf datenquelle
+        \item Ad-hoc Code, Modelle, Ergebnisse
+        \item Keine / wenig Nachverfolgung
+        \item Test Validierung nach Bedarf
+        \item Schwer Reproduzierbar
+    \end{itemize}
+    \item {\textbf{ML-Betrieb}}
+    \begin{itemize}
+        \item Automatisierte Luafzeit
+        \item permanenter Datenzugriff und Rechenleistung
+        \item Getestete Sofware
+        \item Versionierte Skripts, Modelle, Ergebnisse
+        \item Live-Überwachung
+        \item Reproduzierbar, wartbar
+    \end{itemize}
+    \item Schritte zur Produktion: Entwicklungsumbebung (lokal) \(\rightarrow\) Gespeichertes ML-Modell als datei \(\rightarrow\) Modell Server meist mit REST API
+    \item Model Server:
+    \begin{itemize}
+        \item Modell wird bei start geladen
+        \item Client sendet anfrage
+        \item REST API nimmt entgegen
+        \item Features aus Daten extrahiert und für Modell aufbereitet
+        \item Modell predict
+        \item resultat zu client
+    \end{itemize}
+    \item {\textbf{Model Serving Patterns}}
+    \begin{itemize}
+        \item Wann wird das Modell trainiert (offline / online)
+        \item Wann wird die Prognose erstellt (on-demand / batch)
+    \end{itemize}
+\end{itemize}
+
 
 %\end{multicols}
 \end{landscape}
