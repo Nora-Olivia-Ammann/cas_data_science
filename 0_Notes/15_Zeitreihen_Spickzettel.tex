@@ -170,6 +170,8 @@ Erwartungswert, Varianz, Trend, Saisonalität, korrelationsstruktur (ACF, PACF, 
 
 {\scriptsize{3. Analyse}}
 
+Gestrichtelte Linie ist signifikanzniveau, nützlich zum vergleich
+
 
 {\textbf{Autocorrelation Function (ACF)}}
 \begin{itemize}
@@ -351,11 +353,10 @@ conversion delay = 6
   clip=false,
 ]
 \addplot+[ycomb, mark size=1pt] coordinates {
- (-3,0.01) (-2,0.05) (-1,-0.10) (0,-0.05)
- (1,0.15) (2,0.05) (3,-0.10) (4,-0.22)
- (5,-0.28) (6,-0.18) (7,0.00) (8,0.22)
- (9,0.42) (10,0.60) (11,0.72) (12,0.80)
- (13,0.72) (14,0.60) (15,0.42) (16,0.22)
+ (-5,0.01) (-4,0.05) (-3,-0.10) (-2,-0.05)
+ (-1,0.15) (0,0.05) (1,-0.10) (2,0.00) (3,0.22)
+ (4,0.42) (5,0.60) (6,0.80)
+ (7,0.72) (8,0.60) (9,0.42)
 };
 
 
@@ -389,7 +390,7 @@ A um 6 lags in der vergangenheit korreliert mit B
     \item erinnert sich an den wert selbst
     \item We only want to include lags that have a direct effect, meaning anything that has a PACF that is statistically different from 0 (outside of the bands)
     \item \(x_t = \beta_0 + \beta_1 x_{t-1} + \beta_3 x_{t-3} + ...\) (betas learned coefficient, + intercept). Sum of all the betas * PACF of those lags
-    \item The ACF helps determine how many past time steps (lags) should be included in the model. Typically you will look at the ACF plot along with a Partial Autocorrelation Function (PACF) plot to choose a suitable lag order.
+    \item Look at PACF plot to choose a suitable lag
     \item AR models can't capture long-term dependencies well.
     \item Sensitive to Noise: Random fluctuations can lead to inaccurate forecasts.
 \end{itemize}
@@ -400,6 +401,11 @@ A um 6 lags in der vergangenheit korreliert mit B
     \item \(x_t = \mu + bias \cdot \epsilon_{t-1}\) (now value = average + bias (chosen parameter) * error from last time)
     \item I take my average number and take bias (chosen) eg. 50\% of my last error and that is the current value
     \item \(x_t\) blue, average = green
+    \item How to choose the right MA
+    \begin{itemize}
+        \item Look at ACF plot to choose a suitable lag
+        \item 
+    \end{itemize}
 \end{itemize}
 
 
@@ -423,7 +429,7 @@ A um 6 lags in der vergangenheit korreliert mit B
 \end{axis}
 \end{tikzpicture}
 
-{\textbf{ARIMA}}
+{\textbf{Auto Regressive Moving Average (ARIMA)}}
 \begin{itemize}
     \item 
 \end{itemize}
@@ -467,7 +473,7 @@ A um 6 lags in der vergangenheit korreliert mit B
 \begin{itemize}
     \item (1) Periodisch, [2] white noise, [3] unklar ob absteigender trend, [4] kurzlebige zusammenhänge ist nicht noise
     \item[a] steigend \(\rightarrow\) 3
-    \item[b] periodisch glatt schankend \(\rightarrow\) 1
+    \item[b] periodisch glatt schawnkend \(\rightarrow\) 1
     \item[c] sinkend \(\rightarrow\) 3
     \item[d] chaotisch \(\rightarrow\) 2 keine korrelation \& 4 gibt es noch zusammenhänge?
 \end{itemize}
