@@ -58,14 +58,20 @@
 % global list spacing (affects all levels)
 \setlist{noitemsep, topsep=0pt, parsep=0pt, partopsep=0pt}
 
-% now explicitly override indentation for each level you care about:
-\setlist[itemize,1]{leftmargin=1.8em}
-\setlist[itemize,2]{leftmargin=1.4em}
-\setlist[itemize,3]{leftmargin=0.5em}
 
 % Only change level 1 itemize bullets
 \setlist[itemize,1]{label=\raisebox{0.5ex}{\scalebox{0.6}{$\bullet$}}}
 %\setlist[itemize,3]{label=\raisebox{0.5ex}{\scalebox{0.6}{$\bullet$}}}
+
+% now explicitly override indentation for each level you care about:
+\setlist[itemize,1]{leftmargin=1.2em}
+\setlist[itemize,2]{leftmargin=1.4em}
+\setlist[itemize,3]{leftmargin=0.5em}
+
+
+\setlist[enumerate,1]{leftmargin=1.2em}
+\setlist[enumerate,2]{leftmargin=1.4em}
+\setlist[enumerate,3]{leftmargin=0.5em}
 
 \setlength{\columnseprule}{0.1pt}
 % ------------------------------------------------------
@@ -89,7 +95,7 @@
 
 \begin{document}
   \begin{landscape}
-%\begin{multicols}{3}
+\begin{multicols}{3}
 \tiny
 
 {\footnotesize{Analyse Prozess}}
@@ -180,13 +186,26 @@
     \item Methoden zur erreichung \(\rightarrow\) zerlegung (automatisch / manuell), differenzierung (wenn interpretierbar)
 \end{itemize}
 
+{\textbf{Zerlegung Zeitreihe \(x_n\)}}
+\begin{itemize}
+    \item 3 komponenten Trend \(t_n\) , Saisonalität \(s_n\), error (residuen) \(\epsilon_n\)
+    \item Additive decomposition \(x_n = t_n + s_n + \epsilon_n\) (multiplicative ersetzen mit multiplikation)
+\end{itemize}
     
 \vspace{0.4em}
 \hrule
 \vspace{0.7em}
 
 
-{\footnotesize{}}
+{\footnotesize{Autokorrelation}}
+
+\begin{itemize}
+    \item [1] Periodisch, [2] white noise, [3] unklar ob absteigender trend, [4] kurzlebige zusammenhänge ist nicht noise
+    \item[a] steigend \(\rightarrow\) 3
+    \item[b] periodisch glatt schankend \(\rightarrow\) 1
+    \item[c] sinkend \(\rightarrow\) 3
+    \item[d] chaotisch \(\rightarrow\) 2 keine korrelation \& 4 gibt es noch zusammenhänge?
+\end{itemize}
 
 
 \begin{tikzpicture}
@@ -225,8 +244,8 @@
 \nextgroupplot[title={\tiny(2)}, xlabel={\tiny{lag}}, ylabel={\tiny{ACF}}]
 \addplot+[acfstyle] coordinates {
  (0,1)
- (1, 0.03) (2,-0.02) (3, 0.01) (4,-0.04) (5, 0.02) (6,-0.01)
- (7, 0.04) (8,-0.03) (9, 0.01) (10,-0.02) (11, 0.02) (12,-0.01)
+ (1, 0.05) (2,-0.04) (3, -0.01) (4,-0.07) (5, 0.03) (6,-0.06)
+ (7, 0.06) (8,-0.04) (9, 0.02) (10,-0.04) (11, 0.0) (12,-0.01)
 };
 
 % (3) positive decaying ACF
@@ -296,16 +315,39 @@
   ytick=\empty
 ]
 \addplot+[smooth, mark=none, line width=0.35pt] coordinates {
- (0,0.65) (1,0.70) (2,0.62) (3,0.68) (4,0.60) (5,0.66)
- (6,0.61) (7,0.64) (8,0.58) (9,0.62) (10,0.59) (11,0.60) (12,0.57)
+ (0,0.75) (1,0.40) (2,0.92) (3,0.48) (4,0.70) (5,0.2)
+ (6,0.81) (7,0.34) (8,0.58) (9,0.82) (10,0.29) (11,0.80) (12,0.17)
 };
 
 \end{groupplot}
 \end{tikzpicture}
 
-{\normalsize{TODO: make explanation and change}}
+\vspace{0.4em}
+\hrule
+\vspace{0.7em}
+
+\begin{itemize}
+    \item {\textbf{Regelmässige Abtastung}} einteilung kontinuierliche Daten in Punkte (diskrete Zeit)
+    \item {\textbf{Lag}} Zeitspanne vom einen zeitpunkt zum nächsten
+    \item {\textbf{Extrapolation}} neue Daten ausserhalb der Zeitreihe, darf nicht machen, weil würde Modell auf sich selbst anwenden
+    \item {\textbf{Interpolation / Imputation}} füllen Lücken innerhalb der Daten. Lineare Interpolation: Mit dem mittelwert zwischen zwei Zeitpunkten ergänzen. Forward / Backward Fill: jetztiger Zeitpunkt und fülle alle damit bis zum nächsten (ist schlechter). Kallman-Filter: guter filter für lange lückenmit viel struktur
+    \item {\textbf{LOESS}} Seasonal Trend Decompose (STL), Multi- STL (MSTL)
+    \item {\textbf{Parsimonous Model}} model kommt mit weniger parameter (bevorzugen) gleich gut wie mit mehr
+    \item {\textbf{Kovarianten}} Die x externe faktoren
+    \item {\textbf{Scheinkorrelation}} sieht korreliert aus hat aber nichts damit zu tun
+    \item {\textbf{Granger kausalität}} Leading indicator, zeigt in die zukunft für die trailing variabel
+    \item {\textbf{}}
+    \item {\textbf{}}
+    \item {\textbf{}}
+\end{itemize}
+
+\vspace{0.4em}
+\hrule
+\vspace{0.7em}
 
 
-%\end{multicols}
+
+
+\end{multicols}
 \end{landscape}
 \end{document}
