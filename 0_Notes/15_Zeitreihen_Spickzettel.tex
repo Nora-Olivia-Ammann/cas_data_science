@@ -39,6 +39,8 @@
     mark options={solid, fill=white}
   }
 }
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
 
 
 \AtBeginEnvironment{tabular}{\tiny}
@@ -183,6 +185,130 @@ Erwartungswert, Varianz, Trend, Saisonalität, korrelationsstruktur (ACF, PACF, 
     \item tells us if there is a direct effect from \(S_t\) to \(S_{t-2}\)
 \end{itemize}
 
+{\textbf{Kreuzkorrelation (CCF)}}
+\begin{itemize}
+    \item Was haben Zeitreihen miteinander zu tun (eg. Regen und Temperatur)
+    \item Granger Causality: One time series may be the cause of another
+\end{itemize}
+
+{\textbf{CCF(B, A) -- A auf B korreliert}}
+
+\begin{multicols}{2}
+    
+{\textit{Normalverteilung}} \\
+ A, B korreliert am stärksten instantan \\
+conversion delay = 0
+
+\begin{tikzpicture}
+\begin{axis}[
+  width=3.3cm,
+  height=2.4cm,
+  axis lines=middle,
+  ymin=-0.5, ymax=1.2,
+  xtick=\empty,
+  ytick=\empty,
+  tick label style={font=\tiny},
+  label style={font=\tiny},
+  title style={font=\tiny},
+  clip=false,
+]
+\addplot+[smooth] coordinates {
+(-4,0.000335) (-3.5,0.002187) (-3,0.011109) (-2.5,0.043937)
+(-2,0.135335) (-1.5,0.324652) (-1,0.606531) (-0.5,0.882497)
+(0,1.000000)
+(0.5,0.882497) (1,0.606531) (1.5,0.324652) (2,0.135335)
+(2.5,0.043937) (3,0.011109) (3.5,0.002187) (4,0.000335)
+};
+
+\end{axis}
+\end{tikzpicture}
+
+{\textit{1 Ausreisser}} \\
+A, B instantan (ohne verzögerrung) bei lag=0 korreliert \\
+conversion delay = 0
+
+\begin{tikzpicture}
+\begin{axis}[
+  width=3.3cm,
+  height=2.4cm,
+  axis lines=middle,
+  ymin=-0.5, ymax=1.2,
+  xtick=\empty,
+  ytick=\empty,
+  tick label style={font=\tiny},
+  label style={font=\tiny},
+  title style={font=\tiny},
+  clip=false,
+]
+\addplot+[ycomb] coordinates {
+ (-5, 0.05) (-4,-0.04) (-3, -0.01) (-2,-0.07) (-1, 0.03) (0,-0.7)
+ (1, 0.06) (2,-0.04) (3, 0.02) (4,-0.04) (5, 0.0) (6,-0.01)
+};
+\end{axis}
+\end{tikzpicture}
+
+
+{\textit{Noise}}: \\
+A, B keinen Zusammenhang
+
+\begin{tikzpicture}
+\begin{axis}[
+  width=3.3cm,
+  height=2.4cm,
+  axis lines=middle,
+  ymin=-0.5, ymax=1.2,
+  xtick=\empty,
+  ytick=\empty,
+  tick label style={font=\tiny},
+  label style={font=\tiny},
+  title style={font=\tiny},
+  clip=false,
+]
+\addplot+[ycomb] coordinates {
+ (-5, 0.05) (-4,-0.04) (-3, -0.01) (-2,-0.07) (-1, 0.03) (0,-0.01)
+ (1, 0.06) (2,-0.04) (3, 0.02) (4,-0.04) (5, 0.0) (6,-0.01)
+};
+\end{axis}
+\end{tikzpicture}
+
+
+{\textit{Korrelation mit Verzögerung}} \\
+
+A um 6 lags in der Zukunft korreliert mit B (rechts von lag=0) \\
+conversion delay = 6
+
+\begin{tikzpicture}
+\begin{axis}[
+  width=3.3cm,
+  height=2.4cm,
+  axis lines=middle,
+  ymin=-0.5, ymax=1.2,
+  xtick=\empty,
+  ytick=\empty,
+  tick label style={font=\tiny},
+  label style={font=\tiny},
+  title style={font=\tiny},
+  clip=false,
+]
+\addplot+[ycomb] coordinates {
+ (-3,0.01) (-2,0.05) (-1,-0.10) (0,-0.05)
+ (1,0.15) (2,0.05) (3,-0.10) (4,-0.22)
+ (5,-0.28) (6,-0.18) (7,0.00) (8,0.22)
+ (9,0.42) (10,0.60) (11,0.72) (12,0.80)
+ (13,0.72) (14,0.60) (15,0.42) (16,0.22)
+};
+
+
+\end{axis}
+\end{tikzpicture}
+\end{multicols}
+
+\vspace{-1.5em}
+{\textit{Keine Bilder treffen zu}} \\
+A um 6 lags in der vergangenheit korreliert mit B
+
+
+
 \vspace{0.4em}
 \hrule
 \vspace{0.7em}
@@ -249,6 +375,37 @@ Erwartungswert, Varianz, Trend, Saisonalität, korrelationsstruktur (ACF, PACF, 
     \item[c] sinkend \(\rightarrow\) 3
     \item[d] chaotisch \(\rightarrow\) 2 keine korrelation \& 4 gibt es noch zusammenhänge?
 \end{itemize}
+
+
+\usepgfplotslibrary{groupplots}
+\pgfplotsset{compat=1.18}
+
+% --- ACF styling (vertical spikes + markers) ---
+\pgfplotsset{
+  acfplot/.style={
+    width=4.2cm,
+    height=3.2cm,
+    ymin=-1.1, ymax=1.1,
+    xmin=-0.5, xmax=20.5,
+    axis lines=left,
+    xtick={0,5,10,15,20},
+    ytick={-1,0,1},
+    tick label style={font=\tiny},
+    label style={font=\tiny},
+    title style={font=\tiny, yshift=-0.5ex},
+    grid=none,
+    clip=false
+  },
+  acfstyle/.style={
+    only marks,
+    mark=*,
+    mark size=0.8pt,
+  },
+  acfspikes/.style={
+    ycomb,
+    thick,
+  }
+}
 
 
 \begin{tikzpicture}
