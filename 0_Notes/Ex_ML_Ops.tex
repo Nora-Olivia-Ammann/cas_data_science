@@ -93,7 +93,7 @@
 
 \begin{document}
   \begin{landscape}
-%\begin{multicols}{4}
+\begin{multicols}{4}
 \tiny
 
 
@@ -247,6 +247,75 @@
     \end{enumerate}
 \end{itemize}
 
-%\end{multicols}
+
+\vspace{0.4em}
+\hrule
+\vspace{0.7em}
+
+{\footnotesize{Qualitätssicherung für KI Systeme}}
+
+\begin{itemize}
+    \item Offline evaluation (Entwicklung \& test)
+    \begin{itemize}
+        \item Modell-Korrektheit (Classifisers, Regression, Overfitting, underfitting, confidence 
+        \item 3 Teilige Daten Training, Val, Test
+    \end{itemize}
+    \item Online Evaluation (Produktiver Betrieb)
+    \begin{itemize}
+        \item Betriebswirtschaftliche Metriken gemäss Zielen
+        \item Modell-Drift erkennen: metriken von test erfassen und überwachen, A/B tests
+    \end{itemize}
+    \item Herausforderungen:
+    \begin{itemize}
+        \item Schwankende Qualität: qualität der Ergebnisse ohne dass das system zusammenbricht
+        \item Ungeplante Änderungen: Datenänderungn, unerwartet, langsam, intermittierend oder abrupt kommen
+        \item Fehler schlecht erkennbar: subtile fehler
+        \item Fehler schwer beheben: kann eine neue analyse und training erfordern
+    \end{itemize}
+    \item Funktioniert das System? -- System Monitoring  -- uptime
+    \item Sind die Daten in guter Qualität? -- Data Monitoring -- verteilung input-daten
+    \item Sind Prognosen korrekt? -- Prediction Monitoring -- feedback, analyse resultate
+    \item Erzeugt das System Nutzen? -- Business Monitoring  -- umsatz, kosten
+    \item Drift
+    \begin{itemize}
+        \item Data Drift: distribution of data inputs that it was trained on is different from the distribution of the data inputs that it is applied to. Changes in user demographics on an e-commerce site
+        \item Concept / Model Drift: Functional relationship change between model input and output data. Model functions the same but context changed. Seasonal changes in product demand
+        \item Label Drift: distribution of target variable changes. eg A change in the proportion of spam to non-spam emails over time.
+        \item Feature Drift: changes distribution of individual features: A sudden increase in a particular product’s sales due to a viral marketing campaign, affecting the sales feature
+    \end{itemize}
+    \item Erkennung:
+    \begin{itemize}
+        \item Metriken über Zeit sammeln und vergleichen
+        \item Gezielte Analyse einzelner Fälle
+        \item Versionierung von Daten \& Modellen (Basisversion erhalten "canary", Input/Output-Daten sammeln "decoy", A/B Testung "rendezvous architecture"
+    \end{itemize}
+\end{itemize}
+
+\begin{itemize}
+  \item \textbf{Herausforderung: Alles kann sich ändern}
+    \begin{itemize}
+      \item Zwischen Vorhersage und Bewertung kann viel Zeit vergehen (vielleicht erfahren wir nie, ob die Vorhersage korrekt war).
+      \item Aktuelle Daten können anders aussehen als die historischen Daten während dem Training.
+      \item Aktuelle Daten können sich über Zeit verändern, manchmal langsam, manchmal schnell (oder gar nicht) (z.\,B.\ preferences change, economic environment different).
+      \item Vorhersagen können anders aussehen, als gemäss historischen Daten erwartet.
+    \end{itemize}
+
+  \item \textbf{Monitoring soll Vergleiche ermöglichen}
+    \begin{itemize}
+      \item Prognosen : Wahrheit $\Rightarrow$ Metrik $\Delta$ (Delta)
+      \item Prognose : Training $\Rightarrow$ Metrik $\Delta$ (Genauigkeit)
+      \item Historische Daten : Neue Daten $\Rightarrow$ Feature $\Delta$
+      \item Aktuelle Daten : Neue Daten $\Rightarrow$ Feature $\Delta$
+    \end{itemize}      
+    \item $\Rightarrow$ Signifikante $\Delta$ kann Drift signalisieren
+        \begin{itemize}
+          \item Prediction Drift (concept drift, model drift)
+          \item Feature Drift (data drift)
+        \end{itemize}
+\end{itemize}
+
+
+
+\end{multicols}
 \end{landscape}
 \end{document}
