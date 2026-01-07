@@ -384,24 +384,24 @@ A um 6 lags in der vergangenheit korreliert mit B
 
 {\textbf{Autoregressive (AR) Modell}}
 \begin{itemize}
+    \item Look at PACF plot to choose a suitable lag
     \item regression type: predict something based on the past values of that something
     \item AR-1 bezieht sich auf sich selbst um einen lag in die vergangenheit
     \item wir haben rauschen (zufall) und etwas gedächnis (wenn es gestern geregnet hat wird die heutige regenmenge davon beeinflusst)
     \item erinnert sich an den wert selbst
     \item We only want to include lags that have a direct effect, meaning anything that has a PACF that is statistically different from 0 (outside of the bands)
     \item \(x_t = \beta_0 + \beta_1 x_{t-1} + \beta_3 x_{t-3} + ...\) (betas learned coefficient, + intercept). Sum of all the betas * PACF of those lags
-    \item Look at PACF plot to choose a suitable lag
     \item AR models can't capture long-term dependencies well.
     \item Sensitive to Noise: Random fluctuations can lead to inaccurate forecasts.
 \end{itemize}
 
 {\textbf{Moving Average (MA) Modell}}
 \begin{itemize}
+    \item Look at ACF plot to choose a suitable lag
     \item How wrong was I in the previous time period (error), this I am using to adjust the value in the current time period
     \item \(x_t = \mu + bias \cdot \epsilon_{t-1}\) (now value = average + bias (chosen parameter) * error from last time)
     \item I take my average number and take bias (chosen) eg. 50\% of my last error and that is the current value
     \item \(x_t\) blue, average = green
-    \item Look at ACF plot to choose a suitable lag
 \end{itemize}
 
 
@@ -431,7 +431,14 @@ A um 6 lags in der vergangenheit korreliert mit B
     \item now is based on last time and also the error i made last time
     \item Instead of having an average addition to the error you use AR
     \item ARMA(1,1): \(\hat{y_t} = \beta_0 + \beta_1 y_{t-1} + bias \cdot \epsilon_{t-1} \) (for both one lag back)
-    \item How to choose order (no lags)? ACF \(\rightarrow\) MA order \& PACF \(\rightarrow\) AR order
+    \item How to choose order (no lags)? ACF \(q \rightarrow\) MA order \& PACF \(p\rightarrow\) AR order
+    \item Why need integrated? It is possible that your data has a trend in it, and it is not stationary. Instead of the time series itself, you are predicting the series from one time stampt to the next. Make a new time series that is transformed (chosed based on the series to make it stationary).
+    \item How to choose order \(ARIMA(p, d, q)\)?
+    \begin{itemize}
+        \item \(p \rightarrow AR\) lags from PACF
+        \item \(d \rightarrow Integrated\) anzahl differenzierung der zeitreihe
+        \item \(q \rightarrow MA\) lags from ACF
+    \end{itemize}
 \end{itemize}
 
 \begin{tikzpicture}
@@ -514,7 +521,7 @@ A um 6 lags in der vergangenheit korreliert mit B
 \end{tikzpicture}
 
 ACF 2 lags outside line \(\rightarrow\) MA 2 \& PACF 1 lag outside line \(\rightarrow\) AR 1\\
-ARMA(1,2)
+Order of model: ARMA(1,2) (Wenn es einen wert bei lag=0 hat, den ignorieren)
 
 
 \vspace{0.4em}
