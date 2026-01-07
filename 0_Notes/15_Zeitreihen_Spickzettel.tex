@@ -425,10 +425,96 @@ A um 6 lags in der vergangenheit korreliert mit B
 \end{axis}
 \end{tikzpicture}
 
-{\textbf{Auto Regressive Moving Average (ARIMA)}}
+{\textbf{Autoregressive Integrated Moving Average (ARIMA)}}
 \begin{itemize}
-    \item 
+    \item Combination of AR and MA model
+    \item now is based on last time and also the error i made last time
+    \item Instead of having an average addition to the error you use AR
+    \item ARMA(1,1): \(\hat{y_t} = \beta_0 + \beta_1 y_{t-1} + bias \cdot \epsilon_{t-1} \) (for both one lag back)
+    \item How to choose order (no lags)? ACF \(\rightarrow\) MA order \& PACF \(\rightarrow\) AR order
 \end{itemize}
+
+\begin{tikzpicture}
+
+% ---------------- ACF ----------------
+\begin{axis}[
+  at={(0cm,0cm)}, anchor=origin,
+  width=4cm,
+  height=2.5cm,
+  axis lines=middle,
+  xmin=-0.5, xmax=4.7,
+  ymin=-1.2, ymax=1.2,
+  xtick=\empty,
+  ytick=\empty,
+  clip=false,
+  axis line style={-{Latex[length=2mm]}},
+]
+
+% dotted red confidence lines
+\addplot[red, thick, dotted] coordinates {(-0.5,0.5) (4.7,0.5)};
+\addplot[red, thick, dotted] coordinates {(-0.5,-0.5) (4.7,-0.5)};
+
+% vertical sticks (ACF)
+\addplot[ycomb, black] coordinates {
+  (1,0.85)
+  (2,0.65)
+  (3,-0.25)
+  (4,0.20)
+};
+
+% squares on top of sticks (like the drawn ones)
+\addplot[only marks, mark=o, mark size=1pt, black] coordinates {
+  (1,0.85)
+  (2,0.65)
+  (3,-0.25)
+  (4,0.20)
+};
+% label ACF
+\node[font=\bfseries] at (axis cs:2,-1.15) {ACF};
+\end{axis}
+
+
+% ---------------- PACF ----------------
+\begin{axis}[
+  at={(3cm,0cm)}, anchor=origin,
+  width=4cm,
+  height=2.5cm,
+  axis lines=middle,
+  xmin=-0.5, xmax=4.7,
+  ymin=-1.2, ymax=1.2,
+  xtick=\empty,
+  ytick=\empty,
+  clip=false,
+  axis line style={-{Latex[length=2mm]}},
+]
+
+% dotted red confidence lines
+\addplot[red, thick, dotted] coordinates {(-0.5,0.5) (4.7,0.5)};
+\addplot[red, thick, dotted] coordinates {(-0.5,-0.5) (4.7,-0.5)};
+
+% vertical sticks (PACF)
+\addplot[ycomb, black] coordinates {
+  (1,0.85)
+  (2,-0.25)
+  (3,0.20)
+  (4,-0.15)
+};
+
+% squares on top of sticks
+\addplot[only marks, mark=o, mark size=1pt, black] coordinates {
+  (1,0.85)
+  (2,-0.25)
+  (3,0.20)
+  (4,-0.15)
+};
+
+% label PACF
+\node[font=\bfseries] at (axis cs:2,-1.15) {PACF};
+\end{axis}
+\end{tikzpicture}
+
+ACF 2 lags outside line \(\rightarrow\) MA 2 \& PACF 1 lag outside line \(\rightarrow\) AR 1\\
+ARMA(1,2)
 
 
 \vspace{0.4em}
