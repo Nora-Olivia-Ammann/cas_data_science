@@ -95,7 +95,7 @@
 
 \begin{document}
   \begin{landscape}
-\begin{multicols}{3}
+\begin{multicols}{4}
 \tiny
 
 {\footnotesize{Analyse Prozess}}
@@ -196,6 +196,30 @@
 \hrule
 \vspace{0.7em}
 
+
+\begin{itemize}
+    \item {\textbf{Regelmässige Abtastung}} einteilung kontinuierliche Daten in Punkte (diskrete Zeit)
+    \item {\textbf{Lag}} Zeitspanne vom einen zeitpunkt zum nächsten
+    \item {\textbf{Extrapolation}} neue Daten ausserhalb der Zeitreihe, darf nicht machen, weil würde Modell auf sich selbst anwenden
+    \item {\textbf{Interpolation / Imputation}} füllen Lücken innerhalb der Daten. Lineare Interpolation: Mit dem mittelwert zwischen zwei Zeitpunkten ergänzen. Forward / Backward Fill: jetztiger Zeitpunkt und fülle alle damit bis zum nächsten (ist schlechter). Kallman-Filter: guter filter für lange lückenmit viel struktur
+    \item {\textbf{LOESS}} Seasonal Trend Decompose (STL), Multi- STL (MSTL)
+    \item {\textbf{Parsimonous Model}} model kommt mit weniger parameter (bevorzugen) gleich gut wie mit mehr
+    \item {\textbf{Kovarianten}} Die x externe faktoren
+    \item {\textbf{Scheinkorrelation}} sieht korreliert aus hat aber nichts damit zu tun
+    \item {\textbf{Granger kausalität}} Leading indicator, zeigt in die zukunft für die trailing variabel
+    \item {\textbf{}}
+    \item {\textbf{}}
+    \item {\textbf{}}
+\end{itemize}
+
+\vspace{0.4em}
+\hrule
+\vspace{0.7em}
+
+
+\end{multicols}
+
+\tiny
 
 {\footnotesize{Autokorrelation}}
 
@@ -322,32 +346,5 @@
 \end{groupplot}
 \end{tikzpicture}
 
-\vspace{0.4em}
-\hrule
-\vspace{0.7em}
-
-\begin{itemize}
-    \item {\textbf{Regelmässige Abtastung}} einteilung kontinuierliche Daten in Punkte (diskrete Zeit)
-    \item {\textbf{Lag}} Zeitspanne vom einen zeitpunkt zum nächsten
-    \item {\textbf{Extrapolation}} neue Daten ausserhalb der Zeitreihe, darf nicht machen, weil würde Modell auf sich selbst anwenden
-    \item {\textbf{Interpolation / Imputation}} füllen Lücken innerhalb der Daten. Lineare Interpolation: Mit dem mittelwert zwischen zwei Zeitpunkten ergänzen. Forward / Backward Fill: jetztiger Zeitpunkt und fülle alle damit bis zum nächsten (ist schlechter). Kallman-Filter: guter filter für lange lückenmit viel struktur
-    \item {\textbf{LOESS}} Seasonal Trend Decompose (STL), Multi- STL (MSTL)
-    \item {\textbf{Parsimonous Model}} model kommt mit weniger parameter (bevorzugen) gleich gut wie mit mehr
-    \item {\textbf{Kovarianten}} Die x externe faktoren
-    \item {\textbf{Scheinkorrelation}} sieht korreliert aus hat aber nichts damit zu tun
-    \item {\textbf{Granger kausalität}} Leading indicator, zeigt in die zukunft für die trailing variabel
-    \item {\textbf{}}
-    \item {\textbf{}}
-    \item {\textbf{}}
-\end{itemize}
-
-\vspace{0.4em}
-\hrule
-\vspace{0.7em}
-
-
-
-
-\end{multicols}
 \end{landscape}
 \end{document}
