@@ -90,7 +90,7 @@
 
 \begin{document}
   \begin{landscape}
-\begin{multicols}{4}
+\begin{multicols}{5}
 \tiny
 
 {\textbf{Statistische Charakter Zeitreihe:}}
@@ -157,7 +157,6 @@ Erwartungswert, Varianz, Trend, Saisonalität, korrelationsstruktur (ACF, PACF, 
         \item Is a type of test "Unit Root" is a characteristics that means that a time series is not stationary
         \item \(H_0\): \(lag_1 = 1\) that is the root of the augoregressiva lag (coefficient between lag 1) (non-stationary)
         \item \(H_1\): \(lag_1 < 1\) no unit root, it is stationary
-        
     \end{itemize}
 \end{itemize}
 
@@ -170,14 +169,18 @@ Erwartungswert, Varianz, Trend, Saisonalität, korrelationsstruktur (ACF, PACF, 
 {\scriptsize{3. Analyse}}
 
 
-{\textbf{ACF}}
+{\textbf{Autocorrelation Function (ACF)}}
 \begin{itemize}
-    \item 
+    \item 2 pieces both together
+    \item \(S_{t-2} \rightarrow S_t\) direct route
+    \item \(S_{t-2} \rightarrow S_{t-1} \rightarrow S_t\) indirect route
 \end{itemize}
 
-{\textbf{PACF}}
+{\textbf{Partial Autocorrelation Function (PACF)}}
 \begin{itemize}
-    \item 
+    \item Coeefficient of S x lag ago on S today
+    \item \(S_{t-2} \rightarrow S_t\) direct route 
+    \item tells us if there is a direct effect from \(S_t\) to \(S_{t-2}\)
 \end{itemize}
 
 \vspace{0.4em}
@@ -188,8 +191,9 @@ Erwartungswert, Varianz, Trend, Saisonalität, korrelationsstruktur (ACF, PACF, 
 {\scriptsize{4. Stochastische Modellierung}}
 
 
-{\textbf{AR-Modell}}
+{\textbf{Autoregressive (AR) Modell}}
 \begin{itemize}
+    \item regression type: predict something based on the past values of that something
     \item 
 \end{itemize}
 
