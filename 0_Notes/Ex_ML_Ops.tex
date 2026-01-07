@@ -63,7 +63,8 @@
 % now explicitly override indentation for each level you care about:
 \setlist[itemize,1]{leftmargin=1.2em,label=\raisebox{0.5ex}{\scalebox{0.6}{$\bullet$}}}
 \setlist[itemize,2]{leftmargin=1.4em}
-\setlist[itemize,3]{leftmargin=0.5em}
+\setlist[itemize,3]{leftmargin=0.5em,label=\raisebox{0.5ex}{\scalebox{0.6}{$\bullet$}}}
+\setlist[itemize,4]{leftmargin=1.5em}
 
 
 \setlist[enumerate,1]{leftmargin=1.2em}
@@ -92,7 +93,7 @@
 
 \begin{document}
   \begin{landscape}
-\begin{multicols}{4}
+%\begin{multicols}{4}
 \tiny
 
 
@@ -101,7 +102,54 @@
 \begin{itemize}
     \item {\textbf{Motivation und Grundlagen}}
     \begin{itemize}
-        \item 
+        \item Wertuschöfpung durch KI, untersützt unternehmen in
+        \item Verkauf
+        \begin{itemize}
+            \item Marketing / Kampagnen (reduktion Streuverlust)
+            \item Automatisierte Dienstleisungen (Bessere Informationen)
+            \item Daten-Produkte als Service (Wertschöpfung)
+        \end{itemize}
+        \item Betrieb
+        \begin{itemize}
+            \item Optimierte Prozesse (Elimination von Abfall)
+            \item Effizienter Mitteleinsatzt (Prognose und Allokation)
+            \item Reduzzierte Risiken (Erkennen und Aktion)
+        \end{itemize}
+        \item Durch Datengestützte Entscheidungen und automatisierte Abläufe
+    \end{itemize}
+    \item {\textbf{Realität: Die meisten KI Projekte erbringen keinen Mehrwert}} Gründe Fehlender Erfolg
+    \begin{itemize}
+        \item Ziel-Bingo (Wiedersprüchliche Ziele, keine oder ungeeignete kriterien
+        \item Datenqualität (Fokus auf Modelle, zielorientierte Nutzung von Daten wichtiger)
+        \item Erwartungen überdreht (KI is komplex, kein Wundermittel)
+        \item Zuviel Technologie (wirtschaftlicher Mehrwert muss A \& O sein)
+    \end{itemize}
+    \item \textbf{Was und Wozu?}
+    \begin{itemize}
+        \item Was ist das Ziel?
+        \item Welche Mittel sind erfoderlich um dieses Ziel zu erreichen?
+        \item Welche Infrastruktur?
+        \item Wie wird gemessen ob das Ziel erreicht wird?
+    \item \textbf{Beispiel eines Produktes}
+    \begin{itemize}
+        \item Was ist das Ziel?
+        \begin{itemize}
+            \item Betriebwirschaftliches Ziel: Mehr umsatz pro Kunde
+            \item Erwartete Aktion (was soll es bewirken)?: Kunde produkte empfehlen die anderen auch gefallt
+            \item Erfordertliche Entscheidung (welche prediction durch KI)?: Liste top-10 Produkte
+            \item Business Metrik (KPI): 15\% umsatzsteigerung A (ohne) / B (mit) test
+            \item AI/ML Metrik (Qualität): \% Accuracy, mindestens 1 \%
+        \end{itemize}
+        \item Wie erreichen wir das Ziel?
+        \begin{itemize}
+            \item Prozess vs. Daten (Beobachtungen, Profile) Schlussendliche Recommender Modell
+        \end{itemize}
+        \item Welche Systeme sind erforderlich?
+        \begin{itemize}
+            \item AI System: Reports, Workflows, Analyse + ML Modell, Data Lake
+            \item Operatives System / Prozess: Shop System, CRM System
+        \end{itemize}
+    \end{itemize}
     \end{itemize}
     \item {\textbf{Entwicklung, Validierung, Betrieb}}
     \begin{itemize}
@@ -113,50 +161,11 @@
     \end{itemize}
 \end{itemize}
 
-\vspace{0.4em}
-\hrule
-\vspace{0.7em}
-
-
-{\footnotesize{Worauf kommt’s an?}}
-
-\begin{itemize}
-    \item {\textbf{Modelle für den Betrieb bereitstellen}}
-    \begin{itemize}
-        \item 
-    \end{itemize}
-    \item {\textbf{Architektur von KI Systemen}}
-    \begin{itemize}
-        \item 
-    \end{itemize}
-    \item {\textbf{Drift-Monitoring und Massnahmen}}
-    \begin{itemize}
-        \item 
-    \end{itemize}
-\end{itemize}
 
 \vspace{0.4em}
 \hrule
 \vspace{0.7em}
 
-
-{\footnotesize{Was ist sonst noch wichtig?}}
-
-\begin{itemize}
-    \item {\textbf{Produkte \& Services für MLOps, Kriterien}}
-    \begin{itemize}
-        \item 
-    \end{itemize}
-    \item {\textbf{Responsible AI und Governance}}
-    \begin{itemize}
-        \item 
-    \end{itemize}
-\end{itemize}
-
-\vspace{0.4em}
-\hrule
-\vspace{0.7em}
-
-\end{multicols}
+%\end{multicols}
 \end{landscape}
 \end{document}
