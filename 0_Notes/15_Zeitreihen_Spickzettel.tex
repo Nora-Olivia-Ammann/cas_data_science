@@ -401,11 +401,7 @@ A um 6 lags in der vergangenheit korreliert mit B
     \item \(x_t = \mu + bias \cdot \epsilon_{t-1}\) (now value = average + bias (chosen parameter) * error from last time)
     \item I take my average number and take bias (chosen) eg. 50\% of my last error and that is the current value
     \item \(x_t\) blue, average = green
-    \item How to choose the right MA
-    \begin{itemize}
-        \item Look at ACF plot to choose a suitable lag
-        \item 
-    \end{itemize}
+    \item Look at ACF plot to choose a suitable lag
 \end{itemize}
 
 
@@ -534,7 +530,7 @@ A um 6 lags in der vergangenheit korreliert mit B
 
 % (1) alternating and dying out
 \nextgroupplot[title={\tiny(1)}, xlabel={\tiny{lag}}, ylabel={\tiny{ACF}}]
-\addplot+[acfstyle] coordinates {
+\addplot+[ycomb, mark size=1pt] coordinates {
  (0,1)
  (1,0.75) (2,0.55) (3,0.35)
  (4,-0.15) (5,-0.35) (6,-0.55) (7,-0.70)
@@ -552,7 +548,7 @@ A um 6 lags in der vergangenheit korreliert mit B
 
 % (3) positive decaying ACF
 \nextgroupplot[title={\tiny(3)}, xlabel={\tiny{lag}}, ylabel={\tiny{ACF}}]
-\addplot+[acfstyle] coordinates {
+\addplot+[ycomb, mark size=1pt] coordinates {
  (0,1)
  (1,0.92) (2,0.84) (3,0.76) (4,0.69) (5,0.62)
  (6,0.56) (7,0.50) (8,0.45) (9,0.40) (10,0.35)
@@ -561,7 +557,7 @@ A um 6 lags in der vergangenheit korreliert mit B
 
 % (4) two spikes then ~0
 \nextgroupplot[title={\tiny(4)}, xlabel={\tiny{lag}}, ylabel={\tiny{ACF}}]
-\addplot+[acfstyle] coordinates {
+\addplot+[ycomb, mark size=1pt] coordinates {
  (0,1)
  (1,0.55)
  (2,-0.45)
