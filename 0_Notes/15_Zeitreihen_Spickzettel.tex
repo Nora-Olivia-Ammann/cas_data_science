@@ -137,18 +137,31 @@
     \item \textbf{Erwartungswert}
     \item \textbf{Varianz}
     \item \textbf{Trend}
+    \begin{itemize}
+        \item a long-term increasing or decreasing tendency
+    \end{itemize}
     \item \textbf{Saisonalität}
-
+    \begin{itemize}
+        \item a short-term repeating pattern at fixed periods, e.g., weekly, monthly, or annually.
+    \end{itemize}
     \item \textbf{Korrelationsstruktur}
     \begin{itemize}
         \item \textbf{ACF}
         \item \textbf{PACF}
         \item \textbf{CCF}
+        \item \textbf{ARIMA}
+        
     \end{itemize}
 \end{itemize}
 
 {\textbf{Stationarität}}
-Es ändert sich nichts, voraussetzung für stochastische modellierung
+
+\begin{itemize}
+    \item Es ändert sich nichts, voraussetzung für stochastische modellierung
+    \item the concept that how a time series is changing will remain the same in the future 
+    \item if statistical properties (mean, variance, and covariance) are independent of time
+\end{itemize}
+
 
 {\textbf{Bedingungen}} Jede separat überprüfen (wir erwarten im diagramm eine semi-gerade linie, die keinen trend zeigt
 \begin{enumerate}
@@ -245,11 +258,7 @@ Es ändert sich nichts, voraussetzung für stochastische modellierung
   xlabel={\tiny{t}}, ylabel={\tiny{x}},
   ytick=\empty
 ]
-\addplot+[smooth,line width=0.35pt] coordinates {
- (0,0.0) (1,0.12) (2,0.25) (3,0.42) (4,0.60) (5,0.78)
- (6,0.95) (7,1.12) (8,1.35) (9,1.55) (10,1.75) (11,1.95) (12,2.10)
-};
-\addplot+[only marks, mark=*, mark size=0.8pt] coordinates {
+\addplot+[smooth, mark=none,line width=0.35pt] coordinates {
  (0,0.0) (1,0.10) (2,0.27) (3,0.40) (4,0.63) (5,0.74)
  (6,0.98) (7,1.10) (8,1.33) (9,1.58) (10,1.72) (11,1.97) (12,2.05)
 };
@@ -262,7 +271,7 @@ Es ändert sich nichts, voraussetzung für stochastische modellierung
   xlabel={\tiny{t}}, ylabel={\tiny{x}},
   ytick=\empty
 ]
-\addplot+[smooth, samples=200, domain=0:12]
+\addplot+[smooth, mark=none,line width=0.35pt, samples=200, domain=0:12]
   {0.8 + 0.25*sin(deg(2*pi*x/4))};
 
 % (c) downward trend with noise
@@ -273,11 +282,7 @@ Es ändert sich nichts, voraussetzung für stochastische modellierung
   xlabel={\tiny{t}}, ylabel={\tiny{x}},
   ytick=\empty
 ]
-\addplot+[smooth, thick] coordinates {
- (0,2.0) (1,1.85) (2,1.70) (3,1.55) (4,1.40) (5,1.22)
- (6,1.05) (7,0.88) (8,0.70) (9,0.52) (10,0.35) (11,0.18) (12,0.02)
-};
-\addplot+[only marks, mark=*, mark size=0.8pt] coordinates {
+\addplot+[smooth, mark=none,line width=0.35pt] coordinates {
  (0,2.02) (1,1.83) (2,1.72) (3,1.53) (4,1.38) (5,1.25)
  (6,1.02) (7,0.90) (8,0.68) (9,0.50) (10,0.38) (11,0.16) (12,0.05)
 };
@@ -290,7 +295,7 @@ Es ändert sich nichts, voraussetzung für stochastische modellierung
   xlabel={\tiny{t}}, ylabel={\tiny{x}},
   ytick=\empty
 ]
-\addplot+[smooth, thick] coordinates {
+\addplot+[smooth, mark=none, line width=0.35pt] coordinates {
  (0,0.65) (1,0.70) (2,0.62) (3,0.68) (4,0.60) (5,0.66)
  (6,0.61) (7,0.64) (8,0.58) (9,0.62) (10,0.59) (11,0.60) (12,0.57)
 };
