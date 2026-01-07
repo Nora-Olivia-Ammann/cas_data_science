@@ -30,14 +30,21 @@
 % global list spacing (affects all levels)
 \setlist{noitemsep, topsep=0pt, parsep=0pt, partopsep=0pt}
 
-% now explicitly override indentation for each level you care about:
-\setlist[itemize,1]{leftmargin=1.8em}
-\setlist[itemize,2]{leftmargin=1.4em}
-\setlist[itemize,3]{leftmargin=0.5em}
 
 % Only change level 1 itemize bullets
 \setlist[itemize,1]{label=\raisebox{0.5ex}{\scalebox{0.6}{$\bullet$}}}
 %\setlist[itemize,3]{label=\raisebox{0.5ex}{\scalebox{0.6}{$\bullet$}}}
+
+
+% now explicitly override indentation for each level you care about:
+\setlist[itemize,1]{leftmargin=1.2em}
+\setlist[itemize,2]{leftmargin=1.4em}
+\setlist[itemize,3]{leftmargin=0.5em}
+
+
+\setlist[enumerate,1]{leftmargin=1.2em}
+\setlist[enumerate,2]{leftmargin=1.4em}
+\setlist[enumerate,3]{leftmargin=0.5em}
 
 \setlength{\columnseprule}{0.1pt}
 % ------------------------------------------------------
@@ -63,7 +70,7 @@
   \begin{landscape}
 
   
-%\begin{multicols}{4}
+\begin{multicols}{4}
 
 {\tiny
 
@@ -237,7 +244,7 @@
   \begin{itemize}
     \item \textbf{Beschreibung}
     \begin{itemize}
-        \item 
+        \item Kann keine extrapolation machen für Daten ausserhalb der Trainingsdaten
     \end{itemize}
     \item \textbf{Data Specification}
     \begin{itemize}
@@ -264,6 +271,23 @@
 \vspace{0.4em}
 \hrule
 \vspace{0.7em}
+{\footnotesize\textbf{Clustering}} Unsupervised Classification
+  \begin{itemize}
+    \item \textbf{Beschreibung}
+    \begin{itemize}
+        \item Zusammenhänge in Datenwolken finden
+    \end{itemize}
+    \item \textbf{Model}
+    \begin{itemize}
+        \item eg. k-means algorithmus
+        \item Anzahl k festlegen
+        \item sucht minimale distanz
+    \end{itemize}
+  \end{itemize}
+
+\vspace{0.4em}
+\hrule
+\vspace{0.7em}
 
 {\footnotesize\textbf{Principal Component Analysis}} Unsupervised Dimensionality Reduction
   \begin{itemize}
@@ -273,7 +297,7 @@
     \end{itemize}
     \item \textbf{Data Specification}
     \begin{itemize}
-        \item 
+        \item Welche Features haben wir? eg. Pixel
     \end{itemize}
     \item \textbf{Model}
     \begin{itemize}
@@ -425,6 +449,8 @@
       \item \textbf{F1-Score} \\ \(F_1 = 2 \cdot \dfrac{Precision \cdot Recall}{Precision + Recall}\) \\ gut bei inbalanced klassen
   \end{itemize}
 \end{itemize}
+
+TODO: Bestimmtheitsmass \(R^2\)
 
 \vspace{0.4em}
 {\footnotesize{\textbf{Kostenfunktion}}}
@@ -670,10 +696,10 @@
 
 \vspace{0.4em}
 
-%\end{multicols}
 
 } % end tiny
 
+\end{multicols}
 
 \end{landscape}
 \end{document}
