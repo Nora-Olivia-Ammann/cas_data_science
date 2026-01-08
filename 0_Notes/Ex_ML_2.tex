@@ -1,5 +1,4 @@
 \documentclass[a4paper, 10pt]{article}
-
 % import packages
 \usepackage[margin=0.2cm]{geometry}
 \usepackage{pdflscape}
@@ -82,9 +81,9 @@
   \begin{landscape}
 
   
-\begin{multicols}{5}
+\begin{multicols}{4}
 
-\tiny
+\scriptsize
 
 {\footnotesize{\textbf{ML}}}
 
@@ -711,12 +710,14 @@ Reconstruction based Method
   
 \end{multicols}
 
-\newpage
+\hrule
+\vspace{0.4em}
+\hrule
 
 
-\begin{multicols}{4}
+\begin{multicols}{5}
 
-\tiny
+\scriptsize
 
 {\footnotesize{\textbf{Optimisation}}}
 
@@ -729,7 +730,7 @@ Reconstruction based Method
 
 
 \vspace{0.4em}
-{\scriptsize{Optimisation Algorithm}}
+{\scriptsize{\textbf{Optimisation Algorithm}}}
       \begin{itemize}
       \item {\textbf{Analytische Methode}}
       \begin{itemize}
@@ -811,7 +812,7 @@ TODO: Bestimmtheitsmass \(R^2\)
 \end{itemize}
 
 
-{\scriptsize{Maximum Likelihood}} Klassification
+{\scriptsize{\textbf{Maximum Likelihood}} Klassification}
 \begin{itemize} 
     \item TODO: furuther investigation
     \item wahrscheinlichkeit für einen datenpunkt * wahrscheinlichkeit aller anderen
@@ -832,7 +833,7 @@ TODO: Bestimmtheitsmass \(R^2\)
 
 {\footnotesize{\textbf{Feature Preprocessing}}}
 
-{\scriptsize{Encoding}}
+{\scriptsize{\textbf{Encoding}}}
 
 \begin{itemize}
     \item Information in anderer Maschienen freundlichen Art darzustellen.
@@ -864,7 +865,7 @@ TODO: Bestimmtheitsmass \(R^2\)
 \end{itemize}
 
 \vspace{0.4em}
-{\scriptsize{Feature Selection}}
+{\scriptsize{\textbf{Feature Selection}}}
 
 \begin{itemize}
     \item Auswahl von Features die relevant sind, einfacher für das Modell
@@ -877,7 +878,7 @@ TODO: Bestimmtheitsmass \(R^2\)
 \end{itemize}
 
 \vspace{0.4em}
-{\scriptsize{Standardise}}
+{\scriptsize{\textbf{Standardise}}}
 \begin{itemize}
     \item Schiebt alles um 0 Punkt
     \item Entfernt Einheiten, separat pro Feature, erhält Verhältnisse
@@ -888,7 +889,7 @@ TODO: Bestimmtheitsmass \(R^2\)
 \end{itemize}
 
 \vspace{0.4em}
-{\scriptsize{Dimensionality Reduction}}
+{\scriptsize{\textbf{Dimensionality Reduction}}}
 
 \begin{itemize}
     \item Manifold-Annahme: Hochdimensionale Daten liegen auf einem tiefer-dimensionalen Manifold
@@ -913,7 +914,7 @@ TODO: Bestimmtheitsmass \(R^2\)
 
 {\footnotesize{\textbf{Feature Engineering}}}
 
-{\scriptsize{Explizit}}
+{\scriptsize{\textbf{Explizit}}}
 
 \begin{itemize}
     \item Bestehende features \(\rightarrow\) neue features
@@ -929,7 +930,7 @@ TODO: Bestimmtheitsmass \(R^2\)
 \end{itemize}
 
 \vspace{0.4em}
-{\scriptsize{Kernel Trick}}
+{\scriptsize{\textbf{Kernel Trick}}}
 
 \begin{itemize}
     \item Normal: wir loopen über anzahl Features \(\rightarrow\) implizites feature engineering
@@ -973,7 +974,7 @@ TODO: Bestimmtheitsmass \(R^2\)
 \end{tikzpicture}
 
 
-{\scriptsize{Overfitting vs. Underfitting}}
+{\scriptsize{\textbf{Overfitting vs. Underfitting}}}
 
 \begin{itemize}
     \item \textbf{Overfitting}: super training, schelcht test
@@ -982,7 +983,7 @@ TODO: Bestimmtheitsmass \(R^2\)
 \end{itemize}
 
 \vspace{0.4em}
-{\scriptsize{Cross Validation}}
+{\scriptsize{\textbf{Cross Validation}}}
 
 \begin{itemize}
     \item vergleich von verschiedenen ML Modell-Arten
@@ -1001,7 +1002,7 @@ TODO: Bestimmtheitsmass \(R^2\)
 \end{itemize}
 
 \vspace{0.4em}
-{\scriptsize{Regularisation}}
+{\scriptsize{\textbf{Regularisation}}}
 \begin{itemize}
     \item Annahme: Grosse \(\beta\) zeichen für overfitting, sollten nahe 0 sein, Modell wird einfacher
     \item Daten müssen Standard Skaliert werden
@@ -1061,7 +1062,7 @@ TODO: Bestimmtheitsmass \(R^2\)
 
 {\footnotesize{\textbf{Model Selection}}}
 
-{\scriptsize{Hyper Parameter}}
+{\scriptsize{\textbf{Hyper Parameter}}}
 \begin{itemize}
     \item Werden nicht gelernt \(\rightarrow\) konfiguriert das Modell
     \item Z.B. Regularisierungsstärke \(\lambda\), Anzahl Bäume (Random Forest), Anzahl Cluster (k-means), DL Netzwerk Architektur
@@ -1075,10 +1076,6 @@ TODO: Bestimmtheitsmass \(R^2\)
         \end{itemize}
     \end{itemize}
 \end{itemize}
-
-
-\vspace{0.4em}
-{\scriptsize{Algorithm Selection}}
 
 \vspace{0.4em}
 \hrule
@@ -1132,7 +1129,7 @@ TODO: Bestimmtheitsmass \(R^2\)
     \end{itemize}
 \end{itemize}
 
-{\scriptsize{Beispiel}}
+{\scriptsize{\textbf{Beispiel}}}
 
 \begin{itemize}
     \item \textbf{Convoluted Neural Network (CNN)}
@@ -1239,12 +1236,14 @@ TODO: Bestimmtheitsmass \(R^2\)
 
 \end{multicols}
 
+\hrule
+\vspace{0.4em}
+\hrule
 
-\newpage
 
 \begin{multicols}{4}
 
-\tiny
+\scriptsize
 
 {\footnotesize{\textbf{General}}}
 \begin{itemize}
@@ -1307,7 +1306,7 @@ TODO: Bestimmtheitsmass \(R^2\)
 
 {\footnotesize{\textbf{Pitfalls}}}
 
-{\scriptsize{Peeking}}
+{\scriptsize{\textbf{Peeking}}}
 
 \begin{itemize}
     \item Test daten dürfen keinen Einfluss haben
@@ -1322,7 +1321,7 @@ TODO: Bestimmtheitsmass \(R^2\)
     \end{itemize}
 \end{itemize}
     
-{\scriptsize{Model Entwicklung}}
+{\scriptsize{\textbf{Model Entwicklung}}}
 
 \begin{enumerate}
   \item Schätze, was bestenfalls erreichbar ist, gegeben dem Problem (z.B. 5--10\%).
@@ -1343,12 +1342,12 @@ TODO: Bestimmtheitsmass \(R^2\)
     \end{itemize}
 \end{enumerate}
     
-{\scriptsize{Inconsistent Preprocessing}}
+{\scriptsize{\textbf{Inconsistent Preprocessing}}}
     \begin{itemize}
         \item Alle feature preprocessing schritte müssen identisch für alle Daten (Train, Val, Test und in produktion angewendet werden)
     \end{itemize}
 
-{\scriptsize{Metrik Wahl}}
+{\scriptsize{\textbf{Metrik Wahl}}}
 \begin{itemize}
     \item Richtige Metrik ist vom Business Case (oder verfügbaren Daten) motiviert (z.B. prozentualer Fehler (MAPE) anstatt absoluter Fehler (MSE))
     \item Regression: Eine robuste Metrik (z.B. MAE) kann Model stabilisieren bei unsicherer Datenqualität
@@ -1356,7 +1355,7 @@ TODO: Bestimmtheitsmass \(R^2\)
     \item Klassifikation: Wenn False Negative und False Positive unterschiedlich zu bewerten sind, dann Cost-Sensitive Learning, Threshold Moving
 \end{itemize}
 
-{\scriptsize{Modell-Wahl}}
+{\scriptsize{\textbf{Modell-Wahl}}}
 
 \begin{itemize}
     \item \textbf{Vor der Model Wahl} Wie ein Problem Angehen
@@ -1378,7 +1377,7 @@ TODO: Bestimmtheitsmass \(R^2\)
     \item Transfer learning: nimm ein existierendes und verfeinere es
 \end{itemize}
 
-{\scriptsize{Genug Daten}}
+{\scriptsize{\textbf{Genug Daten}}}
 
 \begin{itemize}
   \item Zu Beginn: Haben wir genug Daten, um das gewünschte Problem zu lösen?
@@ -1410,7 +1409,7 @@ TODO: Bestimmtheitsmass \(R^2\)
     \end{itemize}
 \end{itemize}
 
-{\scriptsize{Resultate Interpretieren}}
+{\scriptsize{\textbf{Resultate Interpretieren}}}
 
 \begin{itemize}
   \item Performanz richtig einordnen: Resultate nicht auf andere Probleme generalisieren.
@@ -1448,7 +1447,7 @@ TODO: Bestimmtheitsmass \(R^2\)
 \end{itemize}
 
 
-{\scriptsize{Bias in ML}}
+{\scriptsize{\textbf{Bias in ML}}}
 
 \begin{itemize}
   \item Pre-existing
