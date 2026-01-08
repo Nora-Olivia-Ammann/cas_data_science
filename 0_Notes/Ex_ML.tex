@@ -452,10 +452,6 @@ Soft margin: Decision boundary that allows for some flexibility
         \item Klasse mit höchster Wahrscheinlichkeit vorhersagen für Region \(R_m\)
         \item \(\hat{y}_{R_m} = arg\;max\;p(y = k|R_m)\) 
     \end{itemize}
-    \item \textbf{Metrik}
-    \begin{itemize}
-        \item 
-    \end{itemize}
     \item \textbf{Kostenfunktion}
     \begin{itemize}
         \item Impurity (Verunreinigung) der Regionen messen
@@ -550,10 +546,6 @@ Soft margin: Decision boundary that allows for some flexibility
 \end{tikzpicture}
 
     \end{itemize}
-    \item \textbf{Metrik}
-    \begin{itemize}
-        \item 
-    \end{itemize}
     \item \textbf{Kostenfunktion}
     \begin{itemize}
         \item L2-Distanz der Rekonstruktion \(\hat{X}\) (Encoder \(W\) / Decoder \(W^T\) sind Matrix)
@@ -574,15 +566,24 @@ Soft margin: Decision boundary that allows for some flexibility
   \begin{itemize}
     \item \textbf{Beschreibung}
     \begin{itemize}
-        \item 
+        \item Input Matrix in zwei kleinere Faktorisieren, die wenn sie zusammen multipliziert werden die beste rekonstrutkion der anfangs matrix sind.
+        \item Es liefert keinen Encoder (\(A / B\) wird nicht gespeichert, also nicht für pre-processing für Supervised Learning Task geeignet.
+        \item wird jedes mal neu berechnet
+        \item Motivation: Addition von non-negativen Konzepten (hidden features) macht andere konzepte verständlicher
     \end{itemize}
     \item \textbf{Data Specification}
     \begin{itemize}
-        \item 
+        \item Wleche features, eg. Pixel
+        \item Anzahl \(k\) is als hyperparameter vorgegeben
+        \item Nur positive werte, wert features \(\geq\) 0
+        \item Features müssen einheitliche grössen haben
     \end{itemize}
     \item \textbf{Model}
     \begin{itemize}
-        \item 
+        \item Ziel: \(X_{n\cdot m} \approx A_{n \cdot k} \cdot B_{k \cdot m}\)
+        \item \(k \leq min(n, m)\)
+        \item Ziel: Rekonstruierte Matrix ungefähr gleich hohe matrix A mal breite matrix B
+        \item \(X\) Feature matrix \(\rightarrow\) Encoder \(\rightarrow\) \(A\) kleine Matrix \(\rightarrow\) Decoder (\(B\)) \(\rightarrow\) \(AB\)
     \end{itemize}
     \item \textbf{Metrik}
     \begin{itemize}
@@ -590,27 +591,97 @@ Soft margin: Decision boundary that allows for some flexibility
     \end{itemize}
     \item \textbf{Kostenfunktion}
     \begin{itemize}
-        \item 
+        \item Gleiche wie bei PCA
+        \item \(J(A, B) = || X - \hat{X}||_2 = || X - AB ||_2\)
     \end{itemize}
     \item \textbf{Optimierung}
+    \begin{enumerate}
+        \item Initialisiere A, B mit zufälligen Werten
+        \item Optimiere A nach Kostenfunktion, B bleibt fix (optimiere räpresentation gegeben Decoder B)
+        \item Optimiere B nach Kostenfunktion, A bleibt fix (optimiere decoder gegeben repräsentation A)
+        \item Wiederhole 2. und 3. bis nur noch wenig veränderung statt findet
+        \item[-] Findet lokales minimum. Ganzen Algorithmus mehrmals wiederholen mit anderen initialwerten, anderes resultat
+    \end{enumerate}
+  \end{itemize}
+
+\vspace{0.4em}
+\hrule
+\vspace{0.7em}
+
+{\scriptsize{Fully Connected Neural Network}}
+  \begin{itemize}
+    \item FCNN = Multi Layer Perceptron = Neural Network
+    \item \textbf{Beschreibung}
     \begin{itemize}
-        \item 
+        \item Input Layer (dimension anzahl features) \(\rightarrow\) Hidden Layer  \(\rightarrow\)  ...  \(\rightarrow\) Output Layer (dimension anzahl resultate)
+        \item Aktivierungsfunktion: Transformierung vom wert bevor er weitergegeben wird
+    \end{itemize}
+    \item \textbf{Data Specification}
+    \begin{itemize}
+        \item Was ist das Ziel
+        \item Was ist die Kostenfunktion
+        \item Feature selection
+        \item Kategorische müssen encoded werden
+        \item Nummerische standardisiert
+    \end{itemize}
+    \item \textbf{Model}
+    \begin{itemize}
+        \item \(\phi\) Aktivierungsfunktion macht das Modell nicht-linear, beliebteste ReLU
+        \item eg. Logisitsche Regression als neurales netzwerk mit aktivierungsfunktion \(\phi\)
+        \item \(\hat{y} = \phi(\beta_0 + \beta_1x_1 + ...)\)
+        \item Mehrere Outputs möglich dann für das letzte layer ist die aktivierungsfunktion der soft-max
+        \item Softmax: amplifies largest value so that it is closer to 1
+    \end{itemize}
+    \item \textbf{Kostenfunktion}: oben
+    \item \textbf{Optimierung}
+    \begin{itemize}
+        \item Gradient Descent
+        \item Stochastic Gradient Descent
+        \begin{itemize}
+            \item 1 sample \(\rightarrow\) richtung minimum
+            \item update sehr schnell berechnet, oftmals in falsche richtung, sehr noisy
+        \end{itemize}
+        \item Min Batch Gradient Descent
+        \begin{itemize}
+            \item x samples richtung minimum
+            \item update schnell, weniger noisy als stochastic
+        \end{itemize}
     \end{itemize}
   \end{itemize}
+
 
 \vspace{0.4em}
 \hrule
 \vspace{0.7em}
 
 {\scriptsize{Auto Encoder}} Unsupervised Dimensionality Reduction
+
+Reconstruction based Method
+
   \begin{itemize}
     \item \textbf{Beschreibung}
     \begin{itemize}
-        \item 
+        \item lerne nicht-lineares Manifold im Feature-Space
+      \item Nicht-lineare Dimensionality Reduction anhand von Daten lernen.
+      \item Wir verwenden ein Neural Network und den Reconstruction Error als Kostenfunktion.
+      \item Undercomplete Autoencoder:
+        \begin{itemize}
+          \item Bottleneck in der Architektur des Netzwerks.
+          \item wichtige info verdichten, unwichtiges weglassen
+          \item Input 300 Pixel, Latent space 20 fetaures, reconstructed input space 300 pixel
+        \end{itemize}
+      \item Overcomplete Autoencoder:
+        \begin{itemize}
+          \item Kein Bottleneck, aber Regularization.
+        \end{itemize}
+        \item Aktivierungsfunktion muss nicht linear sein
+        \item genaue Architektur (no. hidden layers, nodes, etc) ist hyperparameter
     \end{itemize}
     \item \textbf{Data Specification}
     \begin{itemize}
-        \item 
+        \item features? (eg. pixel)
+        \item kategorische encoden
+        \item nummerische standardisieren
     \end{itemize}
     \item \textbf{Model}
     \begin{itemize}
@@ -622,49 +693,26 @@ Soft margin: Decision boundary that allows for some flexibility
     \end{itemize}
     \item \textbf{Kostenfunktion}
     \begin{itemize}
-        \item 
+        \item Rekonstruktionsfehler: \(J(\beta) = ||X-\hat{X}||_2\)
+        \item Andere auch möglich z.b. L1 Distanz
     \end{itemize}
     \item \textbf{Optimierung}
     \begin{itemize}
-        \item 
+        \item Gradient Descent
     \end{itemize}
+    \item \textbf{Limits}
+    \begin{itemize}
+        \item Reconstruction Error, nicht optimal für z.b. Bilder
+        \item Gelerntes beinhaltet viel pixel-perfekt statt semantische informationen
+    \end{itemize}
+    \item Wenn Encoder \& Decoder Linear sind (lineare aktivierungsfunktion), dann lernt der Auto Encoder den gleichen Latent Space wie PCA
   \end{itemize}
 
-\vspace{0.4em}
-\hrule
-\vspace{0.7em}
-
-{\scriptsize{Fully Connected Neural Network}} Typ: ???
-  \begin{itemize}
-    \item \textbf{Beschreibung}
-    \begin{itemize}
-        \item 
-    \end{itemize}
-    \item \textbf{Data Specification}
-    \begin{itemize}
-        \item 
-    \end{itemize}
-    \item \textbf{Model}
-    \begin{itemize}
-        \item 
-    \end{itemize}
-    \item \textbf{Metrik}
-    \begin{itemize}
-        \item 
-    \end{itemize}
-    \item \textbf{Kostenfunktion}
-    \begin{itemize}
-        \item 
-    \end{itemize}
-    \item \textbf{Optimierung}
-    \begin{itemize}
-        \item 
-    \end{itemize}
-  \end{itemize}
-
+  
 \end{multicols}
 
 \newpage
+
 
 \begin{multicols}{5}
 
@@ -844,6 +892,7 @@ TODO: Bestimmtheitsmass \(R^2\)
 
 \begin{itemize}
     \item Manifold-Annahme: Hochdimensionale Daten liegen auf einem tiefer-dimensionalen Manifold
+    \item wir möchten möglichst viel streuung erhalten
     \item Eg. 3072 Pixels / Features. Dimensionsreduktion: Finde x nummer neue features (eg. 200) die die Daten präzieser Beschreiben können. Viele Pixel sind nicht zwingen aussagekräftig.
     \item Input Space (3072 Pixels / features) \(\rightarrow\) Latent Space (200 features)
     \item Input Space: 1'000 1-hot encoded words \(\rightarrow\) Latent Space (300 features)
@@ -898,7 +947,7 @@ TODO: Bestimmtheitsmass \(R^2\)
 
 {\footnotesize{\textbf{Modell Komplexität}}}
 
-\begin{tikzpicture}[scale=0.40, every node/.style={scale=0.5}]
+\begin{tikzpicture}[scale=0.5, every node/.style={scale=0.5}]
   % Axes
   \draw[->] (0,0) -- (5.2,0) node[right]{Model complexity};
   \draw[->] (0,0) -- (0,3.6) node[above]{Prediction error};
@@ -1036,10 +1085,164 @@ TODO: Bestimmtheitsmass \(R^2\)
 \vspace{0.7em}
 
 
+{\footnotesize{\textbf{Deep Learning}}}
+
+\begin{itemize}
+    \item Deep Learning = ML mit Neuralen netzen als Modell
+    \item Vorher: viele Annahmen + Wissen vorprogrammiert, Modell helfen
+    \item trainiert auf manuelle räpresentation d.h. features und dimensionality reduction. Manuelle räpresentation für Bilder/Text schwierig
+    \item Motivation DL: räpresentation automatisch aus Daten lernen
+    \item kann supervised oder unsupervised sein
+    \item viele Daten \& Rechenzeit
+    \item Meist beste Wahl für unstrukturierte Daten (Bilder/Text) die viele features haben die alleine nicht aussagekräftig sind.
+    \item Strukturierte Daten meist nicht die beste wahl
+    \item \textbf{Framework für Modelle}
+    \begin{itemize}
+        \item Architektur NN ist problemspezifisch, und unterschiedlich Kombinierbar
+        \item müssen empirisch evaluiert werden
+        \item abwegung von black-box vs. komplexe probleme lösbar
+      \item Modellkomplexität ist einfach anpassbar
+        \begin{itemize}
+          \item Mehr Hidden Layers $\rightarrow$ mehr lernbare Parameter.
+          \item Weniger Hidden Layers $\rightarrow$ weniger lernbare Parameter.
+          \item In einem Layer mehr Nodes $\rightarrow$ mehr lernbare Parameter.
+          \item In einem Layer weniger Nodes $\rightarrow$ weniger lernbare Parameter.
+        \end{itemize}
+      \item Kostenfunktion
+        \begin{itemize}
+          \item Die Kostenfunktion muss ableitbar sein.
+          \item Sie kann problemspezifisch gewählt werden.
+        \end{itemize}
+        \item Hidden Layer
+        \begin{itemize}
+            \item Zwischenergebnisse, kann als gelerntes feature engineering betrachtet werden
+            \item feature engineering \(\rightarrow\) mehr aus weniger
+            \item dimensionality reduction \(\rightarrow\) weniger aus mehr
+        \end{itemize}
+        \item Optimierung
+        \begin{itemize}
+            \item Gradient Descent mit Lokalem minmum, Unterschiedliche Lösungen möglich basierend startpunkt
+        \end{itemize}
+      \item Viele weitere Möglichkeiten (Deep Learning)
+        \begin{itemize}
+          \item Wir können die Architektur (Verbindungen) des Netzwerks anders gestalten,
+                entsprechend dem zugrunde liegenden Problem.
+          \item Beispiele: CNN und RNN.
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+{\scriptsize{Beispiel}}
+
+\begin{itemize}
+    \item \textbf{Convoluted Neural Network (CNN)}
+    \begin{itemize}
+        \item Annahme: Nachbarschaft von einem input (eg. Pixel) hat einen Einfluss and die anderen Pixel
+        \item Wir verändern die verkabelung im netzwerk um den input besser zu berücksichtigen
+        \item Input bleibt gleich gross
+        \item wenn die nachbarschaft egal ist, dann ist es nicht die richtige wahl
+    \end{itemize}
+    \item \textbf{Contrastive Learning}
+    \begin{itemize}
+        \item eg. Gesichteserkennung
+        \item kennt person, neue person muss maximale distanz von einander haben
+        \item lernt wichtige aspekte im gesicht und unwichtiges (brille, haare) ignorieren
+        \item One-Shot Learning, lernt neue Person (klasse) mit nur einem Bild
+    \end{itemize}
+    \item Zero-Shot Learning
+    \begin{itemize}
+        \item kann was machen mit nur 1 input
+        \item eg. gemeinsamer laten space für Bilder und Text
+        \item "an image of a dog" und kann damit einen output generieren
+    \end{itemize}
+    \item \textbf{Skip Connections}
+    \begin{itemize}
+        \item kreative Architektur
+        \item viele Layers schwierig zu trainieren
+        \item überspringt gewisse layers, parallel trainiert, \(\beta\) am schluss summiert
+        \item Voraussetzung identische Dimensionen
+    \end{itemize}
+\end{itemize}
+
+
+\vspace{0.4em}
+\hrule
+\vspace{0.7em}
+
+
+{\footnotesize{\textbf{In-Context Learning}}}
+
+\begin{itemize}
+    \item auch prompting
+    \item keine veränderung von \(\beta\)
+    \item neues ist nur kontext
+    \item Prompt Engineering: Prompt dem Modell anpassen damit es besser funktioniert
+    \item \textbf{Zero-Shot}
+    \begin{itemize}
+        \item vorgabe\(\rightarrow\) task description (eg. translate)
+        \item vorgegeben in natural language
+        \item + user input
+    \end{itemize}
+    \item \textbf{Few/One-Shot}
+    \begin{itemize}
+        \item vorgabe\(\rightarrow\) task description + example
+        \item + user input
+    \end{itemize}
+    \item Learning weil durch context (system promtps und beispiele) können wir das resultat verbessern
+    \item RAG and Agentic AI
+    \item ICL / LLM Limits
+    \begin{itemize}
+      \item Hallucination: Faktisch falsche Informationen, oft klingen sie plausibel.
+      \item Knowledge Cutoff: Wissensstand veraltet (Training).
+      \item Prompt Sensitivity: Formulierung und Struktur des Prompts überraschend wichtig.
+      \item Fehlendes Weltverständnis/Logik: Kein echtes Verständnis, keine Kausalität oder robustes logisches Schlussfolgern.
+      \item Hohe Kosten: Rechenressourcen und Energie.
+      \item Verbesserung schwierig: Oft schneller Prototyp, aber der Weg zum Produkt ist nicht immer einfach.
+    \end{itemize}
+
+\end{itemize}
+
+
+\vspace{0.4em}
+\hrule
+\vspace{0.7em}
+
+{\scriptsize{\textbf{Vergleich}}}
+
+\begin{enumerate}
+  \item \textbf{Machine Learning:}
+    \begin{itemize}
+      \item Klare Aufgabe (Regression, Klassifikation).
+      \item Lernprozess auf internen Daten.
+      \item Algorithmus lernt Muster auf strukturierten Daten (z.B. Häuserinformationen) für das Lösen der Aufgabe.
+      \item Manuelles domänenspezifisches Feature Engineering essentiell.
+    \end{itemize}
+
+  \item \textbf{Deep Learning:}
+    \begin{itemize}
+      \item Klare Aufgabe (Regression, Klassifikation, Segmentierung).
+      \item Lernprozess intern oder oft mehrschichtig (Transfer Learning).
+      \item Algorithmus lernt Repräsentationen auf unstrukturierten Daten (z.B. Pixelbild) für das Lösen der Aufgabe.
+      \item Architektur aus zusammengesetzten Komponenten mit generellen Annahmen 
+            (z.B. Grid-Nachbarschaft in CNNs).
+    \end{itemize}
+
+  \item \textbf{In-Context Learning:}
+    \begin{itemize}
+      \item Klare oder offene Aufgaben (z.B. Chatbot).
+      \item Kein internes Training (In-Context Learning, Prompting).
+      \item Riesiges vortrainiertes neuronales Netz lernt generelle Fähigkeiten durch eine konstruierte Aufgabe 
+            wie \emph{Next-Token Prediction}.
+    \end{itemize}
+\end{enumerate}
+
+
 \end{multicols}
 
 
 \newpage
+
+\begin{multicols}{4}
 
 \tiny
 
@@ -1064,6 +1267,16 @@ TODO: Bestimmtheitsmass \(R^2\)
     \begin{itemize}
         \item Binary Decision Tree: Feature grösser oder kleiner (gibt links und rechts)
         \item D.T. kann einfache lineare Boundary lernen nur sinnvoll wenn cut horizontal oder vertikal ist
+    \end{itemize}
+    \item \textbf{PCA vs. Non-Neg. Matrix-F}
+    \begin{itemize}
+        \item Unterschiede
+        \begin{itemize}
+            \item PCA: auch negative werte
+            \item NMF: positive werte, jedesmal anders
+            \item wir können neue datenpunkte nicht mappen, weil es immer nur auf die existierenden daten sinn macht
+        \end{itemize}
+        \item Gemeinsamkeit: gleiche Kostenfunktion auch wenn Modell anders
     \end{itemize}
 \end{itemize}
 
@@ -1093,55 +1306,187 @@ TODO: Bestimmtheitsmass \(R^2\)
 \vspace{0.7em}
 
 {\footnotesize{\textbf{Pitfalls}}}
+
+{\scriptsize{Peeking}}
+
 \begin{itemize}
-    \item \textbf{Peeking}
+    \item Test daten dürfen keinen Einfluss haben
+    \item Aus Daten Lernen und Entscheidungen dürfen nicht von ungesehenen Daten (Test-Daten beeinflusst werden. Ansonsten ist Evaluation des finalen Modells biased (zu optimistisch).
+    \item Beispiele
     \begin{itemize}
-        \item Test daten dürfen keinen Einfluss haben
-        \item Aus Daten Lernen und Entscheidungen dürfen nicht von ungesehenen Daten (Test-Daten beeinflusst werden. Ansonsten ist Evaluation des finalen Modells biased (zu optimistisch).
-        \item Beispiele
-        \begin{itemize}
-            \item Modelle nur auf den Train-Daten fitten (z.B. LinearRegression)
-            \item Preprocessing nur auf den Train-Daten fitten (z.B. StandardScaler)
-            \item Feature Engineering nur auf den Train-Daten fitten (z.B. durchschnittlicher Quadratmeterpreis)
-            \item Model-Selection mit Validation-Daten ausführen (z.B Cross-Validation)
-            \item Data Analysis nicht auf den Test-Daten ausführen (z.B. Pairplot)
-        \end{itemize}
+        \item Modelle nur auf den Train-Daten fitten (z.B. LinearRegression)
+        \item Preprocessing nur auf den Train-Daten fitten (z.B. StandardScaler)
+        \item Feature Engineering nur auf den Train-Daten fitten (z.B. durchschnittlicher Quadratmeterpreis)
+        \item Model-Selection mit Validation-Daten ausführen (z.B Cross-Validation)
+        \item Data Analysis nicht auf den Test-Daten ausführen (z.B. Pairplot)
     \end{itemize}
-    \item \textbf{Model Entwicklung}
-    \begin{enumerate}
-      \item Schätze, was bestenfalls erreichbar ist, gegeben dem Problem (z.B. 5--10\%).
-        \begin{itemize}
-          \item z.B. wie genau kann es eine Fachperson schätzen?
-          \item Wenn das Modell ein besseres Ergebnis erzielt, könnte ein Bug der Grund sein.
-        \end{itemize}
-      \item Erstelle eine Baseline und eine Upper-Bound (z.B. 50\%).
-      \item Erstelle ein erstes einfaches Modell (z.B. 40\%).
-      \item Iteratives Verbessern des Modells mit Daten und Annahmen.
-        \begin{itemize}
-          \item Systematisches Vorgehen: Planen, Umsetzen, Evaluieren.
-          \item Ein Schritt nach dem anderen: Verbesserungsgrund verstehen.
-          \item z.B. ein neues Feature, eine neue Modellart oder neues Feature Engineering.
-          \item Verkompliziere das Modell nicht für "nur" minimale Verbesserungen.
-          \item Occam's Razor: "einfachste Theorie allen anderen vorzuziehen".
-          \item Einfachheit des Modells ist eine Qualität (Deployment, Maintenance, Extension).
-        \end{itemize}
-    \end{enumerate}
-    \item \textbf{Inconsistent Preprocessing}
+\end{itemize}
+    
+{\scriptsize{Model Entwicklung}}
+
+\begin{enumerate}
+  \item Schätze, was bestenfalls erreichbar ist, gegeben dem Problem (z.B. 5--10\%).
+    \begin{itemize}
+      \item z.B. wie genau kann es eine Fachperson schätzen?
+      \item Wenn das Modell ein besseres Ergebnis erzielt, könnte ein Bug der Grund sein.
+    \end{itemize}
+  \item Erstelle eine Baseline und eine Upper-Bound (z.B. 50\%).
+  \item Erstelle ein erstes einfaches Modell (z.B. 40\%).
+  \item Iteratives Verbessern des Modells mit Daten und Annahmen.
+    \begin{itemize}
+      \item Systematisches Vorgehen: Planen, Umsetzen, Evaluieren.
+      \item Ein Schritt nach dem anderen: Verbesserungsgrund verstehen.
+      \item z.B. ein neues Feature, eine neue Modellart oder neues Feature Engineering.
+      \item Verkompliziere das Modell nicht für "nur" minimale Verbesserungen.
+      \item Occam's Razor: "einfachste Theorie allen anderen vorzuziehen".
+      \item Einfachheit des Modells ist eine Qualität (Deployment, Maintenance, Extension).
+    \end{itemize}
+\end{enumerate}
+    
+{\scriptsize{Inconsistent Preprocessing}}
     \begin{itemize}
         \item Alle feature preprocessing schritte müssen identisch für alle Daten (Train, Val, Test und in produktion angewendet werden)
     \end{itemize}
-    \item \textbf{Metrik Wahl}
+
+{\scriptsize{Metrik Wahl}}
+\begin{itemize}
+    \item Richtige Metrik ist vom Business Case (oder verfügbaren Daten) motiviert (z.B. prozentualer Fehler (MAPE) anstatt absoluter Fehler (MSE))
+    \item Regression: Eine robuste Metrik (z.B. MAE) kann Model stabilisieren bei unsicherer Datenqualität
+    \item Klassifikation: Bei inbalanced Klassen verwende nicht Accuracy sondern eine entsprechende Metrik (z.B. F1-Score)
+    \item Klassifikation: Wenn False Negative und False Positive unterschiedlich zu bewerten sind, dann Cost-Sensitive Learning, Threshold Moving
+\end{itemize}
+
+{\scriptsize{Modell-Wahl}}
+
+\begin{itemize}
+    \item \textbf{Vor der Model Wahl} Wie ein Problem Angehen
     \begin{itemize}
-        \item Richtige Metrik ist vom Business Case (oder verfügbaren Daten) motiviert (z.B. prozentualer Fehler (MAPE) anstatt absoluter Fehler (MSE))
-        \item Regression: Eine robuste Metrik (z.B. MAE) kann Model stabilisieren bei unsicherer Datenqualität
-        \item Klassifikation: Bei inbalanced Klassen verwende nicht Accuracy sondern eine entsprechende Metrik (z.B. F1-Score)
-        \item Klassifikation: Wenn False Negative und False Positive unterschiedlich zu bewerten sind, dann Cost-Sensitive Learning, Threshold Moving
+        \item Problem Komplexität
+        \item Problem-Domäne (z.B. strukturierte Daten vs. unstrukturierte Daten)
+        \item Anzahl Datenpunkte
+        \item Anzahl Features
+        \item Modell interpretierbarkeit
+        \item verfügbare rechenzeit
+    \end{itemize}
+    \item Unstrukturiert? \(\rightarrow\) DL
+    \item Strukturiert?
+    \begin{itemize}
+        \item wenige Daten \(\rightarrow\) lineares Modell mit vielen Annahmen und feature engineering
+        \item mehr Daten \(\rightarrow\) nicht lineares Modell
+        \item grosser fokus auf datenqualität
+    \end{itemize}
+    \item Transfer learning: nimm ein existierendes und verfeinere es
+\end{itemize}
+
+{\scriptsize{Genug Daten}}
+
+\begin{itemize}
+  \item Zu Beginn: Haben wir genug Daten, um das gewünschte Problem zu lösen?
+
+  \item Möglichkeiten, dies festzustellen:
+    \begin{itemize}
+      \item Erfahrung, Austausch mit anderen Data-Science-Experten.
+      \item Wie viele Daten brauchten ähnliche Probleme?
+      \item Für ein spezifisches Modell: Learning Curve visualisieren (nächste Slide).
+    \end{itemize}
+  \item Was kann man gegen zu wenig Daten tun?
+    \begin{itemize}
+      \item Mehr Daten sammeln (z.B. Tesla Autopilot).
+      \item Problem vereinfachen (z.B. nur bestimmte Städte befahren).
+      \item Projekt abbrechen oder verschieben.
+      \item Data Augmentation: Vorhandene Daten künstlich variieren.
+      \item Transfer Learning: Daten eines ähnlichen Problems ausnutzen.
+      \item Modell vereinfachen, z.B. mehr sinnvolle Annahmen treffen (mit Domänenexperten), 
+            wie kreatives Feature Engineering oder Feature Encoding 
+            (z.B. durchschnittlicher Quadratmeterpreis im Umkreis).
+    \end{itemize}
+    \item \textbf{Learning Curve}
+    \begin{itemize}
+        \item 1 spezifisches Modell (eg. bestimmte NN architektur)
+        \item Wie gut ist das Modell mit unterschiedlich vielen Trainingsdaten?
+        \item Wann ist das Modell "gesättigt" (wird nicht viel besser
+        \item kann helfen ein modell zu wählen
+        \item Wenn klar ist würde wahrscheinlich von mehr daten profitieren, dann kann das steuern
     \end{itemize}
 \end{itemize}
 
-\vspace{0.4em}
+{\scriptsize{Resultate Interpretieren}}
+
+\begin{itemize}
+  \item Performanz richtig einordnen: Resultate nicht auf andere Probleme generalisieren.
+  \item Kontext beachten:
+    \begin{itemize}
+      \item Gegeben der Metrik.
+      \item Gegeben dem Problem.
+      \item Gegeben den Daten, z.B. Selection Bias:
+        \begin{itemize}
+          \item Datenquelle(n)
+          \item Datenfilter
+        \end{itemize}
+    \end{itemize}
+  \item Nicht überbewerten:
+    \begin{itemize}
+      \item Grenzen bewusst sein.
+      \item Klar kommunizieren.
+    \end{itemize}
+  \item Cross-Validation nutzen für den Vergleich zwischen Modellen.
+  \item Kleine Verbesserung bei grosser Modellkomplexität ist meistens unerwünscht.
+  \item Einfachere Modelle $\rightarrow$ einfachere Maintenance.
+  \item Occam's Razor
+\end{itemize}
+
+\begin{itemize}
+  \item 20\% Genauigkeit -- was bedeutet das?
+    \begin{itemize}
+      \item Die Vorhersage ist in den Daten im Durchschnitt $\pm$20\% genau.
+      \item Es wird der Angebotspreis vorhergesagt, nicht der Verkaufspreis.
+      \item Gilt nur für Objekte aus dem Inseratsjahr 2018.
+      \item Gilt nur für bestimmte Nutzungen und eine maximale Grösse.
+      \item Gilt nur für Objekte von der gecrawlten Internet-Plattform.
+      \item Resultate nicht über die Daten hinaus generalisieren.
+    \end{itemize}
+\end{itemize}
 
 
+{\scriptsize{Bias in ML}}
+
+\begin{itemize}
+  \item Pre-existing
+  \begin{itemize}
+      \item Historischer (oder aktueller) Bias in den Daten.
+    \item Bias in den Algorithmen / der Problemstellung.
+  \end{itemize}
+  \item Technical z.B. 
+  \begin{itemize}
+      \item limitierte Rechenzeit
+        \item Design: Erste sichtbare Resultate vs. später sichtbare Resultate.
+    \item Verzerrte Zufallszahlengenerierung.
+  \end{itemize}
+  \item Emergent
+  \begin{itemize}
+      \item Unvorhersehbare Korrelationen, z.B. Muster in den Daten lassen sich auf Demographie zurückführen
+        (indirekter Pre-existing Bias).
+        \item Feedback loops: Algorithmus beeinflusst die Welt, die Welt beeinflusst den Algorithmus.
+  \end{itemize}
+  \item Feedback-Loop Social Media
+  \begin{itemize}
+      \item Gelernt clicken auf extreme inhalte
+      \item Anpassung des Publishing, clickbaits standard
+      \item anpassung der user: einseitige berichterstattung bubbles
+  \end{itemize}
+  \item Was tun gegen bias
+\begin{itemize}
+  \item Bias aus dem Dataset zu entfernen ist schwierig (wegen unvorhersehbarer Korrelationen).
+  \item Gewisse Probleme sollten allenfalls (noch) nicht mit Machine Learning automatisiert werden.
+  \item Bias in Machine Learning ist ein aktives Forschungsgebiet.
+  \item Regularisierung von Machine-Learning-Systemen wird kommen (ähnlich dem Drei-Phasen-Test für Medikamente, nur in einer anderen Form).
+\end{itemize}
+
+\end{itemize}
+
+
+
+\end{multicols}
 
 \end{landscape}
 \end{document}
