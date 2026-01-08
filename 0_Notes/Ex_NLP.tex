@@ -271,6 +271,109 @@
 \hrule
 \vspace{0.7em}
 
+{\footnotesize{Recurrent Neural Networks (RNN)}}
+
+\begin{itemize}
+    \item problem with bag of words: no word order, no context
+    \item RNN is sequential processing with memory
+    \item Idea
+    \begin{itemize}
+        \item gets current embedding + previous hidden state (memory from previous input)
+        \item creates new hidden state
+        \item Hidden State = memory
+        \item Final hidden state is output
+    \end{itemize}
+\end{itemize}
+
+\vspace{0.4em}
+{\scriptsize{Classification}}
+
+\begin{itemize}
+    \item Embeddings \(\rightarrow\) RNN \(\rightarrow\) final hidden state \(\rightarrow\) Classifier
+    \item processes entire sequence
+    \item final hidden state contains all context
+    \item classify based on accumulated info
+\end{itemize}
+
+
+\vspace{0.4em}
+{\scriptsize{Generation}}
+\begin{itemize}
+    \item From input more text
+    \item LLM: probability distribution over sequences, for each position it predicts the probability of that word
+    \item Autoregressive Generation: use your own output as inputs
+    \item RNN for Lang Model: at each step predict next based on current hidden state
+    \item Sampling Strategy
+    \begin{itemize}
+        \item Greedy: pick most likely word
+        \item Random: pick any from probability distribution
+        \item Temperature: controll randomness
+        \item Low Temp: conservative / High Temp: creative, chaotic
+    \end{itemize}
+\end{itemize}
+
+\begin{tikzpicture}[
+    >=Latex,
+    arrow/.style={-Latex, shorten >=1pt, shorten <=0.5pt},
+    updown/.style={-Latex, shorten >=1pt, shorten <=0.5pt},
+    lab/.style={font=\tiny},
+    word/.style={font=\tiny},
+]
+
+% ---------- Helper macro: circle with vertical bands ----------
+\newcommand{\tokencircle}[4]{%
+  \begin{scope}
+    \coordinate (C) at (#1,#2);
+    \clip (C) circle (#3);
+    \fill[cDark] (C) circle (#3);
+    \foreach \xs/\xe/\col in {#4}{
+      \fill[\col] ($(C)+(\xs*#3,-#3)$) rectangle ($(C)+(\xe*#3,#3)$);
+    }
+  \end{scope}
+}
+
+% ---------- Geometry (smaller + tighter) ----------
+\def\r{0.2}      % smaller radius
+\def\dx{1.00}     % tighter horizontal spacing
+\def\y{0}
+
+% ---------- Circles ----------
+\tokencircle{0*\dx}{\y}{\r}{-1/1/cDark}
+
+\tokencircle{1*\dx}{\y}{\r}{-1/0/cDark,0/1/cTeal}
+
+\tokencircle{2*\dx}{\y}{\r}{-1/-0.55/cDark,-0.55/0/cTeal,0/1/cGold}
+
+\tokencircle{3*\dx}{\y}{\r}{-1/-0.75/cDark,-0.75/-0.55/cTeal,-0.55/-0.05/cGold,-0.05/1/cOrange}
+
+\tokencircle{4*\dx}{\y}{\r}{-1/-0.86/cDark,-0.86/-0.74/cTeal,-0.74/-0.54/cGold,-0.54/-0.18/cOrange,-0.18/1/cRed}
+
+% ---------- Horizontal arrows ----------
+\foreach \i in {0,1,2,3}{
+  \draw[arrow] (\i*\dx+\r+0.1,\y) -- (\i*\dx+\dx-\r-0.1,\y);
+}
+
+% ---------- Vertical arrows + labels ----------
+\foreach \i/\labtext in {0/O1,1/O2,2/O3,3/O4,4/O5}{
+  \draw[updown] (\i*\dx,\y+\r+0.10) -- (\i*\dx,\y+\r+0.4);
+  \draw[updown] (\i*\dx,\y-\r-0.10) -- (\i*\dx,\y-\r-0.4);
+\node[lab] at (\i*\dx,\y+\r+0.55) {\labtext};
+}
+
+% ---------- Words under circles ----------
+\node[word, text=cDark]   at (0*\dx,\y-\r-0.5) {What};
+\node[word, text=cTeal]   at (1*\dx,\y-\r-0.5) {time};
+\node[word, text=cGold]   at (2*\dx,\y-\r-0.5) {is};
+\node[word, text=cOrange] at (3*\dx,\y-\r-0.5) {it};
+\node[word, text=cRed]    at (4*\dx,\y-\r-0.5) {?};
+
+\end{tikzpicture}
+
+
+\vspace{0.4em}
+\hrule
+\vspace{0.7em}
+
 {\footnotesize Attention (Transformer Core)}
 
 \begin{itemize}
@@ -665,110 +768,6 @@ Reinforcement Learning from human feedback (RLHF)
 \end{itemize}
 
 
-\vspace{0.4em}
-\hrule
-\vspace{0.7em}
-
-{\footnotesize{Recurrent Neural Networks (RNN)}}
-
-\begin{itemize}
-    \item problem with bag of words: no word order, no context
-    \item RNN is sequential processing with memory
-    \item Idea
-    \begin{itemize}
-        \item gets current embedding + previous hidden state (memory from previous input)
-        \item creates new hidden state
-        \item Hidden State = memory
-        \item Final hidden state is output
-    \end{itemize}
-\end{itemize}
-
-\vspace{0.4em}
-{\scriptsize{Classification}}
-
-\begin{itemize}
-    \item Embeddings \(\rightarrow\) RNN \(\rightarrow\) final hidden state \(\rightarrow\) Classifier
-    \item processes entire sequence
-    \item final hidden state contains all context
-    \item classify based on accumulated info
-\end{itemize}
-
-
-\vspace{0.4em}
-{\scriptsize{Generation}}
-\begin{itemize}
-    \item From input more text
-    \item LLM: probability distribution over sequences, for each position it predicts the probability of that word
-    \item Autoregressive Generation: use your own output as inputs
-    \item RNN for Lang Model: at each step predict next based on current hidden state
-    \item Sampling Strategy
-    \begin{itemize}
-        \item Greedy: pick most likely word
-        \item Random: pick any from probability distribution
-        \item Temperature: controll randomness
-        \item Low Temp: conservative / High Temp: creative, chaotic
-    \end{itemize}
-\end{itemize}
-
-\begin{tikzpicture}[
-    >=Latex,
-    arrow/.style={-Latex, shorten >=1pt, shorten <=0.5pt},
-    updown/.style={-Latex, shorten >=1pt, shorten <=0.5pt},
-    lab/.style={font=\tiny},
-    word/.style={font=\tiny},
-]
-
-% ---------- Helper macro: circle with vertical bands ----------
-\newcommand{\tokencircle}[4]{%
-  \begin{scope}
-    \coordinate (C) at (#1,#2);
-    \clip (C) circle (#3);
-    \fill[cDark] (C) circle (#3);
-    \foreach \xs/\xe/\col in {#4}{
-      \fill[\col] ($(C)+(\xs*#3,-#3)$) rectangle ($(C)+(\xe*#3,#3)$);
-    }
-  \end{scope}
-}
-
-% ---------- Geometry (smaller + tighter) ----------
-\def\r{0.2}      % smaller radius
-\def\dx{1.00}     % tighter horizontal spacing
-\def\y{0}
-
-% ---------- Circles ----------
-\tokencircle{0*\dx}{\y}{\r}{-1/1/cDark}
-
-\tokencircle{1*\dx}{\y}{\r}{-1/0/cDark,0/1/cTeal}
-
-\tokencircle{2*\dx}{\y}{\r}{-1/-0.55/cDark,-0.55/0/cTeal,0/1/cGold}
-
-\tokencircle{3*\dx}{\y}{\r}{-1/-0.75/cDark,-0.75/-0.55/cTeal,-0.55/-0.05/cGold,-0.05/1/cOrange}
-
-\tokencircle{4*\dx}{\y}{\r}{-1/-0.86/cDark,-0.86/-0.74/cTeal,-0.74/-0.54/cGold,-0.54/-0.18/cOrange,-0.18/1/cRed}
-
-% ---------- Horizontal arrows ----------
-\foreach \i in {0,1,2,3}{
-  \draw[arrow] (\i*\dx+\r+0.1,\y) -- (\i*\dx+\dx-\r-0.1,\y);
-}
-
-% ---------- Vertical arrows + labels ----------
-\foreach \i/\labtext in {0/O1,1/O2,2/O3,3/O4,4/O5}{
-  \draw[updown] (\i*\dx,\y+\r+0.10) -- (\i*\dx,\y+\r+0.4);
-  \draw[updown] (\i*\dx,\y-\r-0.10) -- (\i*\dx,\y-\r-0.4);
-\node[lab] at (\i*\dx,\y+\r+0.55) {\labtext};
-}
-
-% ---------- Words under circles ----------
-\node[word, text=cDark]   at (0*\dx,\y-\r-0.5) {What};
-\node[word, text=cTeal]   at (1*\dx,\y-\r-0.5) {time};
-\node[word, text=cGold]   at (2*\dx,\y-\r-0.5) {is};
-\node[word, text=cOrange] at (3*\dx,\y-\r-0.5) {it};
-\node[word, text=cRed]    at (4*\dx,\y-\r-0.5) {?};
-
-\end{tikzpicture}
-
-
-\vspace{0.4em}
 \hrule
 
 
