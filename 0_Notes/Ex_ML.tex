@@ -158,26 +158,70 @@
 \hrule
 \vspace{0.7em}
 
+{\footnotesize{Classification}}
+\begin{itemize}
+    \item \textbf{Ziel}: fixe Gruppen sind vorgegeben, input ist eine der gruppen, zuweisung
+    \item \textbf{Sigmoid} \(\phi\): Beweis für eine Klasse
+    \item \textbf{Softmax}: Beweis für mehrere Klassen
+\end{itemize}
+
+\vspace{0.4em}
+\hrule
+\vspace{0.7em}
+
 {\scriptsize{Logistic Regression}} Supervised Classification
   \begin{itemize}
+    \item \textbf{Input}: Kontinuierlich or Diskret / \textbf{Output}: Diskret (category)
     \item \textbf{Beschreibung}
     \begin{itemize}
         \item Ziel variabel ist eine der vorgegebenen Gruppen
         \item \(\beta\) sind Linear
         \item hat eine tendenz zum underfitting
     \end{itemize}
+    \item \textbf{Annahmen}
+    \begin{itemize}
+        \item x ist eine der vorgegebenen Gruppen
+        \item \(\beta\) sind Linear
+        \item hat eine tendenz zum underfitten
+        \item Resultat zwischen 0-1 ist wahrscheinlichkeit
+    \end{itemize}
     \item \textbf{Data Specification}
     \begin{itemize}
         \item Kategorische vorgegebene Zielvariabel
         \item Features werden gewählt
         \item Kategorische Features Encoden
-        \item Wenn Regularisiert (L1/L2) \(\rightarrow\) Standardisiert
+        \item Wenn Regularisiert (L1/L2) \(\rightarrow\) Nummerische Features Standardisiert
     \end{itemize}
     \item \textbf{Model}
     \begin{itemize}
         \item Modifikation Lineares Modell
         \item Output zwischen 0-1 (wahrscheinlichkeit für eine Klasse)
-        \item Eg. Sigmpoid / Logistik  \(\rightarrow\) resultat von Modell in diese Funktion (z) einsetzten
+        \item Eg. Sigmpoid / Logistik  \(\rightarrow\) resultat von Modell in diese Funktion (z) einsetzten \\
+        \begin{tikzpicture}[scale=0.75, every node/.style={scale=0.6}]
+\begin{axis}[
+  width=4cm, height=2.6cm,
+  axis lines=left,
+  xmin=-6, xmax=6,
+  ymin=0, ymax=1,
+  xtick=\empty, ytick={0,0.5,1},
+  yticklabels={$0$,$0.5$,$1$},
+  xlabel={$z=w^\top x$},
+  ylabel={$p(y=1\mid x)$},
+  domain=-6:6,
+  samples=200,
+]
+% Sigmoid curve
+\addplot[thick, blue] {1/(1+exp(-x))};
+
+% 0.5 threshold line
+\draw[dashed] (axis cs:-6,0.5) -- (axis cs:6,0.5);
+\draw[dashed] (axis cs:0,0) -- (axis cs:0,1);
+
+% Small label
+\node[anchor=south east] at (axis cs:6,0.5) {\scriptsize $0.5$};
+\end{axis}
+\end{tikzpicture}
+
         \item \(\phi(z) = \dfrac{1}{1 + e^-z}\) (definition von funktion Z)
         \item \(p(y=1|x_i) = \phi(\beta_0 + x_i\beta_1)\) (Wahrscheinlichkeit klasse y)
         \item \(p(y=0|x_i) = 1- \phi(\beta_0 + x_i\beta_1)\) (Wahrscheinlichkeit andere klasse als y)
@@ -557,16 +601,17 @@ TODO: Bestimmtheitsmass \(R^2\)
 \end{itemize}
 
 
-{\scriptsize{Maximum Likelihood}}
+{\scriptsize{Maximum Likelihood}} Klassification
 \begin{itemize} 
     \item TODO: furuther investigation
-        \item we wish to maximize the conditional probability of observing the data (X) given a specific probability distribution and its parameters
-        \item \( p(\overrightarrow{y} | X ) = \prod \phi(x^i\beta) \cdot \prod{1-\phi(x^i\beta)}\) \\
-        probability feature \(x_i \rightarrow\) +ve sample * -ve Sample 
-        \item Wert möglichst nahe 1 \(\rightarrow\) Wahrscheinlichkeit für eine Klasse
-        \item Resultat: Wie wahrschienlich sind die labels die ich habe und unserem Modell
-        \item Je mehr Datenpunkte desto näher bei 0, aber immernoch vergleichbar
-    \end{itemize}
+    \item wahrscheinlichkeit für einen datenpunkt * wahrscheinlichkeit aller anderen
+    \item Wert möglichst nahe 1 \(\rightarrow\) Wahrscheinlichkeit für eine Klasse
+    \item Resultat: Wie wahrschienlich sind die labels die ich habe und unserem Modell
+    \item Je mehr Datenpunkte desto näher bei 0, aber immernoch vergleichbar
+    \item we wish to maximize the conditional probability of observing the data (X) given a specific probability distribution and its parameters
+    \item \( p(\overrightarrow{y} | X ) = \prod \phi(x^i\beta) \cdot \prod{1-\phi(x^i\beta)}\) \\
+    probability feature \(x_i \rightarrow\) +ve sample * -ve Sample 
+\end{itemize}
 
 
 
@@ -832,7 +877,11 @@ TODO: Bestimmtheitsmass \(R^2\)
     \end{itemize}
 \end{itemize}
 
-\vspace{1em}
+
+\vspace{0.4em}
+\hrule
+\vspace{0.7em}
+
 {\footnotesize{\textbf{Wie Problem Angehen?}}}
 \begin{itemize}
     \item \textbf{Problem Verstehen:} Klassifikation, Regression, etc.?
