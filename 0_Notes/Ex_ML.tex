@@ -429,6 +429,10 @@ Soft margin: Decision boundary that allows for some flexibility
     \begin{itemize}
         \item Kann keine extrapolation machen für Daten ausserhalb der Trainingsdaten
         \item Ziel: Feature-space in regionen aufteilen
+        \item Kann nicht lineare zusammenhänge lernen
+        \item Robst bei vielen Features, weil unwichtige selten/nicht für splits verwendet werden
+        \item Wird of in einem ensemble verwendet und nicht alleine
+        \item Gut interpretierbar
     \end{itemize}
     \item \textbf{Data Specification}
     \begin{itemize}
@@ -440,7 +444,10 @@ Soft margin: Decision boundary that allows for some flexibility
     \item \textbf{Model}
     \begin{itemize}
         \item Abbruch bedingung setzten als hyper parameter, eg. maximale Tree Tiefe
-        \item Wahrscheinlichkeit für klasse \(k\) for Region \(R_m\)
+        \item wenn keine abbruch bedingung dann soweit bis alles sauber ist
+        \item Wahrscheinlichkeit für klasse \(k\) for Region \(R_m\) gibt es zurück
+        \item Kann extrem overfitted sein
+        \item Möglich nachträglich baum zu reinigen
         \item \(p(y=k|R_m) = \frac{1}{N_m} \sum_{x^{(i) \in R_m}} I(y^{(i)} = k\)
         \item Klasse mit höchster Wahrscheinlichkeit vorhersagen für Region \(R_m\)
         \item \(\hat{y}_{R_m} = arg\;max\;p(y = k|R_m)\) 
@@ -451,11 +458,23 @@ Soft margin: Decision boundary that allows for some flexibility
     \end{itemize}
     \item \textbf{Kostenfunktion}
     \begin{itemize}
-        \item 
+        \item Impurity (Verunreinigung) der Regionen messen
+        \item Welche funktion genommen wird ist hyperparameter
+        \item Wir können auch unterschiedliche Bäume vergleichen
     \end{itemize}
     \item \textbf{Optimierung}
     \begin{itemize}
-        \item 
+        \item Theorie: es gibt einen perfekten Baum für testdaten. Aber rechenintensiv und overfittet
+        \item Praxis: guter Tree mit einem Greedy Altgorithmus finden. Making a locally optimal decision, in the hope of reaching a global optimum
+        \item robust bei vielen features.
+        \item Greedy: Finde besten Split für aktuelle Region \(R\) zum unterteilen in \(R_1\) und \(R_2\) nach \(M\), Bestes Feature (f) mit bestem Threshold (t)
+        \item Wiederholt angewendet auf \(R_1\) und / oder \(R_2\) je nach Abbruchbedingung.
+    \end{itemize}
+    \item \textbf{Random Forest}
+    \begin{itemize}
+        \item Trainiere viele Decision Trees auf zufällige Tiele der Daten
+        \item Finale prediction ist durchschnitt der trainierten decision trees
+        \item Enseble methode genannt Bagging
     \end{itemize}
   \end{itemize}
 
