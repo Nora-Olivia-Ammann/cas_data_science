@@ -95,6 +95,152 @@
 \hrule
 \vspace{0.7em}
 
+{\footnotesize{General}}
+
+\begin{itemize}
+    \item Token: input of NLP
+    \item Corpus: collection of words and phrases, can be mixed source
+    \item Vocabulary: set of words known to an NLP system or dataset
+    \item Out of Vocabulary: wort nicht im vocabulary can be because of spelling mistakes, etc.
+    \item Zipf's Law
+    \begin{itemize}
+    \item word by frequency rank
+    \item frequency of word is about inverse proportianal to its rank
+    \item "power low"
+\end{itemize}
+\end{itemize}
+
+\vspace{0.4em}
+\hrule
+\vspace{0.7em}
+
+{\footnotesize{Cleaning \& Preprocessing}}
+
+\begin{itemize}
+    \item Zu seltenes Wort \(\rightarrow\) weg, unklar wie umgehen
+    \item Zu häufiges wort \(\rightarrow\) weg, nicht aussagekräftig
+    \item remove special characters, links, html tags
+    \item normalise whitespaces
+    \item fix encoding
+    \item Stop Words: removal common words, custom
+    \item reduce variety of words
+    \begin{itemize}
+        \item Stemming: word stem (remove suffix)
+        \item lemmatisation
+    \end{itemize}
+    \item n-grams: \# wörter pro token 
+    \item Tokenisation: separate text strings into sentences and words
+    \item Spelling Error Correction
+    \begin{itemize}
+        \item incorrect is out of vocab
+        \item Deterministic approach, eg. levenstein Distance (1 means 1 change)
+        \item you are allowed to make x edits. If you can reach a word in vocab you are allowed to do that
+    \end{itemize}
+    \item Part of Speech Tagging: classify word (adjective, etc.)
+    \item Named Entity Recognition
+\end{itemize}
+
+\vspace{0.7em}
+
+{\footnotesize{NLP Pipeline}}
+
+\begin{itemize}
+    \item Text Data (Corpus)
+    \item Text Pre-processing (stopwords, etc.)
+    \item Vectorisation (to numbers) \(\rightarrow\) bag of words
+    \item ML Model with nummerical data
+\end{itemize}
+
+
+\vspace{0.4em}
+\hrule
+\vspace{0.7em}
+
+{\footnotesize{Evaluation}}
+
+\begin{itemize}
+    \item measures qualities of an algorith / system
+    \item proper criteria is essential
+    \item metrics and evaluation data is required
+    \item Automatic
+    \begin{itemize}
+        \item oftmals
+        \item comparing output with gold standard
+        \item gold standard data is costly
+    \end{itemize}
+    \item Manual
+    \begin{itemize}
+        \item quick and dirty by humans based on criteria
+        \item form many NLP problems creating gold standard is impossible or expensive
+    \end{itemize}
+    \item Intrinsic: isolated on the NLP system itself
+    \item Extrinstic: NLP system as part of a larger complex system
+    \item Inter-Annotator Agreement
+    \begin{itemize}
+        \item How good are my labels)
+        \item consistency measurement: how consistent do diff. annotators do it?
+        \item reliability indicator: high suggests reliable / constant interpretation
+        \item done through various methods
+        \item important for tasks with subjective judgements
+    \end{itemize}
+    \item Accuracy: percentage of correctly predicted instances
+    \item Precision: \(\dfrac{TP}{TP + FN}\) what part of positive is actually correct?
+    \item Recall: \(\dfrac{TP}{TP + FN}\) what proportion of actual positives was correctly identified
+    \item F1-Score (weighted harmonic mean): \\ \(F_1 = 2 \cdot \dfrac{Precision \cdot Recall}{Precision + Recall}\)
+    \item Precision at K
+    \begin{itemize}
+        \item some cases precision impossible (search results on internet)
+        \item take precision at top 10 (P10) what proportion of top 10 documents are relevant
+        \item disadvantage does not take order in consideration
+    \end{itemize}
+    \item verify label through confusion matrix
+\end{itemize}
+\vspace{0.7em}
+
+{\footnotesize{Baseline}}
+\begin{itemize}
+    \item important
+    \item starting point: metric of a simple system to evaluate a more complex system
+    \item Benchmarking: is new genuinelly better than simple?
+    \item simplicity \& clarity: should be easy to implement and reproduce
+    \item realistic expectations: context for improvement help set realistic goals
+    \item progress measurement is crucial
+\end{itemize}
+
+\vspace{0.4em}
+\hrule
+\vspace{0.7em}
+
+{\footnotesize{Neural Networks in NLP}}
+
+\begin{itemize}
+    \item NN = matrix multiplications + non-linearities
+    \item text \(\rightarrow\) numbers \(\rightarrow\) tensors  \(\rightarrow\) NN  \(\rightarrow\) predictions
+\end{itemize}
+
+\vspace{0.7em}
+
+{\footnotesize{Simple Neural Classifier}}
+
+\begin{itemize}
+    \item Classify text documents into categories (like spam-filter)
+    \item Input: Text document, output: pre-defined categories
+    \item Training
+    \begin{enumerate}
+        \item Initialisation: random weights
+        \item Forward Pass: input \(\rightarrow\) NN \(\rightarrow\) prediction with softmax
+        \item Loss: How wrong?
+        \item Backward Pass: compute gradients
+        \item Update weights: improve NN
+        \item Repeat x times
+    \end{enumerate}
+\end{itemize}
+
+
+\vspace{0.4em}
+\hrule
+\vspace{0.7em}
+
 {\footnotesize Attention (Transformer Core)}
 
 \begin{itemize}
@@ -639,8 +785,6 @@ If one words appears eg. 2 times in query, score is multiplied by 2
 \end{tabular}
 \end{adjustbox}
 
-
-\newpage
 
 \begin{multicols}{4}
 
