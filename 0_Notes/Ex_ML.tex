@@ -510,6 +510,8 @@ Soft margin: Decision boundary that allows for some flexibility
         \item Die Hauptkomponenten werden zu unserem neuen Koordinaten system (features). Die achsen haben für uns intuitiv keine bedeutung mehr
         \item Im PC-Space machen wir dann "Feature Selection", sprich wir behalten nur die wichtigsten Hauptkomponenten (neuen "Features")
         \item weniger informationsverlust aber etwas geht verloren
+        \item Wann?: performanz optimierung (speed-up, less memory)
+        \item Wann nicht?: overfitting, da ist regularisierung meist bessere wahl
     \end{itemize}
     \item \textbf{Data Specification}
     \begin{itemize}
@@ -554,11 +556,13 @@ Soft margin: Decision boundary that allows for some flexibility
     \end{itemize}
     \item \textbf{Kostenfunktion}
     \begin{itemize}
-        \item 
+        \item L2-Distanz der Rekonstruktion \(\hat{X}\) (Encoder \(W\) / Decoder \(W^T\) sind Matrix)
+        \item \(J(W) = || X - \hat{X} ||_2 = || X - XWW^T ||_2\)
     \end{itemize}
     \item \textbf{Optimierung}
     \begin{itemize}
-        \item 
+        \item "Einfache" Lineare Algebra, nutzt singular value decomposition
+        \item Wir nehmen die minimale Matrix \(W\)
     \end{itemize}
   \end{itemize}
 
