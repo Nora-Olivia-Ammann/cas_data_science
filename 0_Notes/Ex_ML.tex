@@ -97,7 +97,11 @@
 {\footnotesize{Linear Regression}} Supervised Regression
   \begin{itemize}
     \item \textbf{Input / Output:} Kontinuierlich
-    \item \textbf{Annahme:} 1 Lösung weil Ableitung 0
+    \item \textbf{Annahme}
+    \begin{itemize}
+        \item 1 Lösung weil Ableitung 0
+        \item Lineare Funktion
+    \end{itemize}
     \item Wir haben breite von Fisch, wollen das gewicht. Formel ist unveränderlich
     \item \textbf{Data Specification}
     \begin{itemize}
@@ -454,6 +458,25 @@
 
 
 \vspace{0.4em}
+{\footnotesize{Optimisation Algorithm}}
+      \begin{itemize}
+      \item {\textbf{Analytische Methode}}
+      \begin{itemize}
+          \item nicht iterativ (löst die Normalgleichung)
+          \item besser bei wenigen features
+          \item Matrix muss invertierbar sein
+      \end{itemize}
+      \item \textbf{Gradient Descent}
+      \begin{itemize}
+          \item Iterativ, Start zufällige \(\beta\)
+          \item Ableitung der Kostenfunktion
+          \item mit jedem Schritt in die bessere richtung, bis zum minimum
+          \item gut für viele Daten und \(\beta\)
+      \end{itemize}
+    \end{itemize}
+
+
+\vspace{0.4em}
 \hrule
 \vspace{0.7em}
 
@@ -504,11 +527,21 @@
 
 TODO: Bestimmtheitsmass \(R^2\)
 
+
 \vspace{0.4em}
-{\footnotesize{Kostenfunktion}}
+\hrule
+\vspace{0.7em}
+
+{\normalsize{Kostenfunktion}}
+
 \begin{itemize}
-    \item \textbf{Maximum Likelihood}
-    \begin{itemize} 
+    \item Guides Optimisation
+    \item Minimise errors, improve model accuracy, used during training
+\end{itemize}
+
+
+{\footnotesize{Maximum Likelihood}}
+\begin{itemize} 
     \item TODO: furuther investigation
         \item we wish to maximize the conditional probability of observing the data (X) given a specific probability distribution and its parameters
         \item \( p(\overrightarrow{y} | X ) = \prod \phi(x^i\beta) \cdot \prod{1-\phi(x^i\beta)}\) \\
@@ -517,26 +550,8 @@ TODO: Bestimmtheitsmass \(R^2\)
         \item Resultat: Wie wahrschienlich sind die labels die ich habe und unserem Modell
         \item Je mehr Datenpunkte desto näher bei 0, aber immernoch vergleichbar
     \end{itemize}
-\end{itemize}
 
 
-\vspace{0.4em}
-{\footnotesize{Optimisation Algorithm}}
-      \begin{itemize}
-      \item {\textbf{Analytische Methode}}
-      \begin{itemize}
-          \item nicht iterativ (löst die Normalgleichung)
-          \item besser bei wenigen features
-          \item Matrix muss invertierbar sein
-      \end{itemize}
-      \item \textbf{Gradient Descent}
-      \begin{itemize}
-          \item Iterativ, Start zufällige \(\beta\)
-          \item Ableitung der Kostenfunktion
-          \item mit jedem Schritt in die bessere richtung, bis zum minimum
-          \item gut für viele Daten und \(\beta\)
-      \end{itemize}
-    \end{itemize}
 
 
 \vspace{0.4em}
@@ -560,12 +575,16 @@ TODO: Bestimmtheitsmass \(R^2\)
         \item 1 Feature \(\rightarrow\) 1 Feature
         \item hat eine Ordnung, grösse der Zahl hat einen Einfluss!
         \item nicht gut wenn es keine Ordnung hat oder Abstände nicht regelmässig
+        \item eg. Kleidergrössen xs-xl (0-4) könnte passen weil es hat eine inherente bedeutung
     \end{itemize}
     \item \textbf{One-Hot}
     \begin{itemize}
         \item n-Einzigartige Eigenschaften \(\rightarrow\) n-Dimensionalen Vektoren
         \item 1 Feature \(\rightarrow\) n Feature
+        \item Vektor, 0/1, 1 eintrag wo es in der reihenfolge stimmt, sonst 0
     \end{itemize}
+    \item Meistens one-hot da ordnung nichts bedeutet
+    \item Domänenwissen kann einfliessen zum eg. neue Kategorien zu bilden
 \end{itemize}
 
 \item Meistens One-Hot weil Dinge keine Ordnung haben
@@ -576,7 +595,7 @@ TODO: Bestimmtheitsmass \(R^2\)
 {\footnotesize{Feature Selection}}
 
 \begin{itemize}
-    \item Auswahr von Features die relevant sind, einfacher für das Modell
+    \item Auswahl von Features die relevant sind, einfacher für das Modell
     \item Ansätze
     \begin{itemize}
         \item Manuell mit Domänenwissen (schwierig)
