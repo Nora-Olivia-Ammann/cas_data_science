@@ -366,10 +366,6 @@ Soft margin: Decision boundary that allows for some flexibility
         \item Decision Boundary ist linie mit maximalen Abstand zum nächsten Punkt der anderen Klasse
         \item Geometrische Annahmen
     \end{itemize}
-    \item \textbf{Metrik}
-    \begin{itemize}
-        \item 
-    \end{itemize}
     \item \textbf{Kostenfunktion}
     \begin{itemize}
         \item wenn C sehr gross ist dann wird cheating minimiert (stärker bestraft) und umgekehrt, das sind hyper-parameter 
@@ -767,6 +763,15 @@ TODO: Bestimmtheitsmass \(R^2\)
 
 \vspace{0.4em}
 {\scriptsize{Kernel Trick}}
+
+\begin{itemize}
+    \item Normal: wir loopen über anzahl Features \(\rightarrow\) implizites feature engineering
+    \item Kernel Trick: wir loopen über anzahl daten \(\rightarrow\) kernel macht modelle nicht linear
+    \item Schlecht bei vielen Daten (aber z.b. SVM hat wenige support vekotren, sprich wenig daten)
+    \item Transformation into higher dimensions where it can be separated linearly is good, but Problem: high dimensions are expensive
+    \item Es macht zwischen input and model implizites feature engineering un löst die kosten der höheren dimenensionen.
+    \item We compute result without having to explicitly compute the intermediary higher dimension. Through Representer Theorem
+\end{itemize}
 
 \vspace{0.4em}
 \hrule
