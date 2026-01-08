@@ -19,6 +19,20 @@
 \usepackage{multicol}
 \usepackage{amsmath}
 \usepackage{graphicx}
+\usepackage[table]{xcolor}
+\usepackage{booktabs}   % for \toprule, \midrule, \bottomrule
+\usepackage{adjustbox}  % for \begin{adjustbox}{max width=\textwidth}
+\usepackage{etoolbox}
+\usepackage{tikz}
+\usepackage{caption}
+\usetikzlibrary{arrows.meta, positioning, shapes.geometric,fit,calc}
+
+\AtBeginEnvironment{tabular}{\tiny}
+\definecolor{cDark}{HTML}{203F4A}
+\definecolor{cTeal}{HTML}{1D8F7E}
+\definecolor{cGold}{HTML}{E9C06A}
+\definecolor{cOrange}{HTML}{F29B5C}
+\definecolor{cRed}{HTML}{E85D47}
 
 \renewcommand{\familydefault}{\sfdefault}
 
@@ -565,7 +579,7 @@ TODO: Bestimmtheitsmass \(R^2\)
 \begin{itemize}
     \item Information in anderer Maschienen freundlichen Art darzustellen.
     \item oft notwendig für text
-\item mit oder ohne Informationsverlust
+    \item mit oder ohne Informationsverlust
 
 \item \textbf{Kategorisch}
 \begin{itemize}
@@ -627,17 +641,15 @@ TODO: Bestimmtheitsmass \(R^2\)
 
 \begin{itemize}
     \item Bestehende features \(\rightarrow\) neue features
-\item expertenwissen, nimmt einen Teil des Learning Ab \(\rightarrow\) gibt wissen vor.
-
-\item {\textbf{Polynomielle Regression}} (Standard)
-\begin{itemize}
-    \item Input Space: \texttt{x}
-    \item Feature Engineering \(\rightarrow\) Feature Space: \texttt{x}, \texttt{$x^2$}
-    \item Modell \(\rightarrow\) Output Space: \texttt{y}
-\end{itemize}
-
-\item E.g. Volumen von Fisch berechnen, so kann regression Polynome haben
-\item Sind besser auf trainings daten, nicht immer besser auf test daten
+    \item expertenwissen, nimmt einen Teil des Learning Ab \(\rightarrow\) gibt wissen vor.
+    \item {\textbf{Polynomielle Regression}} (Standard)
+    \begin{itemize}
+        \item Input Space: \texttt{x}
+        \item Feature Engineering \(\rightarrow\) Feature Space: \texttt{x}, \texttt{$x^2$}
+        \item Modell \(\rightarrow\) Output Space: \texttt{y}
+        \item E.g. Volumen von Fisch berechnen, so kann regression Polynome haben
+    \end{itemize}
+    \item Sind besser auf trainings daten, nicht immer besser auf test daten
 \end{itemize}
 
 \vspace{0.4em}
@@ -649,6 +661,32 @@ TODO: Bestimmtheitsmass \(R^2\)
 
 
 {\footnotesize{\textbf{Modell Komplexität}}}
+
+\begin{tikzpicture}[scale=0.40, every node/.style={scale=0.5}]
+  % Axes
+  \draw[->] (0,0) -- (5.2,0) node[right]{Model complexity};
+  \draw[->] (0,0) -- (0,3.6) node[above]{Prediction error};
+
+  % Training curve (decreasing)
+  \draw[thick, cyan!70!blue]
+    plot[smooth] coordinates {(0.2,3.2) (1,2.1) (2,1.3) (3,0.8) (4,0.5) (5,0.35)};
+  \node[circle, fill=cyan!70!blue, inner sep=0.7pt] at (4.8,0.38) {};
+  \node[cyan!70!blue] at (3.7,0.55) {Training};
+
+  % Test curve (U-shaped)
+  \draw[thick, orange]
+    plot[smooth] coordinates {(0.2,3.1) (1,2.2) (2,1.5) (3,1.2) (4,1.6) (5,2.5)};
+  \node[orange] at (3.7,1.85) {Test};
+
+  % Optimal vertical line
+  \draw[red, thick] (3,2.9) -- (3,0.9);
+  \node[red] at (3,3.1) {Optimal};
+
+  % Under/Overfitting labels
+  \node at (2.1,1.35) {Underfitting};
+  \node at (4.1,1.35) {Overfitting};
+\end{tikzpicture}
+
 
 {\scriptsize{Overfitting vs. Underfitting}}
 
@@ -666,12 +704,15 @@ TODO: Bestimmtheitsmass \(R^2\)
     \item Gefahr: falsches Modell, nur durch Zufall gut, mehr validierungsdaten, desto unwahrscheinlicher
     \item 2 Strategien
     \begin{itemize}
-        \item Train, Val, Test (no peeking)
+        \item Hold out Corss validation: Train, Val, Test (no peeking)
         \item k-Fold mehr validierungsdaten herbeizaubern
     \end{itemize}
-    \item Alle Daten sind im validierungsset
-    \item Iterativ üver alle Segmente gehen
-    \item Mehr rechenzeit, aber weil wenig daten nicht ein problem
+    \item K-Fold Cross Validation
+    \begin{itemize}
+        \item Alle Daten sind im validierungsset
+        \item Iterativ üver alle Segmente gehen
+        \item Mehr rechenzeit, aber weil wenig daten nicht ein problem
+    \end{itemize}
 \end{itemize}
 
 \vspace{0.4em}
