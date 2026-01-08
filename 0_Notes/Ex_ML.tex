@@ -25,6 +25,9 @@
 \usepackage{etoolbox}
 \usepackage{tikz}
 \usepackage{caption}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{groupplots}
 \usetikzlibrary{arrows.meta, positioning, shapes.geometric,fit,calc}
 
 \AtBeginEnvironment{tabular}{\tiny}
@@ -610,6 +613,7 @@ TODO: Bestimmtheitsmass \(R^2\)
 
 \begin{itemize}
     \item Auswahl von Features die relevant sind, einfacher für das Modell
+    \item overfittet nicht auf features die nicht relevant sind
     \item Ansätze
     \begin{itemize}
         \item Manuell mit Domänenwissen (schwierig)
@@ -736,6 +740,38 @@ TODO: Bestimmtheitsmass \(R^2\)
         \item \(J_{\text{Reg}}(\beta) = J(\beta) + \lambda \sum_{j=1}^{p} \beta^2_j\)
     \end{itemize}
 \end{itemize}
+
+\begin{tikzpicture}[scale=0.75, every node/.style={scale=0.6}]
+
+\begin{groupplot}[
+  group style={group size=2 by 1, horizontal sep=1.2cm},
+  width=3.2cm, height=2.4cm,
+  axis lines=left,
+  xtick=\empty, ytick=\empty,
+  xmin=-3, xmax=3,
+  ymin=0, ymax=0.8,
+  domain=-3:3,
+  samples=200,
+  xlabel={$\beta$},
+  ylabel style={at={(axis description cs:0,0.5)},anchor=south},
+]
+
+% ---------- L1 (Laplace) ----------
+\nextgroupplot[
+  title={\scriptsize $\ell_1$ (Lasso)},
+  ylabel={$p(\beta)$}
+]
+\addplot[red, thick] {0.5*exp(-abs(x))};  % Laplace(0,1)
+
+% ---------- L2 (Gaussian) ----------
+\nextgroupplot[
+  title={\scriptsize $\ell_2$ (Ridge)}
+]
+\addplot[red, thick] {1/sqrt(2*pi)*exp(-x^2/2)}; % Normal(0,1)
+
+\end{groupplot}
+\end{tikzpicture}
+
 
 \vspace{0.4em}
 \hrule
