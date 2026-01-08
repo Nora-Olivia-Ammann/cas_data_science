@@ -624,12 +624,12 @@ TODO: Bestimmtheitsmass \(R^2\)
 \vspace{0.4em}
 {\scriptsize{Standardise}}
 \begin{itemize}
-    \item \texttt{StandardScaler} = \(\dfrac{Wert - Durchschnitt}{Standardabweichung}\)
     \item Schiebt alles um 0 Punkt
     \item Entfernt Einheiten, separat pro Feature, erhält Verhältnisse
     \item notwendiger Schritt sodass Modelle richtig funktionieren
     \item Wann?: Parameter müssen vergleichbar sein
     \item Wann?: Distanzen im input space spielen eine Rolle, ansonsten haben grosse Werte einen einfluss
+    \item Meist \texttt{StandardScaler} = \(\dfrac{Wert - Durchschnitt}{Standardabweichung}\)
 \end{itemize}
 
 \vspace{0.4em}
@@ -783,12 +783,15 @@ TODO: Bestimmtheitsmass \(R^2\)
 {\scriptsize{Hyper Parameter}}
 \begin{itemize}
     \item Werden nicht gelernt \(\rightarrow\) konfiguriert das Modell
-    \item Z.B. Regularisierungsstärke
-    \item Manuell: Erfahrung \& Theorie  \(\rightarrow\) schwierig
-    \item Suchen: Ausprobieren und auf ungesehen Daten merken  \(\rightarrow\) Rechenintensiv
+    \item Z.B. Regularisierungsstärke \(\lambda\), Anzahl Bäume (Random Forest), Anzahl Cluster (k-means), DL Netzwerk Architektur
+    \item Wie wählen?
     \begin{itemize}
-        \item \textbf{Grid Search:} Liste von Werten, ausprobieren, nicht gut bei vielen hyper Parameter wegen kombination
-        \item \textbf{Randomised Search:} Zufällige Zahlen innerhalb eines vorgegebenen Bereiches
+        \item Manuell: Erfahrung \& Theorie  \(\rightarrow\) schwierig
+        \item Suchen: Ausprobieren und auf ungesehen Daten merken  \(\rightarrow\) Rechenintensiv
+        \begin{itemize}
+            \item \textbf{Grid Search:} Liste von Werten, ausprobieren, nicht gut bei vielen hyper Parameter wegen kombination
+            \item \textbf{Randomised Search:} Zufällige Zahlen innerhalb eines vorgegebenen Bereiches
+        \end{itemize}
     \end{itemize}
 \end{itemize}
 
@@ -812,6 +815,11 @@ TODO: Bestimmtheitsmass \(R^2\)
 
 {\footnotesize{\textbf{General}}}
 \begin{itemize}
+    \item \textbf{Regularisierung vs. Standardisierung}
+    \begin{itemize}
+        \item Regularisierung: Schränken \(\beta\) ein, Modell wird einfacher. Overfitting risiko minimieren
+        \item Standardisierung: einheiten können distanzen beeinflussen, Einheiten entfernen, features vergleichbar machen
+    \end{itemize}
     \item \textbf{Logistische Reg vs. SVM?}
     \begin{itemize}
         \item Log Reg: wahrscheinlichkeit für klasse mit schwellenwert
