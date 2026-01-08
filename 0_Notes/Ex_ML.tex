@@ -1052,6 +1052,36 @@ TODO: Bestimmtheitsmass \(R^2\)
             \item Data Analysis nicht auf den Test-Daten ausführen (z.B. Pairplot)
         \end{itemize}
     \end{itemize}
+    \item \textbf{Model Entwicklung}
+    \begin{enumerate}
+      \item Schätze, was bestenfalls erreichbar ist, gegeben dem Problem (z.B. 5--10\%).
+        \begin{itemize}
+          \item z.B. wie genau kann es eine Fachperson schätzen?
+          \item Wenn das Modell ein besseres Ergebnis erzielt, könnte ein Bug der Grund sein.
+        \end{itemize}
+      \item Erstelle eine Baseline und eine Upper-Bound (z.B. 50\%).
+      \item Erstelle ein erstes einfaches Modell (z.B. 40\%).
+      \item Iteratives Verbessern des Modells mit Daten und Annahmen.
+        \begin{itemize}
+          \item Systematisches Vorgehen: Planen, Umsetzen, Evaluieren.
+          \item Ein Schritt nach dem anderen: Verbesserungsgrund verstehen.
+          \item z.B. ein neues Feature, eine neue Modellart oder neues Feature Engineering.
+          \item Verkompliziere das Modell nicht für "nur" minimale Verbesserungen.
+          \item Occam's Razor: "einfachste Theorie allen anderen vorzuziehen".
+          \item Einfachheit des Modells ist eine Qualität (Deployment, Maintenance, Extension).
+        \end{itemize}
+    \end{enumerate}
+    \item \textbf{Inconsistent Preprocessing}
+    \begin{itemize}
+        \item Alle feature preprocessing schritte müssen identisch für alle Daten (Train, Val, Test und in produktion angewendet werden)
+    \end{itemize}
+    \item \textbf{Metrik Wahl}
+    \begin{itemize}
+        \item Richtige Metrik ist vom Business Case (oder verfügbaren Daten) motiviert (z.B. prozentualer Fehler (MAPE) anstatt absoluter Fehler (MSE))
+        \item Regression: Eine robuste Metrik (z.B. MAE) kann Model stabilisieren bei unsicherer Datenqualität
+        \item Klassifikation: Bei inbalanced Klassen verwende nicht Accuracy sondern eine entsprechende Metrik (z.B. F1-Score)
+        \item Klassifikation: Wenn False Negative und False Positive unterschiedlich zu bewerten sind, dann Cost-Sensitive Learning, Threshold Moving
+    \end{itemize}
 \end{itemize}
 
 \vspace{0.4em}
