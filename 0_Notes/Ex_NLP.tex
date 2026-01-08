@@ -241,6 +241,36 @@
 \hrule
 \vspace{0.7em}
 
+{\footnotesize{Embeddings}}
+
+\begin{itemize}
+    \item example word2vec
+    \item Problem Bag of Words: see other
+    \item Embeddings: dense low dimensional, learned representations
+    \item it is a normal hidden layer if input is sparse vector better to first reduce it
+    \item Properties
+    \begin{itemize}
+        \item Dense: all values in vector are meaningful
+        \item Low Dimensional
+        \item Learned: trained as layer if in NN
+        \item Semantic: similar words have similar vectors
+        \item no activation function
+    \end{itemize}
+    \item Embedding Matrix: 1 row per word, lookup for word
+    \item Use-cases
+    \begin{itemize}
+        \item Text generation, improvement of text
+        \item chatbot to get explanations
+        \item text to SQL
+        \item software
+    \end{itemize}
+\end{itemize}
+
+
+\vspace{0.4em}
+\hrule
+\vspace{0.7em}
+
 {\footnotesize Attention (Transformer Core)}
 
 \begin{itemize}
@@ -639,8 +669,37 @@ Reinforcement Learning from human feedback (RLHF)
 \hrule
 \vspace{0.7em}
 
-{\footnotesize{RNN Word processing}}
+{\footnotesize{Recurrent Neural Networks (RNN)}}
 
+\begin{itemize}
+    \item problem with bag of words: no word order, no context
+    \item RNN is sequential processing with memory
+    \item Idea
+    \begin{itemize}
+        \item gets current embedding + previous hidden state (memory from previous input)
+        \item creates new hidden state
+        \item Hidden State = memory
+        \item Final hidden state is output
+    \end{itemize}
+\end{itemize}
+
+\vspace{0.4em}
+{\scriptsize{Classification}}
+
+\begin{itemize}
+    \item Embeddings \(\rightarrow\) RNN \(\rightarrow\) final hidden state \(\rightarrow\) Classifier
+    \item processes entire sequence
+    \item final hidden state contains all context
+    \item classify based on accumulated info
+\end{itemize}
+
+
+\vspace{0.4em}
+{\scriptsize{Generation}}
+\begin{itemize}
+    \item From input more text
+    \item 
+\end{itemize}
 
 \begin{tikzpicture}[
     >=Latex,
