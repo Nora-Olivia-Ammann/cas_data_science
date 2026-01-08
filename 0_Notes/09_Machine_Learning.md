@@ -625,6 +625,9 @@ Soft margin: Decision boundary that allows for some flexibility
     \item Strukturierte Daten meist nicht die beste wahl
     \item \textbf{Framework für Modelle}
     \begin{itemize}
+        \item Architektur NN ist problemspezifisch, und unterschiedlich Kombinierbar
+        \item müssen empirisch evaluiert werden
+        \item abwegung von black-box vs. komplexe probleme lösbar
       \item Modellkomplexität ist einfach anpassbar
         \begin{itemize}
           \item Mehr Hidden Layers $\rightarrow$ mehr lernbare Parameter.
@@ -656,6 +659,15 @@ Soft margin: Decision boundary that allows for some flexibility
     \end{itemize}
 \end{itemize}
 
+{\scriptsize{Convoluted Neural Network (CNN)}}
+
+\begin{itemize}
+    \item Annahme: Nachbarschaft von einem input (eg. Pixel) hat einen Einfluss and die anderen Pixel
+    \item Wir verändern die verkabelung im netzwerk um den input besser zu berücksichtigen
+    \item Input bleibt gleich gross
+    \item wenn die nachbarschaft egal ist, dann ist es nicht die richtige wahl
+\end{itemize}
+  
 
 \vspace{0.4em}
 \hrule
@@ -702,7 +714,7 @@ Soft margin: Decision boundary that allows for some flexibility
     \end{itemize}
   \end{itemize}
 
-  
+
 \vspace{0.4em}
 \hrule
 \vspace{0.7em}
