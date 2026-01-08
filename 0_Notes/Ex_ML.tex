@@ -389,6 +389,40 @@ Soft margin: Decision boundary that allows for some flexibility
 
 {\scriptsize{Decision Trees}} Supervised Classification
 
+\begin{tikzpicture}[scale=0.25]
+  % Axes
+  \draw[->] (0,0) -- (4.2,0);
+  \draw[->] (0,0) -- (0,3.2);
+
+  % --- Regions (2 classes) ---
+  % Blue regions
+  \fill[blue!25] (0,0) rectangle (2,1.5);
+  \fill[blue!25] (2,2.2) rectangle (4,3);
+
+  % Red regions
+  \fill[red!25]  (2,0) rectangle (4,2.2);
+  \fill[red!25]  (0,1.5) rectangle (2,3);
+
+  % --- 4 Cuts (split lines) ---
+  % vertical cuts (2)
+  \draw (2,0) -- (2,3);
+
+  % horizontal cuts (2)
+  \draw (0,1.5) -- (2,1.5);
+  \draw (2,2.2) -- (4,2.2);
+
+% --- Data points ---
+  % Blue points (class 1)
+  \foreach \p in {(0.4,0.4),(1.0,0.7),(1.6,0.3),(2.6,2.6),(3.2,2.8),(3.7,2.4)}
+    \fill[blue] \p circle (1.6pt);
+
+  % Red points (class 2)
+  \foreach \p in {(2.4,0.6),(3.6,0.9),(3.0,1.8),(0.5,2.4),(1.4,2.7),(1.1,1.9)}
+    \draw[red, thick] \p ++(-0.08,-0.08) -- ++(0.16,0.16)
+                     \p ++(-0.08, 0.08) -- ++(0.16,-0.16);
+
+\end{tikzpicture}
+
 
   \begin{itemize}
     \item \textbf{Beschreibung}
