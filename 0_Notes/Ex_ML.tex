@@ -427,7 +427,7 @@ Soft margin: Decision boundary that allows for some flexibility
   \begin{itemize}
     \item \textbf{Beschreibung}
     \begin{itemize}
-        \item Kann keine extrapolation machen für Daten ausserhalb der Trainingsdaten
+        \item Kann keine extrapolation machen für Daten ausserhalb der Trainingsdaten (können nur interpolation auch wenn es eine sinnvolle extrapolation geben würde)
         \item Ziel: Feature-space in regionen aufteilen
         \item Kann nicht lineare zusammenhänge lernen
         \item Robst bei vielen Features, weil unwichtige selten/nicht für splits verwendet werden
@@ -1006,6 +1006,11 @@ TODO: Bestimmtheitsmass \(R^2\)
     \begin{itemize}
         \item minimiert distanz
         \item lineare decision boundary
+    \end{itemize}
+    \item \textbf{Decision Tree}
+    \begin{itemize}
+        \item Binary Decision Tree: Feature grösser oder kleiner (gibt links und rechts)
+        \item D.T. kann einfache lineare Boundary lernen nur sinnvoll wenn cut horizontal oder vertikal ist
     \end{itemize}
 \end{itemize}
 
