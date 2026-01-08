@@ -388,18 +388,28 @@ Soft margin: Decision boundary that allows for some flexibility
 \vspace{0.7em}
 
 {\scriptsize{Decision Trees}} Supervised Classification
+
+
   \begin{itemize}
     \item \textbf{Beschreibung}
     \begin{itemize}
         \item Kann keine extrapolation machen für Daten ausserhalb der Trainingsdaten
+        \item Ziel: Feature-space in regionen aufteilen
     \end{itemize}
     \item \textbf{Data Specification}
     \begin{itemize}
-        \item 
+        \item Vorgegebene kategorische Zielvariabel
+        \item Feature selection
+        \item Encode Kategorische
+        \item Standardisie Nummerische features wenn nicht gleiche
     \end{itemize}
     \item \textbf{Model}
     \begin{itemize}
-        \item 
+        \item Abbruch bedingung setzten als hyper parameter, eg. maximale Tree Tiefe
+        \item Wahrscheinlichkeit für klasse \(k\) for Region \(R_m\)
+        \item \(p(y=k|R_m) = \frac{1}{N_m} \sum_{x^{(i) \in R_m}} I(y^{(i)} = k\)
+        \item Klasse mit höchster Wahrscheinlichkeit vorhersagen für Region \(R_m\)
+        \item \(\hat{y}_{R_m} = arg\;max\;p(y = k|R_m)\) 
     \end{itemize}
     \item \textbf{Metrik}
     \begin{itemize}
