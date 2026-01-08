@@ -698,7 +698,16 @@ Reinforcement Learning from human feedback (RLHF)
 {\scriptsize{Generation}}
 \begin{itemize}
     \item From input more text
-    \item 
+    \item LLM: probability distribution over sequences, for each position it predicts the probability of that word
+    \item Autoregressive Generation: use your own output as inputs
+    \item RNN for Lang Model: at each step predict next based on current hidden state
+    \item Sampling Strategy
+    \begin{itemize}
+        \item Greedy: pick most likely word
+        \item Random: pick any from probability distribution
+        \item Temperature: controll randomness
+        \item Low Temp: conservative / High Temp: creative, chaotic
+    \end{itemize}
 \end{itemize}
 
 \begin{tikzpicture}[
