@@ -283,6 +283,12 @@
         \item Hidden State = memory
         \item Final hidden state is output
     \end{itemize}
+    \item Bottleneck
+    \begin{itemize}
+        \item long range dependencies still challenging
+        \item sequential nature prevents parallelisation
+        \item short-term memory, token at beginning less influence than at end (because of back-propagation)
+    \end{itemize}
 \end{itemize}
 
 \vspace{0.4em}
@@ -528,7 +534,31 @@ A decoder-style transformer is designed for \textbf{next-token prediction}. It u
 
 {\footnotesize Transformer Architecture (Stacked Blocks)}
 
-A transformer is built by stacking many identical \textbf{decoder blocks}.
+
+\begin{itemize}
+    \item DL model that excels at predicting the next word in a sentence
+    \item can also be used to compute vector representations of a document
+    \item can be finetuned to a specific task
+    \item unsupervised with plain text corpus
+    \item auto-regressive: new outputs depends linearly on previous output
+    \item can carry context of text
+    \item A transformer is built by stacking many identical \textbf{decoder blocks}.
+    \item Difference to NN
+    \begin{itemize}
+        \item NN you can enter input but it only creates one feed forward (1 prediction)
+        \item Transformer are larger trained on lots of data
+        \item carry context
+    \end{itemize}
+    \item Hyper Parameter / Architecture
+    \begin{itemize}
+        \item Embedding Matrix Dimension
+        \item Context Window (how many tokens)
+        \item Decoder Layer Number
+        \item Number of Attention heads
+        \item vocab size
+    \end{itemize}
+    \item Contain: Feedforward layers + attention layers
+\end{itemize}
 
 \vspace{0.3em}
 \textbf{One transformer block (decoder)}
@@ -556,6 +586,30 @@ Representations become increasingly abstract across layers:
 \end{itemize}
 
 Finally, the output is mapped through a linear layer and softmax to produce the \textbf{next-token probability distribution}.
+
+\vspace{0.4em}
+\hrule
+\vspace{0.7em}
+
+{\footnotesize{Example Comparison}}
+
+{\scriptsize{BERT}}
+\begin{enumerate}
+    \item Masked Language Model: randomly hiding percentages of input tokens in sentences (bi-directional, has before and after)
+    \item Next Sentence Prediction: given two sentences learn if one may come after another
+    \item[-] Encoder only, 2018, focuses on understanding text
+\end{enumerate}
+
+
+\vspace{0.4em}
+{\scriptsize{GPT}}
+\begin{itemize}
+    \item only looks at what came fore, cannot look ahead because that does not exist
+    \item focus on generation
+    \item Encoder: Converts a sentence of input tokens into the same number of output representations. can see entire text
+    \item Decoder: Auto-regressively predicts target sequence of arbitrary length, generates output
+    \item 
+\end{itemize}
 
 \vspace{0.4em}
 \hrule
