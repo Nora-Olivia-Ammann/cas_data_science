@@ -504,15 +504,49 @@ Soft margin: Decision boundary that allows for some flexibility
   \begin{itemize}
     \item \textbf{Beschreibung}
     \begin{itemize}
-        \item 
+        \item 1. Wir suchen Principal Components (Hauptkomponenten) des Datensatztes. Das ist die achse die am meisten streuung ausdrückt. 
+        \item 2. Wir projezieren die Daten darauf
+        \item 3. Wir suchen eine neue achse die rechtwiklig darauf liegt, etc.
+        \item Die Hauptkomponenten werden zu unserem neuen Koordinaten system (features). Die achsen haben für uns intuitiv keine bedeutung mehr
+        \item Im PC-Space machen wir dann "Feature Selection", sprich wir behalten nur die wichtigsten Hauptkomponenten (neuen "Features")
+        \item weniger informationsverlust aber etwas geht verloren
     \end{itemize}
     \item \textbf{Data Specification}
     \begin{itemize}
-        \item Welche Features haben wir? eg. Pixel
+        \item Welche features gibt es, eg. Pixel
+        \item keine zielvariabel
+        \item kategorische encoded
+        \item nummerische standardisiert
+    \end{itemize}
+    \item \textbf{Annahme}
+    \begin{itemize}
+        \item gesuchtes Manifold ist linear
+        \item kann nichts anderes, aber vieles ist nicht-linear
     \end{itemize}
     \item \textbf{Model}
     \begin{itemize}
-        \item 
+        \item encoder: \(L = xW\) lineare Abbildung, Matrix W
+        \item decoder: \(\hat{x} = xWW^T\) rekonstruktion x (automatisch dabei)
+        \item Anzahl Dimension? Wie viel streeung verlieren wir wenn wir auf x komponenten gehen? \\
+\begin{tikzpicture}
+\begin{axis}[
+  width=3cm, height=2cm,
+  axis lines=left,
+  xmin=0, xmax=7,
+  ymin=0, ymax=1,
+  xtick=\empty, ytick=\empty,
+  xlabel={\tiny \# components},
+  ylabel={\tiny variance \%},
+]
+% Reverse elbow (fast increase then plateau)
+\addplot[blue] coordinates {
+  (1,0.10) (1.5,0.5) (2,0.7) (2.5,0.8) (3,0.85) (4,0.90) (5,0.95) (6,0.98)
+};
+% Optional "elbow" marker line (at k=3)
+\draw[dashed] (axis cs:3,0) -- (axis cs:3,0.70);
+\end{axis}
+\end{tikzpicture}
+
     \end{itemize}
     \item \textbf{Metrik}
     \begin{itemize}
