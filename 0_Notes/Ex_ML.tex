@@ -69,10 +69,36 @@
 
 \tiny
 
+{\normalsize{ML}}
+
+\begin{itemize}
+    \item Modell
+    \begin{itemize}
+        \item Wenn für Menschen Intelligent wirkt ist KI auch wenn nicht unbedingt ML
+        \item Ausprogrammiert von experten
+        \item Wenn Modell gelernt aus Daten \(\rightarrow\) dann ist ML
+    \end{itemize}
+    \item Learning: Wissen kommt von Experten und/oder Daten
+    \item Wissen
+    \begin{itemize}
+        \item Viel annahmen wenig daten \(\rightarrow\) viel wissen
+        \item mittel wissen, mittel daten \(\rightarrow\) mischung ausgewogen
+        \item wenig annahmen, viel daten \(\rightarrow\) praktisch alles daten (big player)
+    \end{itemize}
+    \item Lernphase: Online / Offline \(\rightarrow\) Anwendungsphase
+    \item Wie? Supervised, Unsupervised, Reinforced Learning, In-Context Learning
+    \item Input (unabhängige Variabel \(\rightarrow\) Output (abhängige Variabel)
+\end{itemize}
+
+\vspace{0.4em}
+\hrule
+\vspace{0.7em}
+
 {\footnotesize{Linear Regression}} Supervised Regression
   \begin{itemize}
     \item \textbf{Input / Output:} Kontinuierlich
     \item \textbf{Annahme:} 1 Lösung weil Ableitung 0
+    \item Wir haben breite von Fisch, wollen das gewicht. Formel ist unveränderlich
     \item \textbf{Data Specification}
     \begin{itemize}
         \item Zielvariabel festlegen
@@ -82,7 +108,9 @@
     \end{itemize}
     \item \textbf{Model}
     \begin{itemize}
-        \item Summe von Input variabeln und Gewichten \(\beta\)
+        \item Gewichtete Summe von Input variabeln (features) und Gewichten \(\beta\)
+        \item Das Lineare Modell ist nicht zwingend eine Gerade kann auch fläche sein\(\rightarrow\) Hyper-Ebene.
+        \item Formel \(\hat{y} = \sum\limits_{i=1}^{M}x_i\beta_i + \beta_0\)
         \item Fixe ausprogrammierte Formel
         \item Modell lernt die \(\beta\)
     \end{itemize}
@@ -94,7 +122,6 @@
     \end{itemize}
     \item \textbf{Kostenfunktion}
     \begin{itemize}
-        \item Guides Optimisation
         \item In Linear Regression kann auch MSE sein
     \end{itemize}
     \item \textbf{Optimierung}
@@ -418,37 +445,67 @@
 
 {\normalsize{Optimisation}}
 
-{\footnotesize{Metrik}}
 \begin{itemize}
-  \item \textbf{Regression}
+    \item Optimisation wird von der Kostenfunktion geleitet.
+    \item Mechanismus wie wir die \(\beta\) (lernbare parameter) eines Modells für eine \textbf{Kostenfunktion} aus \textbf{Daten lernen}.
+    \item unterschiedliche mit anderen eigenschaften / präferenzen  \(\rightarrow\) Performanz (Zeit), Genearlisierung (Qualität)
+    \item Wenn visualisierung von optimalen \(\beta\) eine Schüssel \(\rightarrow\) Convex Kostenfunktion
+\end{itemize}
+
+
+\vspace{0.4em}
+\hrule
+\vspace{0.7em}
+
+
+{\footnotesize{Metrik: Regression}}
+\begin{itemize}
+  \item \textbf{Mean Absolute Error (MAE)}
   \begin{itemize}
-      \item \textbf{Mean Absolute Error (MAE)} \\
-      \(\frac{1}{n}\sum_{i=1}^{n} \left| y_i - \hat{y}_i \right|\) \\
-      robust gegen ausreisser \\
-      Fehler $>$ 1 start bestraft \\
-      Fehler $<$ 1 schwächer bestraft
-  \item \textbf{Mean Square Error (MSE)} \\
-  \(\frac{1}{n}\sum_{i=1}^{n} \left( y_i - \hat{y}_i \right)^2\) \\
-  beieinflusst von Ausreisser \\
-  bestraft grosse Fehler stark
+      \item \(\frac{1}{n}\sum_{i=1}^{n} \left| y_i - \hat{y}_i \right|\)
+      \item robust gegen ausreisser
+      \item Fehler $>$ 1 start bestraft
+      \item Fehler $<$ 1 schwächer bestraft
   \end{itemize}
-  \item \textbf{Klassifikation}
+\item \textbf{Mean Square Error (MSE)}
   \begin{itemize}
-        \item True Positive \(\rightarrow\) TP / True Negative \(\rightarrow\) TN, etc
-      \item \textbf{Accuracy} \(\dfrac{TP + TN}{TP + TN + FP + FN}\) \\ 
-      irreführend bei inbalanced klassen (99 A und 1 B, wenn immer A dann gute accuracy auch wenn Modell dumm)
-      \item \textbf{Precision} \\ \(\dfrac{TP}{TP + FN}\)
-      \vspace{0.4em}
-      \item \textbf{Recall} \\ \(\dfrac{TP}{TP + FN}\)
-      \vspace{0.4em}
-      \item \textbf{F1-Score} \\ \(F_1 = 2 \cdot \dfrac{Precision \cdot Recall}{Precision + Recall}\) \\ gut bei inbalanced klassen
+      \item \(\frac{1}{n}\sum_{i=1}^{n} \left( y_i - \hat{y}_i \right)^2\)
+      \item beieinflusst von Ausreisser
+      \item bestraft grosse Fehler stark
   \end{itemize}
 \end{itemize}
+
+\vspace{0.4em}
+{\footnotesize{Metrik: Klassifikation}}
+
+\begin{itemize}
+    \item True Positive \(\rightarrow\) TP / True Negative \(\rightarrow\) TN, etc
+    \item \textbf{Accuracy}
+      \begin{itemize}
+            \item \(\dfrac{TP + TN}{TP + TN + FP + FN}\)
+            \item irreführend bei inbalanced klassen
+            \item 99 A und 1 B, wenn immer A dann gute accuracy auch wenn Modell dumm
+      \end{itemize}
+    \item \textbf{Precision}
+        \begin{itemize}
+            \item \(\dfrac{TP}{TP + FN}\)
+        \end{itemize}
+    \item \textbf{Recall}
+    \begin{itemize}
+        \item \(\dfrac{TP}{TP + FN}\)
+  \end{itemize}
+  \item \textbf{F1-Score}
+    \begin{itemize}
+        \item \(F_1 = 2 \cdot \dfrac{Precision \cdot Recall}{Precision + Recall}\)
+        \item gut bei inbalanced klassen
+    \end{itemize}
+\end{itemize}
+
 
 TODO: Bestimmtheitsmass \(R^2\)
 
 \vspace{0.4em}
-{\footnotesize{Kostenfunktion}}}
+{\footnotesize{Kostenfunktion}}
 \begin{itemize}
     \item \textbf{Maximum Likelihood}
     \begin{itemize} 
