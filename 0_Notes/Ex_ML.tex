@@ -481,6 +481,7 @@ Soft margin: Decision boundary that allows for some flexibility
 \vspace{0.4em}
 \hrule
 \vspace{0.7em}
+
 {\scriptsize{Clustering}} Unsupervised Classification
   \begin{itemize}
     \item \textbf{Beschreibung}
@@ -802,6 +803,22 @@ TODO: Bestimmtheitsmass \(R^2\)
 
 \vspace{0.4em}
 {\scriptsize{Dimensionality Reduction}}
+
+\begin{itemize}
+    \item Manifold-Annahme: Hochdimensionale Daten liegen auf einem tiefer-dimensionalen Manifold
+    \item Eg. 3072 Pixels / Features. Dimensionsreduktion: Finde x nummer neue features (eg. 200) die die Daten präzieser Beschreiben können. Viele Pixel sind nicht zwingen aussagekräftig.
+    \item Input Space (3072 Pixels / features) \(\rightarrow\) Latent Space (200 features)
+    \item Input Space: 1'000 1-hot encoded words \(\rightarrow\) Latent Space (300 features)
+    \item Wird gelern auf einem ganzen Datensatz (nicht einen Teil)
+    \item Die zugrundeliegende Struktur im Datensatz wird gelernt
+    \item Die gelernte Reduktion kann dann auf neue Daten und die daten selbst angewandt werden
+    \item Einsatzgebiet: Feature Preprocessing, Interpretation der Daten (Visualisierung / Faktor-Analyse), Wörter original synonyme gleiche distanz, encoded wird grouppiert
+    \item Bei zu vielen features kann das Gewicht am falschen ort gesetzt werden
+    \item performanz optimierung
+    \item zu wenige Daten dann overfitting, aber bessere (aussagekräftigere features) \(\rightarrow\) besseres lern-ausgangslage
+    \item Feature Selection as Dim. Reduction \(\rightarrow\) wir lassen info weg, problem grosser informationsverlust
+    \item Idee: Wir reduzieren die Anzahl features indem wir weniger neue features erstellen (weniger informationsverlust)
+\end{itemize}
 
 \vspace{0.4em}
 \hrule
