@@ -63,7 +63,7 @@
 % now explicitly override indentation for each level you care about:
 \setlist[itemize,1]{leftmargin=1.2em,label=\raisebox{0.5ex}{\scalebox{0.6}{$\bullet$}}}
 \setlist[itemize,2]{leftmargin=1.4em}
-\setlist[itemize,3]{leftmargin=0.5em,label=\raisebox{0.5ex}{\scalebox{0.6}{$\bullet$}}}
+\setlist[itemize,3]{leftmargin=0.5em}
 
 
 \setlist[enumerate,1]{leftmargin=1.2em}
@@ -144,7 +144,7 @@ Erwartungswert, Varianz, Trend, Saisonalität, korrelationsstruktur (ACF, PACF, 
     \item Vorteile: Erklärungskraft der bekannten Vorgänge, stationäre residuen
 \end{itemize}
 
-{\textbf{Differenzierung}} ???
+{\textbf{Differenzierung}}: Eine nicht stationäre Zeitreihe kann differenziert werden (mehrmals) um versuchen sie stationär zu machen.
 
 {\textbf{Stationarität}}
 \begin{itemize}
@@ -555,6 +555,9 @@ Order of model: ARMA(1,2) (Wenn es einen wert bei lag=0 hat, den ignorieren)
 \hrule
 \vspace{0.1em}
 
+\begin{multicols}{3}
+    
+
 \tiny
 
 {\footnotesize{Autokorrelation}}
@@ -712,6 +715,16 @@ Order of model: ARMA(1,2) (Wenn es einen wert bei lag=0 hat, den ignorieren)
 
 \end{groupplot}
 \end{tikzpicture}
+\columnbreak
+
+{\scriptsize{Stationarität}}
+
+\includegraphics[width=0.7\linewidth]{Zeit_stationarity.png}
+\columnbreak
+
+\includegraphics[width=1\linewidth]{Zeit_korrolelogrammezuordnen.png}
+
+\end{multicols}
 
 \end{landscape}
 \end{document}
