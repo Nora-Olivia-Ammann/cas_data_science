@@ -720,14 +720,33 @@ Soft margin: Decision boundary that allows for some flexibility
 \vspace{0.7em}
 
 {\scriptsize{Auto Encoder}} Unsupervised Dimensionality Reduction
+
+Reconstruction based Method
+
   \begin{itemize}
     \item \textbf{Beschreibung}
     \begin{itemize}
-        \item 
+        \item lerne nicht-lineares Manifold im Feature-Space
+      \item Nicht-lineare Dimensionality Reduction anhand von Daten lernen.
+      \item Wir verwenden ein Neural Network und den Reconstruction Error als Kostenfunktion.
+      \item Undercomplete Autoencoder:
+        \begin{itemize}
+          \item Bottleneck in der Architektur des Netzwerks.
+          \item wichtige info verdichten, unwichtiges weglassen
+          \item Input 300 Pixel, Latent space 20 fetaures, reconstructed input space 300 pixel
+        \end{itemize}
+      \item Overcomplete Autoencoder:
+        \begin{itemize}
+          \item Kein Bottleneck, aber Regularization.
+        \end{itemize}
+        \item Aktivierungsfunktion muss nicht linear sein
+        \item genaue Architektur (no. hidden layers, nodes, etc) ist hyperparameter
     \end{itemize}
     \item \textbf{Data Specification}
     \begin{itemize}
-        \item 
+        \item features? (eg. pixel)
+        \item kategorische encoden
+        \item nummerische standardisieren
     \end{itemize}
     \item \textbf{Model}
     \begin{itemize}
@@ -739,13 +758,22 @@ Soft margin: Decision boundary that allows for some flexibility
     \end{itemize}
     \item \textbf{Kostenfunktion}
     \begin{itemize}
-        \item 
+        \item Rekonstruktionsfehler: \(J(\beta) = ||X-\hat{X}||_2\)
+        \item Andere auch möglich z.b. L1 Distanz
     \end{itemize}
     \item \textbf{Optimierung}
     \begin{itemize}
-        \item 
+        \item Gradient Descent
     \end{itemize}
+    \item \textbf{Limits}
+    \begin{itemize}
+        \item Reconstruction Error, nicht optimal für z.b. Bilder
+        \item Gelerntes beinhaltet viel pixel-perfekt statt semantische informationen
+    \end{itemize}
+    \item Wenn Encoder \& Decoder Linear sind (lineare aktivierungsfunktion), dann lernt der Auto Encoder den gleichen Latent Space wie PCA
   \end{itemize}
+
+  
 \end{multicols}
 
 \newpage
