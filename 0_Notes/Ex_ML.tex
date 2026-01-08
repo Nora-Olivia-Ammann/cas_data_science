@@ -986,8 +986,6 @@ TODO: Bestimmtheitsmass \(R^2\)
 
 \newpage
 
-\begin{multicols}{5}
-
 \tiny
 
 {\footnotesize{\textbf{General}}}
@@ -1035,14 +1033,30 @@ TODO: Bestimmtheitsmass \(R^2\)
         \item Muster mit Domänen Experten bestätigen
         \item Zusammenhänge überprüfen
     \end{itemize}
+\end{itemize}\vspace{0.4em}
+\hrule
+\vspace{0.7em}
+
+{\footnotesize{\textbf{Pitfalls}}}
+\begin{itemize}
+    \item \textbf{Peeking}
+    \begin{itemize}
+        \item Test daten dürfen keinen Einfluss haben
+        \item Aus Daten Lernen und Entscheidungen dürfen nicht von ungesehenen Daten (Test-Daten beeinflusst werden. Ansonsten ist Evaluation des finalen Modells biased (zu optimistisch).
+        \item Beispiele
+        \begin{itemize}
+            \item Modelle nur auf den Train-Daten fitten (z.B. LinearRegression)
+            \item Preprocessing nur auf den Train-Daten fitten (z.B. StandardScaler)
+            \item Feature Engineering nur auf den Train-Daten fitten (z.B. durchschnittlicher Quadratmeterpreis)
+            \item Model-Selection mit Validation-Daten ausführen (z.B Cross-Validation)
+            \item Data Analysis nicht auf den Test-Daten ausführen (z.B. Pairplot)
+        \end{itemize}
+    \end{itemize}
 \end{itemize}
 
 \vspace{0.4em}
 
 
-
-
-\end{multicols}
 
 \end{landscape}
 \end{document}
