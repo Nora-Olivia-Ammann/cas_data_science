@@ -361,10 +361,10 @@ Soft margin: Decision boundary that allows for some flexibility
 \end{axis}
 \end{tikzpicture}
         
-        \item Binäre Entscheidung, keine Wahrscheinlichkeit
+        \item Binäre Entscheidung, keine Wahrscheinlichkeit, kein softmax möglich
+        \item One-vs-one Verfahren, sprich ein modell pro Klassen-Paar 1 vs. 2 / 2 vs. 3 / 3 vs. 1, precit klasse mit meisten votes
         \item Decision Boundary ist linie mit maximalen Abstand zum nächsten Punkt der anderen Klasse
         \item Geometrische Annahmen
-        \item Soft margin (bei hard margin gäbe es daten bei denen es keine lösung gibt)
     \end{itemize}
     \item \textbf{Metrik}
     \begin{itemize}
@@ -379,7 +379,10 @@ Soft margin: Decision boundary that allows for some flexibility
     \end{itemize}
     \item \textbf{Optimierung}
     \begin{itemize}
-        \item bei jeder variabel darf die margin ein wenig abweichen um einen "cheat" wert (zeta)
+        \item Hard margin (solver gibt \(\beta\) zurück)
+        \item Maximise \(M\), subject to \(||\beta|| = 1\), subject to \(\beta x^{(i)} \ge M\), subject to \(-(\beta x^{(i)}) \ge M\)
+        \item Soft margin (bei hard margin gäbe es daten bei denen es keine lösung gibt), robust for outliers, applicably to non-linear data, but need for parameter tuning, and may overfit
+        \item bei jeder variabel darf die margin ein wenig abweichen um einen "cheat" wert (zeta) das ist ein hyperparameter
         \item aber wir müssen sagen, dass in der summe möglichst wenig verletzt werden
     \end{itemize}
   \end{itemize}
