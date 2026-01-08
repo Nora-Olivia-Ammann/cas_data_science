@@ -454,9 +454,44 @@ Reinforcement Learning from human feedback (RLHF)
 \hrule
 \vspace{0.7em}
 
-\end{multicols}
 
-\begin{multicols}{3}
+3 Representations of text
+
+{\scriptsize{Binary Bag-of-Words}}
+\begin{itemize}
+  \item Representation: High-dim vector over vocab; count of word appearance, else 0. Ignores order/frequency. No semantics
+  \item When useful:
+    \begin{itemize}
+      \item TF-IDF, Simple classification/retrieval (e.g., spam, topic flags).
+      \item Large-scale, fast, interpretable baselines (low compute, low semantics).
+    \item Limitation: No Semantics, sparse mostly 0, no magnitude only presence or not, not how important
+    \end{itemize}
+\end{itemize}
+
+{\scriptsize{Dense (non-contextual) embeddings}}
+\begin{itemize}
+  \item Representation: Low-dim continuous vectors for words/sentences (e.g., Word2Vec, GloVe); similar words $\rightarrow$ nearby vectors.
+  \item When useful:
+    \begin{itemize}
+      \item Semantic similarity: clustering, nearest-neighbor search, retrieval.
+      \item Fixed features when data/compute are limited (more compact than BoW).
+    \end{itemize}
+\end{itemize}
+
+{\scriptsize{Contextualized transformer embeddings}}
+\begin{itemize}
+  \item Representation: Token vectors depend on full context via self-attention; same word $\rightarrow$ different vectors in different sentences. Sentence models can pool to one vector.
+  \item When useful:
+    \begin{itemize}
+      \item Context-sensitive tasks: QA, NLI, nuanced sentiment, generation.
+      \item Transfer learning: pretrained transformer embeddings + fine-tuning for best performance.
+    \end{itemize}
+\end{itemize}
+
+
+\vspace{0.4em}
+\hrule
+\vspace{0.7em}
 
 {\footnotesize{RNN Word processing}}
 
@@ -521,7 +556,11 @@ Reinforcement Learning from human feedback (RLHF)
 
 \vspace{0.4em}
 \hrule
-\vspace{0.7em}
+
+
+\end{multicols}
+
+
 
 {\footnotesize TF-IDF}
 
@@ -532,8 +571,6 @@ Reinforcement Learning from human feedback (RLHF)
 \tiny{\(\uparrow\) weight of common words in doc \\
 tf(term,doc) = \# times term in doc / total \# of terms in doc}
 
-\vspace{-8pt}
-\begin{center}
 \begin{adjustbox}{max width=\columnwidth}
 \setlength{\tabcolsep}{1pt}      % default is ~6pt
 \renewcommand{\arraystretch}{0.5} % default is 1.0
@@ -549,8 +586,6 @@ tf(term,doc) = \# times term in doc / total \# of terms in doc}
 \midrule
 \end{tabular}
 \end{adjustbox}
-\end{center}
-\vspace{-11pt}
 
     
 \tiny
@@ -562,8 +597,6 @@ tf(term,doc) = \# times term in doc / total \# of terms in doc}
 
 idf(term) = log(\# docs / \# docs with term)
 
-\vspace{-12pt}
-\begin{center}
 \begin{adjustbox}{max width=\columnwidth}
 \setlength{\tabcolsep}{1pt}      % default is ~6pt
 \renewcommand{\arraystretch}{0.5} % default is 1.0
@@ -579,16 +612,13 @@ my & log(3/1) = 0.47 \\
 .. & .. \\
 \end{tabular}
 \end{adjustbox}
-\end{center}
-\vspace{-11pt}
 
 {\scriptsize{TF-IDF}} tf-idf(term,doc) = tf(term,doc) * idf(term) 
 
 {\scriptsize{Query}} 
 \textbf{"cat is wolf"} 
 If one words appears eg. 2 times in query, score is multiplied by 2
-\vspace{-10pt}
-\begin{center}
+
 \begin{adjustbox}{max width=\textwidth}
 \setlength{\tabcolsep}{1pt}      % default is ~6pt
 \renewcommand{\arraystretch}{0.5} % default is 1.0
@@ -608,48 +638,7 @@ If one words appears eg. 2 times in query, score is multiplied by 2
 \midrule
 \end{tabular}
 \end{adjustbox}
-\end{center}
-\vspace{-11pt}
 
-\vspace{0.4em}
-\hrule
-\vspace{0.7em}
-
-
-3 Representations of text
-
-{\scriptsize{Binary Bag-of-Words}}
-\begin{itemize}
-  \item Representation: High-dim vector over vocab; count of word appearance, else 0. Ignores order/frequency. No semantics
-  \item When useful:
-    \begin{itemize}
-      \item TF-IDF, Simple classification/retrieval (e.g., spam, topic flags).
-      \item Large-scale, fast, interpretable baselines (low compute, low semantics).
-    \item Limitation: No Semantics, sparse mostly 0, no magnitude only presence or not, not how important
-    \end{itemize}
-\end{itemize}
-
-{\scriptsize{Dense (non-contextual) embeddings}}
-\begin{itemize}
-  \item Representation: Low-dim continuous vectors for words/sentences (e.g., Word2Vec, GloVe); similar words $\rightarrow$ nearby vectors.
-  \item When useful:
-    \begin{itemize}
-      \item Semantic similarity: clustering, nearest-neighbor search, retrieval.
-      \item Fixed features when data/compute are limited (more compact than BoW).
-    \end{itemize}
-\end{itemize}
-
-{\scriptsize{Contextualized transformer embeddings}}
-\begin{itemize}
-  \item Representation: Token vectors depend on full context via self-attention; same word $\rightarrow$ different vectors in different sentences. Sentence models can pool to one vector.
-  \item When useful:
-    \begin{itemize}
-      \item Context-sensitive tasks: QA, NLI, nuanced sentiment, generation.
-      \item Transfer learning: pretrained transformer embeddings + fine-tuning for best performance.
-    \end{itemize}
-\end{itemize}
-
-\end{multicols}
 
 \newpage
 
