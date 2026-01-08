@@ -452,10 +452,6 @@ Soft margin: Decision boundary that allows for some flexibility
         \item Klasse mit höchster Wahrscheinlichkeit vorhersagen für Region \(R_m\)
         \item \(\hat{y}_{R_m} = arg\;max\;p(y = k|R_m)\) 
     \end{itemize}
-    \item \textbf{Metrik}
-    \begin{itemize}
-        \item 
-    \end{itemize}
     \item \textbf{Kostenfunktion}
     \begin{itemize}
         \item Impurity (Verunreinigung) der Regionen messen
@@ -612,67 +608,6 @@ Soft margin: Decision boundary that allows for some flexibility
 \hrule
 \vspace{0.7em}
 
-{\scriptsize{Deep Learning}}
-
-\begin{itemize}
-    \item Deep Learning = ML mit Neuralen netzen als Modell
-    \item Vorher: viele Annahmen + Wissen vorprogrammiert, Modell helfen
-    \item trainiert auf manuelle räpresentation d.h. features und dimensionality reduction. Manuelle räpresentation für Bilder/Text schwierig
-    \item Motivation DL: räpresentation automatisch aus Daten lernen
-    \item kann supervised oder unsupervised sein
-    \item viele Daten \& Rechenzeit
-    \item Meist beste Wahl für unstrukturierte Daten (Bilder/Text) die viele features haben die alleine nicht aussagekräftig sind.
-    \item Strukturierte Daten meist nicht die beste wahl
-    \item \textbf{Framework für Modelle}
-    \begin{itemize}
-        \item Architektur NN ist problemspezifisch, und unterschiedlich Kombinierbar
-        \item müssen empirisch evaluiert werden
-        \item abwegung von black-box vs. komplexe probleme lösbar
-      \item Modellkomplexität ist einfach anpassbar
-        \begin{itemize}
-          \item Mehr Hidden Layers $\rightarrow$ mehr lernbare Parameter.
-          \item Weniger Hidden Layers $\rightarrow$ weniger lernbare Parameter.
-          \item In einem Layer mehr Nodes $\rightarrow$ mehr lernbare Parameter.
-          \item In einem Layer weniger Nodes $\rightarrow$ weniger lernbare Parameter.
-        \end{itemize}
-      \item Kostenfunktion
-        \begin{itemize}
-          \item Die Kostenfunktion muss ableitbar sein.
-          \item Sie kann problemspezifisch gewählt werden.
-        \end{itemize}
-        \item Hidden Layer
-        \begin{itemize}
-            \item Zwischenergebnisse, kann als gelerntes feature engineering betrachtet werden
-            \item feature engineering \(\rightarrow\) mehr aus weniger
-            \item dimensionality reduction \(\rightarrow\) weniger aus mehr
-        \end{itemize}
-        \item Optimierung
-        \begin{itemize}
-            \item Gradient Descent mit Lokalem minmum, Unterschiedliche Lösungen möglich basierend startpunkt
-        \end{itemize}
-      \item Viele weitere Möglichkeiten (Deep Learning)
-        \begin{itemize}
-          \item Wir können die Architektur (Verbindungen) des Netzwerks anders gestalten,
-                entsprechend dem zugrunde liegenden Problem.
-          \item Beispiele: CNN und RNN.
-        \end{itemize}
-    \end{itemize}
-\end{itemize}
-
-{\scriptsize{Convoluted Neural Network (CNN)}}
-
-\begin{itemize}
-    \item Annahme: Nachbarschaft von einem input (eg. Pixel) hat einen Einfluss and die anderen Pixel
-    \item Wir verändern die verkabelung im netzwerk um den input besser zu berücksichtigen
-    \item Input bleibt gleich gross
-    \item wenn die nachbarschaft egal ist, dann ist es nicht die richtige wahl
-\end{itemize}
-  
-
-\vspace{0.4em}
-\hrule
-\vspace{0.7em}
-
 {\scriptsize{Fully Connected Neural Network}}
   \begin{itemize}
     \item FCNN = Multi Layer Perceptron = Neural Network
@@ -777,6 +712,7 @@ Reconstruction based Method
 \end{multicols}
 
 \newpage
+
 
 \begin{multicols}{5}
 
@@ -1148,6 +1084,85 @@ TODO: Bestimmtheitsmass \(R^2\)
 \hrule
 \vspace{0.7em}
 
+
+{\footnotesize{Deep Learning}}
+
+\begin{itemize}
+    \item Deep Learning = ML mit Neuralen netzen als Modell
+    \item Vorher: viele Annahmen + Wissen vorprogrammiert, Modell helfen
+    \item trainiert auf manuelle räpresentation d.h. features und dimensionality reduction. Manuelle räpresentation für Bilder/Text schwierig
+    \item Motivation DL: räpresentation automatisch aus Daten lernen
+    \item kann supervised oder unsupervised sein
+    \item viele Daten \& Rechenzeit
+    \item Meist beste Wahl für unstrukturierte Daten (Bilder/Text) die viele features haben die alleine nicht aussagekräftig sind.
+    \item Strukturierte Daten meist nicht die beste wahl
+    \item \textbf{Framework für Modelle}
+    \begin{itemize}
+        \item Architektur NN ist problemspezifisch, und unterschiedlich Kombinierbar
+        \item müssen empirisch evaluiert werden
+        \item abwegung von black-box vs. komplexe probleme lösbar
+      \item Modellkomplexität ist einfach anpassbar
+        \begin{itemize}
+          \item Mehr Hidden Layers $\rightarrow$ mehr lernbare Parameter.
+          \item Weniger Hidden Layers $\rightarrow$ weniger lernbare Parameter.
+          \item In einem Layer mehr Nodes $\rightarrow$ mehr lernbare Parameter.
+          \item In einem Layer weniger Nodes $\rightarrow$ weniger lernbare Parameter.
+        \end{itemize}
+      \item Kostenfunktion
+        \begin{itemize}
+          \item Die Kostenfunktion muss ableitbar sein.
+          \item Sie kann problemspezifisch gewählt werden.
+        \end{itemize}
+        \item Hidden Layer
+        \begin{itemize}
+            \item Zwischenergebnisse, kann als gelerntes feature engineering betrachtet werden
+            \item feature engineering \(\rightarrow\) mehr aus weniger
+            \item dimensionality reduction \(\rightarrow\) weniger aus mehr
+        \end{itemize}
+        \item Optimierung
+        \begin{itemize}
+            \item Gradient Descent mit Lokalem minmum, Unterschiedliche Lösungen möglich basierend startpunkt
+        \end{itemize}
+      \item Viele weitere Möglichkeiten (Deep Learning)
+        \begin{itemize}
+          \item Wir können die Architektur (Verbindungen) des Netzwerks anders gestalten,
+                entsprechend dem zugrunde liegenden Problem.
+          \item Beispiele: CNN und RNN.
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+{\scriptsize{Beispiel}}
+
+\begin{itemize}
+    \item \textbf{Convoluted Neural Network (CNN)}
+    \begin{itemize}
+        \item Annahme: Nachbarschaft von einem input (eg. Pixel) hat einen Einfluss and die anderen Pixel
+        \item Wir verändern die verkabelung im netzwerk um den input besser zu berücksichtigen
+        \item Input bleibt gleich gross
+        \item wenn die nachbarschaft egal ist, dann ist es nicht die richtige wahl
+    \end{itemize}
+    \item \textbf{Contrastive Learning}
+    \begin{itemize}
+        \item eg. Gesichteserkennung
+        \item kennt person, neue person muss maximale distanz von einander haben
+        \item lernt wichtige aspekte im gesicht und unwichtiges (brille, haare) ignorieren
+        \item One-Shot Learning, lernt neue Person (klasse) mit nur einem Bild
+    \end{itemize}
+    \item Zero-Shot Learning
+    \begin{itemize}
+        \item kann was machen mit nur 1 input
+        \item eg. gemeinsamer laten space für Bilder und Text
+        \item "an image of a dog" und kann damit einen output generieren
+    \end{itemize}
+    \item \textbf{Skip Connections}
+    \begin{itemize}
+        \item kreative Architektur
+        \item viele Layers schwierig zu trainieren
+        \item überspringt gewisse layers, parallel trainiert, \(\beta\) am schluss summiert
+        \item Voraussetzung identische Dimensionen
+    \end{itemize}
+\end{itemize}
 
 \end{multicols}
 
